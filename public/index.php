@@ -19,7 +19,11 @@ if (!defined('LIBRARY_PATH')) {
 	if (file_exists(realpath(ROOT_PATH . '/../..') . '/Zend_Framework')) {
 		$libraryPath[] = realpath(ROOT_PATH . '/../..') . '/Zend_Framework';
 	}
+	if (file_exists(realpath(ROOT_PATH . '/..') . '/ZEND')) {
+		$libraryPath[] = realpath(ROOT_PATH . '/..') . '/ZEND';
+	}
 	
+
 	$libraryPath[] = ROOT_PATH . '/library';
 	define('LIBRARY_PATH', implode(PATH_SEPARATOR, $libraryPath));
 	unset($libraryPath);
