@@ -6,6 +6,7 @@ $(document).ready(function(){
 		$(this).submit(function(){
 			$.ajax({
 				url: url,
+				data: $(this).serialize(),
 				dataType: "json",
 				type: 'POST',
 				error: function(jqXHR, textStatus, errorThrown) {
@@ -15,7 +16,7 @@ $(document).ready(function(){
 					console.log(data);
 				},
 				complete: function(jqXHR, textStatus) {
-					console.log(jqXHR);
+					//console.log(jqXHR);
 				}
 			});
 		});

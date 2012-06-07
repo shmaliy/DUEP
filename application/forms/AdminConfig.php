@@ -73,6 +73,7 @@ class Application_Form_AdminConfig extends Zend_Form
 		);		
 		
 		$this->addElement('submit', 'submit', array(
+			'ignore' => true,
 			'label' => 'Сохранить'
 		));
 	}

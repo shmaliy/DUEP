@@ -30,13 +30,21 @@ class IndexController extends Zend_Controller_Action
 	 */
 	public function indexAction()
     {
-    	//$db = Zend_Db_Table_Abstract::getDefaultAdapter();
-    	
-    	//$select = $db->select();
-    	//$select->from('cms_content', array("id","title","title_alias","created"));
-    	
-    	//$this->view->rowset = $db->fetchAll($select);
+    	$request = $this->getRequest();
     	$formAdminConfig = new Application_Form_AdminConfig();
-    	$this->view->formAdminConfig = $formAdminConfig;
+    	
+    	if ($request->isXmlHttpRequest() || $request->isPost()) {
+    		if ($formAdminConfig->isValid($request->getParams())) {
+    			$writer = new Zend_Config_Writer_Array();
+    			$writer->setConfig($formAdminConfig->getValues());
+    			$writer->setFilename(APPLICATION_PATH . '/configs/siteconfig.php');
+    			$writer->write();
+    			$this->view->error = $formAdminConfig->getValues();
+    		} else {
+    			$this->view->error = $formAdminConfig->getErrors();
+    		}
+    	} else {
+    		$this->view->formAdminConfig = $formAdminConfig;
+    	}
     }
 }
