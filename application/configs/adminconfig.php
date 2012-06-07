@@ -1,6 +1,6 @@
 <?php
 return array (
-  'host' => 'qfew',
+  'host' => 'localhost',
   'username' => 'wefwerge',
   'password' => 'retgr',
   'dbname' => 'afsb',

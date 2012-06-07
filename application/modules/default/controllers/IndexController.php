@@ -20,6 +20,7 @@ class IndexController extends Zend_Controller_Action
 		// Add actions wich can work with ajax
 		$context = $this->_helper->AjaxContext();
 		$context->addActionContext('index', 'json');
+		$context->addActionContext('config', 'json');
 		
 		$context->initContext('json');
 	}
@@ -45,7 +46,7 @@ class IndexController extends Zend_Controller_Action
     	if ($request->isXmlHttpRequest() || $request->isPost()) {
     		if ($formAdminConfig->isValid($request->getParams())) {
     			$adminConfig->save($formAdminConfig->getValues());
-    			$this->view->error = 'ok';
+    			$this->view->error = $formAdminConfig->getValues();
     		} else {
     			$this->view->error = $formAdminConfig->getErrors();
     		}
