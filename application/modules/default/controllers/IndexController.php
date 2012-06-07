@@ -36,7 +36,7 @@ class IndexController extends Zend_Controller_Action
     	if ($request->isXmlHttpRequest() || $request->isPost()) {
     		if ($formAdminConfig->isValid($request->getParams())) {
     			$writer = new Zend_Config_Writer_Array();
-    			$writer->setConfig($formAdminConfig->getValues());
+    			$writer->setConfig(new Zend_Config($formAdminConfig->getValues()));
     			$writer->setFilename(APPLICATION_PATH . '/configs/siteconfig.php');
     			$writer->write();
     			$this->view->error = $formAdminConfig->getValues();
@@ -44,6 +44,8 @@ class IndexController extends Zend_Controller_Action
     			$this->view->error = $formAdminConfig->getErrors();
     		}
     	} else {
+    		$config = new Zend_Config(require APPLICATION_PATH . '/configs/siteconfig.php');
+    		$formAdminConfig->populate($config);
     		$this->view->formAdminConfig = $formAdminConfig;
     	}
     }

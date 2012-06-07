@@ -21,7 +21,12 @@
 </head>
 <body>
 	<div class="header">
-		<div class="header-resize">Header</div>
+		<div class="header-resize">
+			<ul class="menu">
+				<li><a href="/config">Настройки</a></li>
+				<li><a href="/users">Пользователи</a></li>
+			</ul>
+		</div>
 	</div>
 	<div class="body">
 		<div class="body-push1"></div>
