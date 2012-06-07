@@ -4,6 +4,11 @@ class Application_Form_AdminConfig extends Zend_Form
 {
 	public function init()
 	{
+		$this->setAction('/');
+		
+		$this->setAttrib('onsubmit', 'return false;'); // Force send only with ajax
+		$this->setAttrib('class', 'via_ajax'); // Force send only with ajax
+		
 		$this->addElement('text', 'host', array(
 			'required' => true,
 			'label' => 'Хост'
@@ -66,5 +71,10 @@ class Application_Form_AdminConfig extends Zend_Form
 			'siteOptions',
 			array('legend' => 'Заголовок сайта')
 		);		
+		
+		$this->addElement('submit', 'submit', array(
+			'ignore' => true,
+			'label' => 'Сохранить'
+		));
 	}
 }
