@@ -49,10 +49,10 @@ class IndexController extends Zend_Controller_Action
     		$this->view->formAdminConfig = $formAdminConfig;
     	}
     	
-    	$config = new Zend_Config(require APPLICATION_PATH . '/configs/config.php');
-		$writer = new Zend_Config_Writer_Array();
-    	$writer->setConfig($config);
-    	$writer->setFilename(APPLICATION_PATH . '/configs/config2.php');
-    	$writer->write();
+    	//$config = new Zend_Config(require APPLICATION_PATH . '/configs/config.php');
+		//$writer = new Zend_Config_Writer_Array();
+    	//$writer->setConfig($config);
+    	//$writer->setFilename(APPLICATION_PATH . '/configs/config2.php');
+    	//$writer->write();
     }
 }
