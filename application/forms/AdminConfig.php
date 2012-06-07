@@ -4,10 +4,10 @@ class Application_Form_AdminConfig extends Zend_Form
 {
 	public function init()
 	{
-		$this->setAction('/config');
+		$this->setAction('/');
 		
-		$this->setAttrib('onsubmit', 'return false;');
-		$this->setAttrib('class', 'via_ajax');
+		$this->setAttrib('onsubmit', 'return false;'); // Force send only with ajax
+		$this->setAttrib('class', 'via_ajax'); // Force send only with ajax
 		
 		$this->addElement('text', 'host', array(
 			'required' => true,

@@ -7,20 +7,17 @@ $(document).ready(function(){
 			$.ajax({
 				url: url,
 				dataType: "json",
-				error: function(jqXHR, textStatus, errorThrown){},
-				success: function(data, textStatus, jqXHR){
+				type: 'POST',
+				error: function(jqXHR, textStatus, errorThrown) {
+					console.log(errorThrown);
+				},
+				success: function(data, textStatus, jqXHR) {
 					console.log(data);
 				},
 				complete: function(jqXHR, textStatus) {
-					var e = $('<div></div>');
-					e.attr({
-						'id': 'dialog',
-						'title': 'Запрос выполнен'
-					});
-					$(e).dialog();
+					console.log(jqXHR);
 				}
 			});
 		});
-		console.log(url);
 	});
 });
