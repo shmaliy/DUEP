@@ -58,7 +58,7 @@ class Application_Form_AdminConfig extends Zend_Form
 		
 		$this->addElement('text', 'title', array(
 			'required' => true,
-			'label' => 'Заголовок сайта'
+			'label' => ''
 		));
 		
 		$this->addDisplayGroup(
