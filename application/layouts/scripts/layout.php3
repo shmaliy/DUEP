@@ -23,8 +23,8 @@
 	<div class="header">
 		<div class="header-resize">
 			<ul class="menu">
-				<li><a href="/config">Настройки</a></li>
-				<li><a href="/users">Пользователи</a></li>
+				<li><a href="/index/config">Настройки</a></li>
+				<li><a href="/index/users">Пользователи</a></li>
 			</ul>
 		</div>
 	</div>

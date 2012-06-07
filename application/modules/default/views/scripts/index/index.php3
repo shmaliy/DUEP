@@ -1,1 +1,1 @@
-<?php echo $this->formAdminConfig; ?>
+<?php echo __FILE__; ?>

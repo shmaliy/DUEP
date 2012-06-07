@@ -30,29 +30,27 @@ class IndexController extends Zend_Controller_Action
 	 */
 	public function indexAction()
     {
+    	
+    }
+	
+    /**
+     * Config page
+     */
+	public function configAction()
+    {
     	$request = $this->getRequest();
     	$formAdminConfig = new Application_Form_AdminConfig();
+    	$adminConfig = new Default_Model_AdminConfig();
     	
     	if ($request->isXmlHttpRequest() || $request->isPost()) {
     		if ($formAdminConfig->isValid($request->getParams())) {
-    			$writer = new Zend_Config_Writer_Array();
-    			$writer->setConfig(new Zend_Config($formAdminConfig->getValues()));
-    			$writer->setFilename(APPLICATION_PATH . '/configs/siteconfig.php');
-    			$writer->write();
-    			$this->view->error = $formAdminConfig->getValues();
+    			$adminConfig->save($formAdminConfig->getValues());
+    			$this->view->error = 'ok';
     		} else {
     			$this->view->error = $formAdminConfig->getErrors();
     		}
     	} else {
-    		$config = new Zend_Config(require APPLICATION_PATH . '/configs/siteconfig.php');
-    		$formAdminConfig->populate($config->toArray());
-    		$this->view->formAdminConfig = $formAdminConfig;
+    		$this->view->formAdminConfig = $formAdminConfig->setDefaults($adminConfig->load());
     	}
-    	
-    	//$config = new Zend_Config(require APPLICATION_PATH . '/configs/config.php');
-		//$writer = new Zend_Config_Writer_Array();
-    	//$writer->setConfig($config);
-    	//$writer->setFilename(APPLICATION_PATH . '/configs/config2.php');
-    	//$writer->write();
     }
 }
