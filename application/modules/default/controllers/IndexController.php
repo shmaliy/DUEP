@@ -36,7 +36,6 @@ class IndexController extends Zend_Controller_Action
     	//$select->from('cms_content', array("id","title","title_alias","created"));
     	
     	//$this->view->rowset = $db->fetchAll($select);
-    	
-    	$this->view->formAdminConfig = new Application_Form_AdminConfig();
+    	$this->view->formAdminConfig = $formAdminConfig;
     }
 }

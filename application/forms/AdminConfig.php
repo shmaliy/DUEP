@@ -4,6 +4,8 @@ class Application_Form_AdminConfig extends Zend_Form
 {
 	public function init()
 	{
+		$this->setAction('/config');
+		
 		$this->addElement('text', 'host', array(
 			'required' => true,
 			'label' => 'Хост'
