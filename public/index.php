@@ -49,15 +49,12 @@ set_include_path(
     )
 );
 
-/* Load config  */
-require_once APPLICATION_PATH . '/configs/config.php';
-
 /* Load Zend_Application */
 require_once 'Zend/Application.php';
 
 /* Run Application */
 $application = new Zend_Application(
     APPLICATION_ENV,
-    $config
+    require APPLICATION_PATH . '/configs/config.php'
 );
 $application->bootstrap()->run();
