@@ -7,6 +7,10 @@ class Application_Form_AdminConfig extends Zend_Form
 		$this->setAttrib('onsubmit', 'return false;'); // Force send only with ajax
 		$this->setAttrib('class', 'via_ajax'); // Force send only with ajax
 		
+		$this->addElement('hidden', 'demo', array(
+			'value' => '0'
+		));
+		
 		$this->addElement('text', 'host', array(
 			'required' => true,
 			'label' => 'Хост'
