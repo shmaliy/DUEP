@@ -1,6 +1,6 @@
 <?php
 
-class Default_Model_AdminConfig
+class Application_Model_AdminConfig
 {
 	/**
 	 * Config file path (relative to APPLICATION_PATH)

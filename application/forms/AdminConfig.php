@@ -18,7 +18,6 @@ class Application_Form_AdminConfig extends Zend_Form
 		));
 		
 		$this->addElement('text', 'password', array(
-			'required' => true,
 			'label' => 'Пароль'
 		));
 		

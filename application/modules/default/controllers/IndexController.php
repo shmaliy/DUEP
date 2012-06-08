@@ -41,7 +41,7 @@ class IndexController extends Zend_Controller_Action
     {
     	$request = $this->getRequest();
     	$formAdminConfig = new Application_Form_AdminConfig();
-    	$adminConfig = new Default_Model_AdminConfig();
+    	$adminConfig = new Application_Model_AdminConfig();
     	
     	if ($request->isXmlHttpRequest() || $request->isPost()) {
     		if ($formAdminConfig->isValid($request->getParams())) {

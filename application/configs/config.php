@@ -41,24 +41,5 @@ return array (
       'contentType' => 'text/html; charset=utf-8',
     ),
   ),
-  'multidb' => 
-  array (
-    'default' => 
-    array (
-      'default' => true,
-      'adapter' => 'PDO_MYSQL',
-      'params' => 
-      array (
-        'profiler' => true,
-        'dbname' => 'shmaliym_htdpua',
-        'host' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'driver_options' => 
-        array (
-          1002 => 'SET NAMES \'utf8\'',
-        ),
-      ),
-    ),
-  ),
+  
 );

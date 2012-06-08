@@ -1,10 +1,10 @@
 <?php
 return array (
   'host' => 'localhost',
-  'username' => 'wefwerge',
-  'password' => 'retgr',
-  'dbname' => 'afsb',
-  'encoding' => 'rtb',
+  'username' => 'root',
+  'password' => '',
+  'dbname' => 'cpt_test',
+  'encoding' => 'utf8',
   'users_login' => 'wefrge',
   'users_password' => 'trg',
   'users_email' => 'earg',

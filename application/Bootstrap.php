@@ -38,8 +38,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     protected function _preModuleConstruct()
     {
     	try {
-    		$this->_setConfig();
     		$this->_setAutoLoader();
+    		$this->_setConfig();
+    		$this->_setAdminConfig();
     		$this->_setDatabases();
     		$this->_setRouter();
     		$this->_setPlugins();
@@ -58,6 +59,40 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	Zend_Registry::set('options', $this->getOptions());
     }
     
+    protected function _setAdminConfig()
+    {
+    	// Get system options
+    	$options = Zend_Registry::get('options');
+    	    	
+    	// Load admin config
+    	$adminConfig = new Application_Model_AdminConfig();
+    	$config = $adminConfig->load();
+    	
+    	// Format options to system config
+    	$multidb = array(
+    		'default' => array(
+    			'default' => true,
+    			'adapter' => 'PDO_MYSQL',
+    			'params'  => array(
+    				'profiler' => true,
+    				'dbname'   => $config['dbname'],
+    				'host'     => $config['host'],
+    				'username' => $config['username'],
+    				'password' => $config['password'],
+    				'driver_options' => array(
+    					PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'' . $config['encoding'] . '\''
+    				)
+    			)
+    		)
+    	);
+    	
+    	// Add to system config
+    	$options['multidb'] = $multidb;
+    	
+    	// Save to registry
+    	Zend_Registry::set('options', $options);
+    }
+    
     /**
      * Setup autoloading framework files
      */
@@ -72,7 +107,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
      */
     protected function _setDatabases()
     {
-	   	$options = $this->getOptions();
+	   	$options = Zend_Registry::get('options');
     	$options = $options['multidb'];
     	
     	$adapters = array();
