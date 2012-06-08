@@ -51,7 +51,9 @@ class IndexController extends Zend_Controller_Action
     			$this->view->error = $formAdminConfig->getErrors();
     		}
     	} else {
-    		$this->view->formAdminConfig = $formAdminConfig->setDefaults($adminConfig->load());
+    		$config = $adminConfig->load();
+    		unset($config['demo']); // forse demo off after sucess config
+    		$this->view->formAdminConfig = $formAdminConfig->setDefaults($config);
     	}
     }
 }

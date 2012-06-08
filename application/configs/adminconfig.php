@@ -1,6 +1,6 @@
 <?php
 return array (
-  'demo' => '1',
+  'demo' => '0',
   'host' => 'localhost',
   'username' => 'root',
   'password' => '',
