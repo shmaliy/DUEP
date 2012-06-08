@@ -3,7 +3,7 @@
 /**
  * Domain object model
  */
-class Application_Model_Abstract
+class Application_Model_Entity_Abstract
 {
 	/**
 	 * Internal data container
