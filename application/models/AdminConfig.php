@@ -69,4 +69,6 @@ class Application_Model_AdminConfig
 		
 		return $config->toArray();
 	}
+	
+	// TODO: demo login use config login and pass/ not demo from db
 }

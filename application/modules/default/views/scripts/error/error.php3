@@ -36,9 +36,13 @@
                 <?php foreach ($this->profilers as $name => $profiler): ?>
                 <div style="font-size:14px; font-weight:normal">Adapter: <b><?php echo $name; ?></b></div>
                 <div style="font-size:14px; font-weight:normal">Query:
-                <?php foreach ($profiler->getQueryProfiles() as $query): ?>
+                <?php if (($queries = $profiler->getQueryProfiles())): ?>
+                <?php foreach ($queries as $query): ?>
                 <div><?php echo $query->getQuery(); ?></div>
                 <?php endforeach; ?>
+                <?php else: ?>
+                (Empty)
+                <?php endif; ?>
                 </div>
                 <?php endforeach; ?>
             </div>

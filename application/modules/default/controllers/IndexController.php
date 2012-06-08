@@ -56,4 +56,9 @@ class IndexController extends Zend_Controller_Action
     		$this->view->formAdminConfig = $formAdminConfig->setDefaults($config);
     	}
     }
+    
+    public function usersAction()
+    {
+    	
+    }
 }
