@@ -17,7 +17,9 @@ class Users_Bootstrap extends Zend_Application_Module_Bootstrap
     protected function _afterConstruct()
     {
     	try {
-    		$this->_setRouter();
+    		$this->_setModels();
+    		//$this->_setTranslate();
+    		//$this->_setRouter();
     	} catch (Exception $e) {
     		echo $e->getMessage() . '<br /><br />';
     		echo nl2br($e->getTraceAsString());
@@ -25,8 +27,9 @@ class Users_Bootstrap extends Zend_Application_Module_Bootstrap
     	}
     }
 
-    protected function _setRouter()
+    protected function _setModels()
     {
-    	
+    	$loader = $this->getResourceLoader();
+    	$loader->addResourceType('entities', 'models/Entities', 'Entity');
     }
 }

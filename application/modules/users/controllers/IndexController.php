@@ -19,5 +19,8 @@ class Users_IndexController extends Zend_Controller_Action
 	public function indexAction()
     {
     	$this->view->editForm = new Users_Form_Edit();
+    	
+    	$usersMapper = new Users_Model_Mapper_Users();
+    	$this->view->collection = $usersMapper->fetchAll();
     }
 }

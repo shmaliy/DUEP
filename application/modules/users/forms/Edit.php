@@ -15,6 +15,20 @@ class Users_Form_Edit extends Zend_Form
 			'validators' => array('emailAddress')
 		));
 		
+		$this->addElement('password', 'password', array(
+			'label' => 'Пароль'
+		));
 		
+		$this->addElement('password', 'password_repeat', array(
+			'label' => 'Повторите пароль:',
+			'description' => 'Пароль необходимо вводить только в том случае, если желаете его изменить',
+			'validators' => array(
+				array('identical', false, array('token' => 'password', 'strict' => false))
+			)
+		));
+		
+		$this->addElement('submit', 'submit', array(
+			'label' => 'Сохранить'
+		));
 	}
 }
