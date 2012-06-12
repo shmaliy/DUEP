@@ -24,7 +24,9 @@
 		<div class="header-resize">
 			<ul class="menu">
 				<li><a href="/index/config">Настройки</a></li>
-				<li><a href="/index/users">Пользователи</a></li>
+				<li><a href="<?php
+					echo $this->url(array('module' => 'users'), 'default');
+				?>">Пользователи</a></li>
 			</ul>
 		</div>
 	</div>

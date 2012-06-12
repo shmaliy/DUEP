@@ -6,7 +6,7 @@
 * Bootstrap->run()
 */
 
-class Default_Bootstrap extends Zend_Application_Module_Bootstrap
+class Users_Bootstrap extends Zend_Application_Module_Bootstrap
 {    
     public function __construct($application)
     {
