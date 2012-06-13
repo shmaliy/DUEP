@@ -23,9 +23,19 @@
 	<div class="header">
 		<div class="header-resize">
 			<ul class="menu generic-menu">
-				<li><a href="/index/config">Настройки</a></li>
 				<li><a href="<?php
-					echo $this->url(array('module' => 'users','controller' => 'admin-index'), 'default');
+					echo $this->url(array(
+						'module'     => 'default',
+						'controller' => 'index',
+						'action'     => 'config'
+					), 'default');
+				?>">Настройки</a></li>
+				<li><a href="<?php
+					echo $this->url(array(
+						'module'     => 'users',
+						'controller' => 'admin-index',
+						'action'     => 'index'
+					), 'default');
 				?>">Пользователи</a></li>
 			</ul>
 			<div class="clr"></div>

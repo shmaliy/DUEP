@@ -1,6 +1,6 @@
 <?php
 
-class Users_Admin_UsersGroupsController extends Zend_Controller_Action
+class Users_AdminPermissionsController extends Sunny_Controller_Action
 {
 	public function indexAction()
 	{
