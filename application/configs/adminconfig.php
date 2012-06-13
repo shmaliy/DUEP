@@ -4,7 +4,7 @@ return array (
   'host' => 'localhost',
   'username' => 'root',
   'password' => '',
-  'dbname' => 'cpt_test',
+  'dbname' => 'sunny_duep',
   'encoding' => 'utf8',
   'users_login' => 'wefrge',
   'users_password' => 'trg',
