@@ -20,14 +20,26 @@
 		'forceFit' => true,
 		'ignoreCase' => true,
 		'autowidth' => true,
+		'mtype' => 'POST',
 		'height' => 'auto',
 		'pager' => '#rowsetNav',
+		'viewrecords' => false,
+		'jsonReader' => array(
+			'root' => "rowset",
+			'page' => "page",
+			'total' => "total",
+			'repeatitems' => false,
+			'id' => '0'
+		),
+		'colNames' => array('ID', 'Сорт.', 'Эл. почта', 'Вкл.', 'Дата регистрации', 'Мод.', 'Комм.'),
 		'colModel' => array(
-			array('name' => 'ID', 'index' => 'id', 'width' => 10),
-			array('name' => '', 'index' => 'ordering', 'width' => 10),
-			array('name' => 'E-mail', 'index' => 'email', 'width' => 100),
-			array('name' => 'Вкл', 'index' => 'published', 'width' => 10),
-			array('name' => 'Дата регистрации', 'index' => 'date_created', 'width' => 50),
+			array('name' => 'id', 'index' => 'id', 'width' => 15),
+			array('name' => 'ordering', 'index' => 'ordering', 'width' => 15),
+			array('name' => 'email', 'index' => 'email', 'width' => 100),
+			array('name' => 'published', 'index' => 'published', 'width' => 10),
+			array('name' => 'date_created', 'index' => 'date_created', 'width' => 50),
+			array('name' => 'date_modified', 'index' => 'date_modified', 'width' => 50),
+			array('name' => 'admin_comment', 'index' => 'admin_comment', 'width' => 50),
 		)
 	));
 ?>

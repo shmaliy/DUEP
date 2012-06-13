@@ -23,18 +23,25 @@ class Users_AdminIndexController extends Sunny_Controller_Action
     {
     	$request = $this->getRequest();
     	
-    	// Get users list
-    	$usersMapper = new Users_Model_Mapper_Users();
-    	$this->view->collection = $usersMapper->fetchPage(
-    		null,
-    		$request->getParam('sidx', 'ordering'),
-    		$request->getParam('rows'),
-    		$request->getParam('page', 1)
-    	);
-    	$this->view->total = $usersMapper->fetchCount();
-    	
-    	// get rows
-    	// get all ref for list
+    	if ($request->isXmlHttpRequest() || $request->isPost()) {
+	    	// Get users list
+	    	$usersMapper = new Users_Model_Mapper_Users();
+	    	
+	    	// Store required params to view
+	    	$this->view->page = $request->getParam('page', 1);
+	    	$this->view->total = $usersMapper->fetchCount();
+	    	$this->view->rowset = $usersMapper->fetchPage(
+	    		null,
+	    		$request->getParam('sidx', 'ordering'),
+	    		$request->getParam('rows'),
+	    		$this->view->page
+	    	);
+	    	
+	    	// Forse rowset to array for jqGrid
+	    	foreach ($this->view->rowset as &$value) {
+	    		$value = $value->toArray();
+	    	}
+    	}
     }
     
     public function editAction()

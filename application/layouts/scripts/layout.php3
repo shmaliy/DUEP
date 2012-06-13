@@ -34,6 +34,18 @@
 		<div class="body-push1"></div>
 		<div class="body-container">
 			<?php echo $this->layout()->content; ?>
+			<small>
+			<?php
+				$db = Zend_Db_Table::getDefaultAdapter();
+				$profiler = $db->getProfiler();
+				$queries = $profiler->getQueryProfiles(null, true);
+				if (is_array($queries)) {
+					foreach ($queries as $query) {
+						echo $query->getQuery() . '<br />';
+					}
+				}
+			?>
+			</small>
 		</div>
 		<div class="body-push2"></div>
 	</div>
