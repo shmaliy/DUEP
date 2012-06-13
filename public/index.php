@@ -23,7 +23,6 @@ if (!defined('LIBRARY_PATH')) {
 		$libraryPath[] = realpath(ROOT_PATH . '/..') . '/ZEND';
 	}
 	
-
 	$libraryPath[] = ROOT_PATH . '/library';
 	define('LIBRARY_PATH', implode(PATH_SEPARATOR, $libraryPath));
 	unset($libraryPath);
