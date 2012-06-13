@@ -25,7 +25,7 @@
 			<ul class="menu">
 				<li><a href="/index/config">Настройки</a></li>
 				<li><a href="<?php
-					echo $this->url(array('module' => 'users'), 'default');
+					echo $this->url(array('module' => 'users','controller' => 'admin-index'), 'default');
 				?>">Пользователи</a></li>
 			</ul>
 		</div>
