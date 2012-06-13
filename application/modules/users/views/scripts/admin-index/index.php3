@@ -1,5 +1,5 @@
 <!--<?php echo __FILE__; ?>-->
-<ul>
+<ul class="generic-menu">
 	<li><a href="<?php
 		echo $this->url(array('controller' => 'admin-index'), 'default');
 	?>">Пользователи</a></li>
@@ -10,7 +10,7 @@
 		echo $this->url(array('controller' => 'admin-permissions'), 'default');
 	?>">Права</a></li>
 </ul>
-
+<div class="clr"></div>
 <table id="rowset"></table>
 <div id="rowsetNav"></div>
 <?php
