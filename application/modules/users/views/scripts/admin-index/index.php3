@@ -31,14 +31,22 @@
 			'repeatitems' => false,
 			'id' => '0'
 		),
-		'colNames' => array('ID', 'Сорт.', 'Эл. почта', 'Вкл.', 'Дата регистрации', 'Мод.', 'Комм.'),
+		'colNames' => array(
+			'ID',
+			'Сорт.',
+			'Эл. почта',
+			'Вкл.',
+			'Дата регистрации',
+			//'Мод.',
+			'Комм.',
+		),
 		'colModel' => array(
 			array('name' => 'id', 'index' => 'id', 'width' => 15),
 			array('name' => 'ordering', 'index' => 'ordering', 'width' => 15),
 			array('name' => 'email', 'index' => 'email', 'width' => 100),
 			array('name' => 'published', 'index' => 'published', 'width' => 10),
 			array('name' => 'date_created', 'index' => 'date_created', 'width' => 50),
-			array('name' => 'date_modified', 'index' => 'date_modified', 'width' => 50),
+			//array('name' => 'date_modified', 'index' => 'date_modified', 'width' => 50),
 			array('name' => 'admin_comment', 'index' => 'admin_comment', 'width' => 50),
 		)
 	));

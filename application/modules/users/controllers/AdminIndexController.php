@@ -30,17 +30,12 @@ class Users_AdminIndexController extends Sunny_Controller_Action
 	    	// Store required params to view
 	    	$this->view->page = $request->getParam('page', 1);
 	    	$this->view->total = $usersMapper->fetchCount();
-	    	$this->view->rowset = $usersMapper->fetchPage(
+	    	$this->view->rowset = $usersMapper->fetchAll(
 	    		null,
 	    		$request->getParam('sidx', 'ordering'),
 	    		$request->getParam('rows'),
-	    		$this->view->page
-	    	);
-	    	
-	    	// Forse rowset to array for jqGrid
-	    	foreach ($this->view->rowset as &$value) {
-	    		$value = $value->toArray();
-	    	}
+	    		0
+	    	)->toArray();
     	}
     }
     

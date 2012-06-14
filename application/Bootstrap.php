@@ -198,9 +198,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view = $this->getResource('view');
         $view->addHelperPath('Sunny/View/Helper', 'Sunny_View_Helper');
         
-        // Forse json use builtin encoder
-        Zend_Json::$useBuiltinEncoderDecoder = true;
-	    
         // Set templates suffix
 	    $viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper('ViewRenderer');
         $viewRenderer->setViewSuffix($options['resources']['layout']['viewSuffix']);
