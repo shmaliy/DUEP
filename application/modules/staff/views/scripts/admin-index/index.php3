@@ -77,22 +77,10 @@ $("#rowset").jqGrid({
         console.log(ids);
         for (var i = 0; i < ids.length; i++) { 
             var cl = ids[i]; 
-            //be = '<input style="height:22px;width:60px;" type="button" value="Edit" onclick="window.location.href = \'<?php echo $this->url(array('module' => 'users', 'controller' => 'admin-index', 'action' => 'edit'), 'default'); ?>/id/' + cl + '" />'; 
-            be = '<div class="ui-icon ui-button ui-icon-pencil" onclick="return edit(' + cl + ')"></div>';
+            be = "<input style='height:22px;width:40px;' type='button' value='E' onclick='alert("+cl+");' />"; 
             $("#rowset").jqGrid('setRowData', ids[i], {'actions': be}) ;
         } 
     }, 
 });
-
-function edit(id)
-{
-	window.location.href = '<?php
-		echo $this->url(array(
-			'module' => 'users', 
-			'controller' => 'admin-index', 
-			'action' => 'edit'
-		), 'default'); 
-	?>/id/' + id;
-}
 //]]>
 </script>

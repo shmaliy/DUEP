@@ -37,6 +37,13 @@
 						'action'     => 'index'
 					), 'default');
 				?>">Пользователи</a></li>
+				<li><a href="<?php
+					echo $this->url(array(
+						'module'     => 'staff',
+						'controller' => 'admin-index',
+						'action'     => 'index'
+					), 'default');
+				?>">Сотрудники</a></li>
 			</ul>
 			<div class="clr"></div>
 		</div>

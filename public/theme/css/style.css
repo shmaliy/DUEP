@@ -85,8 +85,11 @@ ul.generic-menu li {
 	margin: 0 10px 0 20px;
 	padding: 5px 0;
 	float: left;
-	color: #666;
+	color: #333;
 	font-size: 14px;
+}
+ul.generic-menu li a {
+	color: #333;
 }
 /* Generic ul menu end */
 

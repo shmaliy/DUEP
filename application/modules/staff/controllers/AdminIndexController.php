@@ -1,6 +1,6 @@
 <?php
 
-class Users_AdminIndexController extends Sunny_Controller_Action
+class Staff_AdminIndexController extends Sunny_Controller_Action
 {	
 	public function init()
 	{
@@ -9,9 +9,6 @@ class Users_AdminIndexController extends Sunny_Controller_Action
 			// Forse ajax requests disable layout rendering
         	$this->_helper->layout()->disableLayout();			
 		}
-		
-		// Setup session defaults
-		$session = new Zend_Session_Namespace(get_class($this));
 		
 		// Add actions wich can work with ajax
 		$context = $this->_helper->AjaxContext();
@@ -22,20 +19,7 @@ class Users_AdminIndexController extends Sunny_Controller_Action
 	public function indexAction()
     {
     	$request = $this->getRequest();
-		$view    = $this->view;
     	
-    	$view->page = $request->getParam('page', 1);
-    	$view->sidx = $request->getParam('sidx', 'ordering');
-    	$view->rows = $request->getParam('rows');
-    	
-    	$usersMapper = new Users_Model_Mapper_Users();
-    	$collection  = $usersMapper->fetchPage(null, $view->sidx, $view->rows, $view->page);
-	    	
-    	$view->total  = $usersMapper->fetchCount();
-    	$view->rowset = $collection->toArray();
-    	
-    	$groups = $usersMapper->getUsersGroupsByIdArray($collection->getIdentifiers());
-    	//var_export($groups);
     }
     
     public function editAction()
