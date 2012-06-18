@@ -1,6 +1,6 @@
 <?php
 
-class Staff_AdminIndexController extends Sunny_Controller_Action
+class Staff_AdminStudentsController extends Sunny_Controller_Action
 {	
 	public function init()
 	{
@@ -21,15 +21,15 @@ class Staff_AdminIndexController extends Sunny_Controller_Action
     {
     	// Get request
     	$request = $this->getRequest();
-    	 
+    	
     	$session = $this->getSession();
     	$this->view->page   = $session->{self::SESSION_PAGE};
     	$this->view->rows   = $session->{self::SESSION_ROWS};
     	
     	$mapper = new Staff_Model_Mapper_Staff();
-    	$this->view->rowset = $mapper->getAdminPageTeachers();
-    	$this->view->total  = $mapper->getAdminTotalTeachers();
-    	
+    	$this->view->rowset = $mapper->getAdminPageStudents();
+    	$this->view->total  = $mapper->getAdminTotalStudents();
+    	    	
     	// TODO: get users by staff
     	// TODO: get users groups by users
     }
@@ -39,9 +39,11 @@ class Staff_AdminIndexController extends Sunny_Controller_Action
     	$request = $this->getRequest();
 		$mapper  = new Staff_Model_Mapper_Staff();
     	
-    	// Setup form valid action
-		$form = new Staff_Form_TeacherEdit();
-    	$form->setAction($this->_helper->url->simple('edit', 'admin-index', 'staff'));
+		$id = $this->getRequest()->getParam('id', 'new');
+    	
+		// Setup form valid action
+		$form = new Staff_Form_StudentEdit();
+    	$form->setAction($this->_helper->url->simple('edit', 'admin-students', 'staff'));
     	
     	// Processing _POST
     	if ($request->isXmlHttpRequest() || $request->isPost()) {
@@ -52,9 +54,9 @@ class Staff_AdminIndexController extends Sunny_Controller_Action
     			// TODO: staff extensions save
     			
     			if (!$request->isXmlHttpRequest()) {
-    				$this->_helper->redirector->gotoSimple('index', 'admin-index', 'staff');
+    				$this->_helper->redirector->gotoSimple('index', 'admin-students', 'staff');
     			} else {
-    				$this->view->redirectTo = $this->view->simpleUrl('index', 'admin-index', 'staff');
+    				$this->view->redirectTo = $this->view->simpleUrl('index', 'admin-students', 'staff');
     			}
     		} else {
     			// Return errors
@@ -63,7 +65,6 @@ class Staff_AdminIndexController extends Sunny_Controller_Action
     		}
     	} else {
     		// If _GET render form
-			$id = $request->getParam('id', 'new');
     		if ($id != 'new') {
     			$staff = $mapper->findByPrimaryKey($id);
     			$form->setDefaults($staff->toArray());
@@ -78,8 +79,7 @@ class Staff_AdminIndexController extends Sunny_Controller_Action
     {
     	$request = $this->getRequest();
     	$mapper  = new Staff_Model_Mapper_Staff();
-    	$staff   = $mapper->findByPrimaryKey($request->getParam('id'));
-    	$mapper->delete($staff);
+    	$staff   = $mapper->findByPrimaryKey($request->getParam);
     }
     
     public function setPageAction()

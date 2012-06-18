@@ -1,27 +1,26 @@
 <?php
 
-class Users_Model_Mapper_Users extends Sunny_DataMapper_MapperAbstract
+class Staff_Model_Mapper_Staff extends Sunny_DataMapper_MapperAbstract
 {
-	public function getUsersGroupsByIdArray(array $idArray = array())
+	public function getAdminPageTeachers($order = null, $count = null, $page = null)
 	{
-		// Preformat argument
-		$idArray = array_values($idArray);
-		$idArray = array_unique($idArray);
-		
-		// If empty - do nothing
-		if (empty($idArray)) {
-			return array();
-		}
-		
-		// get users groups identifiers
-		$usersReferencesMapper = new Users_Model_Mapper_UsersReferences();
-		$usersGrouupsIdArray   = $usersReferencesMapper->getUsersGroupsIdArrayByUsersIdArray($idArray);
-
-		// Get users groups rows
-		$usersGroupsMapper = new Users_Model_Mapper_UsersGroups();
-		return $usersGroupsMapper->fetchAll($usersGrouupsIdArray);
-		return $usersGrouupsIdArray;
-		// get groups
-		// store result
+		$rowset = $this->getDbTable()->adminGetStaff(0 , $order, $count, $page);
+		return $this->_rowsetToCollection($rowset);
+	}
+	
+	public function getAdminTotalTeachers()
+	{
+		return $this->getDbTable()->adminGetStaffTotal(0);
+	}
+	
+	public function getAdminPageStudents($order = null, $count = null, $page = null)
+	{
+		$rowset = $this->getDbTable()->adminGetStaff(1 , $order, $count, $page);
+		return $this->_rowsetToCollection($rowset);
+	}
+	
+	public function getAdminTotalStudents()
+	{
+		return $this->getDbTable()->adminGetStaffTotal(1);
 	}
 }

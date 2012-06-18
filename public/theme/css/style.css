@@ -93,3 +93,138 @@ ul.generic-menu li a {
 }
 /* Generic ul menu end */
 
+/* Icons start */
+.icon-16 {
+	display: inline-block;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+}
+.icon-16-add {	background-image: url('/theme/img/admin/add-16px.png'); }
+.icon-16-edit {	background-image: url('/theme/img/admin/edit-16px.png'); }
+.icon-16-delete {	background-image: url('/theme/img/admin/delete-16px.png'); }
+/* Icons end */
+
+/* Generic table start */
+table.generic-table {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	border: 1px solid #e3e3e3;
+}
+table.generic-table tr {
+	padding: 0;
+	margin: 0;
+}
+table.generic-table th {
+	background-color: #e3e3e3;
+	padding: 1px 5px;
+	margin: 0;
+}
+table.generic-table td {
+	background-color: #f6f6f6;
+	padding: 1px 5px;
+	margin: 0;
+}
+table.generic-table a {
+	color: #0096c8;
+}
+.generic-table-nav {
+	padding: 2px 0 0;
+	margin: 5px 0;
+	height: 18px;
+}
+.generic-table-nav-pages {
+	float: left;
+}
+.generic-table-nav-pages a {
+	display: inline-block;
+	margin: 0 4px;
+	color: #0096c8;
+	font-size: 14px;
+}
+.generic-table-nav-pages a.larr,
+.generic-table-nav-pages a.rarr {
+	font-size: 14px;
+}
+.generic-table-nav-pages a.larr span,
+.generic-table-nav-pages a.rarr span {
+	display: inline-block;
+	padding: 0 2px;
+	text-decoration: none;
+}
+.generic-table-nav-pages a.current {
+	text-decoration: none;
+	font-weight: 600;
+}
+.generic-table-nav-rows {
+	float: right;
+}
+.generic-table-nav-rows a,
+.generic-table-nav-rows span {
+	display: inline-block;
+	margin: 0 4px;
+	color: #0096c8;
+	font-size: 14px;
+}
+.generic-table-nav-rows a.current {
+	text-decoration: none;
+	font-weight: 600;
+}
+/* Generic table end */
+
+/* Teacher edit form start */
+.staff_form_teacheredit {
+	font-size: 14px;
+}
+.staff_form_teacheredit fieldset {
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-color: #999;
+	border-width: 1px;
+	margin: 5px;
+}
+.staff_form_teacheredit .form-composite-element-tag {
+	min-height: 30px;
+}
+.staff_form_teacheredit .form-composite-end { clear: both; }
+.staff_form_teacheredit .form-composite-group-group1,
+.staff_form_teacheredit .form-composite-group-group2,
+.staff_form_teacheredit .form-composite-group-group4,
+.staff_form_teacheredit .form-composite-group-group5,
+.staff_form_teacheredit .form-composite-group-group8,
+.staff_form_teacheredit .form-composite-group-group9 {
+	float: left;
+	width: 50%;
+}
+.staff_form_teacheredit .form-composite-group-group3,
+.staff_form_teacheredit .form-composite-group-group6,
+.staff_form_teacheredit .form-composite-group-group7 {
+	float: left;
+	width: 100%;
+	clear: both;
+}
+/* Teacher edit form end */
+
+
+/* Student edit form start */
+.staff_form_studentedit {
+	font-size: 14px;
+}
+.staff_form_studentedit fieldset {
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-color: #999;
+	border-width: 1px;
+	margin: 5px;
+}
+.staff_form_studentedit .form-composite-element-tag {
+	min-height: 30px;
+}
+.staff_form_studentedit .form-composite-end { clear: both; }
+/* Student edit form end */

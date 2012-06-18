@@ -24,26 +24,23 @@
 		<div class="header-resize">
 			<ul class="menu generic-menu">
 				<li><a href="<?php
-					echo $this->url(array(
-						'module'     => 'default',
-						'controller' => 'index',
-						'action'     => 'config'
-					), 'default');
+					echo $this->simpleUrl('config');
 				?>">Настройки</a></li>
 				<li><a href="<?php
-					echo $this->url(array(
-						'module'     => 'users',
-						'controller' => 'admin-index',
-						'action'     => 'index'
-					), 'default');
+					echo $this->simpleUrl('index', 'admin-index', 'users');
 				?>">Пользователи</a></li>
 				<li><a href="<?php
-					echo $this->url(array(
-						'module'     => 'staff',
-						'controller' => 'admin-index',
-						'action'     => 'index'
-					), 'default');
+					echo $this->simpleUrl('index', 'admin-groups', 'users');
+				?>">Группы</a></li>
+				<li><a href="<?php
+					echo $this->simpleUrl('index', 'admin-permissions', 'users');
+				?>">Права</a></li>
+				<li><a href="<?php
+					echo $this->simpleUrl('index', 'admin-index', 'staff');
 				?>">Сотрудники</a></li>
+				<li><a href="<?php
+					echo $this->simpleUrl('index', 'admin-students', 'staff');
+				?>">Студенты</a></li>
 			</ul>
 			<div class="clr"></div>
 		</div>
@@ -70,10 +67,7 @@
 	<div class="footer">
 		<div class="footer-resize">
 			<a class="footer-developer-logo" href="http://sunny.net.ua/" target="_blank"></a>
-			<div class="footer-developer-text">
-				Данное тестовое задание выполнено для компании CPT компанией <a href="http://sunny.net.ua/" target="_blank">SunNY CT</a>.<br />
-				Использованные технологии: PHP 5.3, ZendFramework 1.11.1, jQuery 1.7.2, HTML/CSS
-			</div>
+			
 		</div>
 	</div>	
 </body>

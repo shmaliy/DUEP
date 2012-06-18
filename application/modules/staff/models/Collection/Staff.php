@@ -1,6 +1,6 @@
 <?php
 
-class Users_Model_Collection_Staff extends Sunny_DataMapper_CollectionAbstract
+class Staff_Model_Collection_Staff extends Sunny_DataMapper_CollectionAbstract
 {
 	
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Users_Model_Entity_Users extends Sunny_DataMapper_EntityAbstract
+class Staff_Model_Entity_Staff extends Sunny_DataMapper_EntityAbstract
 {
 	
 }

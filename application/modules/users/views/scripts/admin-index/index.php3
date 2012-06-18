@@ -80,7 +80,7 @@ $("#rowset").jqGrid({
             //be = '<input style="height:22px;width:60px;" type="button" value="Edit" onclick="window.location.href = \'<?php echo $this->url(array('module' => 'users', 'controller' => 'admin-index', 'action' => 'edit'), 'default'); ?>/id/' + cl + '" />'; 
             be = '<div class="ui-icon ui-button ui-icon-pencil" onclick="return edit(' + cl + ')"></div>';
             $("#rowset").jqGrid('setRowData', ids[i], {'actions': be}) ;
-        } 
+        }
     }, 
 });
 
@@ -96,3 +96,14 @@ function edit(id)
 }
 //]]>
 </script>
+<ul class="generic-menu">
+	<li><a href="<?php
+		echo $this->url(array(
+			'module' => 'users',
+			'controller' => 'admin-index',
+			'action' => 'edit',
+			'id' => 'new'
+		), 'default', true);
+	?>">Добавить</a></li>
+</ul>
+<div class="clr"></div>
