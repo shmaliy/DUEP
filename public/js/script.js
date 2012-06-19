@@ -26,6 +26,23 @@ $(document).ready(function(){
 	});
 });
 
+// Observe generic menu class toggle
+$(document).ready(function(){
+	$('ul.generic-menu li').each(function(){
+		$(this).hover(
+			// mouse over handler
+			function(){
+				$(this).addClass("hover");
+			},
+			// mouse out handler
+			function(){
+				$(this).removeClass("hover");
+			}
+		);
+	});
+});
+
+
 function setPage(url, page)
 {
 	$.ajax({

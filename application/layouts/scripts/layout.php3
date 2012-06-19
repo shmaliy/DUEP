@@ -22,25 +22,23 @@
 <body>
 	<div class="header">
 		<div class="header-resize">
-			<ul class="menu generic-menu">
-				<li><a href="<?php
-					echo $this->simpleUrl('config');
-				?>">Настройки</a></li>
-				<li><a href="<?php
-					echo $this->simpleUrl('index', 'admin-index', 'users');
-				?>">Пользователи</a></li>
-				<li><a href="<?php
-					echo $this->simpleUrl('index', 'admin-groups', 'users');
-				?>">Группы</a></li>
-				<li><a href="<?php
-					echo $this->simpleUrl('index', 'admin-permissions', 'users');
-				?>">Права</a></li>
-				<li><a href="<?php
-					echo $this->simpleUrl('index', 'admin-index', 'staff');
-				?>">Сотрудники</a></li>
-				<li><a href="<?php
-					echo $this->simpleUrl('index', 'admin-students', 'staff');
-				?>">Студенты</a></li>
+			<ul class="generic-menu">
+				<li><a href="<?php echo $this->simpleUrl('index');	?>">Центр</a></li>				
+				<li><a href="<?php echo $this->simpleUrl('config');	?>">Настройки</a></li>				
+				<li><a href="#">Структура</a></li>				
+				<li><span>Модули</span>
+					<ul>
+						<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'staff'); ?>">Карточки сотрудников</a></li>				
+						<li><a href="<?php echo $this->simpleUrl('index', 'admin-students', 'staff'); ?>">Карточки студентов</a></li>				
+						<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'media'); ?>">Файловый архив</a></li>				
+					</ul>
+				</li>				
+				<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'users'); ?>" class="group">Пользователи</a>
+					<ul>
+						<li><a href="<?php echo $this->simpleUrl('index', 'admin-groups', 'users'); ?>">Группы пользователей</a></li>				
+						<li><a href="<?php echo $this->simpleUrl('index', 'admin-permissions', 'users'); ?>">Права пользователей</a></li>				
+					</ul>
+				</li>				
 			</ul>
 			<div class="clr"></div>
 		</div>

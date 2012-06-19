@@ -1,6 +1,6 @@
 <?php
 
-class Media_AdminIndexController extends Sunny_Controller_Action
+class Media_AdminStatisticController extends Sunny_Controller_Action
 {	
 	public function init()
 	{
