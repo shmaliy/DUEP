@@ -51,7 +51,7 @@ set_include_path(
 /* Load Zend_Application */
 require_once 'Zend/Application.php';
 
-/* Run Application */
+/* Run Zend_Application */
 $application = new Zend_Application(
     APPLICATION_ENV, APPLICATION_PATH . '/configs/application.ini'
 );
