@@ -1,109 +1,46 @@
 <!--<?php echo __FILE__; ?>-->
-<ul class="generic-menu">
-	<li><a href="<?php
-		echo $this->url(array('controller' => 'admin-index'), 'default');
-	?>">Пользователи</a></li>
-	<li><a href="<?php
-		echo $this->url(array('controller' => 'admin-groups'), 'default');
-	?>">Группы</a></li>
-	<li><a href="<?php
-		echo $this->url(array('controller' => 'admin-permissions'), 'default');
-	?>">Права</a></li>
-</ul>
-<div class="clr"></div>
-<table id="rowset"></table>
-<div id="rowsetNav"></div>
-<script type="text/javascript">
-//<![CDATA[
-$("#rowset").jqGrid({
-	url: "<?php echo $this->url(array(), 'default'); ?>",
-	datatype: "json",
-	forceFit: true,
-	ignoreCase: true,
-	autowidth: true,
-	mtype: "POST",
-	height: "auto",
-	pager: "#rowsetNav",
-	viewrecords: false,
-	hoverrows: false,
-	multiboxonly: true,
-	multiselect: true,
-	jsonReader: {
-		root: "rowset",
-		page: "page",
-		total: "total",
-		repeatitems: false
-	},
-	colModel: [
-		{
-			name: "id",
-			index:"id",
-			label: 'ID',
-			width: 15
-		}, {
-			name: "ordering",
-			index:"ordering",
-			label: ' ',
-			width: 15
-		}, {
-			name: "email",
-			index:"email",
-			label: 'E-mail',
-			width: 100
-		}, {
-			name: "published",
-			index:"published",
-			label: 'Вкл.',
-			width: 10
-		}, {
-			name: "date_created",
-			index:"date_created",
-			label: 'Дата регистрации',
-			width: 50
-		}, {
-			name: "admin_comment",
-			index:"admin_comment",
-			label: 'Комментарий',
-			width: 50
-		}, {
-			name: 'actions',
-			index: 'actions',
-			label: 'Действия',
-			width: 20
-		}
-	],
-	loadComplete: function() {
-		var ids = $("#rowset").getDataIDs(); 
-        console.log(ids);
-        for (var i = 0; i < ids.length; i++) { 
-            var cl = ids[i]; 
-            //be = '<input style="height:22px;width:60px;" type="button" value="Edit" onclick="window.location.href = \'<?php echo $this->url(array('module' => 'users', 'controller' => 'admin-index', 'action' => 'edit'), 'default'); ?>/id/' + cl + '" />'; 
-            be = '<div class="ui-icon ui-button ui-icon-pencil" onclick="return edit(' + cl + ')"></div>';
-            $("#rowset").jqGrid('setRowData', ids[i], {'actions': be}) ;
-        }
-    }, 
-});
-
-function edit(id)
-{
-	window.location.href = '<?php
-		echo $this->url(array(
-			'module' => 'users', 
-			'controller' => 'admin-index', 
-			'action' => 'edit'
-		), 'default'); 
-	?>/id/' + id;
-}
-//]]>
-</script>
-<ul class="generic-menu">
-	<li><a href="<?php
-		echo $this->url(array(
-			'module' => 'users',
-			'controller' => 'admin-index',
-			'action' => 'edit',
-			'id' => 'new'
-		), 'default', true);
-	?>">Добавить</a></li>
-</ul>
-<div class="clr"></div>
+<?php
+$adminTableNavOptions = array(
+	'page'       => $this->page,
+	'rows'       => $this->rows,
+	'total'      => $this->total,
+	'action'     => $this->a,
+	'controller' => $this->c,
+	'module'     => $this->m
+);
+?>
+<?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
+<table class="generic-table">
+	<thead>
+		<tr>
+			<th align="left" width="1%"><a class="icon-16 icon-16-add" href="<?php
+				echo $this->simpleUrl('edit', $this->c, $this->m);
+			?>"></a></th>
+			<th width="1%"><input type="checkbox" /></th>
+			<th>Ф.И.О.</th>
+			<th width="1%" nowrap="nowrap">Дата создания</th>
+			<th width="1%" nowrap="nowrap">Дата изменения</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if (count($this->rowset) > 0): ?>
+	<?php foreach ($this->rowset as $row): ?>
+		<tr>
+			<td width="40" nowrap="nowrap">
+				<a class="icon-16 icon-16-edit" href="<?php echo $this->simpleUrl('edit', $this->c, $this->m, array('id' => $row->getId())); ?>"></a>
+				<a class="icon-16 icon-16-delete" onclick="return deleteItem('<?php echo $this->simpleUrl('delete', $this->c, $this->m); ?>', <?php echo $row->getId(); ?>);"></a>
+			</td>
+			<td><input type="checkbox" name="multi[<?php echo $row->getId(); ?>]" /></td>
+			<td><?php echo $row->getEmail(); ?></td>
+			<td align="right"><?php echo date('m.d.Y', $row->getDateCreated()); ?></td>
+			<td align="right"><?php echo date('m.d.Y', $row->getDateCreated()); ?></td>
+		</tr>
+	<?php endforeach; ?>
+	<?php else: ?>
+		<tr>
+			<td align="center" colspan="5">Нет записей</td>
+		</tr>
+	<?php endif; ?>
+	</tbody>
+</table>
+<?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>

@@ -4,17 +4,17 @@ $adminTableNavOptions = array(
 	'page'       => $this->page,
 	'rows'       => $this->rows,
 	'total'      => $this->total,
-	'action'     => $this->action,
-	'controller' => $this->controller,
-	'module'     => $this->module
+	'action'     => $this->a,
+	'controller' => $this->c,
+	'module'     => $this->m
 );
 ?>
 <?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
 <table class="generic-table">
 	<thead>
 		<tr>
-			<th align="left"><a class="icon-16 icon-16-add" href="<?php
-				echo $this->simpleUrl('edit', $this->controller, $this->module);
+			<th align="left" width="1%"><a class="icon-16 icon-16-add" href="<?php
+				echo $this->simpleUrl('edit', $this->c, $this->m);
 			?>"></a></th>
 			<th width="1%"><input type="checkbox" /></th>
 			<th>Ф.И.О.</th>
@@ -27,8 +27,8 @@ $adminTableNavOptions = array(
 	<?php foreach ($this->rowset as $row): ?>
 		<tr>
 			<td width="40" nowrap="nowrap">
-				<a class="icon-16 icon-16-edit" href="<?php echo $this->simpleUrl('edit', $this->controller, $this->module, array('id' => $row->getId())); ?>"></a>
-				<a class="icon-16 icon-16-delete" onclick="return deleteItem('<?php echo $this->simpleUrl('delete', $this->controller, $this->module); ?>', <?php echo $row->getId(); ?>);"></a>
+				<a class="icon-16 icon-16-edit" href="<?php echo $this->simpleUrl('edit', $this->c, $this->m, array('id' => $row->getId())); ?>"></a>
+				<a class="icon-16 icon-16-delete" onclick="return deleteItem('<?php echo $this->simpleUrl('delete', $this->c, $this->m); ?>', <?php echo $row->getId(); ?>);"></a>
 			</td>
 			<td><input type="checkbox" name="multi[<?php echo $row->getId(); ?>]" /></td>
 			<td><?php

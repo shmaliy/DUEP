@@ -7,7 +7,7 @@ class Application_Model_AdminConfig
 	 * 
 	 * @var string
 	 */
-	protected $_configPath = 'configs/adminconfig.php';
+	protected $_configPath = 'configs/adminconfig.ini';
 	
 	/**
 	 * Setup custom config path
@@ -48,7 +48,7 @@ class Application_Model_AdminConfig
 	public function save(array $options)
 	{
 		// Initialize config objects
-		$writer = new Zend_Config_Writer_Array();
+		$writer = new Zend_Config_Writer_Ini();
 		$config = new Zend_Config($options);
 		
 		// Save config to file
@@ -64,8 +64,7 @@ class Application_Model_AdminConfig
 	 */
 	public function load()
 	{
-		$config = new Zend_Config(require APPLICATION_PATH . DIRECTORY_SEPARATOR
-		                                                   . $this->getConfigPath());
+		$config = new Zend_Config_Ini(APPLICATION_PATH . DIRECTORY_SEPARATOR . $this->getConfigPath());
 		
 		return $config->toArray();
 	}

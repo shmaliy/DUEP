@@ -1,47 +1,46 @@
 <!--<?php echo __FILE__; ?>-->
-<ul class="generic-menu">
-	<li><a href="<?php
-		echo $this->url(array('controller' => 'admin-index'), 'default');
-	?>">Пользователи</a></li>
-	<li><a href="<?php
-		echo $this->url(array('controller' => 'admin-groups'), 'default');
-	?>">Группы</a></li>
-	<li><a href="<?php
-		echo $this->url(array('controller' => 'admin-permissions'), 'default');
-	?>">Права</a></li>
-</ul>
-<div class="clr"></div>
-<table id="rowset"></table>
-<div id="rowsetNav"></div>
 <?php
-	echo $this->jqGrid("#rowset", array(
-		'url' => $this->url(array(), 'default'),
-		'datatype' => 'json',
-		'forceFit' => true,
-		'ignoreCase' => true,
-		'autowidth' => true,
-		'mtype' => 'POST',
-		'height' => 'auto',
-		'pager' => '#rowsetNav',
-		'viewrecords' => false,
-		'jsonReader' => array(
-			'root' => "rowset",
-			'page' => "page",
-			'total' => "total",
-			'repeatitems' => false,
-			'id' => '0'
-		),
-		'colNames' => array('ID', 'Title.', 'Alias', 'description', 'ordering', 'publiashed', 'admin_comment', 'user_group_id', 'system'),
-		'colModel' => array(
-			array('name' => 'id', 'index' => 'id', 'width' => 15),
-			array('name' => 'ordering', 'index' => 'ordering', 'width' => 15),
-			array('name' => 'title', 'index' => 'title', 'width' => 100),
-			array('name' => 'published', 'index' => 'published', 'width' => 10),
-			array('name' => 'alias', 'index' => 'alias', 'width' => 50),
-			array('name' => 'description', 'index' => 'description', 'width' => 50),
-			array('name' => 'admin_comment', 'index' => 'admin_comment', 'width' => 50),
-			array('name' => 'user_group_id', 'index' => 'user_group_id', 'width' => 50),
-			array('name' => 'system', 'index' => 'system', 'width' => 50),
-		)
-	));
+$adminTableNavOptions = array(
+	'page'       => $this->page,
+	'rows'       => $this->rows,
+	'total'      => $this->total,
+	'action'     => $this->a,
+	'controller' => $this->c,
+	'module'     => $this->m
+);
 ?>
+<?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
+<table class="generic-table">
+	<thead>
+		<tr>
+			<th align="left" width="1%"><a class="icon-16 icon-16-add" href="<?php
+				echo $this->simpleUrl('edit', $this->c, $this->m);
+			?>"></a></th>
+			<th width="1%"><input type="checkbox" /></th>
+			<th>Ф.И.О.</th>
+			<th width="1%" nowrap="nowrap">Дата создания</th>
+			<th width="1%" nowrap="nowrap">Дата изменения</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if (count($this->rowset) > 0): ?>
+	<?php foreach ($this->rowset as $row): ?>
+		<tr>
+			<td width="40" nowrap="nowrap">
+				<a class="icon-16 icon-16-edit" href="<?php echo $this->simpleUrl('edit', $this->c, $this->m, array('id' => $row->getId())); ?>"></a>
+				<a class="icon-16 icon-16-delete" onclick="return deleteItem('<?php echo $this->simpleUrl('delete', $this->c, $this->m); ?>', <?php echo $row->getId(); ?>);"></a>
+			</td>
+			<td><input type="checkbox" name="multi[<?php echo $row->getId(); ?>]" /></td>
+			<td><?php echo $row->getTitle(); ?></td>
+			<td align="right"><?php echo date('m.d.Y', $row->getDateCreated()); ?></td>
+			<td align="right"><?php echo date('m.d.Y', $row->getDateCreated()); ?></td>
+		</tr>
+	<?php endforeach; ?>
+	<?php else: ?>
+		<tr>
+			<td align="center" colspan="5">Нет записей</td>
+		</tr>
+	<?php endif; ?>
+	</tbody>
+</table>
+<?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>

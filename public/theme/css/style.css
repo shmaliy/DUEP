@@ -98,6 +98,13 @@ ul.generic-menu li span {
 	cursor: pointer;
 	background: url('/theme/img/admin/dropdown-16px.png') no-repeat right;
 }
+ul.generic-menu li ul li a.group,
+ul.generic-menu li ul li span {
+	display: block;
+	padding-right: 20px;
+	cursor: pointer;
+	background: url('/theme/img/admin/dropdown2-16px.png') no-repeat right;
+}
 ul.generic-menu li a {
 	color: #333;
 	display: block;
@@ -116,11 +123,20 @@ ul.generic-menu li ul {
 }
 ul.generic-menu li ul li {
 	white-space: nowrap;
+	position: relative;
+	display: block;
 }
-ul.generic-menu li ul {
-	float: none;
+ul.generic-menu li ul li ul {
+	top: 0;
+	left: 100%;
+	display: none;
 }
-ul.generic-menu li.hover ul {
+ul.generic-menu li ul,
+ul.generic-menu li.hover ul li ul {
+	display: none;
+}
+ul.generic-menu li.hover ul,
+ul.generic-menu li ul li.hover ul {
 	display: block;
 }
 /* Generic ul menu end */
@@ -208,6 +224,60 @@ table.generic-table a {
 }
 /* Generic table end */
 
+/* User edit form start */
+.users_form_useredit {
+	font-size: 14px;
+}
+.users_form_useredit fieldset {
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-color: #999;
+	border-width: 1px;
+	margin: 5px;
+}
+.users_form_useredit .form-composite-element-tag {
+	min-height: 30px;
+}
+.users_form_useredit .form-composite-end { clear: both; }
+/* User edit form end */
+
+/* User group edit form start */
+.users_form_usergroupedit {
+	font-size: 14px;
+}
+.users_form_usergroupedit fieldset {
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-color: #999;
+	border-width: 1px;
+	margin: 5px;
+}
+.users_form_usergroupedit .form-composite-element-tag {
+	min-height: 30px;
+}
+.users_form_usergroupedit .form-composite-end { clear: both; }
+/* User group edit form end */
+
+/* User permission edit form start */
+.users_form_userpermissionedit {
+	font-size: 14px;
+}
+.users_form_userpermissionedit fieldset {
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-color: #999;
+	border-width: 1px;
+	margin: 5px;
+}
+.users_form_userpermissionedit .form-composite-element-tag {
+	min-height: 30px;
+}
+.users_form_userpermissionedit .form-composite-end { clear: both; }
+/* User permission edit form end */
+
 /* Teacher edit form start */
 .staff_form_teacheredit {
 	font-size: 14px;
@@ -260,3 +330,57 @@ table.generic-table a {
 }
 .staff_form_studentedit .form-composite-end { clear: both; }
 /* Student edit form end */
+
+/* Media create form start */
+.media_form_mediacreate {
+	font-size: 14px;
+}
+.media_form_mediacreate fieldset {
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-color: #999;
+	border-width: 1px;
+	margin: 5px;
+}
+.media_form_mediacreate .form-composite-element-tag {
+	min-height: 30px;
+}
+.media_form_mediacreate .form-composite-end { clear: both; }
+/* Media create form end */
+
+/* Media edit form start */
+.media_form_mediaedit {
+	font-size: 14px;
+}
+.media_form_mediaedit fieldset {
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-color: #999;
+	border-width: 1px;
+	margin: 5px;
+}
+.media_form_mediaedit .form-composite-element-tag {
+	min-height: 30px;
+}
+.media_form_mediaedit .form-composite-end { clear: both; }
+/* Media edit form end */
+
+/* Media category edit form start */
+.media_form_categoryedit {
+	font-size: 14px;
+}
+.media_form_categoryedit fieldset {
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-color: #999;
+	border-width: 1px;
+	margin: 5px;
+}
+.media_form_categoryedit .form-composite-element-tag {
+	min-height: 30px;
+}
+.media_form_categoryedit .form-composite-end { clear: both; }
+/* Media category edit form end */

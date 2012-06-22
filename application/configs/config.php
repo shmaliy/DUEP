@@ -10,26 +10,26 @@ return array (
   ),
   'bootstrap' => 
   array (
-    'path' => 'W:\\home\\duep/application/Bootstrap.php',
+    'path' => APPLICATION_PATH . '/Bootstrap.php',
     'class' => 'Bootstrap',
   ),
   'resources' => 
   array (
     'frontController' => 
     array (
-      'controllerDirectory' => 'W:\\home\\duep/application/controllers',
+      'controllerDirectory' => APPLICATION_PATH . '/controllers',
       'params' => 
       array (
         'displayExceptions' => 1,
       ),
-      'moduleDirectory' => 'W:\\home\\duep/application/modules',
+      'moduleDirectory' => APPLICATION_PATH . '/modules',
     ),
     'modules' => 
     array (
     ),
     'layout' => 
     array (
-      'layoutPath' => 'W:\\home\\duep/application/layouts/scripts/',
+      'layoutPath' => APPLICATION_PATH . '/layouts/scripts/',
       'layout' => 'layout',
       'viewSuffix' => 'php3',
     ),

@@ -14,7 +14,8 @@
 		$this->headScript()->appendFile('/js/jquery/jquery-1.7.2.min.js');
 		$this->headScript()->appendFile('/js/jquery/jquery-ui-1.8.20.custom/jquery-ui-1.8.20.custom.min.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.jqGrid-4.3.3/i18n/grid.locale-ru.js');
-		$this->headScript()->appendFile('/js/jquery/jquery.jqGrid-4.3.3/jquery.jqGrid.min.js');
+		$this->headScript()->appendFile('/js/jquery/jquery.swfupload/swfupload.js');
+		$this->headScript()->appendFile('/js/jquery/jquery.swfupload.js');
 		$this->headScript()->appendFile('/js/script.js');
 		echo $this->headScript();
     ?>
@@ -25,12 +26,16 @@
 			<ul class="generic-menu">
 				<li><a href="<?php echo $this->simpleUrl('index');	?>">Центр</a></li>				
 				<li><a href="<?php echo $this->simpleUrl('config');	?>">Настройки</a></li>				
-				<li><a href="#">Структура</a></li>				
+				<li><a>Структура</a></li>				
 				<li><span>Модули</span>
 					<ul>
 						<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'staff'); ?>">Карточки сотрудников</a></li>				
 						<li><a href="<?php echo $this->simpleUrl('index', 'admin-students', 'staff'); ?>">Карточки студентов</a></li>				
-						<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'media'); ?>">Файловый архив</a></li>				
+						<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'media'); ?>" class="group">Файловый архив</a>
+							<ul>
+								<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'media'); ?>">Файлы</a></li>				
+							</ul>
+						</li>				
 					</ul>
 				</li>				
 				<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'users'); ?>" class="group">Пользователи</a>
