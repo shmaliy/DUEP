@@ -7,7 +7,11 @@ if (!defined('ROOT_PATH')) {
 
 /* Define project application path */
 if (!defined('APPLICATION_PATH')) {
-	define('APPLICATION_PATH', ROOT_PATH . '/application');
+	if (!file_exists(ROOT_PATH . '/application')) {
+		define('APPLICATION_PATH', ROOT_PATH . '/duep.application');
+	} else {
+		define('APPLICATION_PATH', ROOT_PATH . '/application');
+	}
 }
 
 /* Define ZEND library(s) */
