@@ -39,6 +39,7 @@ class IndexController extends Zend_Controller_Action
      */
 	public function configAction()
     {
+		$this->_helper->layout->setLayout('admin-layout');
     	$request = $this->getRequest();
     	$formAdminConfig = new Application_Form_AdminConfig();
     	$adminConfig = new Application_Model_AdminConfig();

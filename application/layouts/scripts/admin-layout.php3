@@ -70,7 +70,7 @@
 	<div class="footer">
 		<div class="footer-resize">
 			<a class="footer-developer-logo" href="http://sunny.net.ua/" target="_blank"></a>
-			<div style="color: #090; font-size: 24px;">FRONTEND</div>
+			<div style="color: #900; font-size: 24px;">BACKEND</div>
 		</div>
 	</div>	
 </body>

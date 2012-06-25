@@ -6,6 +6,7 @@ class Staff_AdminIndexController extends Sunny_Controller_Action
 	
 	public function init()
 	{
+		$this->_helper->layout->setLayout('admin-layout');
 		parent::init();
 		
 		// Add actions wich can work with ajax

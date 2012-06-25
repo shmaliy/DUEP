@@ -7,7 +7,7 @@ if (!defined('ROOT_PATH')) {
 
 /* Define project application path */
 if (!defined('APPLICATION_PATH')) {
-	if (!file_exists(ROOT_PATH . '/application')) {
+	if (file_exists(ROOT_PATH . '/duep.application')) {
 		define('APPLICATION_PATH', ROOT_PATH . '/duep.application');
 	} else {
 		define('APPLICATION_PATH', ROOT_PATH . '/application');
@@ -60,3 +60,4 @@ $application = new Zend_Application(
     APPLICATION_ENV, APPLICATION_PATH . '/configs/application.ini'
 );
 $application->bootstrap()->run();
+//echo phpinfo();
