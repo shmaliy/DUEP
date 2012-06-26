@@ -222,7 +222,7 @@ ul {
 .headerResize .menu .first td .dropDown ul {
 	background: url(/theme/img/front/menu_dr_center.png) repeat-y 0px 0px;
 	padding: 0px 32px;
-	margin-top:0%; /* Если 0% то меню выдвинуто, если -100% то меню скрыто */
+	margin-top: -100%; /* Если 0% то меню выдвинуто, если -100% то меню скрыто */
 }
 
 .headerResize .menu .first td .dropDown ul li {

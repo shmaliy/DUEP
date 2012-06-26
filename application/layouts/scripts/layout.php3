@@ -4,12 +4,22 @@
 <?php 
 	// установка ссылок в скрипте вида:
 	$this->headLink()->appendStylesheet('/theme/css/main.css')
+		 ->headLink()->appendStylesheet('/js/index.js')
 	     ->headLink(array('rel' => 'favicon',
 	                      'href' => '/img/favicon.ico'),
 	                      'PREPEND');
 	// вывод ссылок:
 	echo $this->headLink(); 
 ?>
+<?php
+		$this->headScript()->appendFile('/js/jquery/jquery-1.7.2.min.js');
+		$this->headScript()->appendFile('/js/jquery/jquery-ui-1.8.20.custom/jquery-ui-1.8.20.custom.min.js');
+		$this->headScript()->appendFile('/js/jquery/jquery.jqGrid-4.3.3/i18n/grid.locale-ru.js');
+		$this->headScript()->appendFile('/js/jquery/jquery.swfupload/swfupload.js');
+		$this->headScript()->appendFile('/js/jquery/jquery.swfupload.js');
+		$this->headScript()->appendFile('/js/script.js');
+		echo $this->headScript();
+    ?>
 		
 	<meta charset="utf-8">
 	<title>DUEP</title>
@@ -61,12 +71,12 @@
 				<table border="0" cellpadding="0" cellspacing="0" width="100%" height="">
 					<tr class="first">
 						<!--td class="active"><div class="menu_item"><a href="">Университет</a></div></td-->
-						<td>
+						<td class="main_down">
 							<a href="#" class="menu_item">Университет</a>
 							
 							<div class="dropDown">
 								<div class="droupdaun_top"></div>
-								<ul>
+								<ul class = "list_main">
 									<li><a href="">Университет</a></li>
 									<li><a href="">Руководство</a></li>
 									<li><a href="">Награды</a></li>
@@ -143,3 +153,36 @@
 	</div>
 </body>
 </html>
+ <script type="text/javascript">
+$(document).ready(function(){
+
+	$(".main_down").mouseover(function(){
+		
+		var block = $(this);
+		var main = block.find('.list_main');
+		var on = 1;
+		anime(main, on);
+	})
+	$(".main_down").mouseout(function(){
+
+     var block = $(this);
+		var main = block.find('.list_main');
+        var off = 0;
+        anime(main, off);
+    });
+	
+	function anime(main,param){
+		
+		if (param !== 1){
+		main.animate({
+       marginTop: '-100%',
+      }, 500 );
+	}else{
+			main.animate({
+      marginTop: '0%',
+      }, 500 );
+	};
+	}
+
+});
+</script>
