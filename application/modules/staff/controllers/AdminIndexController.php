@@ -28,6 +28,17 @@ class Staff_AdminIndexController extends Sunny_Controller_Action
     	$this->view->page   = $session->{self::SESSION_PAGE};
     	$this->view->rows   = $session->{self::SESSION_ROWS};
     	
+    	$entity = $this->_getMapper()->createEntity(array(
+    		'id'		=> 1, 
+    		'firstname' => 'Евгений'
+    	));
+    	$entity2 = $this->_getMapper()->createEntity(array(
+    	    		'id'		=> 1, 
+    	    		'firstname' => 'Васисуалий'
+    	));
+    	$entity->setExtendChild($entity);
+    	var_dump($entity); 
+    	
     	$this->view->rowset = $this->_getMapper()->getAdminPageTeachers();
     	$this->view->total  = $this->_getMapper()->getAdminTotalTeachers();
     }

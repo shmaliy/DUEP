@@ -34,7 +34,7 @@ img { border: 0 none; }
 	height: 100%;
 	min-height: 100%;
 }
-.body-push1 {
+.pushTop {
 	height: 50px;
 }
 .body-container {
