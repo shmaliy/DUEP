@@ -30,6 +30,9 @@ class Users_AdminGroupsController extends Sunny_Controller_Action
     	
     	$this->view->rowset = $this->_getMapper()->fetchPage();
     	$this->view->total  = $this->_getMapper()->fetchCount();
+    	
+    	$tree = $this->_getMapper()->fetchTree();
+    	//var_dump($tree);
     }
 	    
     public function editAction()
