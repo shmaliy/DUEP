@@ -154,35 +154,27 @@
 </body>
 </html>
  <script type="text/javascript">
-$(document).ready(function(){
+ $(document).ready(function () {   
 
-	$(".main_down").mouseover(function(){
-		
-		var block = $(this);
-		var main = block.find('.list_main');
-		var on = 1;
-		anime(main, on);
-	})
-	$(".main_down").mouseout(function(){
+   $(".main_down").hover(
+   	    function () {
+   	    	var block = $(this);
+			var	main = block.find('.list_main');
+            //показать подменю
+            main.animate({
+     		  marginTop: '0%',
+     		  }, 500 );
 
-     var block = $(this);
-		var main = block.find('.list_main');
-        var off = 0;
-        anime(main, off);
-    });
-	
-	function anime(main,param){
-		
-		if (param !== 1){
-		main.animate({
-       marginTop: '-100%',
-      }, 500 );
-	}else{
-			main.animate({
-      marginTop: '0%',
-      }, 500 );
-	};
-	}
+        },
+        function () {
+        	var block = $(this);
+			var	main = block.find('.list_main');
+            //скрыть подменю
+            main.animate({
+     		 marginTop: '-100%',
+     		 }, 500 );
+        }
+    );  
 
 });
 </script>
