@@ -49,9 +49,7 @@
 							<li><img src="/theme/img/front/ua.jpg" class="lan"/><a href="">Українська</a></li>
 							<li><img src="/theme/img/front/en.jpg" class="lan"/><a href="">English</a></li>
 							<li><img src="/theme/img/front/us.jpg" class="lan"/><a href="">US English</a></li>
-							<li><img src="/theme/img/front/ua.jpg" class="lan"/><a href="">Українська</a></li>
-							<li><img src="/theme/img/front/ua.jpg" class="lan"/><a href="">Українська</a></li>
-							<li><img src="/theme/img/front/ua.jpg" class="lan"/><a href="">Українська</a></li>
+							<li><img src="/theme/img/front/ru.jpg" class="lan"/><a href="">Русский</a></li>
 						</ul>
 					<div class="pop_up_left_bottom"></div>
 					<div class="pop_up_right_bottom"></div>

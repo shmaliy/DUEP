@@ -7,6 +7,7 @@ var text = $(".input").val();
             //показать подменю
             main.animate({
      		  marginTop: '0%',
+     		  opacity: '1',
      		  }, 200 );
 
         },
@@ -16,6 +17,7 @@ var text = $(".input").val();
             //скрыть подменю
             main.animate({
      		 marginTop: '-100%',
+     		 opacity: '0',
      		 }, 200 );
         }
     );  
