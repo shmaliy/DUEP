@@ -23,12 +23,12 @@ var text = $(".input").val();
     );  
     $(".language").hover(
    	    function () {
-   	    	 $(".lang_dop").css('display','block');
+   	    	 $(".lang_dop").fadeIn(200); 
 
         },
         function () {
         	
-            $(".lang_dop").css('display','none');
+            $(".lang_dop").fadeOut(200); 
         }
     );  
     $(".input").focus(function(){
