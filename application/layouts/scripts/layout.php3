@@ -74,7 +74,6 @@
 						<!--td class="active"><div class="menu_item"><a href="">Университет</a></div></td-->
 						<td class="main_down">
 							<a href="#" class="menu_item">Университет</a>
-							
 							<div class="dropDown">
 								<div class="droupdaun_top"></div>
 								<ul class = "list_main">
