@@ -1,27 +1,40 @@
-$(document).ready(function(){
-alert('hello');
-	$(".main_down").mouseover(function(){
-		
-		var main = $(this).find('.list_main');
-		var on = 1;
+ $(document).ready(function () {   
+var text = '';
+   $(".main_down").hover(
+   	    function () {
+   	    	var block = $(this);
+			var	main = block.find('.list_main');
+            //показать подменю
+            main.animate({
+     		  marginTop: '0%',
+     		  }, 500 );
 
-		anime(main, on);
-	}).mouseout(function(){
-     var main = $(this).find('.list_main');
-     var off = 0;
-		anime(main, off);
-    });
-	
-	function anime(main,param){
-		if (param == 1){
-		main.animate({
-        margin-top: -100%
-      }, 500 );
-	}else{
-			main.animate({
-        margin-top: 0%
-      }, 500 );
-	};
-	}
+        },
+        function () {
+        	var block = $(this);
+			var	main = block.find('.list_main');
+            //скрыть подменю
+            main.animate({
+     		 marginTop: '-100%',
+     		 }, 500 );
+        }
+    );  
+    $(".language").hover(
+   	    function () {
+   	    	 $(".lang_dop").css('display','block');
 
+        },
+        function () {
+        	
+            $(".lang_dop").css('display','none');
+        }
+    );  
+    $(".input").focus(function(){
+    	text = $(this).val();
+    	$(this).val('');
+    }).blur(function(){
+    	if($(this).val() == ''){
+    	$(this).val(text);
+    }
+    })
 });

@@ -4,7 +4,7 @@
 <?php 
 	// установка ссылок в скрипте вида:
 	$this->headLink()->appendStylesheet('/theme/css/main.css')
-		 ->headLink()->appendStylesheet('/js/index.js')
+		
 	     ->headLink(array('rel' => 'favicon',
 	                      'href' => '/img/favicon.ico'),
 	                      'PREPEND');
@@ -18,6 +18,7 @@
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload/swfupload.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload.js');
 		$this->headScript()->appendFile('/js/script.js');
+		$this->headScript()->appendFile('/js/index.js');
 		echo $this->headScript();
     ?>
 		
@@ -33,11 +34,11 @@
 			
 			<div class="language">
 				<div class="language_active relative">
-					<div class="language_active_left"></div>
+					<div class="language_active_left lang"></div>
 					<img src="/theme/img/front/ru.jpg" class="lan"/><a href="№" class="dashed">Русский</a> &#8595;
 					<div class="language_active_right"></div>
 				</div>
-				<div class="pop_up">
+				<div class="pop_up lang_dop">
 					<div class="pop_up_left_top"></div>
 					<div class="pop_up_right_top"></div>
 					<div class="pop_up_top_l"></div>
@@ -153,28 +154,3 @@
 	</div>
 </body>
 </html>
- <script type="text/javascript">
- $(document).ready(function () {   
-
-   $(".main_down").hover(
-   	    function () {
-   	    	var block = $(this);
-			var	main = block.find('.list_main');
-            //показать подменю
-            main.animate({
-     		  marginTop: '0%',
-     		  }, 500 );
-
-        },
-        function () {
-        	var block = $(this);
-			var	main = block.find('.list_main');
-            //скрыть подменю
-            main.animate({
-     		 marginTop: '-100%',
-     		 }, 500 );
-        }
-    );  
-
-});
-</script>
