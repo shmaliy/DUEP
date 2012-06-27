@@ -1,4 +1,4 @@
- $(document).ready(function () {   
+  $(document).ready(function () {   
 var text = $(".input").val();
    $(".main_down").hover(
    	    function () {
@@ -39,3 +39,10 @@ var text = $(".input").val();
     }
     })
 });
+  function load(){
+  	var url = window.location.href;
+  	var index = window.location.protocol+'//'+window.location.hostname+'/';
+  	if (url == index){
+  	 $('.load').fadeIn(3000);  
+  	}
+  }

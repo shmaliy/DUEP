@@ -25,7 +25,8 @@
 	<meta charset="utf-8">
 	<title>DUEP</title>
 </head>
-<body>
+<body onload="load();">
+	<div class='load' style="display:none;">
 	<div class="header">
 		<div class="headerResize">
 			<a href="#" class="logo">
@@ -161,6 +162,7 @@
 			   </form>
 			<div class="social_networks"><b>Поделится ссылкой</b></div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>
