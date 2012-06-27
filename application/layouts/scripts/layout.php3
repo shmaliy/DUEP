@@ -87,7 +87,20 @@
 								<div class="droupdaun_bottom"></div>
 							</div>
 						</td>
-						<td><div class="menu_item"><a href="">Образование<br> для жизни!</a></div></td>
+						<td class="main_down"><div class="menu_item"><a href="">Образование<br> для жизни!</a></div>
+
+							<div class="dropDown">
+								<div class="droupdaun_top"></div>
+								<ul class = "list_main">
+									<li><a href="">Университет</a></li>
+									<li><a href="">Руководство</a></li>
+									<li><a href="">Награды</a></li>
+									<li><a href="">Про нас пишут</a></li>
+									<li><a href="">Структура Университета</a></li>
+								</ul>
+								<div class="droupdaun_bottom"></div>
+							</div>
+						</td>
 						<td><a href="">Студенческая<br> жизнь</a></td>
 						<td><a href="">Наука</a></td>
 						<td><a href="">Международное<br> сотрудничество</a></td>

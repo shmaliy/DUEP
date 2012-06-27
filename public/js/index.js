@@ -1,5 +1,5 @@
  $(document).ready(function () {   
-var text = '';
+var text = $(".input").val();
    $(".main_down").hover(
    	    function () {
    	    	var block = $(this);
@@ -7,7 +7,7 @@ var text = '';
             //показать подменю
             main.animate({
      		  marginTop: '0%',
-     		  }, 500 );
+     		  }, 200 );
 
         },
         function () {
@@ -16,7 +16,7 @@ var text = '';
             //скрыть подменю
             main.animate({
      		 marginTop: '-100%',
-     		 }, 500 );
+     		 }, 200 );
         }
     );  
     $(".language").hover(
@@ -30,7 +30,6 @@ var text = '';
         }
     );  
     $(".input").focus(function(){
-    	text = $(this).val();
     	$(this).val('');
     }).blur(function(){
     	if($(this).val() == ''){

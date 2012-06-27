@@ -722,3 +722,6 @@ ul {
 	top: 0px;
 	right: -21px;
 }
+.main_down{
+	cursor: pointer;
+}
