@@ -44,6 +44,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     		$this->_setDatabases();
     		$this->_setRouter();
     		$this->_setPlugins();
+    		$this->_setHelpers();
     	} catch (Exception $e) {
     		echo $e->getMessage() . '<br /><br />';
     		echo nl2br($e->getTraceAsString());
@@ -160,6 +161,17 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	// SWF can't send session id via cookies, use manual set
     	$swfSession = new Sunny_SwfSession();
     	$frontController->registerPlugin($swfSession, -100);
+    }
+    
+    protected function _setHelpers()
+    {
+    	//$loader = Zend_Controller_Action_HelperBroker::getPluginLoader();
+    	//$loader->addPrefixPath('Sunny_Controller_Action_Helper', 'Sunny/Controller/Action/Helper/');
+    	//Zend_Controller_Action_HelperBroker::setPluginLoader($loader);
+    	
+    	$helper = new Sunny_Controller_Action_Helper_ArrayTrans();
+    	Zend_Controller_Action_HelperBroker::addHelper($helper);
+    	//Zend_Controller_Action_HelperBroker::getStack()->offsetSet(null, $helper);
     }
     
     /**

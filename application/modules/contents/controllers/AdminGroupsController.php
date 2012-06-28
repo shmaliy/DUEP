@@ -30,7 +30,7 @@ class Contents_AdminGroupsController extends Sunny_Controller_Action
 		$this->view->rowset = $this->_getMapper()->fetchPage();
 		$this->view->total  = $this->_getMapper()->fetchCount();
 		
-		$this->_helper->arrayTrans();
+		echo $this->_helper->arrayTrans();
 	}
 	
 	public function deleteAction()
