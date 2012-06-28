@@ -44,3 +44,4 @@ $adminTableNavOptions = array(
 	</tbody>
 </table>
 <?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
+<?php echo $this->partial('admin-groups/index-partial.php3', 'users', array('tree' => $this->tree)); ?>

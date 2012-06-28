@@ -32,7 +32,13 @@ class Users_AdminGroupsController extends Sunny_Controller_Action
     	$this->view->total  = $this->_getMapper()->fetchCount();
     	
     	$tree = $this->_getMapper()->fetchTree();
+    	echo '<pre>';
     	//var_dump($tree);
+    	echo '</pre>';
+    	
+    	$this->view->tree = $tree;
+    	
+    	
     }
 	    
     public function editAction()
