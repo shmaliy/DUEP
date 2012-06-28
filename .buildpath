@@ -2,5 +2,5 @@
 <buildpath>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
 	<buildpathentry kind="src" path=""/>
-	<buildpathentry kind="con" path="org.eclipse.dltk.USER_LIBRARY/ZEND"/>
+	<buildpathentry kind="con" path="org.eclipse.dltk.USER_LIBRARY/Zend_Framework"/>
 </buildpath>
