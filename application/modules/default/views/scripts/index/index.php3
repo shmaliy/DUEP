@@ -1,4 +1,3 @@
-
 			<div class="fixed">
 				<div class="promo relative">
 					<img src="/theme/img/front/promo.jpg"/>
