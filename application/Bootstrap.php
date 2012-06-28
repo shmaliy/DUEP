@@ -115,6 +115,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     		Zend_Registry::set(self::MULTIDB_REGISTRY_KEY, $adapters);
     	}
     	
+    	// Create adapters
     	$haveDefault = false;
     	foreach ($options as $adapterName => $params) {
     		$params['params']['options']['adapterName'] = $adapterName;    		
@@ -134,6 +135,18 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     		$adapters[$adapterName] = $db;
     	}
     	
+    	// Set DbTable metadata cache
+    	$frontend = new Zend_Cache_Core(array('automatic_serialization' => true));
+    	if (extension_loaded('apc')) {
+    		$backend = new Zend_Cache_Backend_Apc();
+    	} else {
+    		$backend = new Zend_Cache_Backend_File(array('cache_dir' => ROOT_PATH . '/data/cache'));
+    	}
+    	
+    	$metadataCache = Zend_Cache::factory($frontend, $backend);
+    	Zend_Db_Table_Abstract::setDefaultMetadataCache($metadataCache);
+    	
+    	// Store back to registry
     	Zend_Registry::set(self::MULTIDB_REGISTRY_KEY, $adapters);
     }
     
