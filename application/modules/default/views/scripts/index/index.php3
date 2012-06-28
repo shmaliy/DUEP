@@ -1,4 +1,4 @@
-			<div class="fixed">
+
 				<div class="promo relative">
 					<img src="/theme/img/front/promo.jpg"/>
 					<div class="promo_text">
@@ -186,4 +186,3 @@
 						<div class="clearer"></div>
 					</div>
 				</div>
-			</div>
