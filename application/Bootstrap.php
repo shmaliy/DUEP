@@ -157,16 +157,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	$frontController = Zend_Controller_Front::getInstance();
     	$router = $frontController->getRouter();
     	
-    	/* Override default route
+    	// Override default route
     	$router->addRoute('default', $route = new Zend_Controller_Router_Route(
-	    	'/',
+	    	':module/:controller/:action/*',
     		array(
     			'module' => 'default',
     			'controller' => 'index',
     			'action' => 'index'
     		)
     	));
-    	*/
+    	
     	 
     	
     	$frontController->setRouter($router);

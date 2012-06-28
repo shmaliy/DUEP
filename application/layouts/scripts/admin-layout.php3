@@ -35,6 +35,11 @@
 							<ul>
 								<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'media'); ?>">Файлы</a></li>				
 							</ul>
+						</li>
+						<li><a href="#" class="group">Контент</a>
+							<ul>
+								<li><a href="<?php echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Группы контента</a></li>
+							</ul>
 						</li>				
 					</ul>
 				</li>				
