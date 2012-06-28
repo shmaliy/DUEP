@@ -380,8 +380,9 @@ ul {
 
   
   .promo{
-	margin-bottom: 20px;
+	margin: 0 0 20px -4px;
 	height: 372px;
+	width:1008px;
    }
   
    .promo img{
