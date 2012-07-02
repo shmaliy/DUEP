@@ -2,7 +2,7 @@
 
 class Contents_AdminCategoriesController extends Sunny_Controller_Action
 {	
-	protected $_mapperName = 'Contents_Model_Mapper_ContentCategories';
+	protected $_mapperName = 'Contents_Model_Mapper_ContentsCategories';
 	
 	public function init()
 	{

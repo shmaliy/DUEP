@@ -139,6 +139,20 @@ ul.generic-menu li.hover ul,
 ul.generic-menu li ul li.hover ul {
 	display: block;
 }
+
+ul.generic-menu li ul li.hover ul li ul {
+	display: none;
+}
+
+ul.generic-menu li ul li ul li ul {
+	display: none;
+}
+
+ul.generic-menu li ul li ul li.hover ul {
+	display: block;
+}
+
+
 /* Generic ul menu end */
 
 /* Icons start */

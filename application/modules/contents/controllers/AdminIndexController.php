@@ -2,7 +2,7 @@
 
 class Contents_AdminIndexController extends Sunny_Controller_Action
 {	
-	protected $_mapperName = 'Content_Model_Mapper_Content';
+	protected $_mapperName = 'Contents_Model_Mapper_Contents';
 	
 	public function init()
 	{
@@ -23,9 +23,12 @@ class Contents_AdminIndexController extends Sunny_Controller_Action
 	public function indexAction()
     {
     	$request = $this->getRequest();
+    	$params = $request->getParams();
+    	
     	 
     	$session = $this->getSession();
     	$this->view->page   = $session->{self::SESSION_PAGE};
+    	$this->view->group = $params['group'];
     	$this->view->rows   = $session->{self::SESSION_ROWS};
     	
     	$this->view->rowset = $this->_getMapper()->fetchPage();
@@ -36,9 +39,23 @@ class Contents_AdminIndexController extends Sunny_Controller_Action
     {
     	$request = $this->getRequest();
 		$mapper  = $this->_getMapper();
+		
+		$params = $request->getParams();
+		//echo $this->_helper->arrayTrans($params);
+		//echo ucfirst($params['group']);
+		
+		$formName = 'Contents_Form_' . ucfirst($params["group"]) . 'Edit'; 
+		$form  = new $formName();
+		$form->setAction($this->_helper->url->simple('edit', $this->_c, $this->_m, array('group' => $params['group'])));
     	
+		if ($request->isXmlHttpRequest() || $request->isPost()) {
+			
+		} else {
+			$this->view->form = $form;
+		}
+		
     	// Setup form valid action
-		$form = new Media_Form_MediaEdit();
+		/*$form = new Media_Form_MediaEdit();
     	$form->setAction($this->_helper->url->simple('edit', $this->_c, $this->_m));
     	
     	// Processing _POST
@@ -71,45 +88,7 @@ class Contents_AdminIndexController extends Sunny_Controller_Action
     		}
     		
     		$this->view->form = $form;
-    	}
-    }
-    
-    public function uploadAction()
-    {
-    	$request = $this->getRequest();
-    	
-    	if ($request->isFlashRequest()) {
-	    	$postName = 'upload';
-	    	
-	    	$transfer = new Zend_File_Transfer_Adapter_Http();
-	    	$transfer->setDestination(PUBLIC_PATH . '/uploads');
-	    	
-	    	if (!$transfer->isValid($postName)) {
-	    		$this->view->error[] = 'not valid';
-	    	}
-	    	
-	    	$transfer->receive($postName);
-	    	if (!$transfer->isReceived()) {
-	    		$this->view->error[] = 'not recieved';
-	    	}
-	    	
-	    	// TODO: move to model
-	    	$fileInfo = $transfer->getFileInfo($postName);
-	    	$entity = $this->_getMapper()->createEntity();
-	    	$p = strripos($postName, '/');
-	    	$entity->setName($fileInfo[$postName]['name']);
-	    	$entity->setServerPath(PUBLIC_PATH . '/uploads');
-	    	$id = $this->_getMapper()->saveEntity($entity);
-	    	 
-	    	$this->view->success = true;
-	    	$this->view->fileInfo = $fileInfo;
-	    	$this->view->redirectTo = $this->_helper->url->simple('edit', $this->_c, $this->_m, array('id' => $id));
-	    	$this->_helper->json(get_object_vars($this->view));
-    	} else {
-    		$this->view->form = new Media_Form_MediaCreate(array('uploadUrl' => $this->_helper->url->simple($this->_a, $this->_c, $this->_m)));
-    		//$this->view->render('admin-index/edit.php3');
-    		$this->render('edit');
-    	}
+    	}*/
     }
     
     public function deleteAction()

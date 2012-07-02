@@ -14,10 +14,10 @@ $adminTableNavOptions = array(
 	<thead>
 		<tr>
 			<th align="left" width="1%"><a class="icon-16 icon-16-add" href="<?php
-				echo $this->simpleUrl('upload', $this->c, $this->m);
+				echo $this->simpleUrl('edit', $this->c, $this->m, array('group' => $this->group));
 			?>"></a></th>
 			<th width="1%"><input type="checkbox" class="selectAll" /></th>
-			<th>Ф.И.О.</th>
+			<th>Название</th>
 			<th width="1%" nowrap="nowrap">Дата создания</th>
 			<th width="1%" nowrap="nowrap">Дата изменения</th>
 		</tr>

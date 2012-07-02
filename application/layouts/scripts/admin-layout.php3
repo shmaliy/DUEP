@@ -29,8 +29,6 @@
 				<li><a>Структура</a></li>				
 				<li><span>Модули</span>
 					<ul>
-						<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'staff'); ?>">Карточки сотрудников</a></li>				
-						<li><a href="<?php echo $this->simpleUrl('index', 'admin-students', 'staff'); ?>">Карточки студентов</a></li>				
 						<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'media'); ?>" class="group">Файловый архив</a>
 							<ul>
 								<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'media'); ?>">Файлы</a></li>				
@@ -38,9 +36,39 @@
 						</li>
 						<li><a href="#" class="group">Контент</a>
 							<ul>
-								<li><a href="<?php echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Группы контента</a></li>
+								<li><span class="group">Анонсы</span>
+									<ul>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'contents', array('group' => 'announcements')); ?>">Категории</a></li>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'announcements')); ?>">Контент</a></li>
+									</ul>
+								</li>
+								<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>" class="group">Новости</a>
+									<ul>
+										<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Категории</a></li>
+										<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Контент</a></li>
+									</ul>
+								</li>
+								<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>" class="group">События</a>
+									<ul>
+										<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Категории</a></li>
+										<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Контент</a></li>
+									</ul>
+								</li>
+								<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>" class="group">Архив публикаций</a></li>
 							</ul>
-						</li>				
+						</li>
+						<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'staff'); ?>" class="group">Структура университета</a>
+							<ul>
+								<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Направления</a></li>
+								<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Кафедры</a></li>
+								<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Дисциплины</a></li>
+								<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Подразделения</a></li>
+								<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'staff'); ?>">Карточки сотрудников</a></li>
+								<li><a href="<?php echo $this->simpleUrl('index', 'admin-students', 'staff'); ?>">Карточки студентов</a></li>	
+								<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Аудитории</a></li>
+								<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Группы</a></li>
+							</ul>	
+						</li>					
 					</ul>
 				</li>				
 				<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'users'); ?>" class="group">Пользователи</a>

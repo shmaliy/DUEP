@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.3
+-- version 3.2.3
 -- http://www.phpmyadmin.net
 --
--- Хост: localhost
--- Время создания: Июн 22 2012 г., 15:22
--- Версия сервера: 5.1.50
--- Версия PHP: 5.3.9-ZS5.6.0
+-- Host: localhost
+-- Generation Time: Jul 02, 2012 at 01:59 PM
+-- Server version: 5.1.40
+-- PHP Version: 5.3.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,13 +16,145 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `sunny_duep`
+-- Database: `sunny_duep`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `media`
+-- Table structure for table `contents`
+--
+
+DROP TABLE IF EXISTS `contents`;
+CREATE TABLE IF NOT EXISTS `contents` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contents_categories_id` int(11) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `alias` varchar(255) DEFAULT NULL,
+  `tizer` text,
+  `description` text,
+  `img` varchar(255) DEFAULT NULL,
+  `ordering` int(11) DEFAULT NULL,
+  `published` int(11) DEFAULT NULL,
+  `language` int(11) DEFAULT NULL,
+  `seo_title` varchar(255) DEFAULT NULL,
+  `seo_description` text,
+  `seo_keywords` text,
+  `name_main` varchar(255) DEFAULT NULL,
+  `name_bc` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT NULL,
+  `user_created` int(11) DEFAULT NULL,
+  `date_rewrite` int(11) DEFAULT NULL,
+  `user_rewrite` int(11) DEFAULT NULL,
+  `admin_comment` text,
+  `line_id` int(11) DEFAULT NULL,
+  `staff_name` varchar(255) DEFAULT NULL,
+  `staff_lastname` varchar(255) DEFAULT NULL,
+  `staff_secondname` varchar(255) DEFAULT NULL,
+  `adress` text,
+  `requisitites` text,
+  `phone_work` varchar(45) DEFAULT NULL,
+  `phone_personal` varchar(45) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `qr_code` text,
+  `gps` text,
+  `list_of_staff` text,
+  `list_of_teachers` text,
+  `director` int(11) DEFAULT NULL,
+  `parent_direction` int(11) DEFAULT NULL,
+  `parent_kafedra` int(11) DEFAULT NULL,
+  `contents_id` int(11) DEFAULT NULL,
+  `parent_group` int(11) DEFAULT NULL,
+  `parent_user_account` int(11) DEFAULT NULL,
+  `history` text,
+  `contacts` text,
+  `settings_comments` int(11) DEFAULT NULL,
+  `settings_rss` int(11) DEFAULT NULL,
+  `settings_email_feed` int(11) DEFAULT NULL,
+  `settings_callback` int(11) DEFAULT NULL,
+  `settings_feedback` int(11) DEFAULT NULL,
+  `admin_email` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='таблица контента, являет собой сборную солянку всех требуемы' AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `contents`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contents_categories`
+--
+
+DROP TABLE IF EXISTS `contents_categories`;
+CREATE TABLE IF NOT EXISTS `contents_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contents_groups_id` int(11) DEFAULT NULL,
+  `contents_categories_id` int(11) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `alias` varchar(255) DEFAULT NULL,
+  `description` text,
+  `settings_comments` int(11) DEFAULT NULL,
+  `settings_rss` int(11) DEFAULT NULL,
+  `settings_email_feed` int(11) DEFAULT NULL,
+  `language` int(11) DEFAULT NULL,
+  `ordering` int(11) DEFAULT NULL,
+  `published` int(11) DEFAULT NULL,
+  `admin_comment` text,
+  `seo_title` varchar(255) DEFAULT NULL,
+  `seo_description` text,
+  `seo_keywords` text,
+  `name_main` varchar(255) DEFAULT NULL,
+  `name_bc` varchar(255) DEFAULT NULL,
+  `date_created` int(11) DEFAULT NULL,
+  `user_created` int(11) DEFAULT NULL,
+  `date_rewrite` int(11) DEFAULT NULL,
+  `user_rewrite` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `contents_categories`
+--
+
+INSERT INTO `contents_categories` (`id`, `contents_groups_id`, `contents_categories_id`, `title`, `alias`, `description`, `settings_comments`, `settings_rss`, `settings_email_feed`, `language`, `ordering`, `published`, `admin_comment`, `seo_title`, `seo_description`, `seo_keywords`, `name_main`, `name_bc`, `date_created`, `user_created`, `date_rewrite`, `user_rewrite`) VALUES
+(1, 1, 0, 'Анонсы', 'announcements', NULL, 0, 0, 0, NULL, 1, 1, 'Создано в phpMyAdmin', 'Анонсы', NULL, NULL, 'Анонсы', 'анонсы', 1341217734, NULL, NULL, NULL),
+(2, 1, 1, 'Лента 1', 'strip_1', NULL, 0, 0, 0, NULL, 1, 1, 'создано в phpMyAdmin', 'Лента 1', NULL, NULL, 'Лента 1', 'лента 1', 1341217935, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contents_groups`
+--
+
+DROP TABLE IF EXISTS `contents_groups`;
+CREATE TABLE IF NOT EXISTS `contents_groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `alias` varchar(255) DEFAULT NULL,
+  `description` text,
+  `ordering` int(11) DEFAULT NULL,
+  `published` int(11) DEFAULT NULL,
+  `admin_comment` text,
+  `system` int(11) DEFAULT NULL,
+  `date_created` int(11) DEFAULT NULL,
+  `date_modified` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `contents_groups`
+--
+
+INSERT INTO `contents_groups` (`id`, `title`, `alias`, `description`, `ordering`, `published`, `admin_comment`, `system`, `date_created`, `date_modified`) VALUES
+(1, 'Анонсы', 'announcements', 'Группа контента, относящаяся к разделу анонсов', 1, 1, 'Создано в phpMyAdmin', 1, 1341217522, 1341217564);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `media`
 --
 
 DROP TABLE IF EXISTS `media`;
@@ -45,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `media` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Дамп данных таблицы `media`
+-- Dumping data for table `media`
 --
 
 INSERT INTO `media` (`id`, `media_categories_id`, `name`, `server_path`, `public_path`, `title`, `description`, `type`, `thumbnail`, `keywords`, `admin_comment`, `date_created`, `date_modified`, `published`) VALUES
@@ -55,7 +187,7 @@ INSERT INTO `media` (`id`, `media_categories_id`, `name`, `server_path`, `public
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `media_categories`
+-- Table structure for table `media_categories`
 --
 
 DROP TABLE IF EXISTS `media_categories`;
@@ -75,14 +207,14 @@ CREATE TABLE IF NOT EXISTS `media_categories` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `media_categories`
+-- Dumping data for table `media_categories`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `media_statistic`
+-- Table structure for table `media_statistic`
 --
 
 DROP TABLE IF EXISTS `media_statistic`;
@@ -96,14 +228,14 @@ CREATE TABLE IF NOT EXISTS `media_statistic` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `media_statistic`
+-- Dumping data for table `media_statistic`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `staff`
+-- Table structure for table `staff`
 --
 
 DROP TABLE IF EXISTS `staff`;
@@ -125,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Дамп данных таблицы `staff`
+-- Dumping data for table `staff`
 --
 
 INSERT INTO `staff` (`id`, `last_name`, `first_name`, `middle_name`, `private_phone`, `interoffice_phone`, `file_id`, `description`, `published`, `mode`, `users_id`, `date_created`, `date_modified`) VALUES
@@ -135,7 +267,7 @@ INSERT INTO `staff` (`id`, `last_name`, `first_name`, `middle_name`, `private_ph
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `staff_references`
+-- Table structure for table `staff_references`
 --
 
 DROP TABLE IF EXISTS `staff_references`;
@@ -146,14 +278,14 @@ CREATE TABLE IF NOT EXISTS `staff_references` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `staff_references`
+-- Dumping data for table `staff_references`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users`
+-- Table structure for table `users`
 --
 
 DROP TABLE IF EXISTS `users`;
@@ -171,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Users list' AUTO_INCREMENT=3 ;
 
 --
--- Дамп данных таблицы `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `published`, `ordering`, `date_created`, `date_modified`, `admin_comment`) VALUES
@@ -181,7 +313,7 @@ INSERT INTO `users` (`id`, `email`, `password`, `published`, `ordering`, `date_c
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users_groups`
+-- Table structure for table `users_groups`
 --
 
 DROP TABLE IF EXISTS `users_groups`;
@@ -202,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Группы юзеров' AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `users_groups`
+-- Dumping data for table `users_groups`
 --
 
 INSERT INTO `users_groups` (`id`, `title`, `alias`, `description`, `ordering`, `published`, `admin_comment`, `users_groups_id`, `system`, `date_created`, `date_modified`) VALUES
@@ -211,7 +343,7 @@ INSERT INTO `users_groups` (`id`, `title`, `alias`, `description`, `ordering`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users_permissions`
+-- Table structure for table `users_permissions`
 --
 
 DROP TABLE IF EXISTS `users_permissions`;
@@ -227,7 +359,7 @@ CREATE TABLE IF NOT EXISTS `users_permissions` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Список прав доступа' AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `users_permissions`
+-- Dumping data for table `users_permissions`
 --
 
 INSERT INTO `users_permissions` (`id`, `title`, `ordering`, `allow`, `assertion_class`, `date_created`, `date_modified`) VALUES
@@ -236,7 +368,7 @@ INSERT INTO `users_permissions` (`id`, `title`, `ordering`, `allow`, `assertion_
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users_references`
+-- Table structure for table `users_references`
 --
 
 DROP TABLE IF EXISTS `users_references`;
@@ -250,7 +382,7 @@ CREATE TABLE IF NOT EXISTS `users_references` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Cвязи пользователь - группа, пользователь - права' AUTO_INCREMENT=3 ;
 
 --
--- Дамп данных таблицы `users_references`
+-- Dumping data for table `users_references`
 --
 
 INSERT INTO `users_references` (`id`, `users_id`, `users_groups_id`, `users_permissions_id`, `admin_comment`) VALUES
