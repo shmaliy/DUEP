@@ -398,3 +398,72 @@ table.generic-table a {
 }
 .media_form_categoryedit .form-composite-end { clear: both; }
 /* Media category edit form end */
+
+/* Contents edit form start */
+.contents {
+	font-size: 14px;
+}
+
+
+.contents  fieldset {
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-color: #999;
+	border-width: 1px;
+	margin: 5px;
+}
+.contents  .form-composite-element-tag {
+	min-height: 30px;
+}
+.contents  .form-composite-end { clear: both; }
+
+.contents .form-composite-group-main {
+	float:left;
+	clear:both;
+	width:600px;
+}
+
+.contents .form-composite-group-main textarea {
+	width:550px;
+	height:200px;
+}
+
+.contents .form-composite-group-seo,
+.contents .form-composite-group-system,
+.contents .form-composite-group-feeds,
+.contents .form-composite-group-feeds
+ {
+	float:right;
+	width:280px;
+}
+
+.contents .form-composite-group-seo textarea,
+.contents .form-composite-group-system textarea,
+.contents .form-composite-group-feeds textarea,
+.contents .form-composite-group-feeds textarea {
+	width:250px;
+	height:50px;
+}
+
+
+/* Contents edit form end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

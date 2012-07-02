@@ -35,21 +35,62 @@ class Contents_AdminIndexController extends Sunny_Controller_Action
     	$this->view->total  = $this->_getMapper()->fetchCount();
     }
     
+    public function categoriesBuilder($data, $array = array(), $level = 0)
+	{
+		foreach ($data as $branch) {
+			if($level > 0) {
+				$branch->title = str_repeat('—', $level) . $branch->title;
+			} 
+				
+			$array[$branch->id] = $branch->title;
+			if($branch->getExtendChilds()->count() > 0) {
+				$array = $this->categoriesBuilder($branch->getExtendChilds(), $array, $level+1);
+			}
+		}
+		return $array;
+	}
+    
     public function editAction()
     {
     	$request = $this->getRequest();
-		$mapper  = $this->_getMapper();
-		
 		$params = $request->getParams();
+
 		//echo $this->_helper->arrayTrans($params);
 		//echo ucfirst($params['group']);
 		
+		$mapper  = $this->_getMapper();
+		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
+		$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+		
 		$formName = 'Contents_Form_' . ucfirst($params["group"]) . 'Edit'; 
 		$form  = new $formName();
+		
 		$form->setAction($this->_helper->url->simple('edit', $this->_c, $this->_m, array('group' => $params['group'])));
-    	
-		if ($request->isXmlHttpRequest() || $request->isPost()) {
+		$group = $groupsMapper->fetchRow(array('alias = ?' => $params["group"]));
+		$categories = $categoriesMapper->fetchTree(array('contents_groups_id = ?' => $group->id));
+		//echo $this->_helper->arrayTrans($categories);
+		//echo $this->_helper->arrayTrans(categoriesBuilder($categories));
 			
+		$form->contents_categories_id->setMultiOptions($this->categoriesBuilder($categories));
+		
+		
+		if ($request->isXmlHttpRequest() || $request->isPost()) {
+			$this->view->clearVars();
+			
+			if ($form->isValid($request->getParams())) {
+				// Save data
+				$entity = $mapper->createEntity($form->getValues());
+				$mapper->saveEntity($entity);
+				 
+				if (!$request->isXmlHttpRequest()) {
+					$this->_helper->redirector->gotoSimple('index', $this->_c, $this->_m);
+				} else {
+					$this->view->redirectTo = $this->view->simpleUrl('index', $this->_c, $this->_m);
+				}
+			} else {
+				$this->view->formErrors        = $form->getErrors();
+				$this->view->formErrorMessages = $form->getErrorMessages();
+			}
 		} else {
 			$this->view->form = $form;
 		}

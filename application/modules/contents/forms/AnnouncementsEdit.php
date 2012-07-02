@@ -4,68 +4,135 @@ class Contents_Form_AnnouncementsEdit extends Zend_Form
 {
 	public function init()
 	{
-		$this->setName(strtolower(get_class($this)));
+		$this->setName(strtolower('contents'));
 		$this->setMethod(self::METHOD_POST);
 		$this->setAttrib('onsubmit', 'return false;'); // Force send only with ajax
 		$this->setAttrib('class', 'via_ajax');         // Force send only with ajax
-				
-		//  New
 		
+		/*  Externals  */
+		
+		$this->addElement('hidden', 'image');
+		$this->addElement('hidden', 'event');
+		$this->addElement('hidden', 'sheduled');
+		$this->addElement('hidden', 'pages');
+		$this->addElement('hidden', 'files');
+		$this->addElement('hidden', 'photoalbums');
+		$this->addElement('hidden', 'videolists');
+		$this->addElement('hidden', 'videos'); // в данной версии пока не реализовано хранилище
+		
+		/*  Main  */
+		$main = array('main');
+		
+		$main[] = 'contents_categories_id';
 		$this->addElement('select', 'contents_categories_id', array(
 			'label' => 'Родитель'
 		));
 		
-		
-		
-		
-		
-		
-		
-		
-		//  Old
-		$this->addElement('hidden', 'id');
-		
-		$group1 = array('media_categories_id');
-		$this->addElement('select', 'media_categories_id', array(
-			'label' => 'Родитель'
-		));		
-		
-		$group1[] = 'title';
+		$main[] = 'title';
 		$this->addElement('text', 'title', array(
 			'label' => 'Заголовок'
 		));
 		
-		$group1[] = 'public_url';
-		$this->addElement('text', 'public_url', array(
-			'label' => 'Урл'
+		$main[] = 'alias';
+		$this->addElement('text', 'alias', array(
+			'label' => 'Псевдоним (ЧПУ)'
 		));
 		
-		$group1[] = 'cookie_name';
-		$this->addElement('text', 'cookie_name', array(
+		$main[] = 'tizer';
+		$this->addElement('textarea', 'tizer', array(
+			'label' => 'Текст тизера'
+		));
+		
+		$main[] = 'description';
+		$this->addElement('textarea', 'description', array(
+			'label' => 'Полный текст'
+		));
+		
+		$this->addDisplayGroup($main, 'main');
+		
+				
+		/*  SEO  */
+		$seo = array('seo');
+		
+		$seo[] = 'seo_title';
+		$this->addElement('text', 'seo_title', array(
+			'label' => 'SEO заголовок'
+		));
+		
+		$seo[] = 'seo_description';
+		$this->addElement('textarea', 'seo_description', array(
+			'label' => 'SEO описание'
+		));
+		
+		$seo[] = 'seo_keywords';
+		$this->addElement('textarea', 'seo_keywords', array(
+			'label' => 'SEO ключевые слова'
+		));
+		
+		$this->addDisplayGroup($seo, 'seo');
+		
+		
+		/*  System  */
+		$system = array('system');
+		
+		$system[] = 'name_bc';
+		$this->addElement('text', 'name_bc', array(
 			'label' => 'Название для хлебных крошек'
 		));
 		
-		$group1[] = 'menu_title';
-		$this->addElement('text', 'menu_title', array(
-			'label' => 'Название для меню'
-		));
-		
-		$group1[] = 'enable_rss';
-		$this->addElement('checkbox', 'enable_rss', array(
-			'label' => 'Включить в RSS'
-		));
-		
-		$group1[] = 'enable_email';
-		$this->addElement('checkbox', 'enable_email', array(
-			'label' => 'Включить в E-mail рассылку'
-		));
-		
-		$group1[] = 'published';
+		$system[] = 'published';
 		$this->addElement('checkbox', 'published', array(
-			'label' => 'Опубликовать'
+			'label' => 'Опубликовано'
 		));
 		
-		$this->addDisplayGroup($group1, 'group1');
+		$system[] = 'publicate_on_index';
+		$this->addElement('checkbox', 'publicate_on_index', array(
+			'label' => 'Размещать на главной'
+		));
+		
+		$system[] = 'settings_comments';
+		$this->addElement('checkbox', 'settings_comments', array(
+			'label' => 'Разрешить комментарии'
+		));
+		
+		$system[] = 'user_created';
+		$this->addElement('select', 'user_created', array(
+			'label' => 'Автор'
+		));
+		
+		$system[] = 'date_created';
+		$this->addElement('text', 'date_created', array(
+			'label' => 'Дата и время публикации'
+		));
+		
+		$system[] = 'admin_comment';
+		$this->addElement('textarea', 'admin_comment', array(
+			'label' => 'Комментарий администратора'
+		));
+		
+		$this->addDisplayGroup($system, 'system');
+		
+		
+		/*  Feeds  */
+		$feeds = array('feeds');
+		
+		$feeds[] = 'settings_rss';
+		$this->addElement('checkbox', 'settings_rss', array(
+			'label' => 'Включать в RSS ленту'
+		));
+		
+		$feeds[] = 'settings_email_feed';
+		$this->addElement('checkbox', 'settings_email_feed', array(
+			'label' => 'Включать в email рассылку'
+		));
+		
+		$feeds[] = 'settings_calendar';
+		$this->addElement('checkbox', 'settings_calendar', array(
+			'label' => 'Включать в электронный календарь'
+		));
+		
+		$this->addDisplayGroup($feeds, 'feeds');
+		
 		
 		// Submit
 		$this->addElement('submit', 'submit', array(
