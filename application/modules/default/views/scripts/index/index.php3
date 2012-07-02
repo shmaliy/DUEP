@@ -1,4 +1,7 @@
-
+<?php
+		$this->headScript()->appendFile('/js/content.js');
+		
+    ?>
 				<div class="promo relative">
 					<img src="/theme/img/front/promo.jpg"/>
 					<div class="promo_text">
@@ -34,7 +37,7 @@
 						<div class="pl_title_box">Анонсы</div>
 						<div class="right pl_all_box relative">
 							<a href="" class="dashed">Все анонсы</a> &#8595;
-							<div class="pop_up">
+							<div class="pop_up" style = "display: none">
 								<div class="pop_up_left_top"></div>
 								<div class="pop_up_right_top"></div>
 								<div class="pop_up_top_l"></div>
@@ -92,7 +95,33 @@
 				<div class="left content_center bg_0066c1">
 					<div class="pl_bg_box">
 						<div class="pl_title_box">Новости</div>
-						<div class="right pl_all_box"><a href="" class="dashed">Все новости</a> &#8595;</div>
+						<div class="right pl_all_box"><a href="" class="dashed">Все новости</a> &#8595;
+							<div class="pop_up" style = "display: none">
+								<div class="pop_up_left_top"></div>
+								<div class="pop_up_right_top"></div>
+								<div class="pop_up_top_l"></div>
+								<div class="pop_up_top_r"></div>
+								<div class="pop_up_left"></div>
+								<div class="pop_corner"></div>
+								<ul>
+									<li><a href="">Полоса 1</a></li>
+									<li><a href="">Полоса 2</a></li>
+									<li><a href="">Полоса 3</a></li>
+									<li><a href="">Полоса 4</a></li>
+									<li><a href="">Полоса 5</a></li>
+									<li><a href="">Полоса 6</a></li>
+									<li><a href="">Полоса 7</a></li>
+									<li><a href="">Полоса 8</a></li>
+									<li><a href="">Полоса 9</a></li>
+									<li><a href="">Полоса 10</a></li>
+									<li><a href="">Полоса 11</a></li>
+								</ul>
+								<div class="pop_up_left_bottom"></div>
+								<div class="pop_up_right_bottom"></div>
+								<div class="pop_up_right"></div>
+								<div class="pop_up_bottom"></div>
+							</div>
+						</div>
 						<div class="clearer"></div>
 					</div>
 					<div class="pl_item_box">

@@ -38,6 +38,16 @@ var text = $(".input").val();
     	$(this).val(text);
     }
     })
+    $(".pl_all_box").hover(
+   	    function () {
+   	    	$(this).find('.pop_up').fadeIn(200); 
+
+        },
+        function () {
+        	
+          $(this).find('.pop_up').fadeOut(200); 
+        }
+    );  
 });
   function load(){
   	var url = window.location.href;
