@@ -11,6 +11,7 @@ class Contents_Form_AnnouncementsEdit extends Zend_Form
 		
 		/*  Externals  */
 		
+		$this->addElement('hidden', 'id');
 		$this->addElement('hidden', 'image');
 		$this->addElement('hidden', 'event');
 		$this->addElement('hidden', 'sheduled');
@@ -90,19 +91,9 @@ class Contents_Form_AnnouncementsEdit extends Zend_Form
 			'label' => 'Размещать на главной'
 		));
 		
-		$system[] = 'settings_comments';
-		$this->addElement('checkbox', 'settings_comments', array(
+		$system[] = 'enable_comments';
+		$this->addElement('checkbox', 'enable_comments', array(
 			'label' => 'Разрешить комментарии'
-		));
-		
-		$system[] = 'user_created';
-		$this->addElement('select', 'user_created', array(
-			'label' => 'Автор'
-		));
-		
-		$system[] = 'date_created';
-		$this->addElement('text', 'date_created', array(
-			'label' => 'Дата и время публикации'
 		));
 		
 		$system[] = 'admin_comment';
@@ -116,18 +107,18 @@ class Contents_Form_AnnouncementsEdit extends Zend_Form
 		/*  Feeds  */
 		$feeds = array('feeds');
 		
-		$feeds[] = 'settings_rss';
-		$this->addElement('checkbox', 'settings_rss', array(
+		$feeds[] = 'enable_rss';
+		$this->addElement('checkbox', 'enable_rss', array(
 			'label' => 'Включать в RSS ленту'
 		));
 		
-		$feeds[] = 'settings_email_feed';
-		$this->addElement('checkbox', 'settings_email_feed', array(
+		$feeds[] = 'enable_email';
+		$this->addElement('checkbox', 'enable_email', array(
 			'label' => 'Включать в email рассылку'
 		));
 		
-		$feeds[] = 'settings_calendar';
-		$this->addElement('checkbox', 'settings_calendar', array(
+		$feeds[] = 'enable_calendar';
+		$this->addElement('checkbox', 'enable_calendar', array(
 			'label' => 'Включать в электронный календарь'
 		));
 		

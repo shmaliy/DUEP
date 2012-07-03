@@ -27,11 +27,11 @@ $adminTableNavOptions = array(
 	<?php foreach ($this->rowset as $row): ?>
 		<tr>
 			<td width="40" nowrap="nowrap">
-				<a class="icon-16 icon-16-edit" href="<?php echo $this->simpleUrl('edit', $this->c, $this->m, array('id' => $row->getId())); ?>"></a>
-				<a class="icon-16 icon-16-delete" onclick="return deleteItem('<?php echo $this->simpleUrl('delete', $this->c, $this->m); ?>', <?php echo $row->getId(); ?>);"></a>
+				<a class="icon-16 icon-16-edit" href="<?php echo $this->simpleUrl('edit', $this->c, $this->m, array('group' => $this->group, 'id' => $row->getId())); ?>"></a>
+				<a class="icon-16 icon-16-delete" onclick="return deleteItem('<?php echo $this->simpleUrl('delete', $this->c, $this->m, array('group' => $this->group)); ?>', <?php echo $row->getId(); ?>);"></a>
 			</td>
 			<td><input type="checkbox" class="selectOne" name="multi[<?php echo $row->getId(); ?>]" /></td>
-			<td><?php echo $row->getName(); ?></td>
+			<td><?php echo $row->getTitle(); ?></td>
 			<td align="right"><?php echo date('m.d.Y', $row->getDateCreated()); ?></td>
 			<td align="right"><?php echo date('m.d.Y', $row->getDateCreated()); ?></td>
 		</tr>
