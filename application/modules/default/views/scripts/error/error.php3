@@ -40,6 +40,7 @@
                 <?php foreach ($queries as $query): ?>
                 <div><?php echo $query->getQuery(); ?></div>
                 <?php endforeach; ?>
+                <div><?php echo $profiler->getLastQueryProfile()->getQuery(); ?></div>
                 <?php else: ?>
                 (Empty)
                 <?php endif; ?>

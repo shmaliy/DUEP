@@ -1,4 +1,4 @@
-  $(document).ready(function () {   
+$(document).ready(function () {   
 var text = $(".input").val();
    $(".main_down").hover(
    	    function () {
@@ -48,6 +48,25 @@ var text = $(".input").val();
           $(this).find('.pop_up').fadeOut(200); 
         }
     );  
+    $(".cat_anons").live("click",function(){
+    	var ans_id = $(this).attr('ans_id');
+    	$.ajax({
+    		   type: "POST",
+    		   url: "/default/index/front-announcements",
+    		   data: {"ans_id": ans_id},
+    		   success: function(content){
+    			   var html = '';
+    			   for ( var i = 0; i < content.contents.length; i++) {
+    			  html += '<div class="pl_item_box">';
+    				  html += '<div class="pl_item_title">'+content.contents[i].date_created+'</div>';
+    				  html += '<div>'+content.contents[i].tizer+'</div>';
+    				  html += '</div>';
+    			   }
+    			   $('.ans_block').html(html);
+    			  
+    		   }
+    		 });
+    });
 });
   function load(){
   	var url = window.location.href;
@@ -56,3 +75,4 @@ var text = $(".input").val();
   	 $('.load').fadeIn(3000);  
   	}
   }
+ 

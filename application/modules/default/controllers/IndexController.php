@@ -21,6 +21,7 @@ class IndexController extends Zend_Controller_Action
 		$context = $this->_helper->AjaxContext();
 		$context->addActionContext('index', 'json');
 		$context->addActionContext('config', 'json');
+		$context->addActionContext('front-announcements', 'json');
 		
 		$context->initContext('json');
 	}
@@ -32,6 +33,17 @@ class IndexController extends Zend_Controller_Action
 	public function indexAction()
     {
     	
+    	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+    	$this->view->group = $groupsMapper->getFrontGroupByAlias ("announcements");
+    	
+    	$catMapper = new Contents_Model_Mapper_ContentsCategories();
+    	$this->view->cats = $catMapper->getFrontCatsByGroupId($this->view->group->id);
+    	
+    	$contentsMapper = new Contents_Model_Mapper_Contents();
+    	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->group->id,'date_created desc',6);
+    	
+    	//$contentsMapper = new Contents_Model_Mapper_Contents();
+    	//$this->view->contents = $contentsMapper->getFrontContentsByCatId($cats->id,'date_created desc',6);
     }
 	
     /**
@@ -62,4 +74,11 @@ class IndexController extends Zend_Controller_Action
     {
     	
     }
+    public function frontAnnouncementsAction()
+    {
+    	$ans_id = $this->getRequest()->getParam('ans_id');
+    	$contentsMapper = new Contents_Model_Mapper_Contents();
+    	$this->view->contents = $contentsMapper->getFrontContentsByCatId($ans_id,'date_created desc',6)->toArray();
+    }
+    
 }

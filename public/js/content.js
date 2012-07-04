@@ -1,4 +1,4 @@
-  $(document).ready(function () {   
+$(document).ready(function () {   
  
     $(".pl_all_box").hover(
    	    function () {

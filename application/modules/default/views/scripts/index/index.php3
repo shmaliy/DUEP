@@ -1,7 +1,3 @@
-<?php
-		$this->headScript()->appendFile('/js/content.js');
-		
-    ?>
 				<div class="promo relative">
 					<img src="/theme/img/front/promo.jpg"/>
 					<div class="promo_text">
@@ -45,17 +41,10 @@
 								<div class="pop_up_left"></div>
 								<div class="pop_corner"></div>
 								<ul>
-									<li><a href="">Полоса 1</a></li>
-									<li><a href="">Полоса 2</a></li>
-									<li><a href="">Полоса 3</a></li>
-									<li><a href="">Полоса 4</a></li>
-									<li><a href="">Полоса 5</a></li>
-									<li><a href="">Полоса 6</a></li>
-									<li><a href="">Полоса 7</a></li>
-									<li><a href="">Полоса 8</a></li>
-									<li><a href="">Полоса 9</a></li>
-									<li><a href="">Полоса 10</a></li>
-									<li><a href="">Полоса 11</a></li>
+								<?php foreach ($this->cats as $item):?>
+									<li><a style ="cursor: pointer;" class = "cat_anons" ans_id = "<?php echo $item->id;?>" ans_alias = "<?php echo $item->alias;?>"><?php echo $item->title;?></a></li>
+
+									<?php endforeach;?>
 								</ul>
 								<div class="pop_up_left_bottom"></div>
 								<div class="pop_up_right_bottom"></div>
@@ -66,30 +55,14 @@
 						
 						<div class="clearer"></div>
 					</div>
+					<span class = "ans_block">
+					<?php foreach ($this->announcements as $item):?>
 					<div class="pl_item_box">
-						<div class="pl_item_title">3 Квітня 2012</div>
-						<div>Визначення досягнень Дніпропетровського університету імені Альфреда Нобеля на XXI Міжнародній виставці "Освіта та кар'єра - 2012" у Києві! </div>
+						<div class="pl_item_title"><?php echo $item->date_created;?></div>
+						<div><?php echo $item->tizer;?></div>
 					</div>
-					<div class="pl_item_box">
-						<div class="pl_item_title">3 Квітня 2012</div>
-						<div>Визначення досягнень Дніпропетровського університету імені Альфреда Нобеля на XXI Міжнародній виставці "Освіта та кар'єра - 2012" у Києві! </div>
-					</div>
-					<div class="pl_item_box">
-						<div class="pl_item_title">3 Квітня 2012</div>
-						<div>Визначення досягнень Дніпропетровського університету імені Альфреда Нобеля на XXI Міжнародній виставці "Освіта та кар'єра - 2012" у Києві! </div>
-					</div>
-					<div class="pl_item_box">
-						<div class="pl_item_title">3 Квітня 2012</div>
-						<div>Визначення досягнень Дніпропетровського університету імені Альфреда Нобеля на XXI Міжнародній виставці "Освіта та кар'єра - 2012" у Києві! </div>
-					</div>
-					<div class="pl_item_box">
-						<div class="pl_item_title">3 Квітня 2012</div>
-						<div>Визначення досягнень Дніпропетровського університету імені Альфреда Нобеля на XXI Міжнародній виставці "Освіта та кар'єра - 2012" у Києві! </div>
-					</div>
-					<div class="pl_item_box">
-						<div class="pl_item_title">3 Квітня 2012</div>
-						<div>Визначення досягнень Дніпропетровського університету імені Альфреда Нобеля на XXI Міжнародній виставці "Освіта та кар'єра - 2012" у Києві! </div>
-					</div>
+					<?php endforeach;?>
+					</span>
 				</div>
 				
 				<div class="left content_center bg_0066c1">

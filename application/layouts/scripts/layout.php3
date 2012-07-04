@@ -19,6 +19,7 @@
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload.js');
 		$this->headScript()->appendFile('/js/script.js');
 		$this->headScript()->appendFile('/js/index.js');
+		$this->headScript()->appendFile('/js/content.js');
 		echo $this->headScript();
     ?>
 		

@@ -1,5 +1,5 @@
-#Thu Jun 28 18:43:43 EEST 2012
+#Wed Jul 04 11:44:15 EEST 2012
 eclipse.preferences.version=1
-include_path=0;/duep\u00055;org.eclipse.dltk.USER_LIBRARY/Zend_Framework\u00055;org.eclipse.dltk.USER_LIBRARY/ZEND
+include_path=5;org.eclipse.dltk.USER_LIBRARY/Zend_Framework\u00055;org.eclipse.dltk.USER_LIBRARY/ZEND\u00051;W\:/home/ZEND
 phpVersion=php5.3
 use_asp_tags_as_php=false

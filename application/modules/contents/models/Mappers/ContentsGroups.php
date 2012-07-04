@@ -2,5 +2,9 @@
 
 class Contents_Model_Mapper_ContentsGroups extends Sunny_DataMapper_MapperAbstract
 {
+	public function getFrontGroupByAlias ($alias)
+	{
+		return $this->fetchRow(array($this->quoteIdentifier("alias") . " = ?"=>$alias));
+	}
 	
 }
