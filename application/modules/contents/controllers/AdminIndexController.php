@@ -66,12 +66,12 @@ class Contents_AdminIndexController extends Sunny_Controller_Action
 		$mapper  = $this->_getMapper();
 		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
 		$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+		$group = $groupsMapper->fetchRow(array('alias = ?' => $params["group"]));
 		
 		$formName = 'Contents_Form_' . ucfirst($params["group"]) . 'Edit'; 
-		$form  = new $formName();
+		$form  = new $formName(array('contentsGroupsId' => $group->id));
 		
 		$form->setAction($this->_helper->url->simple('edit', $this->_c, $this->_m, array('group' => $params['group'])));
-		$group = $groupsMapper->fetchRow(array('alias = ?' => $params["group"]));
 		$categories = $categoriesMapper->fetchTree(array('contents_groups_id = ?' => $group->id));
 		//echo $this->_helper->arrayTrans($categories);
 		//echo $this->_helper->arrayTrans(categoriesBuilder($categories));

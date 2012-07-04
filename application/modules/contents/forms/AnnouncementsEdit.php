@@ -2,6 +2,13 @@
 
 class Contents_Form_AnnouncementsEdit extends Zend_Form
 {
+	protected $_contentsGroupsId;
+	
+	public function setContentsGroupsId($id)
+	{
+		$this->_contentsGroupsId = $id;
+	}
+	
 	public function init()
 	{
 		$this->setName(strtolower('contents'));
@@ -12,6 +19,7 @@ class Contents_Form_AnnouncementsEdit extends Zend_Form
 		/*  Externals  */
 		
 		$this->addElement('hidden', 'id');
+		$this->addElement('hidden', 'contents_groups_id', array('value' => $this->_contentsGroupsId));
 		$this->addElement('hidden', 'image');
 		$this->addElement('hidden', 'event');
 		$this->addElement('hidden', 'sheduled');
