@@ -45,6 +45,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     		$this->_setRouter();
     		$this->_setPlugins();
     		$this->_setHelpers();
+    		$this->_setModelCache();
     	} catch (Exception $e) {
     		echo $e->getMessage() . '<br /><br />';
     		echo nl2br($e->getTraceAsString());
@@ -172,6 +173,23 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	$helper = new Sunny_Controller_Action_Helper_ArrayTrans();
     	Zend_Controller_Action_HelperBroker::addHelper($helper);
     	//Zend_Controller_Action_HelperBroker::getStack()->offsetSet(null, $helper);
+    }
+    
+    /**
+     * Setup default model cache object
+     */
+    protected function _setModelCache()
+    {
+    	// Set DbTable metadata cache
+    	$frontend = new Zend_Cache_Core(array('automatic_serialization' => true, 'lifetime' => (24 * 60 * 60)));
+    	if (extension_loaded('apc')) {
+    		$backend = new Zend_Cache_Backend_Apc();
+    	} else {
+    		$backend = new Zend_Cache_Backend_File(array('cache_dir' => ROOT_PATH . '/data/cache'));
+    	}
+    	 
+    	$cache = Zend_Cache::factory($frontend, $backend);
+    	Sunny_DataMapper_MapperAbstract::setupModelCache($cache);    	 
     }
     
     /**
