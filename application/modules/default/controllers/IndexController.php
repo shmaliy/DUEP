@@ -50,6 +50,14 @@ class IndexController extends Zend_Controller_Action
     	
     	
     }
+    
+    /**
+     * ЭТОТ МЕТОД СОЗДАН ДЛЯ НАДИ ЧТОБ ОНА МОГЛА ВЕРСТАТЬ ПРИМЕНИТЕЛЬНО К САЙТУ - НЕ УДАЛЯТЬ
+     */
+    public function developAction()
+    {
+    	
+    }
 	
     /**
      * Config page

@@ -210,7 +210,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     		)
     	));
     	
-    	 
+    	$router->addRoute('develop', new Zend_Controller_Router_Route_Static(
+    		'develop',
+    		array(
+    			'module' => 'default',
+    			'controller' => 'index',
+    			'action' => 'develop'
+    		)
+    	));    	 
     	
     	$frontController->setRouter($router);
     }
