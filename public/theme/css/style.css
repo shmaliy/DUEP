@@ -446,7 +446,9 @@ table.generic-table a {
 	height:50px;
 }
 
-
+.contents .form-composite-element-submit {
+	clear: both;
+}
 /* Contents edit form end */
 
 

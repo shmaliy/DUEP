@@ -23,24 +23,60 @@ class Contents_AdminCategoriesController extends Sunny_Controller_Action
 	public function indexAction()
     {
     	$request = $this->getRequest();
+    	$params = $request->getParams();
+    	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+    	$group = $groupsMapper->fetchRow(array('alias = ?' => $params["group"]));
+    	
+    	//echo $this->_helper->arrayTrans($params);
     	 
     	$session = $this->getSession();
     	$this->view->page   = $session->{self::SESSION_PAGE};
     	$this->view->rows   = $session->{self::SESSION_ROWS};
     	
-    	$this->view->rowset = $this->_getMapper()->fetchPage();
+    	$this->view->rowset = $this->_getMapper()->fetchAll(array('contents_groups_id = ?' => $group->id));
+    	$this->view->group = $params['group'];
     	$this->view->total  = $this->_getMapper()->fetchCount();
+
+    	//echo $this->_helper->arrayTrans($this->view->rowset);
+    }
+    
+    public function categoriesBuilder($data, $array = array(), $level = 0)
+    {
+    	foreach ($data as $branch) {
+    		if($level > 0) {
+    			$branch->title = str_repeat('—', $level) . $branch->title;
+    		}
+    
+    		$array[$branch->id] = $branch->title;
+    		if($branch->getExtendChilds()->count() > 0) {
+    			$array = $this->categoriesBuilder($branch->getExtendChilds(), $array, $level+1);
+    		}
+    	}
+    	return $array;
     }
     
     public function editAction()
     {
     	$request = $this->getRequest();
 		$mapper  = $this->_getMapper();
-    	
-    	// Setup form valid action
-		$form = new Media_Form_CategoryEdit();
-    	$form->setAction($this->_helper->url->simple('edit', $this->_c, $this->_m));
-    	
+		$params = $request->getParams();
+		//echo $this->_helper->arrayTrans($params);
+		
+		$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+		$group = $groupsMapper->fetchRow(array('alias = ?' => $params["group"]));
+		
+		
+		
+		// Setup form valid action
+		$form = new Contents_Form_CategoryEdit(array(
+			'contentsCategoriesOptions' => $this->_getMapper()->fetchTree(array( 
+    			'contents_groups_id = ?' => $group->id
+    		)),
+			'entityId' => $params['id'],
+			'contentsGroupsId' => $group->id
+		));
+    	$form->setAction($this->_helper->url->simple('edit', $this->_c, $this->_m, array("group" => $params['group'])));
+		
     	// Processing _POST
     	if ($request->isXmlHttpRequest() || $request->isPost()) {
     		if ($form->isValid($request->getParams())) {
@@ -49,9 +85,9 @@ class Contents_AdminCategoriesController extends Sunny_Controller_Action
     			$mapper->saveEntity($entity);
     			
     			if (!$request->isXmlHttpRequest()) {
-    				$this->_helper->redirector->gotoSimple('index', $this->_c, $this->_m);
+    				$this->_helper->redirector->gotoSimple('index', $this->_c, $this->_m, array("group" => $params['group']));
     			} else {
-    				$this->view->redirectTo = $this->view->simpleUrl('index', $this->_c, $this->_m);
+    				$this->view->redirectTo = $this->view->simpleUrl('index', $this->_c, $this->_m, array("group" => $params['group']));
     			}
     		} else {
     			// Return errors
@@ -61,6 +97,7 @@ class Contents_AdminCategoriesController extends Sunny_Controller_Action
     	} else {
     		// If _GET render form
 			$id = $request->getParam('id', 'new');
+			//$id = $request->setParam('contents_groups_id', $group->id);
     		if ($id != 'new') {
     			$entity = $mapper->findEntity($id);
     		    if ($entity) {

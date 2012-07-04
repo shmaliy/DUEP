@@ -1,6 +1,6 @@
 <?php
 
-class Contents_Form_AnnouncementsEdit extends Zend_Form
+class Contents_Form_EventsEdit extends Zend_Form
 {
 	protected $_contentsGroupsId;
 	

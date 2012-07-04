@@ -25,14 +25,16 @@ class Contents_AdminIndexController extends Sunny_Controller_Action
     	$request = $this->getRequest();
     	$params = $request->getParams();
     	
+    	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+    	$group = $groupsMapper->fetchRow(array('alias = ?' => $params["group"]));
     	 
     	$session = $this->getSession();
     	$this->view->page   = $session->{self::SESSION_PAGE};
     	$this->view->group = $params['group'];
     	$this->view->rows   = $session->{self::SESSION_ROWS};
     	
-    	$this->view->rowset = $this->_getMapper()->fetchPage();
-    	$this->view->total  = $this->_getMapper()->fetchCount();
+    	$this->view->rowset = $this->_getMapper()->fetchPage(array('contents_groups_id = ?' => $group->id));
+    	$this->view->total  = $this->_getMapper()->fetchCount(array('contents_groups_id = ?' => $group->id));
     }
     
     public function categoriesBuilder($data, $array = array(), $level = 0)
@@ -50,6 +52,11 @@ class Contents_AdminIndexController extends Sunny_Controller_Action
 		return $array;
 	}
     
+	
+	/**
+	 * 
+	 * Генерирует форму по признаку $params["group"] и сохраняет в базе
+	 */
     public function editAction()
     {
     	$request = $this->getRequest();
@@ -61,12 +68,12 @@ class Contents_AdminIndexController extends Sunny_Controller_Action
 		$mapper  = $this->_getMapper();
 		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
 		$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+		$group = $groupsMapper->fetchRow(array('alias = ?' => $params["group"]));
 		
-		$formName = 'Contents_Form_' . ucfirst($params["group"]) . 'Edit'; 
-		$form  = new $formName();
+		$formName = 'Contents_Form_' . ucfirst(Zend_Filter::filterStatic($params["group"], 'Word_UnderscoreToCamelCase')) . 'Edit'; 
+		$form  = new $formName(array('contentsGroupsId' => $group->id));
 		
 		$form->setAction($this->_helper->url->simple('edit', $this->_c, $this->_m, array('group' => $params['group'])));
-		$group = $groupsMapper->fetchRow(array('alias = ?' => $params["group"]));
 		$categories = $categoriesMapper->fetchTree(array('contents_groups_id = ?' => $group->id));
 		//echo $this->_helper->arrayTrans($categories);
 		//echo $this->_helper->arrayTrans(categoriesBuilder($categories));
@@ -83,54 +90,25 @@ class Contents_AdminIndexController extends Sunny_Controller_Action
 				$mapper->saveEntity($entity);
 				 
 				if (!$request->isXmlHttpRequest()) {
-					$this->_helper->redirector->gotoSimple('index', $this->_c, $this->_m);
+					$this->_helper->redirector->gotoSimple('index', $this->_c, $this->_m, array("group" => $params["group"]));
 				} else {
-					$this->view->redirectTo = $this->view->simpleUrl('index', $this->_c, $this->_m);
+					$this->view->redirectTo = $this->view->simpleUrl('index', $this->_c, $this->_m, array("group" => $params["group"]));
 				}
 			} else {
 				$this->view->formErrors        = $form->getErrors();
 				$this->view->formErrorMessages = $form->getErrorMessages();
 			}
 		} else {
+			$id = $request->getParam('id', 'new');
+			if ($id != 'new') {
+				$entity = $mapper->findEntity($id);
+				if ($entity) {
+					$form->setDefaults($entity->toArray());
+				}
+			}
 			$this->view->form = $form;
 		}
-		
-    	// Setup form valid action
-		/*$form = new Media_Form_MediaEdit();
-    	$form->setAction($this->_helper->url->simple('edit', $this->_c, $this->_m));
-    	
-    	// Processing _POST
-    	if ($request->isXmlHttpRequest() || $request->isPost()) {
-    		if ($form->isValid($request->getParams())) {
-    			// Save data
-    			$entity = $mapper->createEntity($form->getValues());
-    			$mapper->saveEntity($entity);
-    			
-    			if (!$request->isXmlHttpRequest()) {
-    				$this->_helper->redirector->gotoSimple('index', $this->_c, $this->_m);
-    			} else {
-    				$this->view->redirectTo = $this->view->simpleUrl('index', $this->_c, $this->_m);
-    			}
-    		} else {
-    			// Return errors
-    			$this->view->formErrors        = $form->getErrors();
-    			$this->view->formErrorMessages = $form->getErrorMessages();
-    		}
-    	} else {
-    		// If _GET render form
-			$id = $request->getParam('id', 'new');
-    		if ($id != 'new') {
-    			$entity = $mapper->findEntity($id);
-    			if ($entity) {
-    				$form->setDefaults($entity->toArray());
-    			}
-    		} else {
-    			$this->_helper->redirector->gotoSimple('upload', $this->_c, $this->_m);
-    		}
-    		
-    		$this->view->form = $form;
-    	}*/
-    }
+	}
     
     public function deleteAction()
     {

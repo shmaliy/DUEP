@@ -14,7 +14,7 @@ $adminTableNavOptions = array(
 	<thead>
 		<tr>
 			<th align="left" width="1%"><a class="icon-16 icon-16-add" href="<?php
-				echo $this->simpleUrl('edit', $this->c, $this->m);
+				echo $this->simpleUrl('edit', $this->c, $this->m, array("group" => $this->group));
 			?>"></a></th>
 			<th width="1%"><input type="checkbox" class="selectAll" /></th>
 			<th>Название</th>
@@ -27,8 +27,8 @@ $adminTableNavOptions = array(
 	<?php foreach ($this->rowset as $row): ?>
 		<tr>
 			<td width="40" nowrap="nowrap">
-				<a class="icon-16 icon-16-edit" href="<?php echo $this->simpleUrl('edit', $this->c, $this->m, array('id' => $row->getId())); ?>"></a>
-				<a class="icon-16 icon-16-delete" onclick="return deleteItem('<?php echo $this->simpleUrl('delete', $this->c, $this->m); ?>', <?php echo $row->getId(); ?>);"></a>
+				<a class="icon-16 icon-16-edit" href="<?php echo $this->simpleUrl('edit', $this->c, $this->m, array("group" => $this->group, 'id' => $row->getId())); ?>"></a>
+				<a class="icon-16 icon-16-delete" onclick="return deleteItem('<?php echo $this->simpleUrl('delete', $this->c, $this->m, array("group" => $this->group)); ?>', <?php echo $row->getId(); ?>);"></a>
 			</td>
 			<td><input type="checkbox" class="selectOne" name="multi[<?php echo $row->getId(); ?>]" /></td>
 			<td><?php echo $row->getTitle(); ?></td>
