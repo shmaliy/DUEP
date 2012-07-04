@@ -22,6 +22,7 @@ class IndexController extends Zend_Controller_Action
 		$context->addActionContext('index', 'json');
 		$context->addActionContext('config', 'json');
 		$context->addActionContext('front-announcements', 'json');
+		$context->addActionContext('front-news', 'json');
 		
 		$context->initContext('json');
 	}
@@ -34,16 +35,20 @@ class IndexController extends Zend_Controller_Action
     {
     	
     	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
-    	$this->view->group = $groupsMapper->getFrontGroupByAlias ("announcements");
+    	$this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
+    	$this->view->ngroup = $groupsMapper->getFrontGroupByAlias ("news");
     	
     	$catMapper = new Contents_Model_Mapper_ContentsCategories();
-    	$this->view->cats = $catMapper->getFrontCatsByGroupId($this->view->group->id);
+    	$this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id);
+    	$this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id);
     	
     	$contentsMapper = new Contents_Model_Mapper_Contents();
-    	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->group->id,'date_created desc',6);
+    	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id,'date_created desc',6);
+    	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id,'date_created desc',6);
     	
-    	//$contentsMapper = new Contents_Model_Mapper_Contents();
-    	//$this->view->contents = $contentsMapper->getFrontContentsByCatId($cats->id,'date_created desc',6);
+    	
+    	
+    	
     }
 	
     /**
@@ -79,6 +84,12 @@ class IndexController extends Zend_Controller_Action
     	$ans_id = $this->getRequest()->getParam('ans_id');
     	$contentsMapper = new Contents_Model_Mapper_Contents();
     	$this->view->contents = $contentsMapper->getFrontContentsByCatId($ans_id,'date_created desc',6)->toArray();
+    }
+    public function frontNewsAction()
+    {
+    	$news_id = $this->getRequest()->getParam('news_id');
+    	$contentsMapper = new Contents_Model_Mapper_Contents();
+    	$this->view->contents = $contentsMapper->getFrontContentsByCatId($news_id,'date_created desc',6)->toArray();
     }
     
 }

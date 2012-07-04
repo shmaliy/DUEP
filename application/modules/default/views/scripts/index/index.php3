@@ -41,7 +41,7 @@
 								<div class="pop_up_left"></div>
 								<div class="pop_corner"></div>
 								<ul>
-								<?php foreach ($this->cats as $item):?>
+								<?php foreach ($this->acats as $item):?>
 									<li><a style ="cursor: pointer;" class = "cat_anons" ans_id = "<?php echo $item->id;?>" ans_alias = "<?php echo $item->alias;?>"><?php echo $item->title;?></a></li>
 
 									<?php endforeach;?>
@@ -77,17 +77,10 @@
 								<div class="pop_up_left"></div>
 								<div class="pop_corner"></div>
 								<ul>
-									<li><a href="">Полоса 1</a></li>
-									<li><a href="">Полоса 2</a></li>
-									<li><a href="">Полоса 3</a></li>
-									<li><a href="">Полоса 4</a></li>
-									<li><a href="">Полоса 5</a></li>
-									<li><a href="">Полоса 6</a></li>
-									<li><a href="">Полоса 7</a></li>
-									<li><a href="">Полоса 8</a></li>
-									<li><a href="">Полоса 9</a></li>
-									<li><a href="">Полоса 10</a></li>
-									<li><a href="">Полоса 11</a></li>
+									<?php foreach ($this->ncats as $item):?>
+									<li><a style ="cursor: pointer;" class = "cat_news" news_id = "<?php echo $item->id;?>" news_alias = "<?php echo $item->alias;?>"><?php echo $item->title;?></a></li>
+
+									<?php endforeach;?>
 								</ul>
 								<div class="pop_up_left_bottom"></div>
 								<div class="pop_up_right_bottom"></div>
@@ -97,42 +90,14 @@
 						</div>
 						<div class="clearer"></div>
 					</div>
+					<span class = "news_block">
+					<?php foreach ($this->news as $item):?>
 					<div class="pl_item_box">
-						<a href=""><img src="/theme/img/front/news.jpg" class="left"/></a>
-						<div class="pl_item_title"><a href="">3 Квітня 2012</a></div>
-						<div><a href="">Інтернет-конференція студентів, аспірантів та молодих вчених "Формування механізмів управління"</a></div>
-						<div class="clearer"></div>
+						<div class="pl_item_title"><?php echo $item->date_created;?></div>
+						<div><?php echo $item->tizer;?></div>
 					</div>
-					<div class="pl_item_box">
-						<img src="/theme/img/front/news.jpg" class="left"/>
-						<div class="pl_item_title">3 Квітня 2012</div>
-						<div>Інтернет-конференція студентів, аспірантів та молодих вчених "Формування механізмів управління"</div>
-						<div class="clearer"></div>
-					</div>
-					<div class="pl_item_box">
-						<img src="/theme/img/front/news.jpg" class="left"/>
-						<div class="pl_item_title">3 Квітня 2012</div>
-						<div>Інтернет-конференція студентів, аспірантів та молодих вчених "Формування механізмів управління"</div>
-						<div class="clearer"></div>
-					</div>
-					<div class="pl_item_box">
-						<img src="/theme/img/front/news.jpg" class="left"/>
-						<div class="pl_item_title">3 Квітня 2012</div>
-						<div>Інтернет-конференція студентів, аспірантів та молодих вчених "Формування механізмів управління"</div>
-						<div class="clearer"></div>
-					</div>
-					<div class="pl_item_box">
-						<img src="/theme/img/front/news.jpg" class="left"/>
-						<div class="pl_item_title">3 Квітня 2012</div>
-						<div>Інтернет-конференція студентів, аспірантів та молодих вчених "Формування механізмів управління"</div>
-						<div class="clearer"></div>
-					</div>
-					<div class="pl_item_box">
-						<img src="/theme/img/front/news.jpg" class="left"/>
-						<div class="pl_item_title">3 Квітня 2012</div>
-						<div>Інтернет-конференція студентів, аспірантів та молодих вчених "Формування механізмів управління"</div>
-						<div class="clearer"></div>
-					</div>
+					<?php endforeach;?>
+					</span>
 				</div>
 				<div class="right content_right">
 					<div class="grey_box">

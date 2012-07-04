@@ -67,12 +67,31 @@ var text = $(".input").val();
     		   }
     		 });
     });
+    $(".cat_news").live("click",function(){
+    	var news_id = $(this).attr('news_id');
+    	$.ajax({
+    		   type: "POST",
+    		   url: "/default/index/front-news",
+    		   data: {"news_id": news_id},
+    		   success: function(content){
+    			   var html = '';
+    			   for ( var i = 0; i < content.contents.length; i++) {
+    			  html += '<div class="pl_item_box">';
+    				  html += '<div class="pl_item_title">'+content.contents[i].date_created+'</div>';
+    				  html += '<div>'+content.contents[i].tizer+'</div>';
+    				  html += '</div>';
+    			   }
+    			   $('.news_block').html(html);
+    			  
+    		   }
+    		 });
+    });
 });
   function load(){
   	var url = window.location.href;
   	var index = window.location.protocol+'//'+window.location.hostname+'/';
   	if (url == index){
   	 $('.load').fadeIn(3000);  
-  	}
+  	}else{$('.load').show();}
   }
  
