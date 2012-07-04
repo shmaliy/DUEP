@@ -25,14 +25,16 @@ class Contents_AdminIndexController extends Sunny_Controller_Action
     	$request = $this->getRequest();
     	$params = $request->getParams();
     	
+    	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+    	$group = $groupsMapper->fetchRow(array('alias = ?' => $params["group"]));
     	 
     	$session = $this->getSession();
     	$this->view->page   = $session->{self::SESSION_PAGE};
     	$this->view->group = $params['group'];
     	$this->view->rows   = $session->{self::SESSION_ROWS};
     	
-    	$this->view->rowset = $this->_getMapper()->fetchPage();
-    	$this->view->total  = $this->_getMapper()->fetchCount();
+    	$this->view->rowset = $this->_getMapper()->fetchPage(array('contents_groups_id = ?' => $group->id));
+    	$this->view->total  = $this->_getMapper()->fetchCount(array('contents_groups_id = ?' => $group->id));
     }
     
     public function categoriesBuilder($data, $array = array(), $level = 0)
@@ -68,7 +70,7 @@ class Contents_AdminIndexController extends Sunny_Controller_Action
 		$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
 		$group = $groupsMapper->fetchRow(array('alias = ?' => $params["group"]));
 		
-		$formName = 'Contents_Form_' . ucfirst($params["group"]) . 'Edit'; 
+		$formName = 'Contents_Form_' . ucfirst(Zend_Filter::filterStatic($params["group"], 'Word_UnderscoreToCamelCase')) . 'Edit'; 
 		$form  = new $formName(array('contentsGroupsId' => $group->id));
 		
 		$form->setAction($this->_helper->url->simple('edit', $this->_c, $this->_m, array('group' => $params['group'])));

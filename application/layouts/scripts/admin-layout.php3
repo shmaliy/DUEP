@@ -42,19 +42,24 @@
 										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'announcements')); ?>">Контент</a></li>
 									</ul>
 								</li>
-								<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>" class="group">Новости</a>
+								<li><span class="group">Новости</span>
 									<ul>
-										<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Категории</a></li>
-										<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Контент</a></li>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'contents', array('group' => 'news')); ?>">Категории</a></li>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'news')); ?>">Контент</a></li>
 									</ul>
 								</li>
-								<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>" class="group">События</a>
+								<li><span class="group">События</span>
 									<ul>
-										<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Категории</a></li>
-										<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>">Контент</a></li>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'contents', array('group' => 'events')); ?>">Категории</a></li>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'events')); ?>">Контент</a></li>
 									</ul>
 								</li>
-								<li><a href="<?php //echo $this->simpleUrl('index', 'admin-groups', 'contents'); ?>" class="group">Архив публикаций</a></li>
+								<li><span class="group">Архив публикаций</span>
+									<ul>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'contents', array('group' => 'publications_archive')); ?>">Категории</a></li>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'publications_archive')); ?>">Контент</a></li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 						<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'staff'); ?>" class="group">Структура университета</a>
