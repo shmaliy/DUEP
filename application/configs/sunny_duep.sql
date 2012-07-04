@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 02, 2012 at 01:59 PM
+-- Generation Time: Jul 04, 2012 at 10:35 AM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -36,6 +36,8 @@ CREATE TABLE IF NOT EXISTS `contents` (
   `img` varchar(255) DEFAULT NULL,
   `ordering` int(11) DEFAULT NULL,
   `published` int(11) DEFAULT NULL,
+  `sheduled` int(11) NOT NULL,
+  `publicate_on_index` int(11) NOT NULL,
   `language` int(11) DEFAULT NULL,
   `seo_title` varchar(255) DEFAULT NULL,
   `seo_description` text,
@@ -44,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `contents` (
   `name_bc` varchar(255) DEFAULT NULL,
   `date_created` int(11) DEFAULT NULL,
   `user_created` int(11) DEFAULT NULL,
-  `date_rewrite` int(11) DEFAULT NULL,
-  `user_rewrite` int(11) DEFAULT NULL,
+  `date_modified` int(11) DEFAULT NULL,
+  `user_modified` int(11) DEFAULT NULL,
   `admin_comment` text,
   `line_id` int(11) DEFAULT NULL,
   `staff_name` varchar(255) DEFAULT NULL,
@@ -68,19 +70,24 @@ CREATE TABLE IF NOT EXISTS `contents` (
   `parent_user_account` int(11) DEFAULT NULL,
   `history` text,
   `contacts` text,
-  `settings_comments` int(11) DEFAULT NULL,
-  `settings_rss` int(11) DEFAULT NULL,
-  `settings_email_feed` int(11) DEFAULT NULL,
-  `settings_callback` int(11) DEFAULT NULL,
-  `settings_feedback` int(11) DEFAULT NULL,
+  `enable_comments` int(11) DEFAULT NULL,
+  `enable_rss` int(11) DEFAULT NULL,
+  `enable_email` int(11) DEFAULT NULL,
+  `enable_callback` int(11) DEFAULT NULL,
+  `enable_feedback` int(11) DEFAULT NULL,
+  `enable_calendar` int(11) NOT NULL,
   `admin_email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='таблица контента, являет собой сборную солянку всех требуемы' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='таблица контента, являет собой сборную солянку всех требуемы' AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `contents`
 --
 
+INSERT INTO `contents` (`id`, `contents_categories_id`, `title`, `alias`, `tizer`, `description`, `img`, `ordering`, `published`, `sheduled`, `publicate_on_index`, `language`, `seo_title`, `seo_description`, `seo_keywords`, `name_main`, `name_bc`, `date_created`, `user_created`, `date_modified`, `user_modified`, `admin_comment`, `line_id`, `staff_name`, `staff_lastname`, `staff_secondname`, `adress`, `requisitites`, `phone_work`, `phone_personal`, `email`, `qr_code`, `gps`, `list_of_staff`, `list_of_teachers`, `director`, `parent_direction`, `parent_kafedra`, `contents_id`, `parent_group`, `parent_user_account`, `history`, `contacts`, `enable_comments`, `enable_rss`, `enable_email`, `enable_callback`, `enable_feedback`, `enable_calendar`, `admin_email`) VALUES
+(23, 2, 'Сапожник без носков', '', 'Есть у меня один товарищ. Великий человек. Изобретает хитромудрые приборы, сам схемы придумывает-разводит-печатает-паяет. Технику всякую чинит на раз. Свет у него в туалете загорается только тогда, когда там кто-то есть.', 'Есть у меня один товарищ. Великий человек. Изобретает хитромудрые приборы, сам схемы придумывает-разводит-печатает-паяет. Технику всякую чинит на раз. Свет у него в туалете загорается только тогда, когда там кто-то есть. Регуляторы программирует, в достаточно зрелом возрасте на линукс перешёл. Поднял на том линуксе всё, что можно, от спутникового интернета до «Сталкера».\r\n\r\nЧасто хожу я к нему за советом и стучу в его дверь. Стучу, потому что звонок не работает…', NULL, NULL, 1, 0, 1, NULL, 'Сапожник без носков', 'Есть у меня один товарищ. Великий человек. Изобретает хитромудрые приборы, сам схемы придумывает-разводит-печатает-паяет. Технику всякую чинит на раз. Свет у него в туалете загорается только тогда, когда там кто-то есть.', 'испытание, рыба, карась', NULL, 'Сапожник без носков', 1341323876, NULL, 1341323876, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 1, NULL, NULL, 1, NULL),
+(22, 2, 'Маленький свечной детсадик', 'test2', 'Вот читаю я про битву заказчиков и разработчиков. У одних программисты тупые, у других клиенты идиоты. И скупая мужская слеза скользит по моей небритой щеке. Как же вам хорошо! А вот в нашей кое-что добывающей компании всё ещё хуже.', 'Вот читаю я про битву заказчиков и разработчиков. У одних программисты тупые, у других клиенты идиоты. И скупая мужская слеза скользит по моей небритой щеке. Как же вам хорошо! А вот в нашей кое-что добывающей компании всё ещё хуже.\r\n\r\nМежду производством и разработчиком ПО находится ещё одна контора, которая берёт деньги у производства и отдаёт их разработчику, половину оставляя себе. Потом проект исполняется, причём неважно как (обычно плохо). Аплодисменты и премии выдаются той самой конторке посередине. Потом на производстве пытаются как-то применить мертворожденного уродца. Но самое смешное, что претензии не принимаются: всё подписано. Правда, не теми, кто потом пользуется, а теми, кто фабрику от детского сада не отличит.', NULL, NULL, 0, 0, 0, NULL, 'Маленький свечной детсадик', 'Вот читаю я про битву заказчиков и разработчиков. У одних программисты тупые, у других клиенты идиоты. И скупая мужская слеза скользит по моей небритой щеке. Как же вам хорошо! А вот в нашей кое-что добывающей компании всё ещё хуже.', 'проверка, тест', NULL, 'Маленький свечной детсадик', 1341304995, NULL, 1341304995, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, 1, NULL),
+(21, 2, 'Чудо чудное, диво дивное', 'announcement_1', 'Все имели несчастье сталкиваться с бабками-проповедницами. Так вот, они эволюционируют и изыскивают новые способы затеять душевную беседу.', 'Все имели несчастье сталкиваться с бабками-проповедницами. Так вот, они эволюционируют и изыскивают новые способы затеять душевную беседу.\r\n\r\nИду я утром на работу. Солнышко, птички, в ушах Кипелов, в голове мысли о вечном, в руках телефон, посредством которого на домашний ПК водворяется очередной демон… Вот она, типичная бабка с большой сумкой. Вопрошает голосом человечьим:\r\n\r\n— Молодой человек, а для вас телефон — это чудо?\r\n— Нет.\r\n— А для нас — чудо.\r\n\r\nНу вот как надо было отреагировать, кроме как поздравить их и пойти дальше?', NULL, NULL, 1, 0, 1, NULL, 'Чудо чудное, диво дивное', 'Все имели несчастье сталкиваться с бабками-проповедницами. Так вот, они эволюционируют и изыскивают новые способы затеять душевную беседу.', 'проба, эксперимент', NULL, 'Чудо чудное, диво дивное', 1341305012, NULL, 1341305012, NULL, 'Экспериментируем', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 0, NULL, NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -96,9 +103,9 @@ CREATE TABLE IF NOT EXISTS `contents_categories` (
   `title` varchar(255) DEFAULT NULL,
   `alias` varchar(255) DEFAULT NULL,
   `description` text,
-  `settings_comments` int(11) DEFAULT NULL,
-  `settings_rss` int(11) DEFAULT NULL,
-  `settings_email_feed` int(11) DEFAULT NULL,
+  `enable_comments` int(11) DEFAULT NULL,
+  `enable_rss` int(11) DEFAULT NULL,
+  `enable_email` int(11) DEFAULT NULL,
   `language` int(11) DEFAULT NULL,
   `ordering` int(11) DEFAULT NULL,
   `published` int(11) DEFAULT NULL,
@@ -110,18 +117,19 @@ CREATE TABLE IF NOT EXISTS `contents_categories` (
   `name_bc` varchar(255) DEFAULT NULL,
   `date_created` int(11) DEFAULT NULL,
   `user_created` int(11) DEFAULT NULL,
-  `date_rewrite` int(11) DEFAULT NULL,
-  `user_rewrite` int(11) DEFAULT NULL,
+  `date_modified` int(11) DEFAULT NULL,
+  `user_modified` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `contents_categories`
 --
 
-INSERT INTO `contents_categories` (`id`, `contents_groups_id`, `contents_categories_id`, `title`, `alias`, `description`, `settings_comments`, `settings_rss`, `settings_email_feed`, `language`, `ordering`, `published`, `admin_comment`, `seo_title`, `seo_description`, `seo_keywords`, `name_main`, `name_bc`, `date_created`, `user_created`, `date_rewrite`, `user_rewrite`) VALUES
-(1, 1, 0, 'Анонсы', 'announcements', NULL, 0, 0, 0, NULL, 1, 1, 'Создано в phpMyAdmin', 'Анонсы', NULL, NULL, 'Анонсы', 'анонсы', 1341217734, NULL, NULL, NULL),
-(2, 1, 1, 'Лента 1', 'strip_1', NULL, 0, 0, 0, NULL, 1, 1, 'создано в phpMyAdmin', 'Лента 1', NULL, NULL, 'Лента 1', 'лента 1', 1341217935, NULL, NULL, NULL);
+INSERT INTO `contents_categories` (`id`, `contents_groups_id`, `contents_categories_id`, `title`, `alias`, `description`, `enable_comments`, `enable_rss`, `enable_email`, `language`, `ordering`, `published`, `admin_comment`, `seo_title`, `seo_description`, `seo_keywords`, `name_main`, `name_bc`, `date_created`, `user_created`, `date_modified`, `user_modified`) VALUES
+(1, 1, 0, 'Анонсы', 'announcements', '', 0, 0, 0, NULL, 1, 1, 'Создано в phpMyAdmin', 'Анонсы', '', '', 'Анонсы', 'анонсы', 1341330239, NULL, 1341330239, NULL),
+(2, 1, 1, 'Лента 1', 'strip_1', '', 1, 1, 1, NULL, 1, 1, 'создано в phpMyAdmin', 'Лента 1', '', '', 'Лента 1', 'лента 1', 1341326917, NULL, 1341326917, NULL),
+(6, 1, 1, 'Лента 2', '', '', 0, 0, 0, NULL, NULL, 0, NULL, '', '', '', NULL, '', 1341330281, NULL, 1341330281, NULL);
 
 -- --------------------------------------------------------
 
@@ -150,6 +158,26 @@ CREATE TABLE IF NOT EXISTS `contents_groups` (
 
 INSERT INTO `contents_groups` (`id`, `title`, `alias`, `description`, `ordering`, `published`, `admin_comment`, `system`, `date_created`, `date_modified`) VALUES
 (1, 'Анонсы', 'announcements', 'Группа контента, относящаяся к разделу анонсов', 1, 1, 'Создано в phpMyAdmin', 1, 1341217522, 1341217564);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contents_sheduler`
+--
+
+DROP TABLE IF EXISTS `contents_sheduler`;
+CREATE TABLE IF NOT EXISTS `contents_sheduler` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contents_id` int(11) DEFAULT NULL,
+  `start` int(11) DEFAULT NULL,
+  `stop` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Расписание отображения контента' AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `contents_sheduler`
+--
+
 
 -- --------------------------------------------------------
 
