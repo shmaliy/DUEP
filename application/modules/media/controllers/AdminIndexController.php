@@ -112,6 +112,11 @@ class Media_AdminIndexController extends Sunny_Controller_Action
     	}
     }
     
+    public function selectorAction()
+    {
+    	
+    }
+    
     public function deleteAction()
     {
     	$request = $this->getRequest();
