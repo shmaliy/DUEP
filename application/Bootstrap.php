@@ -41,11 +41,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     		$this->_setAutoLoader();
     		$this->_setConfig();
     		$this->_setAdminConfig();
+    		$this->_setCache();
     		$this->_setDatabases();
     		$this->_setRouter();
     		$this->_setPlugins();
     		$this->_setHelpers();
-    		$this->_setModelCache();
     	} catch (Exception $e) {
     		echo $e->getMessage() . '<br /><br />';
     		echo nl2br($e->getTraceAsString());
@@ -137,17 +137,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     		$adapters[$adapterName] = $db;
     	}
     	
-    	// Set DbTable metadata cache
-    	$frontend = new Zend_Cache_Core(array('automatic_serialization' => true));
-    	if (extension_loaded('apc')) {
-    		$backend = new Zend_Cache_Backend_Apc();
-    	} else {
-    		$backend = new Zend_Cache_Backend_File(array('cache_dir' => ROOT_PATH . '/data/cache'));
-    	}
-    	
-    	$metadataCache = Zend_Cache::factory($frontend, $backend);
-    	Zend_Db_Table_Abstract::setDefaultMetadataCache($metadataCache);
-    	
     	// Store back to registry
     	Zend_Registry::set(self::MULTIDB_REGISTRY_KEY, $adapters);
     }
@@ -178,11 +167,64 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     /**
      * Setup default model cache object
      */
-    protected function _setModelCache()
+    protected function _setCache()
     {
+    	// Set cahce
+    	$cahceLogging = (bool) $this->getOption('cache_logging');
+    	$cahceTesting = (bool) $this->getOption('cache_testing');
+    	
+    	$logger = null;
+    	if ($cahceLogging) {
+    		$logger = new Zend_Log(new Zend_Log_Writer_Stream(ROOT_PATH . '/data/logs/cache.log'));
+    	}
+    	
+    	// Set page cahce
+    	$frontend = new Sunny_Cache_Frontend_Page(array(
+    		'lifetime'                => 86400,
+    		'logging'                 => $cahceLogging,
+    		'logger'                  => $logger,
+    		'debug_header'            => true,
+    		'automatic_serialization' => false,
+    		'caching'                 => (bool) $this->getOption('enable_cache_page')
+    	));
+    	 
+    	if (extension_loaded('apc') && !$cahceTesting) {
+    		$backend = new Zend_Cache_Backend_Apc();
+    	} else {
+    		$backend = new Zend_Cache_Backend_File(array('cache_dir' => ROOT_PATH . '/data/cache'));
+    	}
+    	 
+    	$cache = Zend_Cache::factory($frontend, $backend);
+    	$cache->start();    	 
+    	
     	// Set DbTable metadata cache
-    	$frontend = new Zend_Cache_Core(array('automatic_serialization' => true, 'lifetime' => (24 * 60 * 60)));
-    	if (extension_loaded('apc')) {
+    	$frontend = new Zend_Cache_Core(array(
+    		'automatic_serialization' => true,
+    		'lifetime' => 86400,
+    		'logging'  => $cahceLogging,
+    		'logger'   => $logger,
+    		'caching'  => (bool) $this->getOption('enable_cache_metadata')
+    	));
+    	
+    	if (extension_loaded('apc') && !$cahceTesting) {
+    		$backend = new Zend_Cache_Backend_Apc();
+    	} else {
+    		$backend = new Zend_Cache_Backend_File(array('cache_dir' => ROOT_PATH . '/data/cache'));
+    	}
+    	
+    	$cache = Zend_Cache::factory($frontend, $backend);
+    	Zend_Db_Table_Abstract::setDefaultMetadataCache($cache);
+    	
+    	// Set DataMapper metadata cache
+    	$frontend = new Zend_Cache_Core(array(
+    		'automatic_serialization' => true,
+    		'lifetime' => 86400,
+    		'logging'  => $cahceLogging,
+    		'logger'   => $logger,
+    		'caching'  => (bool) $this->getOption('enable_cache_model')
+    	));
+    	
+    	if (extension_loaded('apc') && !$cahceTesting) {
     		$backend = new Zend_Cache_Backend_Apc();
     	} else {
     		$backend = new Zend_Cache_Backend_File(array('cache_dir' => ROOT_PATH . '/data/cache'));
