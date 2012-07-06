@@ -1,7 +1,7 @@
 <!--?php echo __FILE__; ?-->
 <html>
   <body>
-<section class="middle">
+<div class="middle">
 
   <div class="container">
       <div class="tape_path">
@@ -14,10 +14,10 @@
         <h1 class="developments">События</h1>
         <ul class="lineTabs">
           <li>
-            <a class="active" href="">Анонсы</a>
+            <a class="active" href=""><span>Анонсы</span></a>
           </li>
           <li>
-            <a href="">Прошедшие события</a>
+            <a href=""><span>Прошедшие события</span></a>
           </li>
         </ul>
         <hr />
@@ -154,7 +154,7 @@
 
   <!-- #sideLeft -->
           
-</section>
+</div>
 <!-- #middle-->
   </body>
 </html>
