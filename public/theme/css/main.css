@@ -782,16 +782,25 @@ h1.developments {
 	font:normal 12px arial;
 	position:relative;
 	text-decoration:underline;
-    padding-top:5px;
+    height:27px;
 }
 .lineTabs li a.active{
-    width:64px;
-    height:23px;
-	background:url(../img/front/active_tab.png);
+    height:28px;
+    background:url(../img/front/tab-bg.png) no-repeat bottom right;
+    padding-right:5px;
 	color:#a8a8a8;
 	z-index:50;
     text-decoration:none;
     margin-right:8px;
+    display: block;
+}
+.lineTabs li a span {
+    height:23px;
+    padding:5px 10px;
+	display: block;
+}
+.lineTabs li a.active span {
+	background:url(../img/front/tab-bg.png) no-repeat top left;
 }
 .lineTabs li a:hover{
 	color:#a8a8a8;
@@ -831,10 +840,23 @@ span.adt_image a:hover{
 .adt_date a {
     font-size:18px;
 }
+a.comments {
+    font-size: 12px;
+    color:#bcbcbd;
+    text-decoration:none;
+}
+a.comments:hover {
+    color:#2698FD;
+}
+a.category_news {
+    font-size: 12px;
+}
 p.adt_description {
     font-size:13px;
     color:#3a3a3a;
     margin-top:5px;
+    padding-left:120px;
+    line-height:1.2;
 }
 .calendar {
     float:right;
@@ -893,22 +915,23 @@ a.rss_orang {
 ul.menu_sideLeft {
     line-height:1.1;    
 }
-ul.menu_sideLeft li {
+ul.menu_sideLeft > li {
     width:230px;
     display:table;
     min-height:31px;
 }
-ul.menu_sideLeft li a{
+ul.menu_sideLeft > li a{
    display:table-cell;
    vertical-align:middle;
    min-height:31px;
-   height:31px;
+   padding: 10px 0;
    width:230px;
    padding-left:10px;
 }
-ul.menu_sideLeft li a:hover {
+ul.menu_sideLeft > li a:hover {
     background-image: url(../img/front/bg_menu.png);
     background-repeat: no-repeat;
+    background-position: left center;
     text-decoration:none;
     color:#3a3a3a;
 }
@@ -917,6 +940,7 @@ ul.submenu {
     overflow:hidden;
     margin-left:20px;
     height:40px;
+    padding-bottom:10px;
 }
 ul.menu_sideLeft li ul.submenu li {
     height: 20px;
