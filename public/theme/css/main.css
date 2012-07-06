@@ -734,10 +734,26 @@ ul {
 	float: left;
 	overflow: hidden;
     margin-bottom:30px;
+    padding-top:15px;
 }
 .content {
 	padding: 0 0 0 240px;
-    margin-top:60px;
+    margin-top:30px;
+}
+.tape_path a {
+    color: #8c8c8c;
+    font-size:11px;
+}
+.tape_path a:hover{
+    color:#2698FD;
+}
+a.emblem_way {
+    background-image: url(../img/front/emblem_way.png);
+    background-repeat:no-repeat;
+    width:12px;
+    height:16px;
+    display:block;
+    float:left;
 }
 h1.developments {
     color:#015eb3;
@@ -800,6 +816,9 @@ span.adt_image a {
     font-size: 10px;
     color: #8c8c8c;
 }
+span.adt_image a:hover{
+    color:#2698FD;
+}
 .adt_date {
     display: block;
     height:135px;
@@ -850,6 +869,18 @@ p.adt_description {
 a.rss_orang {
     color: #e8b23f;
 }
+.paging {
+    width:250px;
+    margin:60px 0 0;
+}
+.paging a{
+    text-decoration:none;
+    margin-right:10px;
+    font-size:18px;
+}
+.paging a:hover{
+    color:#3a3a3a;
+}
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
 .sideLeft {
@@ -884,15 +915,22 @@ ul.submenu {
     display:none;
     overflow:hidden;
     margin-left:20px;
+    height:40px;
+}
+ul.menu_sideLeft li ul.submenu li {
+    height: 20px;
+    min-height: 20px !important;
 }
 ul.submenu li a{
     height:20px;
-    }
+    min-height:20px!important;
+}
 ul.submenu li a:hover{
-    background-image:none !important;
+    background-image:none;
     height:20px;
-    }
-ul.menu_sideLeft li:hover ul {
+    min-height:20px;
+}
+ul.menu_sideLeft li:hover ul.submenu {
     display:block;
     overflow: visible;
     width:100px;
@@ -918,6 +956,10 @@ ul.menu_sideLeft li:hover ul {
     margin-bottom:5px;
     font-size:10px;
     display:block;
+    color:#015eb3;
+}
+.side_true ul li p{
+    color:#3a3a3a;
 }
 .side_true img {
     float: left;
