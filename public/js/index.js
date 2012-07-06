@@ -8,7 +8,7 @@ var text = $(".input").val();
             main.animate({
      		  marginTop: '0%',
      		  opacity: '1',
-     		  }, 200 );
+     		  }, 0 );
 
         },
         function () {
@@ -18,7 +18,7 @@ var text = $(".input").val();
             main.animate({
      		 marginTop: '-100%',
      		 opacity: '0',
-     		 }, 200 );
+     		 }, 0 );
         }
     );  
     $(".language").hover(
