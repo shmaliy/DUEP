@@ -270,14 +270,20 @@ ul {
 .pushTop {
 	height: 298px;
 }
-
+.pushBottom {
+    clear: both;
+    height: 200px;
+}
 .body .contentWrapper {
 	margin:0 0 25px 0;
 }
 
 .footer {
-	color: #566166;
+    color: #566166;
 	font-size: 11px;
+    width: 1000px;
+	margin: -200px auto 0;
+    height: 200px;
 }
 
 .footer .menu {

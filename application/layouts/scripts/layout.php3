@@ -126,7 +126,9 @@
 		<div class="contentWrapper">
 			<?php echo $this->layout()->content; ?>
 		</div>
+		<div class="pushBottom"></div>
 		
+	</div>
 		<div class="footer">
 			<div class="menu MyriadProCondRegular"><a href="">Издательство</a> | <a href="">Школа бизнеса</a> | <a href="">Уэльс</a> | <a href="">Библиотека</a> | <a href="">Карта сайта</a></div>
 			<div class="left footer_item">
@@ -163,7 +165,6 @@
 			   </form>
 			<div class="social_networks"><b>Поделится ссылкой</b></div>
 		</div>
-	</div>
 	</div>
 </body>
 </html>
