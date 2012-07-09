@@ -864,6 +864,13 @@ p.adt_description {
     padding-left:120px;
     line-height:1.2;
 }
+.button_report {
+    display:block;
+}
+.sideRight {
+    float:right;
+    width:220px;
+}
 .calendar {
     float:right;
     width:220px;

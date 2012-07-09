@@ -42,12 +42,14 @@
             </li>
         </ul>
       </div>
-        <div class="calendar"></div>
-        <div class="rss_card">
-            <strong>Будьте в курсе</strong>
-            <p>Подпишитесь на обновления сайта - и вы всегда будете в курсе событий!</p>
-            <a class="rss_orang" href="">RSS-лента</a><br />
-            <a href="">Электронная рассылка</a>
+        <div class="sideRight">
+            <div class="calendar"></div>
+            <div class="rss_card">
+                <strong>Будьте в курсе</strong>
+                <p>Подпишитесь на обновления сайта - и вы всегда будете в курсе событий!</p>
+                <a class="rss_orang" href="">RSS-лента</a><br />
+                <a href="">Электронная рассылка</a>
+            </div>
         </div>
     </div>
     <!-- #content-->
