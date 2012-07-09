@@ -12,66 +12,22 @@
       </div>
       <div class="adt">
         <ul class="adt_list">
+          <?php foreach ($this->news as $item):?>
           <li class="adt_date">
             <span class="adt_image">
-               <img alt="" src="../theme/img/front/developments/1.jpg" />
+               <img alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
              </span>
-              <a href="">Перший в Україні матч з « Фінансового футболу»</a>
-              <p>30 Березня 2012,
+              <a href=""><?php echo $item->title; ?></a>
+              <p><?php echo $item->date_created;?>,
               <a class="comments" href="">15 комментариев</a></p>
-              <a class="category_news" href="">Студенту</a>
-              <p class="adt_description">27 квітня 2012 р. у Києві відбулась прес-конференція за участю представників Visa, ПриватБанку, Дніпропетровського університету ім. Альфреда Нобеля, студентів та старшокласників, представників ЗМІ.</p>
+                              <?php foreach ($this->acats as $itemc):
+                if ($itemc->id == $item->contents_categories_id):?>
+                <a class="category_news" href=""><?php echo $itemc->title; ?></a>
+                <?php endif; endforeach;?>
+              
+              <p class="adt_description"><?php echo $item->tizer; ?></p>
           </li>
-          <li class="adt_date">
-            <span class="adt_image">
-               <img alt="" src="../theme/img/front/developments/2.jpg" />
-            </span>
-              <a href="">Виставка «Армія Генерала Андерса»</a>
-              <p>30 Березня 2012,
-              <a class="comments" href="">15 комментариев</a></p>
-              <a class="category_news" href="">Учеба и наука</a>
-              <p class="adt_description">25 квітня відбулося урочисте відкриття виставки у Дніпропетровському університеті імені Альфреда Нобеля, яка присвячена Армії Генерала Андерса. Ініціатором та автором виставки став Міністр, Секретар Ради охорони пам'яті боротьби і мучеництва (Польща, <a class="category_news" href="">Варшава) – доктор</a></p>
-          </li>
-          <li class="adt_date">
-            <span class="adt_image">
-               <img alt="" src="../theme/img/front/developments/3.jpg" />
-            </span>
-               <a href="">Вітаємо переможців IV Регіонального Студентського Фестивалю Рекламы!</a>
-               <p>30 Березня 2012,
-               <a class="comments" href="">15 комментариев</a></p>
-               <a class="category_news" href="">Университет</a>
-               <p class="adt_description">У квітні 2012 року відбувся черговий ІV Регіональний Студентський Фестиваль Реклами. Студенти 5-го курсу напряму Маркетинг Коротка Анастасія та Соловйов Іван посіли друге місце у номінації «Друкована <a class="category_news" href="">реклама».</a></p>
-           </li>
-           <li class="adt_date">
-             <span class="adt_image">
-                <img alt="" src="../theme/img/front/developments/4.jpg" />
-             </span>
-                <a href="">Вийшов навчальний посібник «БАНКІВСЬКА СИСТЕМА: у схемах і таблицях»</a>
-                <p>30 Березня 2012,
-                <a class="comments" href="">15 комментариев</a></p>
-                <a class="category_news" href="">Университет</a>
-                <p class="adt_description">Вперше в Україні викладачами Дніпропетровського університету імені Альфреда Нобеля підготовлено та опубліковано навчальний посібник «Банківська система: у схемах і таблицях» за загальною редакцією д.е.н. <a class="category_news" href="">Кузнецовой С.А., який є результатом плідної</a></p>
-           </li>
-           <li class="adt_date">
-             <span class="adt_image">
-               <img alt="" src="../theme/img/front/developments/5.jpg" />
-             </span>
-                 <a href="">ТРАДИЦІЙНА ЗУСТРІЧ З ВИПУСКНИКАМИ</a>
-                 <p>30 Березня 2012,
-                 <a class="comments" href="">15 комментариев</a></p>
-                 <a class="category_news" href="">Университет</a>
-                 <p class="adt_description">21 квітня 2012 року Дніпропетровський університет імені Альфреда Нобеля зустрічав своїх випускників. Вже традиційною стала така подія, яка відбувається кожну третю суботу квітня. Цього року на зустріч завітали 70 випускників різних років випуску.</p>
-           </li>
-            <li class="adt_date">
-             <span class="adt_image">
-               <img alt="" src="../theme/img/front/developments/5.jpg" />
-             </span>
-                 <a href="">ТРАДИЦІЙНА ЗУСТРІЧ З ВИПУСКНИКАМИ</a>
-                 <p>30 Березня 2012,
-                 <a class="comments" href="">15 комментариев</a></p>
-                 <a class="category_news" href="">Университет</a>
-                 <p class="adt_description">21 квітня 2012 року у Палаці студентів  Дніпропетровського  університету ім. А.Нобеля відбулися заходи з нагоди  завершення навчального рокуспільного соціального проекту Дніпропетровської міської ради та  Дніпропетровського  <a class="category_news" href="">університету ім. А.Нобеля -</a></p>
-           </li>
+           <?php endforeach;?>
             <li class="paging">
                 <a href="">&larr;</a>
                 <a href="">1</a>
