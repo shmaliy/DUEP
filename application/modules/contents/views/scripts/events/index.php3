@@ -9,10 +9,10 @@
           <h1 class="developments">События</h1>
         <ul class="lineTabs">
           <li>
-            <a class="active" href="">Анонсы</a>
+            <a class="active" href=""><span>Анонсы</span></a>
           </li>
           <li>
-            <a href="">Прошедшие события</a>
+            <a href=""><span>Прошедшие события</span></a>
           </li>
         </ul>
           <hr />
