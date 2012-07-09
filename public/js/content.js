@@ -9,6 +9,15 @@ $(document).ready(function () {
         	
           $(this).find('.pop_up').fadeOut(200); 
         }
-    );  
+    );
+    var speed = 1000;
+    $(".adt_date").each(function(){
+		   $(this).fadeIn(speed);
+		   speed = speed + 1000;
+		   
+		  
+		 });
+   var h = $(".content").attr('height')
+  console.log(h);
    
 });
