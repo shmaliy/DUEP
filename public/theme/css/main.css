@@ -879,6 +879,9 @@ p.adt_description {
     background-image:url(../img/front/rss_card.jpg);
     background-repeat:no-repeat;
     float:right;
+    position: relative;
+    top: 20px;
+    
 }
 .rss_card strong{
     font-size:18px;

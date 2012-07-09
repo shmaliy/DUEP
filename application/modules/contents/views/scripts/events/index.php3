@@ -38,7 +38,7 @@
         </ul>
       </div>
         <div class="calendar"></div>
-        <div class="rss_card">
+<div class="rss_card">
             <strong>Будьте в курсе</strong>
             <p>Подпишитесь на обновления сайта - и вы всегда будете в курсе событий!</p>
             <a class="rss_orang" href="">RSS-лента</a><br />
