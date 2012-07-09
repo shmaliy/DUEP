@@ -1,9 +1,11 @@
-<!--?php echo __FILE__; ?-->
-<html>
-  <body>
 <section class="middle">
 
   <div class="container">
+        <div class="tape_path">
+          <a class="emblem_way" href=""></a>&rarr;
+          <a href="">Университет</a>&rarr;
+          <a href="">События</a>
+      </div>
     <div class="content">
       <div>
           <h1 class="developments">События</h1>
@@ -107,5 +109,3 @@
 
 </section>
 <!-- #middle-->
-  </body>
-</html>
