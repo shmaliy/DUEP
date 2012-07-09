@@ -825,12 +825,13 @@ hr {
 span.adt_image {
     display:block;
     width:120px;
-    height:135px;
     float:left;
 }
 span.adt_image a {
     font-size: 10px;
     color: #8c8c8c;
+    display:block;
+    margin-top:-5px;
 }
 span.adt_image a:hover{
     color:#2698FD;
@@ -845,6 +846,7 @@ span.adt_image a:hover{
 }
 .adt_date a {
     font-size:18px;
+    text-align:left;
 }
 a.comments {
     font-size: 12px;
@@ -864,8 +866,16 @@ p.adt_description {
     padding-left:120px;
     line-height:1.2;
 }
-.button_report {
-    display:block;
+a.button_report {
+    color:#fff;
+    background-image:url(../img/front/bg_report.png);
+    width:53px;
+    height:15px;
+    text-decoration:none;
+    text-shadow: 1px 0px 0px #003366;
+    font-size:10px;
+    padding:1px 12px;
+    margin-left:10px;
 }
 .sideRight {
     float:right;
@@ -886,9 +896,6 @@ p.adt_description {
     background-image:url(../img/front/rss_card.jpg);
     background-repeat:no-repeat;
     float:right;
-    position: relative;
-    top: 20px;
-    
 }
 .rss_card strong{
     font-size:18px;
@@ -963,6 +970,7 @@ a.photo_category:hover{
 }
 .number_comments {
     text-align:right;
+    font-size:11px;
 }
 .label_photos {
     display:block;
