@@ -910,6 +910,78 @@ a.rss_orang {
 .paging a:hover{
     color:#3a3a3a;
 }
+.photos {
+    width:570px;
+    float:left;
+}
+.photo_preview{
+    position:relative;
+    float:left;
+    margin:15px 20px 0 0;
+    width:170px;
+}
+.photo_description span {
+    font-size:11px;
+}
+.photo_underline {
+    display:block;
+    width:170px;
+    height:20px;
+    background-image:url(../img/front/photo_underline.png);
+    background-repeat:repeat-x;
+    z-index:20;
+    position:absolute;
+    top:120px;
+    left:0;
+}
+a.photo_name {
+    font-size:14px;
+}
+a.photo_category {
+    color:#737373;
+    font-size:11px;
+}
+a.photo_category:hover{
+    color:#2698FD;
+}
+.number_photos {
+    font-size:16px;
+    text-align:right;
+    color:#fff;
+    float:right;
+    margin:2px 7px 0 0;
+}
+.number_comments {
+    text-align:right;
+}
+.label_photos {
+    display:block;
+    width:19px;
+    height:13px;
+    float:right;
+    margin:3px 7px 0 0;
+    background-image:url(../img/front/label_photos.png);
+    background-repeat:no-repeat;
+    background-position:bottom left;
+}
+.label_comments {
+    display:block;
+    background-image:url(../img/front/label_comments.png);
+    background-repeat:no-repeat;
+    background-position:bottom left;
+    width:13px;
+    height:11px;
+    float:left;
+    margin:3px 3px 0 2px;
+}
+.date_comments {
+    float:left;
+}
+.description_gallery {
+    float:right;
+    width:190px;
+    margin-top:10px;
+}
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
 .sideLeft {
@@ -945,7 +1017,7 @@ ul.submenu {
     display:none;
     overflow:hidden;
     margin-left:20px;
-    height:40px;
+    height:auto;
     padding-bottom:10px;
 }
 ul.menu_sideLeft li ul.submenu li {
@@ -955,6 +1027,7 @@ ul.menu_sideLeft li ul.submenu li {
 ul.submenu li a{
     height:20px;
     min-height:20px!important;
+    white-space: nowrap;
 }
 ul.submenu li a:hover{
     background-image:none;
@@ -965,7 +1038,7 @@ ul.menu_sideLeft li:hover ul.submenu {
     display:block;
     overflow: visible;
     width:100px;
-    height:40px;
+    height:auto;
 }
 .side_true {
     width: 220px;
