@@ -25,6 +25,8 @@ class IndexController extends Zend_Controller_Action
 		$context->addActionContext('front-news', 'json');
 		
 		$context->initContext('json');
+    	var_export($this->getRequest()->getParams());
+    	var_export(getenv('REQUEST_URI'));
 	}
 	
 	/**
@@ -33,7 +35,6 @@ class IndexController extends Zend_Controller_Action
 	 */
 	public function indexAction()
     {
-    	
     	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
     	$this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
     	$this->view->ngroup = $groupsMapper->getFrontGroupByAlias ("news");

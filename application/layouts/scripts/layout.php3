@@ -63,6 +63,7 @@
 			<div class="user_block">
 				<div><a href="">Вход</a> / <a href="">Регистрация</a></div>
 				<div><a href="">Забыли пароль?</a></div>
+				<div><a href="<?php echo $this->simpleUrl('config'); ?>">Настройки</a></div>
 			</div>
 			
 			<div class="clear"></div>
