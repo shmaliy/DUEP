@@ -28,7 +28,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     protected function _setModels()
     {
     	$loader = $this->getResourceLoader();
-    	$loader->addResourceType('entities', 'models/Entities', 'Model_Entity');
+    	$loader->addResourceType('entities', 'models/Entity', 'Model_Entity');
     	$loader->addResourceType('collections', 'models/Collection', 'Model_Collection');
     	$loader->addResourceType('mappers', 'models/Mappers', 'Model_Mapper');
     }
