@@ -822,20 +822,21 @@ hr {
 .report_event {
     width:156px;
     height:25px;
-    background:url(../img/front/bg_report_event.png) no-repeat;
+    background:url(../img/front/bg_watch_event.png) no-repeat;
     display:block;
     float:right;
     color:#fff;
     font-size:14px;
     font-weight:bold;
     text-decoration:none;
+    text-align:center;
 }
 .report_event:hover{
     color:#F3D343;
 }
 .report_event span{
     display:block;
-    margin:3px 0 0 17px;
+    margin:3px auto;
     text-shadow:#000 0 0 1px;
 }
 .adt {
