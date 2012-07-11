@@ -67,7 +67,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	$options = Zend_Registry::get('options');
     	    	
     	// Load admin config
-    	$adminConfig = new Application_Model_AdminConfig();
+    	require_once APPLICATION_PATH . '/modules/default/models/Config.php';
+    	$adminConfig = new Default_Model_Config();
     	$config = $adminConfig->load();
     	
     	// Format options to system config

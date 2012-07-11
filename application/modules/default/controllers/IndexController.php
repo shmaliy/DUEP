@@ -53,8 +53,8 @@ class IndexController extends Zend_Controller_Action
 	    	3 => 'Март',
 	    	4 => 'Апрель',
 	    	5 => 'Май',
-	    	6 => '�?юнь',
-	    	7 => '�?юль',
+	    	6 => '�?юнь',
+	    	7 => '�?юль',
 	    	8 => 'Август',
 	    	9 => 'Сентябрь',
 	    	10 => 'Октябрь',
@@ -67,37 +67,13 @@ class IndexController extends Zend_Controller_Action
     }
     
     /**
-     * ЭТОТ МЕТОД СОЗДАН ДЛЯ НАД�? ЧТОБ ОНА МОГЛА ВЕРСТАТЬ ПР�?МЕН�?ТЕЛЬНО К САЙТУ - НЕ УДАЛЯТЬ
+     * ЭТОТ МЕТОД СОЗДАН ДЛЯ НАД�? ЧТОБ ОНА МОГЛА ВЕРСТАТЬ ПР�?МЕН�?ТЕЛЬНО К САЙТУ - НЕ УДАЛЯТЬ
      */
     public function developAction()
     {
     	
     }
 	
-    /**
-     * Config page
-     */
-	public function configAction()
-    {
-		$this->_helper->layout->setLayout('admin-layout');
-    	$request = $this->getRequest();
-    	$formAdminConfig = new Application_Form_AdminConfig();
-    	$adminConfig = new Application_Model_AdminConfig();
-    	
-    	if ($request->isXmlHttpRequest() || $request->isPost()) {
-    		if ($formAdminConfig->isValid($request->getParams())) {
-    			$adminConfig->save($formAdminConfig->getValues());
-    			$this->view->error = $formAdminConfig->getValues();
-    		} else {
-    			$this->view->error = $formAdminConfig->getErrors();
-    		}
-    	} else {
-    		$config = $adminConfig->load();
-    		unset($config['demo']); // forse demo off after sucess config
-    		$this->view->formAdminConfig = $formAdminConfig->setDefaults($config);
-    	}
-    }
-    
     public function usersAction()
     {
     	

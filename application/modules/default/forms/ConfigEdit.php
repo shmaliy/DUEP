@@ -1,12 +1,14 @@
 <?php
 
-class Application_Form_AdminConfig extends Zend_Form
+class Default_Form_ConfigEdit extends Zend_Form
 {
 	public function init()
 	{
+		$this->setName(strtolower(get_class($this)));
+		$this->setMethod(self::METHOD_POST);
 		$this->setAttrib('onsubmit', 'return false;'); // Force send only with ajax
-		$this->setAttrib('class', 'via_ajax'); // Force send only with ajax
-		
+		$this->setAttrib('class', 'via_ajax');         // Force send only with ajax
+				
 		$this->addElement('hidden', 'demo', array(
 			'value' => '0'
 		));
