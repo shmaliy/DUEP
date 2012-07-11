@@ -7,15 +7,14 @@
       <div class="tape_path">
           <a class="emblem_way" href=""></a>&rarr;
           <a href="">Университет</a>&rarr;
-          <a href="">События</a>&rarr;
+          <a href="">Анонсы</a>&rarr;
           <a href="">Категория 1</a>&rarr;
-          <a href="">Поздравляем победителей IV регионального Студенческого Фестиваля Рекламы!</a>&rarr;
-          <a href="">Отчет</a>
+          <a href="">Первый в Украине матч с «Финансового футболу»</a>
       </div>
     <div class="content">
       <div>
         <h1 class="developments">Первый в Украине матч с «Финансового футболу»</h1>
-          <a class="report_event" href=""><span>Просмотреть анонс</span></a>
+          <a class="report_event" href=""><span>Отчет о событии</span></a>
         <ul class="lineTabs">
           <li>
             <a class="active" href=""><span>Основная информация</span></a>
@@ -130,6 +129,53 @@
           </form>
       </div>
         <div class="sideRight">
+            <div class="menu_time">
+                <img alt="" src="../theme/img/front/label_clok.png" />
+                <ul>
+                    <li>
+                        <span class="menu_time_data">29.05.2012</span>
+
+                    </li>
+                    <li>
+                        <span class="time">9:00 - 9:15</span>
+                        <span>Начало-начал</span>
+                    </li>
+                    <li>
+                        <span class="time">11:00 - 11:15</span>
+                        <span>Середина середин</span>
+                    </li>
+                    <li>
+                        <span class="time">15:00 - 15:15</span>
+                        <span>Конец концов</span>
+                    </li>
+                    <li>
+                        <span class="time">15:15 - 00:00</span>
+                        <span>Праздничные гуляния</span>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <span class="menu_time_data">29.05.2012</span>
+
+                    </li>
+                    <li>
+                        <span class="time">9:00 - 9:15</span>
+                        <span>Начало-начал</span>
+                    </li>
+                    <li>
+                        <span class="time">11:00 - 11:15</span>
+                        <span>Середина середин</span>
+                    </li>
+                    <li>
+                        <span class="time">15:00 - 15:15</span>
+                        <span>Конец концов</span>
+                    </li>
+                    <li>
+                        <span class="time">15:15 - 00:00</span>
+                        <span>Праздничные гуляния</span>
+                    </li>
+                </ul>
+            </div>
             <div class="add_file">
                 <ul>
                     <li>
@@ -184,7 +230,7 @@
         <li><a href="">Нобелевское движение</a></li>
         <li><a href="">Аспирантура и докторантура</a></li>
         <li><div class="note">
-        <a href="">События</a>
+        <a href="">Анонсы</a>
         </div>
             <ul class="submenu">
                 <li><a href="">Категория1</a></li>

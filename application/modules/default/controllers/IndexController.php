@@ -25,6 +25,8 @@ class IndexController extends Zend_Controller_Action
 		$context->addActionContext('front-news', 'json');
 		
 		$context->initContext('json');
+    	//var_export($this->getRequest()->getParams());
+    	//var_export(getenv('REQUEST_URI'));
 	}
 	
 	/**
@@ -33,7 +35,6 @@ class IndexController extends Zend_Controller_Action
 	 */
 	public function indexAction()
     {
-    	
     	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
     	$this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
     	$this->view->ngroup = $groupsMapper->getFrontGroupByAlias ("news");
@@ -52,8 +53,8 @@ class IndexController extends Zend_Controller_Action
 	    	3 => 'Март',
 	    	4 => 'Апрель',
 	    	5 => 'Май',
-	    	6 => 'Июнь',
-	    	7 => 'Июль',
+	    	6 => '�?юнь',
+	    	7 => '�?юль',
 	    	8 => 'Август',
 	    	9 => 'Сентябрь',
 	    	10 => 'Октябрь',
@@ -66,7 +67,7 @@ class IndexController extends Zend_Controller_Action
     }
     
     /**
-     * ЭТОТ МЕТОД СОЗДАН ДЛЯ НАДИ ЧТОБ ОНА МОГЛА ВЕРСТАТЬ ПРИМЕНИТЕЛЬНО К САЙТУ - НЕ УДАЛЯТЬ
+     * ЭТОТ МЕТОД СОЗДАН ДЛЯ НАД�? ЧТОБ ОНА МОГЛА ВЕРСТАТЬ ПР�?МЕН�?ТЕЛЬНО К САЙТУ - НЕ УДАЛЯТЬ
      */
     public function developAction()
     {

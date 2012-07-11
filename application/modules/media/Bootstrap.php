@@ -18,8 +18,6 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
     {
     	try {
     		$this->_setModels();
-    		//$this->_setTranslate();
-    		//$this->_setRouter();
     	} catch (Exception $e) {
     		echo $e->getMessage() . '<br /><br />';
     		echo nl2br($e->getTraceAsString());
@@ -30,6 +28,8 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
     protected function _setModels()
     {
     	$loader = $this->getResourceLoader();
-    	$loader->addResourceType('entities', 'models/Entities', 'Entity');
+    	$loader->addResourceType('entities', 'models/Entity', 'Model_Entity');
+    	$loader->addResourceType('collections', 'models/Collection', 'Model_Collection');
+    	$loader->addResourceType('mappers', 'models/Mappers', 'Model_Mapper');
     }
 }
