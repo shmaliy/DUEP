@@ -822,7 +822,7 @@ hr {
 .report_event {
     width:156px;
     height:25px;
-    background:url(../img/front/bg_watch_event.png) no-repeat;
+    background:url(../img/front/bg_report_event.png) no-repeat;
     display:block;
     float:right;
     color:#fff;
@@ -990,6 +990,42 @@ sup {
     margin-right:3px;
     color:#8C8C8C;
 }
+.horizontal_carousel {
+    width:535px;
+    height:125px;
+    position:relative;
+    left:-10px;
+    bottom:0;
+    margin-bottom:15px;
+}
+.horizontal_carousel ul li {
+    float:left;
+    margin:3px;
+    position:relative;
+}
+.horizontal_carousel span{
+    position:absolute;
+    bottom:5px;
+    left:7px;
+    z-index:20;
+    color:#fff;
+    font-weight:bold;
+    font-size:12px;
+    text-shadow:0 0 1px #000;
+}
+.arrow_left a, .arrow_right a {
+    background-repeat:no-repeat;
+    background-position:center;
+    width:17px;
+    height:116px;
+    display:block;
+}
+.arrow_left a {
+    background-image:url(../img/front/button_left.png);
+}
+.arrow_right a {
+    background-image:url(../img/front/button_right.png);
+}
 .social-services ul li {
     float:left;
     margin-right:15px;
@@ -1093,6 +1129,26 @@ form.comments {
     border-radius:5px;
     margin-top:30px;
 }
+.info_public {
+    margin-top:20px;
+}
+.info_publication{
+    width:220px;
+    float:left;
+    padding-top:10px;
+}
+.info_publication ul{
+    margin:30px 0 0 10px;
+    color:#3a3a3a;
+    line-height:1.8;
+}
+.info_publication ul li span{
+    width:110px;
+    padding-right:5px;
+}
+.info_publication ul .time{
+    width:70px;
+}
 .rss_card {
     width:220px;
     height:128px;
@@ -1155,6 +1211,9 @@ span.menu_time_data {
     margin:15px 40px 8px 0;
     display:block;
 }
+.publication_cover {
+    margin:20px 0 0;
+}
 .add_file {
     width:220px;
     height:235px;
@@ -1188,6 +1247,7 @@ span.menu_time_data {
     font-size:15px;
     text-transform:uppercase;
     margin:0 10px;
+    width:100% !important;
 }
 .paging {
     width:250px;
