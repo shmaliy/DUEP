@@ -15,7 +15,11 @@
           <?php foreach ($this->news as $item):?>
           <li class="adt_date">
             <span class="adt_image">
+	            <?php if ($item->img == ''): ?>
+	            <img alt="" src="/theme/img/front/noimage.png" />
+	            <?php else: ?>
                <img alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
+               <?php endif;?>
              </span>
               <a href=""><?php echo $item->title; ?></a>
               <p><?php echo $item->date_created;?>,
