@@ -1417,7 +1417,7 @@ ul.submenu li a:hover{
     height:20px;
     min-height:20px;
 }
-ul.menu_sideLeft li:hover ul.submenu {
+li:hover ul.submenu {
     display:block;
     overflow: visible;
     width:100px;
@@ -1455,6 +1455,55 @@ ul.menu_sideLeft li:hover ul.submenu {
 .side_true ul li a{
     font-size:10px; 
 }
+.sorting_files {
+    font-weight:bold;
+    font-size:13px;
+    color:#3a3a3a;
+    margin-right:10px;
+    float:left;
+}
+.preview_files {
+    float:left;
+}
 ul li a.name_news {
     font-size: 11px;
+}
+ul.file_types {
+    position:relative;
+	background: #ffffff;
+	left: -25px;
+}
+.file_types{
+    width:142px;
+    height:220px;
+}
+.file_types img{
+    float:left;
+    margin-right:5px;
+}
+li.section_files{
+    height:25px;
+    margin-bottom:18px;
+    position:relative;
+    z-index:9000;
+}
+.section_files span {
+    display:block;
+}
+.emphasis {
+    border-bottom:1px dashed #000;
+    padding-bottom:10px;
+}
+.inset {
+    display: none;
+    overflow: hidden;
+}
+li:hover .inset{
+    display: block;
+    overflow: visible;
+}
+.pointer {
+    color:#0066C1;
+    font-weight:bold;
+    font-size:15px;
 }
