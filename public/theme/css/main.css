@@ -770,6 +770,7 @@ h1.developments {
     color:#015eb3;
     font-size:22px;
     font-weight:lighter;
+    line-height:1.1;
     margin:0 0 25px 0;
 }
 h2.developments {
@@ -962,6 +963,13 @@ sup {
 .author + .info_text{
     margin-top:0;
 }
+.writer {
+    font-size:14px;
+    font-weight:lighter;
+    color:#8a8a8a;
+    display:block;
+    margin-bottom:20px;
+}
 .other_editions {
     margin-bottom:10px;
 }
@@ -977,7 +985,6 @@ sup {
 .book_block {
     float:right;
     width:235px;
-    min-height:230px;
     font-size:10px;
     position:relative;
 }
@@ -1256,7 +1263,7 @@ span.menu_time_data {
     margin-bottom: 8px;
 }
 .add_file ul li p{
-    margin-left:33px;
+    margin:0 3px 0 30px;
 }
 .add_file ul li p span{
     display:block;
@@ -1264,7 +1271,6 @@ span.menu_time_data {
 }
 .add_file img{
     float:left;
-    margin-right:10px;
 }
 .menu_add_file {
     display:block;
