@@ -747,6 +747,9 @@ ul {
     margin-top:30px;
     min-height: 600px;
 }
+.tape_path {
+    width:950px;
+}
 .tape_path a {
     color: #8c8c8c;
     font-size:11px;
@@ -761,12 +764,19 @@ a.emblem_way {
     height:16px;
     display:block;
     float:left;
+    margin-bottom:20px;
 }
 h1.developments {
     color:#015eb3;
     font-size:22px;
     font-weight:lighter;
     margin:0 0 25px 0;
+}
+h2.developments {
+    font-weight:lighter;
+    font-size:16px;
+    color:#8c8c8c;
+    margin:-10px 0 5px 0;
 }
 .lineTabs{
 	height:28px;
@@ -940,6 +950,9 @@ sup {
     font-size:18px;
     font-weight:lighter;
     color:#015eb3;
+}
+.other_editions {
+    margin-bottom:10px;
 }
 .archive_publications {
     width:360px;
@@ -1212,11 +1225,11 @@ span.menu_time_data {
     display:block;
 }
 .publication_cover {
-    margin:20px 0 0;
+    margin:20px auto 0;
+    display:block;
 }
 .add_file {
     width:220px;
-    height:235px;
     margin-top:20px;
     float:right;
     border:1px solid #ededed;
