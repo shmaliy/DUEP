@@ -24,7 +24,11 @@
         <?php foreach ($this->announcements as $item):?>
           <li class="adt_date" style = "display: none;">
              <span class="adt_image">
-                <img alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
+                <?php if ($item->img == ''): ?>
+	            <img alt="" src="/theme/img/front/noimage.png" />
+	            <?php else: ?>
+               <img alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
+               <?php endif;?>
                 <?php foreach ($this->acats as $itemc):
                 if ($itemc->id == $item->contents_categories_id):?>
                   <a href=""><?php echo $itemc->title; ?></a>
