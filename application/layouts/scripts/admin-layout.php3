@@ -24,8 +24,8 @@
 	<div class="header">
 		<div class="header-resize">
 			<ul class="generic-menu">
-				<li><a href="<?php echo $this->simpleUrl('index');	?>">Центр</a></li>				
-				<li><a href="<?php echo $this->simpleUrl('config');	?>">Настройки</a></li>				
+				<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'default'); ?>">Центр</a></li>				
+				<li><a href="<?php echo $this->simpleUrl('config', 'admin-index', 'default'); ?>">Настройки</a></li>				
 				<li><a>Структура</a></li>				
 				<li><span>Модули</span>
 					<ul>
