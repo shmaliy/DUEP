@@ -309,7 +309,7 @@ ul {
 	margin-right: 45px;
 }
  
-.footer .search input.input {
+.search input.input {
 	font-family: Arial;
 	font-size: 12px;
 	color: #0066c1;
@@ -317,7 +317,7 @@ ul {
 	width: 140px;
  }
  
-.footer .search {
+.search {
 	border-top: 1px solid #e1e1e1;
 	border-bottom: 1px solid #e1e1e1;
 	height: 22px;
@@ -326,7 +326,7 @@ ul {
 	margin: 3px 36px 0px 11px;
 }
  
-.footer .search input.submit{
+.search input.submit{
 	background: url(/theme/img/front/footer_search.jpg) 0px 0px no-repeat;
 	width: 36px;
 	height: 24px;
@@ -336,7 +336,7 @@ ul {
 	right: -36px;
 }
   
-.footer .search .search_left{
+.search .search_left{
   	background: url(/theme/img/front/footer_search.jpg) -36px 0px no-repeat;
 	position: absolute;
 	top: -1px;
@@ -757,6 +757,10 @@ ul {
 .tape_path a:hover{
     color:#2698FD;
 }
+li.tape_path {
+    width:750px;
+    margin-bottom:7px;
+}
 a.emblem_way {
     background-image: url(../img/front/emblem_way.png);
     background-repeat:no-repeat;
@@ -764,7 +768,6 @@ a.emblem_way {
     height:16px;
     display:block;
     float:left;
-    margin-bottom:20px;
 }
 h1.developments {
     color:#015eb3;
@@ -849,6 +852,9 @@ hr {
     display:block;
     margin:3px auto;
     text-shadow:#000 0 0 1px;
+}
+.panel {
+    margin:0 0 30px 10px;
 }
 .adt {
     width:520px;
@@ -1280,7 +1286,7 @@ span.menu_time_data {
     width:100% !important;
 }
 .paging {
-    width:250px;
+    width:260px;
     margin:60px 0 0;
 }
 .paging a{
@@ -1506,4 +1512,37 @@ li:hover .inset{
     color:#0066C1;
     font-weight:bold;
     font-size:15px;
+}
+.search_block{
+    width:760px;
+    margin:30px 0 5px 0;
+}
+.search_list {
+    margin:20px 0 0 20px;
+    list-style-type:decimal;
+    color:#0066C1;
+    font-size:16px;
+    float:left;
+}
+.search_list img{
+    float:left;
+    margin: 0 15px 0 20px;
+}
+.tex_preview {
+    padding-left:20px;
+    width:715px;
+}
+li > .info_text {
+    margin-top:0px;
+    margin-bottom:0px;
+}
+.pick {
+    background-color:#f3d343;
+    font-weight:bold;
+    font-size:13px;
+}
+.match {
+    font-size:11px;
+    font-style:italic;
+    margin:0 0 30px 12px;
 }
