@@ -4,224 +4,125 @@
 <div class="middle">
 
   <div class="container">
-      <form class="search_block"  method="" action="">
-          <div class="search">
-              <div class="search_left"></div>
-              <input class="input" title="text" value="Университет" />
-              <input class="submit" type="submit" value="">
+      <div class="tape_path">
+          <a class="emblem_way" href=""></a>&rarr;
+          <a href="">Университет</a>&rarr;
+          <a href="">Новости</a>&rarr;
+          <a href="">Новости подробнее</a>
+      </div>
+    <div class="content">
+      <div>
+        <h1 class="developments">Поздравляем победителей IV регионального Студенческого Фестивал</h1>
+        <h2 class="developments">20.12.2012</h2>
+        <ul class="lineTabs">
+          <li>
+            <a class="active" href=""><span>Основная информация</span></a>
+          </li>
+          <li>
+            <a href=""><span><span class="label_camera"><span>Фотоальбом </span><sup>3</sup></span></span></a>
+          </li>
+          <li>
+            <a href=""><span><span class="label_video"><span>Видеозаписи </span><sup>1</sup></span></span></a>
+          </li>
+        </ul>
+        <hr />
+      </div>
+      <div class="adt">
+        <p class="info_text">В каждое мгновение жизни что-то начинается заново. В своем самом автобиографичном романе Пауло Коэльо рассказывает о необычном путешествии. Из-за духовного кризиса в поисках обновления и роста он решает путешествовать, экспериментировать, знакомиться с новыми людьми и местами. Путешествие начинается в Африке, а затем проходит через Европу и Азию по российской Транссибирской магистрали. В Москве он встречает Хиляль, молодую талантливую скрипачку. Вместе с ней он и отправится в путешествие, следуя путем любви, прощения и отваги, которая столь необходима для того, чтобы принимать неизбежные вызовы жизни.</p>
+        <img class="photo_author" alt="" src="../theme/img/front/article/2.jpg" />
+        <strong class="author">Пауло Коэльо</strong>
+        <p class="info_text">Бразильский писатель и поэт Пауло Коэльо родился в Рио-де-Жанейро. С семи лет посещал иезуитскую школу Святого Игнатия Лойолы, где у него впервые появилось желание писать книги, однако страсть к писательству не была одобрена  его родителями, так, под давлением семьи, будущий всемирно известный писатель поступает на юридический факультет университета Рио-де-Жанейро, но вскоре оставляет учебу и занимается журналистикой...</p>
+            <div class="social-services">
+              <ul>
+                  <li>
+                      <img alt="" src="../theme/img/front/social_v.jpg" />
+                  </li>
+                  <li>
+                      <img alt="" src="../theme/img/front/social_f.jpg" />
+                  </li>
+                  <li>
+                      <img alt="" src="../theme/img/front/social_t.jpg" />
+                  </li>
+                  <li>
+                      <img alt="" src="../theme/img/front/social_g.jpg" />
+                  </li>
+              </ul>
+            </div>
+          <div class="linked_materials side_true">
+              <span class="menu_add_file">Связанные материалы</span>
+              <div class="group_materials">
+                  <strong class="">Новости</strong>
+                  <ul class="sked">
+                      <li>
+                          <p>20.12.2012<span>8:18</span></p>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                      <li>
+                          <p>20.12.2012<span>8:18</span></p>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="group_materials">
+                  <strong>Анонсы и события</strong>
+                  <ul class="sked">
+                      <li>
+                          <p>20.12.2012<span>8:18</span></p>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                      <li>
+                          <p>20.12.2012<span>8:18</span></p>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="group_materials">
+                  <strong class="">Прочее</strong>
+                  <ul class="sked">
+                      <li>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                  </ul>
+              </div>
+              <div style="clear:both;"></div>
           </div>
-      </form>
-      <div class="match">Найдено 156 000 совпадений</div>
-          <ol class="search_list">
-              <li class="panel">
-                  <ul>
-                      <li>
-                          <img alt="" src="../theme/img/front/developments/2.jpg" />
-                      </li>
-                      <ul class="tex_preview">
-                            <li>
-                                <h2 class="developments"><a href="">Перший в Україні матч з « Фінансового футболу»</a></h2>
-                            </li>
-                            <li class="tape_path">
-                                <a class="emblem_way" href=""></a>&rarr;
-                                <a href="">Университет</a>&rarr;
-                                <a href="">Анонсы </a>&rarr;
-                                <a href="">Категория 1</a>&rarr;
-                                <a href="">Первый в Украине матч с «Финансового футболу»</a>
-                            </li>
-                            <li>
-                                <p class="info_text">7 квітня 2012 р. у Києві відбулась прес-конференція за участю представників Visa, ПриватБанку, <span class="pick">Университет</span> Дніпропетровського <span class="pick">університету</span> ім. Альфреда Нобеля, студентів та старшокласників, представників ЗМІ...</p>
-                            </li>
-                       </ul>
-                  </ul>
-              </li>
-              <li class="panel">
-                  <ul>
-                      <li>
-                          <img alt="" src="../theme/img/front/developments/1.jpg" />
-                      </li>
-                      <ul class="tex_preview">
-                            <li>
-                                <h2 class="developments"><a href="">Виставка «Армія Генерала Андерса»</a></h2>
-                            </li>
-                            <li class="tape_path">
-                                <a class="emblem_way" href=""></a>&rarr;
-                                <a href="">Университет</a>&rarr;
-                                <a href="">Анонсы </a>&rarr;
-                                <a href="">Выставка «Артемия Генерала Андерса»</a>
-                            </li>
-                            <li>
-                                <p class="info_text">25 квітня відбулося урочисте <span class="pick">Университет</span> відкриття виставки у Дніпропетровському <span class="pick">університеті</span> імені Альфреда Нобеля, яка присвячена Армії Генерала Андерса.</p>                                <p class="info_text">Ініціатором та автором виставки став Міністр, Секретар Ради охорони пам'яті боротьби і мучеництва (Польща, Варшава) – доктор...</p>
-                            </li>
-                       </ul>
-                  </ul>
-              </li>
-              <li class="panel">
-                  <ul>
-                      <ul class="tex_preview">
-                            <li>
-                                <h2 class="developments"><a href="">Вітаємо переможців IV Регіонального Студентського Фестивалю Реклами !</a></h2>
-                            </li>
-                            <li class="tape_path">
-                                <a class="emblem_way" href=""></a>&rarr;
-                                <a href="">Университет</a>&rarr;
-                                <a href="">События</a>&rarr;
-                                <a href="">Поздравляем победителей 4 Регионального Студенческого Фестиваля</a>
-                            </li>
-                            <li>
-                                <p class="info_text">У квітні 2012 року <span class="pick">Университет</span> відбувся черговий ІV Регіональний Студентський Фестиваль Реклами.</p>                                <p class="info_text">Студенти 5-го курсу напряму Маркетинг Коротка <span class="pick">Университет</span> Анастасія та Соловйов Іван посіли друге місце у номінації «Друкована реклама».</p>
-                            </li>
-                       </ul>
-                  </ul>
-              </li>
-              <li class="panel">
-                  <ul>
-                      <ul class="tex_preview">
-                            <li>
-                                <h2 class="developments"><a href="">Вийшов навчальний посібник «БАНКІВСЬКА СИСТЕМА: у схемах і таблицях»</a></h2>
-                            </li>
-                            <li class="tape_path">
-                                <a class="emblem_way" href=""></a>&rarr;
-                                <a href="">Университет</a>&rarr;
-                                <a href="">События</a>&rarr;
-                                <a href="">Вышел учебник «Банковская система: в схемах и таблицах</a>
-                            </li>
-                            <li>
-                                <p class="info_text">Вперше в Україні викладачами Дніпропетровського <span class="pick">університету</span> імені Альфреда Нобеля підготовлено та опубліковано <span class="pick">Университет</span> навчальний посібник «Банківська система: у схемах і таблицях» за загальною редакцією д.е.н. співпраці кафедри фінансів та банківської справи Дніпропетровського <span class="pick">університету</span> імені Альфреда Нобеля та кафедри фінансів та банківської справи Кременчуцького інституту Дніпропетровського <span class="pick">університету</span> імені Альфреда Нобеля.</p>
-                            </li>
-                       </ul>
-                  </ul>
-              </li>
-              <li class="panel">
-                  <ul>
-                      <ul class="tex_preview">
-                            <li>
-                                <h2 class="developments"><a href="">ТРАДИЦІЙНА ЗУСТРІЧ З ВИПУСКНИКАМИ</a></h2>
-                            </li>
-                            <li class="tape_path">
-                                <a class="emblem_way" href=""></a>&rarr;
-                                <a href="">Университет</a>&rarr;
-                                <a href="">События</a>&rarr;
-                                <a href="">Поздравляем победителей 4 Регионального Студенческого Фестиваля</a>
-                            </li>
-                            <li>
-                                <p class="info_text">року Дніпропетровський <span class="pick">університет</span> імені Альфреда Нобеля зустрічав своїх випускників. Вже традиційною стала така подія, яка відбувається кожну третю суботу квітня. Цього року на зустріч завітали 70 випускників різних років випуску. З 12.00 години у меморіально-парковому комплексі «Планета Альфреда Нобеля» почали збиратися випускники, яких зустрічав професорсько-викладацький склад <span class="pick">університету.</span></p>
-                            </li>
-                       </ul>
-                  </ul>
-              </li>
-              <li class="panel">
-                  <ul>
-                      <li>
-                          <img alt="" src="../theme/img/front/developments/2.jpg" />
-                      </li>
-                      <ul class="tex_preview">
-                            <li>
-                                <h2 class="developments"><a href="">Перший в Україні матч з « Фінансового футболу»</a></h2>
-                            </li>
-                            <li class="tape_path">
-                                <a class="emblem_way" href=""></a>&rarr;
-                                <a href="">Университет</a>&rarr;
-                                <a href="">Анонсы </a>&rarr;
-                                <a href="">Категория 1</a>&rarr;
-                                <a href="">Первый в Украине матч с «Финансового футболу»</a>
-                            </li>
-                            <li>
-                                <p class="info_text">7 квітня 2012 р. у Києві відбулась прес-конференція за участю представників Visa, ПриватБанку, <span class="pick">Университет</span> Дніпропетровського <span class="pick">університету</span> ім. Альфреда Нобеля, студентів та старшокласників, представників ЗМІ...</p>
-                            </li>
-                       </ul>
-                  </ul>
-              </li>
-              <li class="panel">
-                  <ul>
-                      <ul class="tex_preview">
-                            <li>
-                                <h2 class="developments"><a href="">Вітаємо переможців IV Регіонального Студентського Фестивалю Реклами !</a></h2>
-                            </li>
-                            <li class="tape_path">
-                                <a class="emblem_way" href=""></a>&rarr;
-                                <a href="">Университет</a>&rarr;
-                                <a href="">События</a>&rarr;
-                                <a href="">Поздравляем победителей 4 Регионального Студенческого Фестиваля</a>
-                            </li>
-                            <li>
-                                <p class="info_text">У квітні 2012 року <span class="pick">Университет</span> відбувся черговий ІV Регіональний Студентський Фестиваль Реклами.</p>                                <p class="info_text">Студенти 5-го курсу напряму Маркетинг Коротка <span class="pick">Университет</span> Анастасія та Соловйов Іван посіли друге місце у номінації «Друкована реклама».</p>
-                            </li>
-                       </ul>
-                  </ul>
-              </li>
-              <li class="panel">
-                  <ul>
-                      <li>
-                          <img alt="" src="../theme/img/front/developments/1.jpg" />
-                      </li>
-                      <ul class="tex_preview">
-                            <li>
-                                <h2 class="developments"><a href="">Виставка «Армія Генерала Андерса»</a></h2>
-                            </li>
-                            <li class="tape_path">
-                                <a class="emblem_way" href=""></a>&rarr;
-                                <a href="">Университет</a>&rarr;
-                                <a href="">Анонсы </a>&rarr;
-                                <a href="">Выставка «Артемия Генерала Андерса»</a>
-                            </li>
-                            <li>
-                                <p class="info_text">25 квітня відбулося урочисте <span class="pick">Университет</span> відкриття виставки у Дніпропетровському <span class="pick">університеті</span> імені Альфреда Нобеля, яка присвячена Армії Генерала Андерса.</p>                                <p class="info_text">Ініціатором та автором виставки став Міністр, Секретар Ради охорони пам'яті боротьби і мучеництва (Польща, Варшава) – доктор...</p>
-                            </li>
-                       </ul>
-                  </ul>
-              </li>
-              <li class="panel">
-                  <ul>
-                      <ul class="tex_preview">
-                            <li>
-                                <h2 class="developments"><a href="">Вийшов навчальний посібник «БАНКІВСЬКА СИСТЕМА: у схемах і таблицях»</a></h2>
-                            </li>
-                            <li class="tape_path">
-                                <a class="emblem_way" href=""></a>&rarr;
-                                <a href="">Университет</a>&rarr;
-                                <a href="">События</a>&rarr;
-                                <a href="">Вышел учебник «Банковская система: в схемах и таблицах</a>
-                            </li>
-                            <li>
-                                <p class="info_text">Вперше в Україні викладачами Дніпропетровського <span class="pick">університету</span> імені Альфреда Нобеля підготовлено та опубліковано <span class="pick">Университет</span> навчальний посібник «Банківська система: у схемах і таблицях» за загальною редакцією д.е.н. співпраці кафедри фінансів та банківської справи Дніпропетровського <span class="pick">університету</span> імені Альфреда Нобеля та кафедри фінансів та банківської справи Кременчуцького інституту Дніпропетровського університету імені Альфреда Нобеля.</p>
-                            </li>
-                       </ul>
-                  </ul>
-              </li>
-              <li class="panel">
-                  <ul>
-                      <ul class="tex_preview">
-                            <li>
-                                <h2 class="developments"><a href="">ТРАДИЦІЙНА ЗУСТРІЧ З ВИПУСКНИКАМИ</a></h2>
-                            </li>
-                            <li class="tape_path">
-                                <a class="emblem_way" href=""></a>&rarr;
-                                <a href="">Университет</a>&rarr;
-                                <a href="">События</a>&rarr;
-                                <a href="">Поздравляем победителей 4 Регионального Студенческого Фестиваля</a>
-                            </li>
-                            <li>
-                                <p class="info_text">року Дніпропетровський <span class="pick">університет</span> імені Альфреда Нобеля зустрічав своїх випускників. Вже традиційною стала така подія, яка відбувається кожну третю суботу квітня. Цього року на зустріч завітали 70 випускників різних років випуску. З 12.00 години у меморіально-парковому комплексі «Планета Альфреда Нобеля» почали збиратися випускники, яких зустрічав професорсько-викладацький склад <span class="pick">університету.</span></p>
-                            </li>
-                            <ul>
-                                <li class="paging">
-                                    <a href="">&larr;</a>
-                                    <a href="">1</a>
-                                    <a href="">2</a>
-                                    <a href="">3</a>
-                                    <a href="">4</a>
-                                    <a href="">5</a>
-                                    <a href="">6</a>
-                                    <a href="">7</a>
-                                    <a href="">8</a>
-                                    <a href="">&rarr;</a>
-                                </li>
-                            </ul>
-                       </ul>
-                  </ul>
-              </li>
-          </ol>
+          <div class="comments">
+              <h3>Комментарии <span>(3)</span></h3>
+              <ul>
+                  <li class="comments_top">
+                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/1.jpg" /></span>
+                      <p>
+                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
+                          <span>Собрание сегодня состоится?</span>
+                      </p>
+                  </li>
+                  <li class="comments_bottom">
+                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/2.jpg" /></span>
+                      <p>
+                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
+                          <span>Собрание сегодня состоится?</span>
+                      </p>
+                  </li>
+                  <li class="comments_top">
+                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/1.jpg" /></span>
+                      <p>
+                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
+                          <span>Собрание сегодня состоится?</span>
+                      </p>
+                  </li>
+              </ul>
+          </div>
+          <h4>Ваш комментарий</h4>
+          <form class="comments">
+              <textarea name="" cols="" rows=""></textarea>
+              <input type="submit" value="Отправить">
+          </form>
+      </div>
         <div class="sideRight">
             <div class="add_file">
                 <ul>
@@ -231,7 +132,7 @@
                     <li>
                         <img alt="" src="../theme/img/front/add_file/doc.png" />
                         <p>
-                            <a class="name_news" href="">Лицензування та <a class="pick">Университет</a></a>
+                            <a class="name_news" href="">Лицензування та акредитация</a>
                             <span>DOC (12Мб)</span>
                             <a href="">Лента</a>&rarr;<a href="">Категория</a>
                         </p>
@@ -239,7 +140,7 @@
                     <li>
                         <img alt="" src="../theme/img/front/add_file/pdf.png" />
                         <p>
-                            <a class="name_news" href="">Ласкаво <a class="pick">Университет</a></a>
+                            <a class="name_news" href="">Ласкаво просимо</a>
                             <span>PDF (12Мб)</span>
                             <a href="">Лента</a>&rarr;<a href="">Категория</a>
                         </p>
@@ -247,7 +148,7 @@
                     <li>
                         <img alt="" src="../theme/img/front/add_file/xls.png" />
                         <p>
-                            <a class="name_news" href="">Лицензування та <a class="pick">Университеу</a></a>
+                            <a class="name_news" href="">Лицензування та акредитация</a>
                             <span>XLS (12Мб)</span>
                             <a href="">Лента</a>&rarr;<a href="">Категория</a>
                         </p>
@@ -255,7 +156,7 @@
                     <li>
                         <img alt="" src="../theme/img/front/add_file/xls.png" />
                         <p>
-                            <a class="name_news" href="">Лицензування та <a class="pick">Университеу</a></a>
+                            <a class="name_news" href="">Лицензування та акредитация</a>
                             <span>XLS (12Мб)</span>
                             <a href="">Лента</a>&rarr;<a href="">Категория</a>
                         </p>
@@ -263,10 +164,66 @@
                 </ul>
             </div>
         </div>
+    </div>
     <!-- #content-->
 
   </div>
   <!-- #container-->
+
+  <div class="sideLeft">
+    <ul class="menu_sideLeft">
+        <li><a href="">10 причин, чтобы выбрать ДУЭП Именно наш университет</a></li>
+        <li><a href="">История</a></li>
+        <li><a href="">Структура университета</a></li>
+        <li><div class="note">
+        <a href="">Архив публикаций</a>
+        </div>
+            <ul class="submenu">
+                <li><a href="">Учебники</a></li>
+                <li><a href="">Художественная литература</a></li>
+                <li><a href="">Научная литература</a></li>
+                <li><a href="">Периодические издания</a></li>
+                <li><a href="">Другое</a></li>
+            </ul>
+        </li>
+        <li><a href="">Болонский процесс</a></li>
+    </ul>
+    <div class="side_true">
+        <h2>Актуально</h2>
+        <ul>
+            <li>
+                <img alt="" src="../theme/img/front/true/1.jpg" />
+                <p>30 Березня 2012</p>
+                <a class="name_news" href="">Название новости</a>
+                <a href="">Лента</a>&rarr;<a href="">Категория</a>
+            </li>
+            <li>
+                <img alt="" src="../theme/img/front/true/2.jpg" />
+                <p>30 Березня 2012</p>
+                <a class="name_news" href="">Название новости</a>
+                <a href="">Лента</a>&rarr;<a href="">Категория</a>
+            </li>
+            <li>
+                <img alt="" src="../theme/img/front/true/3.jpg" />
+                <p>30 Березня 2012</p>
+                <a class="name_news" href="">Название новости</a>
+                <a href="">Лента</a>&rarr;<a href="">Категория</a>
+            </li>
+            <li>
+                <img alt="" src="../theme/img/front/true/4.jpg" />
+                <p>30 Березня 2012</p>
+                <a class="name_news" href="">Название новости</a>
+                <a href="">Лента</a>&rarr;<a href="">Категория</a>
+            </li>
+            <li>
+                <img alt="" src="../theme/img/front/true/5.jpg" />
+                <p>30 Березня 2012</p>
+                <a class="name_news" href="">Название новости</a>
+                <a href="">Лента</a>&rarr;<a href="">Категория</a>
+            </li>
+        </ul>
+    </div>
+  </div>
 
   <!-- #sideLeft -->
           
