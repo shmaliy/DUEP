@@ -1628,3 +1628,10 @@ li > .info_text {
     line-height:1.5;
     margin-left:10px;
 }
+.area h2 {
+    float:left;
+    color:#015EB3;
+    font-weight:lighter;
+    font-size:16px;
+    margin-right:5px;
+}
