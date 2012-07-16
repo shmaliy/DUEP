@@ -6,10 +6,10 @@ $adminTableNavOptions = array(
 	'total'      => $this->total,
 	'action'     => $this->a,
 	'controller' => $this->c,
-	'module'     => $this->m
+	'module'     => $this->m,
 );
 ?>
-<?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
+<?php echo $this->partial('admin-table-filter.php3', 'default', array('filter' => $this->filter)); ?>
 <table class="generic-table">
 	<thead>
 		<tr>
@@ -17,11 +17,23 @@ $adminTableNavOptions = array(
 				echo $this->simpleUrl('edit', $this->c, $this->m);
 			?>"></a></th>
 			<th width="1%"><input type="checkbox" class="selectAll" /></th>
-			<th>Название</th>
+			<th>Ф.И.О.</th>
 			<th width="1%" nowrap="nowrap">Дата создания</th>
 			<th width="1%" nowrap="nowrap">Дата изменения</th>
 		</tr>
+		<tr>
+			<td colspan="10">				
+				<?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
+			</td>
+		</tr>
 	</thead>
+	<tfoot>
+		<tr>
+			<td colspan="10">				
+				<?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
+			</td>
+		</tr>
+	</tfoot>
 	<tbody>
 	<?php if (count($this->rowset) > 0): ?>
 	<?php foreach ($this->rowset as $row): ?>
@@ -43,4 +55,3 @@ $adminTableNavOptions = array(
 	<?php endif; ?>
 	</tbody>
 </table>
-<?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>

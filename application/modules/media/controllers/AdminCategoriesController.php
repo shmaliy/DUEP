@@ -1,8 +1,10 @@
 <?php
 
-class Media_AdminCategoriesController extends Sunny_Controller_Action
+class Media_AdminCategoriesController extends Sunny_Controller_AdminAction
 {	
 	protected $_mapperName = 'Media_Model_Mapper_MediaCategories';
+	
+	protected $_filters = array('media_categories_id' => 0);
 	
 	public function init()
 	{
@@ -22,84 +24,130 @@ class Media_AdminCategoriesController extends Sunny_Controller_Action
 	
 	public function indexAction()
     {
-    	$request = $this->getRequest();
-    	 
-    	$session = $this->getSession();
-    	$this->view->page   = $session->{self::SESSION_PAGE};
-    	$this->view->rows   = $session->{self::SESSION_ROWS};
-    	
-    	$this->view->rowset = $this->_getMapper()->fetchPage();
-    	$this->view->total  = $this->_getMapper()->fetchCount();
-    }
+    	// VERSION 14.07.2012
+		$filter            = $this->_getSessionFilter();
+    	$this->view->page  = $this->_getSessionPage();
+    	$this->view->rows  = $this->_getSessionRows();
+		
+		$where = array(
+			'media_categories_id = ?' => $filter['media_categories_id']
+		);
+		
+    	$this->view->rowset = $this->_getMapper()->fetchPage(
+    		$where,
+    		null,
+    		$this->view->rows,
+    		$this->view->page
+		);
+		$this->view->total  = $this->_getMapper()->fetchCount($where);
+		
+		$form = new Media_Form_AdminCategoriesFilter();		
+		$collection = $this->_getMapper()->fetchTree(null, array('id', 'title', 'media_categories_id'));
+		$options = $form->collectionToMultiOptions($collection, array(), array('Нет'));		
+		$form->getElement('media_categories_id')->setMultiOptions($options);
+		
+		$form->setDefaults($filter);
+		$form->setAction($this->view->simpleUrl('set-filter', $this->_c, $this->_m));
+		$this->view->filter = $form;
+     }
     
     public function editAction()
     {
-    	$request = $this->getRequest();
-		$mapper  = $this->_getMapper();
-    	
-    	// Setup form valid action
+		// Version 14.07.2012
+		$request = $this->getRequest();
+		
+		$id = $request->getParam('id');
 		$form = new Media_Form_CategoryEdit();
-    	$form->setAction($this->_helper->url->simple('edit', $this->_c, $this->_m));
-    	
-    	// Processing _POST
-    	if ($request->isXmlHttpRequest() || $request->isPost()) {
-    		if ($form->isValid($request->getParams())) {
-    			// Save data
-    			$entity = $mapper->createEntity($form->getValues());
-    			$mapper->saveEntity($entity);
-    			
-    			if (!$request->isXmlHttpRequest()) {
-    				$this->_helper->redirector->gotoSimple('index', $this->_c, $this->_m);
-    			} else {
-    				$this->view->redirectTo = $this->view->simpleUrl('index', $this->_c, $this->_m);
-    			}
-    		} else {
-    			// Return errors
+		
+		$collection = $this->_getMapper()->fetchTree(null, array('id', 'title', 'media_categories_id'));
+		$options = $form->collectionToMultiOptions($collection, array($id), array('Нет'));		
+		$form->getElement('media_categories_id')->setMultiOptions($options);		
+		$form->setAction($this->view->simpleUrl('edit', $this->_c, $this->_m));
+		
+		if ($request->isXmlHttpRequest() || $request->isPost()) {
+			if ($form->isValid($request->getParams())) {
+				$entity = $this->_getMapper()->createEntity($form->getValues());
+				$this->_getMapper()->saveEntity($entity);
+				
+				$this->_helper->flashMessenger->addMessage('<div class="notification-done">Saved success</div>');
+				$this->_gotoUrl('index', $this->_c, $this->_m);
+			} else {
     			$this->view->formErrors        = $form->getErrors();
     			$this->view->formErrorMessages = $form->getErrorMessages();
-    		}
-    	} else {
-    		// If _GET render form
-			$id = $request->getParam('id', 'new');
-    		if ($id != 'new') {
-    			$entity = $mapper->findEntity($id);
-    		    if ($entity) {
-    				$form->setDefaults($entity->toArray());
-    			}
-    		}
-    		
-    		$this->view->form = $form;
-    	}
+			}
+		} else {
+			$entity = $this->_getMapper()->findEntity($id);
+			if ($id && $entity) {
+				$form->setDefaults($entity->toArray());
+			}
+			
+			$this->view->form = $form;
+		}		
     }
-        
+    
     public function deleteAction()
     {
-    	$request = $this->getRequest();
-    	$mapper  = $this->_getMapper();
-    	$entity  = $mapper->findEntity($request->getParam('id'));
-    	$mapper->deleteEntity($entity);
+    	// Version 14.07.2012
+    	$validator = new Zend_Validate_Int();
+    	if (!$validator->isValid($this->getRequest()->getParam('id'))) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error delete item</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m);
+			return;
+		}
+		
+    	$entity = $this->_getMapper()->findEntity($request->getParam('id'));
+    	$this->_getMapper()->deleteEntity($entity);
+		$this->_helper->flashMessenger->addMessage('<div class="notification-error">Success delete item</div>');
+		$this->_gotoUrl('index', $this->_c, $this->_m);
     }
-            
+        
     public function setPageAction()
     {
-    	$session = $this->getSession();
-    	$page    = $this->getRequest()->getParam(self::SESSION_PAGE, 1);
-    	$session->{self::SESSION_PAGE} = $page;
+    	// Version 14.07.2012
+    	$validator = new Zend_Validate_Int();
+    	$param = $this->getRequest()->getParam(self::SESSION_PAGE);
+		if (!$validator->isValid($param)) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set page</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m);
+			return;
+		}
+		
+		$this->_setSessionPage($param);
+		$this->_gotoUrl('index', $this->_c, $this->_m);
     }
     
     public function setLimitAction()
     {
-    	$session = $this->getSession();
-    	$rows    = $this->getRequest()->getParam(self::SESSION_ROWS, 20);
-    	$session->{self::SESSION_PAGE} = 1;
-    	$session->{self::SESSION_ROWS} = $rows;
+    	// Version 14.07.2012
+    	$validator = new Zend_Validate_Int();
+    	$param = $this->getRequest()->getParam(self::SESSION_ROWS);
+		if (!$validator->isValid($param)) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set rows</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m);
+			return;
+		}
+		
+    	$this->_setSessionPage(1);		
+    	$this->_setSessionRows($param);
+		$this->_gotoUrl('index', $this->_c, $this->_m);
     }
     
     public function setFilterAction()
     {
-    	$session = $this->getSession();
-    	$filter  = $this->getRequest()->getParam(self::SESSION_ROWS, array());
-    	$session->{self::SESSION_PAGE} = 1;
-    	$session->{self::SESSION_ROWS} = $filter;
+		// Version 14.07.2012
+		$form = new Media_Form_AdminCategoriesFilter();
+		$collection = $this->_getMapper()->fetchTree(null, array('id', 'title', 'media_categories_id'));
+		$options = $form->collectionToMultiOptions($collection, array(), array('Нет'));
+		$form->getElement('media_categories_id')->setMultiOptions($options);
+		
+    	if (!$form->isValid($this->getRequest()->getParams())) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set filter</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m);
+			return;
+		}
+		
+    	$this->_setSessionPage(1);
+    	$this->_setSessionFilter($form->getValues());		
+		$this->_gotoUrl('index', $this->_c, $this->_m);
     }
 }

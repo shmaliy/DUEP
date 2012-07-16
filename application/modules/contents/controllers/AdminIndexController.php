@@ -1,8 +1,28 @@
 <?php
 
-class Contents_AdminIndexController extends Sunny_Controller_Action
+class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 {	
 	protected $_mapperName = 'Contents_Model_Mapper_Contents';
+	
+	protected $_filters = array('contents_categories_id' => 0);
+	
+	protected function _checkGroup()
+	{
+		$groupAlias = $this->getRequest()->getParam('group');
+    	if (null === $groupAlias) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Group not passed</div>');
+			return false;
+    	}
+    	
+    	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+    	$group = $groupsMapper->fetchRow(array('alias = ?' => $groupAlias));
+    	if (!$group) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Group not found</div>');
+			return false;
+		}
+		
+		return $group;
+	}
 	
 	public function init()
 	{
@@ -22,122 +42,179 @@ class Contents_AdminIndexController extends Sunny_Controller_Action
 	
 	public function indexAction()
     {
-    	$request = $this->getRequest();
-    	$params = $request->getParams();
+    	// VERSION 14.07.2012
+		if (false === ($group = $this->_checkGroup())) {
+			return;
+		}
+		
+		$filter            = $this->_getSessionFilter(null, $group->alias);
+    	$this->view->page  = $this->_getSessionPage($group->alias);
+    	$this->view->rows  = $this->_getSessionRows($group->alias);
+		$this->view->group = $group;
     	
-    	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
-    	$group = $groupsMapper->fetchRow(array('alias = ?' => $params["group"]));
-    	 
-    	$session = $this->getSession();
-    	$this->view->page   = $session->{self::SESSION_PAGE};
-    	$this->view->group = $params['group'];
-    	$this->view->rows   = $session->{self::SESSION_ROWS};
-    	
-    	$this->view->rowset = $this->_getMapper()->fetchPage(array('contents_groups_id = ?' => $group->id));
-    	$this->view->total  = $this->_getMapper()->fetchCount(array('contents_groups_id = ?' => $group->id));
+		$where = array(
+			'contents_groups_id = ?'     => $group->id,
+			'contents_categories_id = ?' => $filter['contents_categories_id']
+		);
+		
+    	$this->view->rowset = $this->_getMapper()->fetchPage(
+    		$where,
+    		null,
+    		$this->view->rows,
+    		$this->view->page
+		);
+		$this->view->total  = $this->_getMapper()->fetchCount($where);
+		
+		$form = new Contents_Form_AdminIndexFilter();		
+		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
+		$collection = $categoriesMapper->fetchTree(
+			array('contents_groups_id = ?' => $group->id),
+			array('id', 'title', 'contents_categories_id')
+		);
+		$options = $form->collectionToMultiOptions($collection, array(), array('Нет'));		
+		$form->getElement('contents_categories_id')->setMultiOptions($options);
+		
+		$form->setDefaults($filter);
+		$form->setAction($this->view->simpleUrl('set-filter', $this->_c, $this->_m, array('group' => $group->alias)));
+		$this->view->filter = $form;
     }
     
-    public function categoriesBuilder($data, $array = array(), $level = 0)
-	{
-		foreach ($data as $branch) {
-			if($level > 0) {
-				$branch->title = str_repeat('—', $level) . $branch->title;
-			} 
-				
-			$array[$branch->id] = $branch->title;
-			if($branch->getExtendChilds()->count() > 0) {
-				$array = $this->categoriesBuilder($branch->getExtendChilds(), $array, $level+1);
-			}
-		}
-		return $array;
-	}
-    
-	
 	/**
-	 * 
 	 * Генерирует форму по признаку $params["group"] и сохраняет в базе
 	 */
     public function editAction()
     {
-    	$request = $this->getRequest();
-		$params = $request->getParams();
-
-		//echo $this->_helper->arrayTrans($params);
-		//echo ucfirst($params['group']);
+		// Version 14.07.2012
+		if (false === ($group = $this->_checkGroup())) {
+			return;
+		}
 		
-		$mapper  = $this->_getMapper();
+		$request = $this->getRequest();
+		$id = $request->getParam('id');
+		$formClassName = 'Contents_Form_'
+		               . ucfirst(Zend_Filter::filterStatic($group->alias, 'Word_UnderscoreToCamelCase'))
+		               . 'Edit';
+		if (!@class_exists($formClassName)) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Editor not found</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+		}
+		
+		$form = new $formClassName();
+		
 		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
-		$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
-		$group = $groupsMapper->fetchRow(array('alias = ?' => $params["group"]));
-		
-		$formName = 'Contents_Form_' . ucfirst(Zend_Filter::filterStatic($params["group"], 'Word_UnderscoreToCamelCase')) . 'Edit'; 
-		$form  = new $formName(array('contentsGroupsId' => $group->id));
-		
-		$form->setAction($this->_helper->url->simple('edit', $this->_c, $this->_m, array('group' => $params['group'])));
-		$categories = $categoriesMapper->fetchTree(array('contents_groups_id = ?' => $group->id));
-		//echo $this->_helper->arrayTrans($categories);
-		//echo $this->_helper->arrayTrans(categoriesBuilder($categories));
-			
-		$form->contents_categories_id->setMultiOptions($this->categoriesBuilder($categories));
-		
+		$collection = $categoriesMapper->fetchTree(
+			array('contents_groups_id = ?' => $group->id),
+			array('id', 'title', 'contents_categories_id')
+		);
+		$options = $form->collectionToMultiOptions($collection, array(), array('Нет'));		
+		$form->getElement('contents_categories_id')->setMultiOptions($options);		
+		$form->getElement('contents_groups_id')->setValue($group->id);
+		$form->setAction($this->view->simpleUrl('edit', $this->_c, $this->_m, array('group' => $group->alias)));
 		
 		if ($request->isXmlHttpRequest() || $request->isPost()) {
-			$this->view->clearVars();
-			
 			if ($form->isValid($request->getParams())) {
-				// Save data
-				$entity = $mapper->createEntity($form->getValues());
-				$mapper->saveEntity($entity);
-				 
-				if (!$request->isXmlHttpRequest()) {
-					$this->_helper->redirector->gotoSimple('index', $this->_c, $this->_m, array("group" => $params["group"]));
-				} else {
-					$this->view->redirectTo = $this->view->simpleUrl('index', $this->_c, $this->_m, array("group" => $params["group"]));
-				}
+				$entity = $this->_getMapper()->createEntity($form->getValues());
+				$this->_getMapper()->saveEntity($entity);
+				
+				$this->_helper->flashMessenger->addMessage('<div class="notification-done">Saved success</div>');
+				$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
 			} else {
-				$this->view->formErrors        = $form->getErrors();
-				$this->view->formErrorMessages = $form->getErrorMessages();
+    			$this->view->formErrors        = $form->getErrors();
+    			$this->view->formErrorMessages = $form->getErrorMessages();
 			}
 		} else {
-			$id = $request->getParam('id', 'new');
-			if ($id != 'new') {
-				$entity = $mapper->findEntity($id);
-				if ($entity) {
-					$form->setDefaults($entity->toArray());
-				}
+			$entity = $this->_getMapper()->findEntity($id);
+			if ($id && $entity) {
+				$form->setDefaults($entity->toArray());
 			}
+			
 			$this->view->form = $form;
 		}
+		
 	}
     
     public function deleteAction()
     {
-    	$request = $this->getRequest();
-    	$mapper  = $this->_getMapper();
-    	$entity  = $mapper->findEntity($request->getParam('id'));
-    	$mapper->deleteEntity($entity);
+    	// Version 14.07.2012
+		if (false === ($group = $this->_checkGroup())) {
+			return;
+		}
+    	
+    	$validator = new Zend_Validate_Int();
+    	if (!$validator->isValid($this->getRequest()->getParam('id'))) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error delete item</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+			return;
+		}
+		
+    	$entity = $this->_getMapper()->findEntity($request->getParam('id'));
+    	$this->_getMapper()->deleteEntity($entity);
+		$this->_helper->flashMessenger->addMessage('<div class="notification-done">Success delete item</div>');
+		$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
     }
         
     public function setPageAction()
     {
-    	$session = $this->getSession();
-    	$page    = $this->getRequest()->getParam(self::SESSION_PAGE, 1);
-    	$session->{self::SESSION_PAGE} = $page;
+    	// Version 14.07.2012
+		if (false === ($group = $this->_checkGroup())) {
+			return;
+		}
+    	
+    	$validator = new Zend_Validate_Int();
+    	$param = $this->getRequest()->getParam(self::SESSION_PAGE);
+		if (!$validator->isValid($param)) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set page</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+			return;
+		}
+		
+		$this->_setSessionPage($param, $group->alias);
+		$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
     }
     
     public function setLimitAction()
     {
-    	$session = $this->getSession();
-    	$rows    = $this->getRequest()->getParam(self::SESSION_ROWS, 20);
-    	$session->{self::SESSION_PAGE} = 1;
-    	$session->{self::SESSION_ROWS} = $rows;
+    	// Version 14.07.2012
+		if (false === ($group = $this->_checkGroup())) {
+			return;
+		}
+		
+    	$validator = new Zend_Validate_Int();
+    	$param = $this->getRequest()->getParam(self::SESSION_ROWS);
+		if (!$validator->isValid($param)) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set rows</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+		}
+		
+		$this->_setSessionPage(1, $group->alias);		
+    	$this->_setSessionRows($param, $group->alias);
+		$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
     }
     
     public function setFilterAction()
     {
-    	$session = $this->getSession();
-    	$filter  = $this->getRequest()->getParam(self::SESSION_ROWS, array());
-    	$session->{self::SESSION_PAGE} = 1;
-    	$session->{self::SESSION_ROWS} = $filter;
-    }
+    	// Version 14.07.2012
+		if (false === ($group = $this->_checkGroup())) {
+			return;
+		}
+		
+		$form = new Contents_Form_AdminIndexFilter();
+		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
+		$collection = $categoriesMapper->fetchTree(
+			array('contents_groups_id = ?' => $group->id),
+			array('id', 'title', 'contents_categories_id')
+		);
+		$options = $form->collectionToMultiOptions($collection, array(), array('Нет'));		
+		$form->getElement('contents_categories_id')->setMultiOptions($options);
+				
+    	if (!$form->isValid($this->getRequest()->getParams())) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set filter</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+			return;
+		}
+		
+    	$this->_setSessionPage(1, $group->alias);
+    	$this->_setSessionFilter($form->getValues(), null, $group->alias);		
+		$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+	}
 }

@@ -1,7 +1,20 @@
 <?php
 
-class Media_Form_CategoryEdit extends Zend_Form
+class Media_Form_CategoryEdit extends Sunny_Form
 {
+	protected $_mediaCategoriesMultiOptions = array();
+	
+	public function setMediaCategoriesMultiOptions($options, $exclude = array())
+	{
+		$this->_mediaCategoriesMultiOptions = array(0 => 'Нет');
+		
+		if ($options instanceof Sunny_DataMapper_CollectionAbstract) {
+			$this->_mediaCategoriesMultiOptions = $this->collectionToMultiOptions($options, $exclude, $this->_mediaCategoriesMultiOptions);
+		} else if (is_array($options)) {
+			$this->_mediaCategoriesMultiOptions = $options;
+		}
+	}
+	
 	public function init()
 	{
 		$this->setName(strtolower(get_class($this)));
@@ -13,7 +26,8 @@ class Media_Form_CategoryEdit extends Zend_Form
 		
 		$group1 = array('media_categories_id');
 		$this->addElement('select', 'media_categories_id', array(
-			'label' => 'Родитель'
+			'label' => 'Родитель',
+			'multiOptions' => $this->_mediaCategoriesMultiOptions
 		));		
 		
 		$group1[] = 'title';
@@ -26,13 +40,13 @@ class Media_Form_CategoryEdit extends Zend_Form
 			'label' => 'Урл'
 		));
 		
-		$group1[] = 'cookie_name';
-		$this->addElement('text', 'cookie_name', array(
+		$group1[] = 'name_bc';
+		$this->addElement('text', 'name_bc', array(
 			'label' => 'Название для хлебных крошек'
 		));
 		
-		$group1[] = 'menu_title';
-		$this->addElement('text', 'menu_title', array(
+		$group1[] = 'name_menu';
+		$this->addElement('text', 'name_menu', array(
 			'label' => 'Название для меню'
 		));
 		
@@ -59,15 +73,5 @@ class Media_Form_CategoryEdit extends Zend_Form
 			'label' => '',
 			'value' => 'Сохранить'
 		));
-		
-		// Decorators
-		$this->addElementPrefixPath('Sunny_Form_Decorator', 'Sunny/Form/Decorator/', 'decorator');
-		$this->setElementDecorators(array('CompositeElementDiv'));
-		
-		$this->addDisplayGroupPrefixPath('Sunny_Form_Decorator', 'Sunny/Form/Decorator/', 'decorator');
-		$this->setDisplayGroupDecorators(array('CompositeGroupDiv'));
-		
-		$this->addPrefixPath('Sunny_Form_Decorator', 'Sunny/Form/Decorator/', 'decorator');
-		$this->setDecorators(array('CompositeFormDiv'));
 	}
 }

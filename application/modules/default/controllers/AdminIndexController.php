@@ -1,6 +1,6 @@
 <?php
 
-class AdminIndexController extends Sunny_Controller_Action
+class AdminIndexController extends Sunny_Controller_AdminAction
 {
 	/**
 	 * Prepare controller to work with ajax

@@ -1,35 +1,37 @@
 <?php
 
-class Contents_Form_CategoryEdit extends Contents_Form_Abstract
+class Contents_Form_CategoryEdit extends Sunny_Form
 {
-	protected $_contentsGroupsId;
+	protected $_contentsCategoriesMultiOptions = array();
 	
-	public function setContentsGroupsId($id)
+	public function setContentsCategoriesMultiOptions($options, $exclude = array())
 	{
-		$this->_contentsGroupsId = $id;
+		$this->_contentsCategoriesMultiOptions = array(0 => 'Нет');
+		
+		if ($options instanceof Sunny_DataMapper_CollectionAbstract) {
+			$this->_contentsCategoriesMultiOptions = $this->collectionToMultiOptions($options, $exclude, $this->_contentsCategoriesMultiOptions);
+		} else if (is_array($options)) {
+			$this->_contentsCategoriesMultiOptions = $options;
+		}
 	}
 	
 	public function init()
 	{
-		$this->setName(strtolower(contents));
+		$this->setName(strtolower('contents')); // если тут имелась ввиду строка то нафига тогда strtolower()
 		$this->setMethod(self::METHOD_POST);
 		$this->setAttrib('onsubmit', 'return false;'); // Force send only with ajax
 		$this->setAttrib('class', 'via_ajax');         // Force send only with ajax
 		
 		// New
 		$this->addElement('hidden', 'id');
-		$this->addElement('hidden', 'contents_groups_id', array('value' => $this->_contentsGroupsId));
-		
-		
+		$this->addElement('hidden', 'contents_groups_id', array('value' => $this->_contentsGroupsId));		
 		
 		/*  Main  */
-		$main = array('contents_categories_id');
-		
+		$main = array('contents_categories_id');		
 		$this->addElement('select', 'contents_categories_id', array(
 			'label' => 'Родитель', 
-			'multiOptions' => $this->getContentsCategoriesOptions()
+			'multiOptions' => $this->_contentsCategoriesMultiOptions
 		));		
-		
 		
 		$main[] = 'title';
 		$this->addElement('text', 'title', array(

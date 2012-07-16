@@ -34,7 +34,7 @@
 								<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'media'); ?>">Файлы</a></li>				
 							</ul>
 						</li>
-						<li><a href="#" class="group">Контент</a>
+						<li><span class="group">Контент</span>
 							<ul>
 								<li><span class="group">Анонсы</span>
 									<ul>
@@ -60,6 +60,12 @@
 										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'publications_archive')); ?>">Контент</a></li>
 									</ul>
 								</li>
+								<li><span class="group">Галереи изображений</span>
+									<ul>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'contents', array('group' => 'gallery_of_images')); ?>">Категории</a></li>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'gallery_of_images')); ?>">Альбомы</a></li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 						<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'staff'); ?>" class="group">Структура университета</a>
@@ -83,6 +89,22 @@
 					</ul>
 				</li>				
 			</ul>
+			<div class="flash-messenger-container">
+				<div class="flash-messenger-messages">
+				<?php if ($this->flashMessenger()->hasMessages()): ?>
+				<?php foreach ($this->flashMessenger()->getMessages() as $message) : ?>
+					<div class="flash-messenger-message ui-corner-all" style="display: none;"><?php echo $message; ?></div>
+				<?php endforeach; ?>
+				<?php $this->flashMessenger()->clearMessages(); ?>
+				<?php endif; ?>
+				<?php if ($this->flashMessenger()->hasCurrentMessages()): ?>
+				<?php foreach ($this->flashMessenger()->getCurrentMessages() as $message) : ?>
+					<div class="flash-messenger-message ui-corner-all" style="display: none;"><?php echo $message; ?></div>
+				<?php endforeach; ?>
+				<?php $this->flashMessenger()->clearCurrentMessages(); ?>
+				<?php endif; ?>
+				</div>
+			</div>
 			<div class="clr"></div>
 		</div>
 	</div>

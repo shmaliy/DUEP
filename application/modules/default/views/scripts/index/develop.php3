@@ -7,38 +7,76 @@
       <div class="tape_path">
           <a class="emblem_way" href=""></a>&rarr;
           <a href="">Университет</a>&rarr;
-          <a href="">Файловый архив</a>
+          <a href="">Видеогалерея</a>&rarr;
+          <a href="">Информационный тур университетами Польши</a>
       </div>
     <div class="content">
-        <h1 class="developments">Файловый архив</h1>
-        <div >
-            <span class="sorting_files">Сортировать по:</span>
-            <span class="sorting_files">имени</span><span class="sorting_files">|</span>
-            <span class="sorting_files"><a href="">дате</a></span><span class="sorting_files">|</span>
-            <span class="sorting_files"><a href="">объему</a></span>
-            <span class="sorting_files">Тип файлов:</span>
-                <ul class="preview_files">
-                    <li><span class="sorting_files"><a class="dashed" href="">все файлы</a></span><span class="pointer">&darr;</span>
-                        <ul class="pop_up file_types inset">
-                            <li class="emphasis section_files"><a href="index.html"><img alt="" src="../theme/img/front/add_file/files.png" /><span>Все файлы</span></a><span>(53)</span></li>
-                            <li class="section_files"><a href="index.html"><img alt="" src="../theme/img/front/add_file/doc.png" /><span>Microsoft word</span></a><span>DOC(20)</span></li>
-                            <li class="section_files"><a href="index.html"><img alt="" src="../theme/img/front/add_file/xls.png" /><span>Microsoft excel</span></a>XLS(20)</li>
-                            <li class="section_files"><a href="index.html"><img alt="" src="../theme/img/front/add_file/pptx.png" /><span>Microsoft powerpoint</span></a>PPTX(7)</li>
-                            <li class="section_files"><a href="index.html"><img alt="" src="../theme/img/front/add_file/pdf.png" /><span>Adobe reader</span></a>PDF(3)</li>
-                            <li class="pop_up_left_top"></li>
-                            <li class="pop_up_right_top"></li>
-                            <li class="pop_corner"></li>
-                            <li class="pop_up_left"></li>
-                            <li class="pop_up_right"></li>
-                            <li class="pop_up_left_bottom"></li>
-                            <li class="pop_up_right_bottom"></li>
-                            <li class="pop_up_top_l"></li>
-                            <li class="pop_up_top_r"></li>
-                            <li class="pop_up_bottom"></li>
-                        </ul>
-                    </li>
+        <h1 class="developments">Информационный тур университетами Польши</h1>
+      <div class="area">
+        <p class="info_text">С 21 по 28 апреля 2012 Международным отделом Днепропетровского Университета имени Альфреда Нобеля был организован второй информационный тур университетами Польши.</p>
+          <div class="horizontal_carousel b_carousel">
+                <ul class="video">
+                    <li class="arrow_left"><a href=""></a></li>
+                    <li><span><a href="">1. Лестница и народ</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/1.jpg" /></a></li>
+                    <li class="active_v"><span><a href="">2. Обнимашки возле...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/2.jpg" /></a></li>
+                    <li><span><a href="">3. Я памятник себе</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/3.jpg" /></a></li>
+                    <li><span><a href="">4. Внезапно украли зе...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/4.jpg" /></a></li>
+                    <li><span><a href="">5. Как Украина, только...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/5.jpg" /></a></li>
+                    <li class="arrow_right"><a href=""></a></li>
                 </ul>
-        </div>
+            </div>
+          <img class="b_photo" alt="" src="../theme/img/front/video_preview/video_player.jpg" />
+          <h2>3/5. Обнимашки возле флага</h2>
+        <p class="info_text">Сегодня Днепропетровский университет имени Альфреда Нобеля - единственное заведение в регионе, который проводит подготовку специалистов по данному направлению. К преподаванию на программе кроме преподавательского состава университета, были приглашены ведущие специалисты Главного управления юстиции, суда, Пенсионного фонда и других.</p>
+          <div class="adt">
+            <div class="social-services">
+              <ul>
+                  <li>
+                      <img alt="" src="../theme/img/front/social_v.jpg" />
+                  </li>
+                  <li>
+                      <img alt="" src="../theme/img/front/social_f.jpg" />
+                  </li>
+                  <li>
+                      <img alt="" src="../theme/img/front/social_t.jpg" />
+                  </li>
+                  <li>
+                      <img alt="" src="../theme/img/front/social_g.jpg" />
+                  </li>
+              </ul>
+            </div>
+          <div class="comments">
+              <h3>Комментарии <span>(3)</span></h3>
+              <ul>
+                  <li class="comments_top">
+                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/1.jpg" /></span>
+                      <p>
+                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
+                          <span>Собрание сегодня состоится?</span>
+                      </p>
+                  </li>
+                  <li class="comments_bottom">
+                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/2.jpg" /></span>
+                      <p>
+                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
+                          <span>Собрание сегодня состоится?</span>
+                      </p>
+                  </li>
+                  <li class="comments_top">
+                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/1.jpg" /></span>
+                      <p>
+                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
+                          <span>Собрание сегодня состоится?</span>
+                      </p>
+                  </li>
+              </ul>
+          </div>
+          <h4>Ваш комментарий</h4>
+          <form class="comments">
+              <textarea name="" cols="" rows=""></textarea>
+              <input type="submit" value="Отправить">
+          </form>
+              </div>
       </div>
     </div>
     <!-- #content-->
@@ -54,18 +92,16 @@
         <li><a href="">Про нас пишут</a></li>
         <li><a href="">Структура Университета</a></li>
         <li><a href="">Гости Университета</a></li>
-        <li><a href="">Фотогалерея</a></li>
-        <li><a href="">Видеогалерея</a></li>
-        <li><a href="">Веб-камеры live</a></li>
         <li><div class="note">
-        <a href="">Файловый архив</a>
+        <a href="">Фотогалерея</a>
         </div>
             <ul class="submenu">
-                <li><a href="">Категория 1</a></li>
-                <li><a href="">Категория 2</a></li>
-                <li><a href="">Категория 3</a></li>
+                <li><a href="">Жизнь Университета</a></li>
+                <li><a href="">Нобелевские премии</a></li>
+                <li><a href="">Веселые конкурсы</a></li>
             </ul>
         </li>
+        <li><a href="">Видеогалерея</a></li>
         <li><a href="">Контактные данные</a></li>
     </ul>
     <div class="side_true">
