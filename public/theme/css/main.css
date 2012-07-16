@@ -1066,6 +1066,16 @@ sup {
 .b_carousel img{
     border:1px solid #ededed;
 }
+.b_carousel ul.video li img{
+    border-bottom:20px solid #ededed;
+}
+ul.video span a{
+    z-index:20;
+    color:#0066C1;
+    font-weight:normal;
+    font-size:11px;
+    text-shadow:none;
+}
 .arrow_left a, .arrow_right a {
     background-repeat:no-repeat;
     background-position:center;
@@ -1083,8 +1093,25 @@ sup {
     padding:2px 2px 5px 2px;
     margin:0 -1px;
 }
+.b_carousel li.active_v {
+    background-image:url(../img/front/border_video_bg.png);
+    background-repeat:no-repeat;
+    display:block;
+    padding:2px 2px 20px 2px;
+    margin:0 -1px;
+}
+.b_carousel ul.video li.active_v img{
+    border-bottom:1px solid #ededed;
+}
 .b_carousel li.active span{
     bottom:10px;
+}
+.b_carousel li.active_v span a {
+    color:#fff;
+    text-decoration:none;
+}
+.b_carousel li span a:hover {
+    color:#2698FD;
 }
 .arrow_left a {
     background-image:url(../img/front/button_left.png);
