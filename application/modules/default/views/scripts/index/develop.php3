@@ -1,4 +1,3 @@
-
 <!--?php echo __FILE__; ?-->
 <html>
   <body>
@@ -8,35 +7,259 @@
       <div class="tape_path">
           <a class="emblem_way" href=""></a>&rarr;
           <a href="">Университет</a>&rarr;
-          <a href="">Структура университета</a>&rarr;
-          <a href="">Кафедра</a>&rarr;
-          <a href="">Кафедра английской филологии и перевода</a>&rarr;
-          <a href="">История кафедры</a>
+          <a href="">Архив публикаций</a>
       </div>
     <div class="content">
-        <div>
-        <h1 class="developments">Кафедра английской филологии и перевода</h1>
-        <ul class="lineTabs">
-          <li>
-            <a href=""><span>Общая информация</span></a>
-          </li>
-          <li>
-            <a class="active" href=""><span>История кафедры</span></a>
-          </li>
-        </ul>
-        <hr />
-      </div>
-      <div class="area">
-        <h2>1993 г.</h2><p class="info_text">Факультет делового иностранного языка была основана в 1993 году, в момент основания университета, в соответствии с потребностями времени и ситуации, которая сложилась в Украине. Актуальной и социальной потребностью стала необходимость подготовки специалистов, которые не только в совершенстве владеют иностранным языком, но имеют достаточную экономическую подготовку, что дает возможность устанавливать эффективные деловые контакты с иностранными партнерами, сохранять коммерческую тайну, направлять деловые отношения в пользу отечественных предприятий и бизнесменов, а это способствовать повышению международного авторитета украинской экономики.</p>
-        <h2>1995 г.</h2><p class="info_text">кафедра английской филологии и перевода ДУЭП была создана в 1995 году на базе секции филологии кафедры иностранных языков.</p>
-        <h2>1997 г.</h2><p class="info_text">кафедра английской филологии и перевода отделилась от кафедры иностранных языков и стала самостоятельной кафедрой.</p>
-        <h2>2004 г.</h2><p class="info_text">Всеукраинская студенческая научно-практическая конференция «Молодежь Украины в контексте межкультурной коммуникации»</p>
-        <h2>2005-2006 гг</h2><p class="info_text">Основными направлениями научно-исследовательской работы кафедры английской филологии и перевода в 2005-2006 н. году было совершенствование и повышение уровня преподавания в первую очередь дисциплин переводческого цикла, обеспечивающих профессиональную деятельность будущих переводчиков в экономической среде, разработка содержания и технологий преподавания профессионально-ориентированных дисциплин переводчика-специалиста по связям с общественностью. Стратегической концепцией при выполнении научных исследований было использование лучших научных работ по лингвистической теории и теории и практики преподавания иностранных языков и перевода, которые были выполнены отечественными учеными, учеными СНГ и России, а также использование лучших зарубежных технологий обучения по вопросам теории и практики перевода.</p>
-        <h2>2006 г.</h2><p class="info_text">В апреле 2006 года кафедра получила лицензию на подготовку магистров по переводу.</p>
-        <h2>С 2007 года</h2><p class="info_text">Проходят недели переводчика и олимпиады по письменному и устному переводу. Активно работает студенческое научное общество кафедры.</p>
-        <h2>В 2009 году</h2><p class="info_text">кафедра была переименована в кафедру теории и практики перевода</p>
-        <h2>В 2010 году</h2><p class="info_text">кафедра была переименована в кафедру английской филологии и перевода</p>
-      </div>
+        <h1 class="developments">Архив публикаций</h1>
+          <div class="archive_publications">
+              <span class="adt_image">
+               <img alt="" src="../theme/img/front/archive_publications/1.jpg" />
+               <a href="">Категория 1</a><span class="data_publication">30 июня 2012,</span><span class="number_comments">3</span><span class="label_comments"></span>
+             </span>
+              <div class="book_block">
+                  <a class="name_publication" href="">Финансовый менеджмент: в схемах и таблицах: учеб. пособие.</a>
+                  <ul>
+                    <li>
+                        <span class="time">Год:</span>
+                        <span>2011-2012</span>
+                    </li>
+                    <li>
+                        <span class="time">№ выпуска:</span>
+                        <span>5(203)</span>
+                    </li>
+                    <li>
+                        <span class="time">Тип издания:</span>
+                        <span>Журнал</span>
+                    </li>
+                    <li>
+                        <span class="time">Город:</span>
+                        <span>Днепропетровск</span>
+                    </li>
+                    <li>
+                        <span class="time">Издатель:</span>
+                        <span>Типография ДУЭПа</span>
+                    </li>
+                    <li>
+                        <span class="time">Подписной<br /> индекс:</span>
+                        <span>56-689</span>
+                    </li>
+                    <li style="clear:both;"></li>
+                    <li>
+                        <span class="time">ISBN:</span>
+                        <span>978-5-271-39667-2</span>
+                    </li>
+                    <li>
+                        <span class="time">Где купить:</span>
+                        <span><a href="">ozon.ru</a></span>
+                    </li>
+                 </ul>
+                        <p>Навчальний посібник спрямований на формування необхідних теоретичних знань і набуття практичних навичок з фінансового менеджменту.</p>
+              </div>
+          </div>
+          <div class="archive_publications">
+              <span class="adt_image">
+               <img alt="" src="../theme/img/front/archive_publications/2.jpg" />
+               <a href="">Категория 2</a><span class="data_publication">30 июня 2012,</span><span class="number_comments">15</span><span class="label_comments"></span>
+             </span>
+              <div class="book_block">
+                  <a class="name_publication" href="">Informatics: Workshop. Part 1</a>
+                  <ul>
+                    <li>
+                        <span class="time">Год:</span>
+                        <span>2011-2012</span>
+                    </li>
+                    <li>
+                        <span class="time">№ выпуска:</span>
+                        <span>5(203)</span>
+                    </li>
+                    <li>
+                        <span class="time">Тип издания:</span>
+                        <span>Журнал</span>
+                    </li>
+                    <li>
+                        <span class="time">Город:</span>
+                        <span>Днепропетровск</span>
+                    </li>
+                    <li>
+                        <span class="time">Издатель:</span>
+                        <span>Типография ДУЭПа</span>
+                    </li>
+                    <li>
+                        <span class="time">Подписной<br /> индекс:</span>
+                        <span>56-689</span>
+                    </li>
+                    <li style="clear:both;"></li>
+                    <li>
+                        <span class="time">ISBN:</span>
+                        <span>978-5-271-39667-2</span>
+                    </li>
+                    <li>
+                        <span class="time">Где купить:</span>
+                        <span><a href="">ozon.ru</a></span>
+                    </li>
+                 </ul>
+                        <p>The workshop in Informatics (part 1) is intended for students of economic specialties, who study by international (English) program, and provides for acquiring practical skills to work with the following...</p>
+              </div>
+          </div>
+          <div class="archive_publications">
+              <span class="adt_image">
+               <img alt="" src="../theme/img/front/archive_publications/3.jpg" />
+               <a href="">Категория 3</a><span class="data_publication">30 июня 2012,</span><span class="number_comments">3</span><span class="label_comments"></span>
+             </span>
+              <div class="book_block">
+                  <a class="name_publication" href="">Бегущий за ветром</a>
+                  <ul>
+                    <li>
+                        <span class="time">Год:</span>
+                        <span>2011-2012</span>
+                    </li>
+                    <li>
+                        <span class="time">Автор(ы):</span>
+                        <span><a href="">Халед Хоссейни</a></span>
+                    </li>
+                    <li>
+                        <span class="time">Редактор(ы):</span>
+                        <span><a href="">Холод Борис Иванович</a><br /><a href="">Задоя А.А.</a><br />Петручо Геннадий</span>
+                    </li>
+                    <li>
+                        <span class="time">Тип книги:</span>
+                        <span>Худ. литература</span>
+                    </li>
+                    <li>
+                        <span class="time">Издатель:</span>
+                        <span>Типография ДУЭПа</span>
+                    </li>
+                    <li>
+                        <span class="time">Город:</span>
+                        <span>Днепропетровск</span>
+                    </li>
+                    <li>
+                        <span class="time">ISBN:</span>
+                        <span>978-5-271-39667-2</span>
+                    </li>
+                 </ul>
+                        <p>Проникновенная, пробирающая до самого нутра история о дружбе и верности, о предательстве и искуплении. Нежный, тонкий, ироничный и по-хорошему сентиментальный, роман Халеда...</p>
+               </div>
+          </div>
+          <div class="archive_publications">
+              <span class="adt_image">
+               <img alt="" src="../theme/img/front/archive_publications/4.jpg" />
+               <a href="">Категория 2</a><span class="data_publication">30 июня 2012,</span><span class="number_comments">3</span><span class="label_comments"></span>
+             </span>
+              <div class="book_block">
+                  <a class="name_publication" href="">1000 священных мест планеты</a>
+                  <ul>
+                    <li>
+                        <span class="time">Год:</span>
+                        <span>2011-2012</span>
+                    </li>
+                    <li>
+                        <span class="time">Автор(ы):</span>
+                        <span><a href="">Халед Хоссейни</a></span>
+                    </li>
+                    <li>
+                        <span class="time">Редактор(ы):</span>
+                        <span><a href="">Холод Борис Иванович</a><br /><a href="">Задоя А.А.</a><br />Петручо Геннадий</span>
+                    </li>
+                    <li>
+                        <span class="time">Тип книги:</span>
+                        <span>Худ. литература</span>
+                    </li>
+                    <li>
+                        <span class="time">Издатель:</span>
+                        <span>Типография ДУЭПа</span>
+                    </li>
+                    <li>
+                        <span class="time">Город:</span>
+                        <span>Днепропетровск</span>
+                    </li>
+                    <li>
+                        <span class="time">ISBN:</span>
+                        <span>978-5-271-39667-2</span>
+                    </li>
+                 </ul>
+                        <p>Встречи со священным и мистическим оказывают на человека неизгладимое впечатление. Священные места излучают таинственную энергию, потому что являются средоточием... </p>
+              </div>
+          </div>
+          <div class="archive_publications">
+              <span class="adt_image">
+               <img alt="" src="../theme/img/front/archive_publications/6.jpg" />
+               <a href="">Категория 1</a><span class="data_publication">30 июня 2012,</span><span class="number_comments">1</span><span class="label_comments"></span>
+             </span>
+              <div class="book_block">
+                  <a class="name_publication" href="">Міжнародна економічна діяльність України</a>
+                  <ul>
+                    <li>
+                        <span class="time">Автор:</span>
+                        <span><a href="">Холод Борис Іванович</a></span>
+                    </li>
+                    <li>
+                        <span class="time">Дата:</span>
+                        <span>21.01.2012</span>
+                    </li>
+                    <li>
+                        <span class="time">Издание:</span>
+                        <span>Вестник Днепропетровского Университета имени Альфреда Нобеля</span>
+                    </li>
+                    <li>
+                        <span class="time">№ выпуска:</span>
+                        <span>3 (123) стр. 3</span>
+                    </li>
+                    <li>
+                        <span class="time">Ссылка:</span>
+                        <span><a href="">duep.com</a></span>
+                    </li>
+                 </ul>
+                        <p>До збірника завдань з дисципліни Міжнародна економічна діяльність України включено питання для самопідготовки, тестові завдання, завдання для обговорення в групах та задачі. Практикум...</p>
+              </div>
+          </div>
+          <div class="archive_publications">
+              <span class="adt_image">
+               <img alt="" src="../theme/img/front/archive_publications/7.jpg" />
+               <a href="">Категория 1</a><span class="data_publication">30 июня 2012,</span><span class="number_comments">123</span><span class="label_comments"></span>
+             </span>
+              <div class="book_block">
+                  <a class="name_publication" href="">Не только депрессия. Охота за настроением</a>
+                  <ul>
+                    <li>
+                        <span class="time">Автор:</span>
+                        <span><a href="">Задоя Анатолій Олександрович</a></span>
+                    </li>
+                    <li>
+                        <span class="time">Дата:</span>
+                        <span>21.01.2012</span>
+                    </li>
+                    <li>
+                        <span class="time">Издание:</span>
+                        <span>Вестник Днепропетровского Университета имени Альфреда Нобеля</span>
+                    </li>
+                    <li>
+                        <span class="time">№ выпуска:</span>
+                        <span>3 (123) стр. 3</span>
+                    </li>
+                    <li>
+                        <span class="time">Ссылка:</span>
+                        <span><a href="">duep.com</a></span>
+                    </li>
+                 </ul>
+                        <p>Миллионы людей мечтают выйти из депрессии и больше в нее никогда не входить. Выход из депрессии можно облегчить и ускорить. Понимая себя, научиться принимать жизнь....</p>
+              </div>
+          </div>
+            <ul>
+              <li class="paging">
+                <a href="">&larr;</a>
+                <a href="">1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">4</a>
+                <a href="">5</a>
+                <a href="">6</a>
+                <a href="">7</a>
+                <a href="">8</a>
+                <a href="">&rarr;</a>
+            </li>
+          </ul>
+        
     </div>
     <!-- #content-->
 
@@ -45,42 +268,22 @@
 
   <div class="sideLeft">
     <ul class="menu_sideLeft">
-        <li><a href="">Университет</a></li>
-        <li><a href="">Руководство</a></li>
-        <li><a href="">Награды</a></li>
-        <li><a href="">Про нас пишут</a></li>
+        <li><a href="">10 причин, чтобы выбрать ДУЭП Именно наш университет</a></li>
+        <li><a href="">История</a></li>
+        <li><a href="">Структура университета</a></li>
+        <li><a href="">Нобелевское движение</a></li>
+        <li><a href="">Аспирантура и докторантура</a></li>
         <li><div class="note">
-        <a href="">Структура Университета</a>
+        <a href="">Архив публикаций</a>
         </div>
             <ul class="submenu">
-                <li><a href="">Направление</a></li>
-                <li><div class="note"><a href="">Кафедра</a></div>
-                    <ul class="podmenu">
-                        <li><a href="">Кафедра английской филологии и перевода</a></li>
-                        <li><a href="">Кафедра политологии, социологии и гуманитарных наук</a></li>
-                        <li><a href="">Кафедра экономики предприятия</a></li>
-                        <li><a href="">Кафедра экономической кибернетики и математических методов в экономике</a></li>
-                        <li><a href="">Кафедра иностранных языков</a></li>
-                        <li><a href="">Кафедра маркетинга</a></li>
-                        <li><a href="">Кафедра менеджмента</a></li>
-                        <li><a href="">Кафедра общей и социальной педагогики</a></li>
-                        <li><a href="">Кафедра международной экономики и экономической теории</a></li>
-                        <li><a href="">Кафедра учета и аудита</a></li>
-                        <li><a href="">Кафедра права</a></li>
-                        <li><a href="">Кафедра практической психологии</a></li>
-                        <li><a href="">Кафедра прикладной лингвистики и методики обучения иностранным языкам</a></li>
-                        <li><a href="">Кафедра романо-германских языков</a></li>
-                        <li><a href="">Кафедра товароведения и торгового предпринимательства</a></li>
-                        <li><a href="">Кафедра физического воспитания</a></li>
-                        <li><a href="">Кафедра финансов и банковского дела</a></li>
-                    </ul>
-                </li>
-                <li><a href="">Подразделения</a></li>
+                <li><a href="">Научная литература</a></li>
+                <li><a href="">Периодические издания</a></li>
+                <li><a href="">Другое</a></li>
             </ul>
         </li>
-        <li><a href="">Гости Университета</a></li>
-        <li><a href="">Фотогалерея</a></li>
-        <li><a href="">Контактные данные</a></li>
+        <li><a href="">Научные школы Университета</a></li>
+        <li><a href="">Болонский процесс</a></li>
     </ul>
     <div class="side_true">
         <h2>Актуально</h2>

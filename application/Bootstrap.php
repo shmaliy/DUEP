@@ -179,25 +179,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     		$logger = new Zend_Log(new Zend_Log_Writer_Stream(ROOT_PATH . '/data/logs/cache.log'));
     	}
     	
-    	// Set page cahce
-    	$frontend = new Sunny_Cache_Frontend_Page(array(
-    		'lifetime'                => 86400,
-    		'logging'                 => $cahceLogging,
-    		'logger'                  => $logger,
-    		'debug_header'            => true,
-    		'automatic_serialization' => false,
-    		'caching'                 => (bool) $this->getOption('enable_cache_page')
-    	));
-    	 
-    	if (extension_loaded('apc') && !$cahceTesting) {
-    		$backend = new Zend_Cache_Backend_Apc();
-    	} else {
-    		$backend = new Zend_Cache_Backend_File(array('cache_dir' => ROOT_PATH . '/data/cache'));
-    	}
-    	 
-    	$cache = Zend_Cache::factory($frontend, $backend);
-    	$cache->start();    	 
-    	
     	// Set DbTable metadata cache
     	$frontend = new Zend_Cache_Core(array(
     		'automatic_serialization' => true,

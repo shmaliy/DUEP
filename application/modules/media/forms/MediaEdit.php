@@ -1,6 +1,6 @@
 <?php
 
-class Media_Form_MediaEdit extends Zend_Form
+class Media_Form_MediaEdit extends Sunny_Form
 {
 	public function init()
 	{
@@ -22,8 +22,8 @@ class Media_Form_MediaEdit extends Zend_Form
 			'label' => 'Родитель'
 		));		
 		
-		$group1[] = 'public_path';
-		$this->addElement('text', 'public_path', array(
+		$group1[] = 'public_url';
+		$this->addElement('text', 'public_url', array(
 			'label' => 'Урл'
 		));
 		
@@ -63,15 +63,5 @@ class Media_Form_MediaEdit extends Zend_Form
 			'label' => '',
 			'value' => 'Сохранить'
 		));
-		
-		// Decorators
-		$this->addElementPrefixPath('Sunny_Form_Decorator', 'Sunny/Form/Decorator/', 'decorator');
-		$this->setElementDecorators(array('CompositeElementDiv'));
-		
-		$this->addDisplayGroupPrefixPath('Sunny_Form_Decorator', 'Sunny/Form/Decorator/', 'decorator');
-		$this->setDisplayGroupDecorators(array('CompositeGroupDiv'));
-		
-		$this->addPrefixPath('Sunny_Form_Decorator', 'Sunny/Form/Decorator/', 'decorator');
-		$this->setDecorators(array('CompositeFormDiv'));
 	}
 }

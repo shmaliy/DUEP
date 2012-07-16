@@ -12,10 +12,10 @@ $(document).ready(function(){
 				dataType: "json",
 				type: 'POST',
 				error: function(jqXHR, textStatus, errorThrown) {
-					console.log(errorThrown);
+					//console.log(errorThrown);
 				},
 				success: function(data, textStatus, jqXHR) {
-					console.log(data);
+					//console.log(data);
 					if (data.redirectTo) {
 						window.location.href = data.redirectTo;
 					}
@@ -36,6 +36,42 @@ $(document).ready(function(){
 			function(){ $(this).removeClass("hover"); }
 		);
 	});
+});
+
+$(document).ready(function(){
+	function hidePreviousFlashMessage(div)
+	{
+		//alert('hide');
+		$(div).slideUp(400, function(){
+			var next = $(div).next();
+			$(div).remove();
+			
+			setTimeout(function(){
+				hidePreviousFlashMessage(next);
+			}, 1500);
+		});
+	}
+	
+	function showNextFlashMessage(div)
+	{
+		$(div).css({opacity: 0});
+		$(div).animate(
+			{opacity: 1, height: 'toggle'},
+			400,
+			function(){
+				var next = $(div).next();
+				if (next.is('div')) {
+					showNextFlashMessage($(div).next());
+				} else {
+					setTimeout(function(){
+						hidePreviousFlashMessage($('.flash-messenger-messages div').first());
+					}, 5000);
+				}
+			}
+		);
+	}
+	
+	showNextFlashMessage($('.flash-messenger-messages div').first());
 });
 
 //Observe generic menu class toggle
@@ -155,7 +191,7 @@ function setPage(url, page)
 {
 	$.ajax({
 		url: url,
-		data: {'page': page},
+		data: {'SESSION_PAGE': page},
 		dataType: "json",
 		type: 'POST',
 		error: function(jqXHR, textStatus, errorThrown) {
@@ -177,7 +213,7 @@ function setLimit(url, rows)
 {
 	$.ajax({
 		url: url,
-		data: {'rows': rows},
+		data: {'SESSION_ROWS': rows},
 		dataType: "json",
 		type: 'POST',
 		error: function(jqXHR, textStatus, errorThrown) {

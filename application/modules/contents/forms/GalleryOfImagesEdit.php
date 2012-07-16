@@ -1,6 +1,6 @@
 <?php
 
-class Contents_Form_CategoryEdit extends Sunny_Form
+class Contents_Form_GalleryOfImagesEdit extends Sunny_Form
 {
 	protected $_contentsCategoriesMultiOptions = array();
 	
@@ -17,21 +17,29 @@ class Contents_Form_CategoryEdit extends Sunny_Form
 	
 	public function init()
 	{
-		$this->setName(strtolower('contents')); // если тут имелась ввиду строка то нафига тогда strtolower()
+		$this->setName(strtolower('contents'));
 		$this->setMethod(self::METHOD_POST);
 		$this->setAttrib('onsubmit', 'return false;'); // Force send only with ajax
 		$this->setAttrib('class', 'via_ajax');         // Force send only with ajax
 		
-		// New
+		/*  Externals  */		
 		$this->addElement('hidden', 'id');
-		$this->addElement('hidden', 'contents_groups_id', array('value' => $this->_contentsGroupsId));		
+		$this->addElement('hidden', 'contents_groups_id', array('value' => $this->_contentsGroupsId));
+		$this->addElement('hidden', 'image');
+		$this->addElement('hidden', 'event');
+		$this->addElement('hidden', 'sheduled', array('value' => 0)); // В данной версии надо не забывать про необходимые значения
+		$this->addElement('hidden', 'pages');
+		$this->addElement('hidden', 'files');
+		$this->addElement('hidden', 'photoalbums');
+		$this->addElement('hidden', 'videolists');
+		$this->addElement('hidden', 'videos'); // в данной версии пока не реализовано хранилище
 		
 		/*  Main  */
-		$main = array('contents_categories_id');		
+		$main = array('contents_categories_id');
 		$this->addElement('select', 'contents_categories_id', array(
-			'label' => 'Родитель', 
+			'label' => 'Родитель',
 			'multiOptions' => $this->_contentsCategoriesMultiOptions
-		));		
+		));
 		
 		$main[] = 'title';
 		$this->addElement('text', 'title', array(
@@ -43,19 +51,25 @@ class Contents_Form_CategoryEdit extends Sunny_Form
 			'label' => 'Псевдоним (ЧПУ)'
 		));
 		
+		$main[] = 'tizer';
+		$this->addElement('textarea', 'tizer', array(
+			'label' => 'Текст тизера'
+		));
+		
 		$main[] = 'description';
 		$this->addElement('textarea', 'description', array(
-			'label' => 'Описание'
+			'label' => 'Полный текст'
 		));
 		
 		$this->addDisplayGroup($main, 'main');
 		
+				
+		/*  SEO  */
+		$seo = array('seo');
 		
-		/*  SEO  */		
-		$seo = array('seo_title');
-		
+		$seo[] = 'seo_title';
 		$this->addElement('text', 'seo_title', array(
-			'label' => 'Заголовок (SEO)'
+			'label' => 'SEO заголовок'
 		));
 		
 		$seo[] = 'seo_description';
@@ -67,30 +81,38 @@ class Contents_Form_CategoryEdit extends Sunny_Form
 		$this->addElement('textarea', 'seo_keywords', array(
 			'label' => 'SEO ключевые слова'
 		));
-				
+		
 		$this->addDisplayGroup($seo, 'seo');
 		
 		
-		
 		/*  System  */
+		$system = array('system');
 		
-		$system = array('name_bc');
-		
-		$group1[] = 'name_bc';
+		$system[] = 'name_bc';
 		$this->addElement('text', 'name_bc', array(
 			'label' => 'Название для хлебных крошек'
 		));
 		
-		$system[] = 'enable_comments';
-		$this->addElement('checkbox', 'enable_comments', array(
-			'label' => 'Разрешить комментирование'
-		));
-		
 		$system[] = 'published';
 		$this->addElement('checkbox', 'published', array(
-			'label' => 'Опубликовать'
+			'label' => 'Опубликовано'
 		));
-
+		
+		$system[] = 'publicate_on_index';
+		$this->addElement('checkbox', 'publicate_on_index', array(
+			'label' => 'Размещать на главной'
+		));
+		
+		$system[] = 'enable_comments';
+		$this->addElement('checkbox', 'enable_comments', array(
+			'label' => 'Разрешить комментарии'
+		));
+		
+		$system[] = 'admin_comment';
+		$this->addElement('textarea', 'admin_comment', array(
+			'label' => 'Комментарий администратора'
+		));
+		
 		$this->addDisplayGroup($system, 'system');
 		
 		
@@ -107,7 +129,13 @@ class Contents_Form_CategoryEdit extends Sunny_Form
 			'label' => 'Включать в email рассылку'
 		));
 		
+		$feeds[] = 'enable_calendar';
+		$this->addElement('checkbox', 'enable_calendar', array(
+			'label' => 'Включать в электронный календарь'
+		));
+		
 		$this->addDisplayGroup($feeds, 'feeds');
+		
 		
 		// Submit
 		$this->addElement('submit', 'submit', array(

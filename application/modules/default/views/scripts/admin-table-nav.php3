@@ -43,7 +43,7 @@
 					?><a class="current"><?php echo $title; ?></a><?php
 				} else {
 					?><a href="#" onclick="return setLimit('<?php
-						echo $this->simpleUrl('set-limit', $this->controller, $this->module);
+						echo $this->simpleUrl('set-limit', $this->controller, $this->module, $this->params);
 					?>', <?php echo $r; ?>);"><?php echo $title; ?></a><?php
 				}
 			}

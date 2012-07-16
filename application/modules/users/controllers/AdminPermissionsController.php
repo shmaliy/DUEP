@@ -1,6 +1,6 @@
 <?php
 
-class Users_AdminPermissionsController extends Sunny_Controller_Action
+class Users_AdminPermissionsController extends Sunny_Controller_AdminAction
 {
 	protected $_mapperName = 'Users_Model_Mapper_UsersPermissions';
 	
@@ -16,90 +16,98 @@ class Users_AdminPermissionsController extends Sunny_Controller_Action
 		$context->addActionContext('delete', 'json');		
 		$context->addActionContext('set-limit', 'json');		
 		$context->addActionContext('set-page', 'json');		
-		$context->addActionContext('set-filter', 'json');		
 		$context->initContext('json');
 	}
 	
 	public function indexAction()
     {
-    	$request = $this->getRequest();
-    	 
-    	$session = $this->getSession();
-    	$this->view->page   = $session->{self::SESSION_PAGE};
-    	$this->view->rows   = $session->{self::SESSION_ROWS};
-    	
-    	$this->view->rowset = $this->_getMapper()->fetchPage();
-    	$this->view->total  = $this->_getMapper()->fetchCount();
+    	// VERSION 14.07.2012
+		$this->view->page  = $this->_getSessionPage();
+    	$this->view->rows  = $this->_getSessionRows();
+		
+		$this->view->rowset = $this->_getMapper()->fetchPage(
+    		null,
+    		null,
+    		$this->view->rows,
+    		$this->view->page
+		);
+		$this->view->total  = $this->_getMapper()->fetchCount();
     }
     
     public function editAction()
     {
-    	$request = $this->getRequest();
-    	$mapper  = $this->_getMapper();
-    	 
-    	// Setup form valid action
-    	$form = new Users_Form_UserPermissionEdit();
-    	$form->setAction($this->_helper->url->simple('edit', $this->_c, $this->_m));
-    	 
-    	// Processing _POST
-    	if ($request->isXmlHttpRequest() || $request->isPost()) {
-    		if ($form->isValid($request->getParams())) {
-    			// Save data
-    			$entity = $mapper->createEntity($form->getValues());
-    			$mapper->saveEntity($entity);
-    			 
-    			if (!$request->isXmlHttpRequest()) {
-    				$this->_helper->redirector->gotoSimple('index', $this->_c, $this->_m);
-    			} else {
-    				$this->view->redirectTo = $this->view->simpleUrl('index', $this->_c, $this->_m);
-    			}
-    		} else {
-    			// Return errors
+		// Version 14.07.2012
+		$request = $this->getRequest();
+		
+		$id = $request->getParam('id');
+		$form = new Users_Form_UserPermissionEdit();
+		$form->setAction($this->view->simpleUrl('edit', $this->_c, $this->_m));
+		
+		if ($request->isXmlHttpRequest() || $request->isPost()) {
+			if ($form->isValid($request->getParams())) {
+				$entity = $this->_getMapper()->createEntity($form->getValues());
+				$this->_getMapper()->saveEntity($entity);
+				
+				$this->_helper->flashMessenger->addMessage('<div class="notification-done">Saved success</div>');
+				$this->_gotoUrl('index', $this->_c, $this->_m);
+			} else {
     			$this->view->formErrors        = $form->getErrors();
     			$this->view->formErrorMessages = $form->getErrorMessages();
-    		}
-    	} else {
-    		// If _GET render form
-    		$id = $request->getParam('id', 'new');
-    		if ($id != 'new') {
-    			$entity = $mapper->findEntity($id);
-    			if ($entity) {
-    				$form->setDefaults($entity->toArray());
-    			}
-    		}
-    
-    		$this->view->form = $form;
-    	}
+			}
+		} else {
+			$entity = $this->_getMapper()->findEntity($id);
+			if ($id && $entity) {
+				$form->setDefaults($entity->toArray());
+			}
+			
+			$this->view->form = $form;
+		}		
     }
     
     public function deleteAction()
     {
-    	$request = $this->getRequest();
-    	$mapper  = $this->_getMapper();
-    	$entity  = $mapper->findEntity($request->getParam('id'));
-    	$mapper->deleteEntity($entity);
+    	// Version 14.07.2012
+    	$validator = new Zend_Validate_Int();
+    	if (!$validator->isValid($this->getRequest()->getParam('id'))) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error delete item</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m);
+			return;
+		}
+		
+    	$entity = $this->_getMapper()->findEntity($request->getParam('id'));
+    	$this->_getMapper()->deleteEntity($entity);
+		$this->_helper->flashMessenger->addMessage('<div class="notification-error">Success delete item</div>');
+		$this->_gotoUrl('index', $this->_c, $this->_m);
     }
-    
+        
     public function setPageAction()
     {
-    	$session = $this->getSession();
-    	$page    = $this->getRequest()->getParam(self::SESSION_PAGE, 1);
-    	$session->{self::SESSION_PAGE} = $page;
+    	// Version 14.07.2012
+    	$validator = new Zend_Validate_Int();
+    	$param = $this->getRequest()->getParam(self::SESSION_PAGE);
+		if (!$validator->isValid($param)) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set page</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m);
+			return;
+		}
+		
+		$this->_setSessionPage($param);
+		$this->_gotoUrl('index', $this->_c, $this->_m);
     }
     
     public function setLimitAction()
     {
-    	$session = $this->getSession();
-    	$rows    = $this->getRequest()->getParam(self::SESSION_ROWS, 20);
-    	$session->{self::SESSION_PAGE} = 1;
-    	$session->{self::SESSION_ROWS} = $rows;
-    }
-    
-    public function setFilterAction()
-    {
-    	$session = $this->getSession();
-    	$filter  = $this->getRequest()->getParam(self::SESSION_ROWS, array());
-    	$session->{self::SESSION_PAGE} = 1;
-    	$session->{self::SESSION_ROWS} = $filter;
+    	// Version 14.07.2012
+    	$validator = new Zend_Validate_Int();
+    	$param = $this->getRequest()->getParam(self::SESSION_ROWS);
+		if (!$validator->isValid($param)) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set rows</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m);
+			return;
+		}
+		
+    	$this->_setSessionPage(1);		
+    	$this->_setSessionRows($param);
+		$this->_gotoUrl('index', $this->_c, $this->_m);
     }
 }
