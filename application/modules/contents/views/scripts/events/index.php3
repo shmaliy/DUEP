@@ -11,17 +11,17 @@
           <h1 class="developments">События</h1>
         <ul class="lineTabs">
           <li>
-            <a class="active" href=""><span>Анонсы</span></a>
+            <a href=""><span>Анонсы</span></a>
           </li>
           <li>
-            <a href=""><span>Прошедшие события</span></a>
+            <a class="active" href=""><span>Прошедшие события</span></a>
           </li>
         </ul>
           <hr />
       </div>
       <div class="adt">
         <ul class="adt_list">
-        <?php foreach ($this->announcements as $item):?>
+        <?php foreach ($this->events as $item):?>
           <li class="adt_date" style = "display: none;">
              <span class="adt_image">
                 <?php if ($item->img == ''): ?>
@@ -35,7 +35,7 @@
                 <?php endif; endforeach;?>
              </span>
             <p><?php echo $item->date_created;?></p>
-            <a href=""><?php echo $item->title;?></a>
+            <a href="<?php echo $this->simpleUrl('view', 'events', 'contents', array('alias'=>$item->alias) ); ?>"><?php echo $item->title;?></a>
             <p class="adt_description"><?php echo $item->tizer;?></p>
           </li>
           <?php endforeach;?>

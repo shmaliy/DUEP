@@ -18,4 +18,13 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 			$this->quoteIdentifier("sheduled") . " = ?" => '0',
 		),$order,$lim);
 	}	
+
+	public function getFrontContentByAlias ($alias)
+	{
+		return $this->fetchrow(array(
+		$this->quoteIdentifier("alias") . " = ?" => $alias,
+		$this->quoteIdentifier("published") . " = ?" => '1',
+		$this->quoteIdentifier("sheduled") . " = ?" => '0',
+		));
+	}
 }
