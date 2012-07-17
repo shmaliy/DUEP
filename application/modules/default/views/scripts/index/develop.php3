@@ -7,76 +7,74 @@
       <div class="tape_path">
           <a class="emblem_way" href=""></a>&rarr;
           <a href="">Университет</a>&rarr;
-          <a href="">Видеогалерея</a>&rarr;
-          <a href="">Информационный тур университетами Польши</a>
+          <a href="">Контактные данные</a>
       </div>
     <div class="content">
-        <h1 class="developments">Информационный тур университетами Польши</h1>
+        <h1 class="developments">Контактные данные</h1>
       <div class="area">
-        <p class="info_text">С 21 по 28 апреля 2012 Международным отделом Днепропетровского Университета имени Альфреда Нобеля был организован второй информационный тур университетами Польши.</p>
-          <div class="horizontal_carousel b_carousel">
-                <ul class="video">
-                    <li class="arrow_left"><a href=""></a></li>
-                    <li><span><a href="">1. Лестница и народ</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/1.jpg" /></a></li>
-                    <li class="active_v"><span><a href="">2. Обнимашки возле...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/2.jpg" /></a></li>
-                    <li><span><a href="">3. Я памятник себе</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/3.jpg" /></a></li>
-                    <li><span><a href="">4. Внезапно украли зе...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/4.jpg" /></a></li>
-                    <li><span><a href="">5. Как Украина, только...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/5.jpg" /></a></li>
-                    <li class="arrow_right"><a href=""></a></li>
-                </ul>
-            </div>
-          <img class="b_photo" alt="" src="../theme/img/front/video_preview/video_player.jpg" />
-          <h2>3/5. Обнимашки возле флага</h2>
-        <p class="info_text">Сегодня Днепропетровский университет имени Альфреда Нобеля - единственное заведение в регионе, который проводит подготовку специалистов по данному направлению. К преподаванию на программе кроме преподавательского состава университета, были приглашены ведущие специалисты Главного управления юстиции, суда, Пенсионного фонда и других.</p>
-          <div class="adt">
-            <div class="social-services">
+          <div class="contacts">
+              <h3>Номера телефонов</h3>
+              <h4>Приемная комиссия:</h4>
+              <span>+38(056)370-36-21</span>
+              <span>+38(0562)31-24-40</span>
+              <h4>Приемная ректора:</h4>
+              <span>+38(056)370-36-26</span>
               <ul>
-                  <li>
-                      <img alt="" src="../theme/img/front/social_v.jpg" />
-                  </li>
-                  <li>
-                      <img alt="" src="../theme/img/front/social_f.jpg" />
-                  </li>
-                  <li>
-                      <img alt="" src="../theme/img/front/social_t.jpg" />
-                  </li>
-                  <li>
-                      <img alt="" src="../theme/img/front/social_g.jpg" />
-                  </li>
-              </ul>
-            </div>
-          <div class="comments">
-              <h3>Комментарии <span>(3)</span></h3>
-              <ul>
-                  <li class="comments_top">
-                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/1.jpg" /></span>
-                      <p>
-                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
-                          <span>Собрание сегодня состоится?</span>
-                      </p>
-                  </li>
-                  <li class="comments_bottom">
-                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/2.jpg" /></span>
-                      <p>
-                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
-                          <span>Собрание сегодня состоится?</span>
-                      </p>
-                  </li>
-                  <li class="comments_top">
-                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/1.jpg" /></span>
-                      <p>
-                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
-                          <span>Собрание сегодня состоится?</span>
-                      </p>
+                  <li class="callback_field">
+                      <a class="report_event button_callback" href=""><span>Обратный звонок &darr;</span></a>
+                        <ul class="pop_up file_types inset callback">
+                            <li class="field_text"><p><strong>Укажите свой номер телефона, интересующую тему, и соответствующий специалист перезвонит вам в течение получаса</strong> (если сейчас не три часа ночи – мы не роботы, что, кстати, является нашим конкурентным преимуществом).</p>
+                                <form action="">
+                                    <input class="button_name" type="text" value="Ваше имя*" />
+                                    <input type="text" value="Тема вопроса" />
+                                    <input type="text" value="Номер телефона*" />
+                                    <input class="comments" type="submit" value=" Отправить" />
+                                    <span>Поля, помеченные (*) обязательны к заполнению</span>
+                                </form>
+                            </li>
+                            <li class="pop_up_left_top"></li>
+                            <li class="pop_up_right_top"></li>
+                            <li class="pop_corner"></li>
+                            <li class="pop_up_left"></li>
+                            <li class="pop_up_right"></li>
+                            <li class="pop_up_left_bottom"></li>
+                            <li class="pop_up_right_bottom"></li>
+                            <li class="pop_up_top_l"></li>
+                            <li class="pop_up_top_r"></li>
+                            <li class="pop_up_bottom"></li>
+                        </ul>
                   </li>
               </ul>
           </div>
-          <h4>Ваш комментарий</h4>
-          <form class="comments">
-              <textarea name="" cols="" rows=""></textarea>
-              <input type="submit" value="Отправить">
-          </form>
-              </div>
+          <div class="contacts">
+              <h3>Адреса</h3>
+              <span>49000, Украина г. Днепропетровск  ул. Набережная Ленина 18</span>
+              <h3>Реквизиты</h3>
+              <span>Днепропетровский университет имени Альфреда Нобеля г. Днепропетровск, ул. Набережная Ленина 18 ЄДРПОУ 33440037 р/р 26003021601191 в КМФ АКБ "Укрсоцбанк" МФО 322012 ІПН 334400326584 № cвід.пл.ПДВ 36103208</span>
+          </div>
+          <div class="contacts contacts_mail">
+              <h3>Электронная почта</h3>
+              <span><a href="mailto:abit@duep.edu ">abit@duep.edu</a></span>
+              <h3>Skype</h3>
+              <span><a href="">Приемная</a><i>(в сети)</i></span>
+              <h3>QR-код</h3>
+              <img alt="" src="../theme/img/front/qr_kod.png" />
+          </div>
+          <div class="map">
+              <img alt="" src="../theme/img/front/map.jpg" />
+          </div>
+          <div class="adt">
+              <form class="feedback" action="">
+                  <h1 class="developments">Обратная связь</h1>
+                  <input class="button_name" type="text" value="Ваше имя*" />
+                  <input type="text" value="Адрес вашей электронной почты*" />
+                  <input class="button_issue" type="text" value="Тема письма" />
+                  <textarea rows="" cols="">Текст письма*</textarea>
+                  <input class="comments" type="submit" value="Отправить" />
+                  <span>Поля, помеченные (*) обязательны к заполнению</span>
+              </form>
+          </div>
+        </div>
       </div>
     </div>
     <!-- #content-->
@@ -102,6 +100,7 @@
             </ul>
         </li>
         <li><a href="">Видеогалерея</a></li>
+        <li><a href="">Веб-камеры live</a></li>
         <li><a href="">Контактные данные</a></li>
     </ul>
     <div class="side_true">
