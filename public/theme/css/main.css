@@ -1765,6 +1765,41 @@ h2.title {
 .block_list p{
     margin:15px 0;
 }
+input.form_field{
+    width:325px;
+    height:35px;
+    border:1px solid #e4e4e5;
+    border-radius:5px;
+    background-image:none;
+    background-color:#fafafa;
+    margin-bottom:15px;
+    cursor:text;
+}
+.personal_account {
+    width:769px;
+}
+.personal_account span{
+    display:block;
+    width:325px;
+    color:#3a3a3a;
+    margin-bottom:5px;
+}
+.l_form, .r_form {
+    float:left;
+    width:325px;
+    margin-right:40px;
+}
+ul.info_pack {
+    margin-top:45px;
+}
+.info_pack p {
+    position:relative;
+    top:0;
+    margin:2px 0;
+}
+.info_pack li > a {
+    font-size:12px;
+}
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
 .sideLeft {
