@@ -53,8 +53,8 @@ class IndexController extends Zend_Controller_Action
 	    	3 => 'Март',
 	    	4 => 'Апрель',
 	    	5 => 'Май',
-	    	6 => '�?юнь',
-	    	7 => '�?юль',
+	    	6 => 'Июнь',
+	    	7 => 'Июль',
 	    	8 => 'Август',
 	    	9 => 'Сентябрь',
 	    	10 => 'Октябрь',
@@ -64,6 +64,11 @@ class IndexController extends Zend_Controller_Action
     	
     	$this->view->announcements->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->news->formatDate('date_created', $translatedMonths, 'г.');
+    }
+    
+    public function staticAction()
+    {
+    	
     }
     
     /**
