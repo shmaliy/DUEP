@@ -1743,6 +1743,28 @@ li.field_text p {
     font-style:italic;
     color:#3a3a3a;
 }
+.block_sked {
+    display:block;
+    width:200px;
+    font-size:13px;
+    color:#3a3a3a;
+    margin:-5px 0 20px 0;
+}
+.block_sked strong{
+    margin-right:5px;
+}
+h2.title {
+    color:#015EB3;
+    font-size:20px;
+    font-weight:lighter;
+}
+.block_list {
+    width:785px;
+    margin-top:20px;
+}
+.block_list p{
+    margin:15px 0;
+}
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
 .sideLeft {
