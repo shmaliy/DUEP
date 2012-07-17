@@ -18,7 +18,9 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 		$context->addActionContext('delete', 'json');		
 		$context->addActionContext('set-limit', 'json');		
 		$context->addActionContext('set-page', 'json');		
-		$context->addActionContext('set-filter', 'json');		
+		$context->addActionContext('set-filter', 'json');	
+		$context->addActionContext('select-image', 'json');
+		$context->addActionContext('select-file', 'json');
 		$context->initContext('json');
 	}
 	
@@ -91,6 +93,18 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     
     public function uploadAction()
     {
+    	//$headers = apache_request_headers();
+    	
+    	$this->_helper->viewRenderer->setNoRender();
+    	
+    	/*foreach ($headers as $header => $value) {
+    		echo "$header: $value <br />\n";
+    	} 
+    	
+    	echo mb_detect_encoding('W:/home/duep/public/uploads/SENIC-Заставка-на-нерабочий-сайт4.jpg');
+    	
+    	
+    	return;*/
     	$request = $this->getRequest();
     	
     	if ($request->isFlashRequest() || $request->isPost()) {
@@ -108,12 +122,20 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 	    		$this->view->error[] = 'not recieved';
 	    	}
 	    	
+	    	
+	    	
+	    	
 	    	// TODO: move to model
+	    	$filter = new Sunny_FileRenamer();
 	    	$fileInfo = $transfer->getFileInfo($postName);
+	    	$this->view->enc = mb_detect_encoding($fileInfo[$postName]['name']);
+	    	file_put_contents(PUBLIC_PATH . '/custlog', $this->view->enc . phpinfo());
+	    	
 	    	$entity = $this->_getMapper()->createEntity();
 	    	$p = strripos($postName, '/');
 	    	$entity->setName($fileInfo[$postName]['name']);
-	    	$entity->setServerPath(PUBLIC_PATH . '/uploads');
+	    	$entity->setServerPath(realpath(PUBLIC_PATH . '/uploads'));
+	    	$entity->setType(strtolower(end(explode('.', $fileInfo[$postName]['name']))));
 	    	$id = $this->_getMapper()->saveEntity($entity);
 	    	 
 	    	$this->view->success = true;
@@ -122,8 +144,45 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 	    	$this->_helper->json(get_object_vars($this->view));
     	} else {
     		$this->view->form = new Media_Form_MediaCreate(array('uploadUrl' => $this->_helper->url->simple($this->_a, $this->_c, $this->_m)));
+    		
     		$this->render('edit');
     	}
+    }
+    
+    public function selectFileAction()
+    {
+    	
+    }
+    
+    public function selectImageAction()
+    {
+    	$filter            = $this->_getSessionFilter();
+    	$this->view->page  = $this->_getSessionPage();
+    	$this->view->rows  = $this->_getSessionRows();
+    	
+    	$where = array(
+    				'media_categories_id = ?' => $filter['media_categories_id'],
+    				"type = 'jpg' OR type = 'jpeg' OR type = 'png' OR type = 'gif'"
+    	);
+    	
+    	$this->view->rowset = $this->_getMapper()->fetchPage(
+    	$where,
+    	null,
+    	$this->view->rows,
+    	$this->view->page
+    	);
+    	$this->view->total  = $this->_getMapper()->fetchCount($where);
+    	
+    	$form = new Media_Form_AdminIndexFilter();
+    	$categoriesMapper = new Media_Model_Mapper_MediaCategories();
+    	$collection = $categoriesMapper->fetchTree(null, array('id', 'title', 'media_categories_id'));
+    	$options = $form->collectionToMultiOptions($collection, array(), array('Нет'));
+    	$form->getElement('media_categories_id')->setMultiOptions($options);
+    	
+    	$form->setDefaults($filter);
+    	$form->setAction($this->view->simpleUrl('set-filter', $this->_c, $this->_m, array('back' => 'select-image')));
+    	$this->view->filter = $form;
+    	//$this->render('index');
     }
     
     public function deleteAction()
@@ -175,7 +234,10 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     
     public function setFilterAction()
     {
-		// Version 14.07.2012
+		$request = $this->getRequest();
+		$goto = $request->getParam('back', 'index');
+    	
+    	// Version 14.07.2012
 		$form = new Media_Form_AdminIndexFilter();
 		$categoriesMapper = new Media_Model_Mapper_MediaCategories();
 		$collection = $categoriesMapper->fetchTree(null, array('id', 'title', 'media_categories_id'));
@@ -185,12 +247,13 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 		
     	if (!$form->isValid($this->getRequest()->getParams())) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set filter</div>');
-			$this->_gotoUrl('index', $this->_c, $this->_m);
+			$this->_gotoUrl($goto, $this->_c, $this->_m);
 			return;
 		}
 		
     	$this->_setSessionPage(1);
-    	$this->_setSessionFilter($form->getValues());		
-		$this->_gotoUrl('index', $this->_c, $this->_m);
+    	$this->_setSessionFilter($form->getValues());	
+    		
+		$this->_gotoUrl($goto, $this->_c, $this->_m);
     }
 }

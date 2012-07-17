@@ -66,6 +66,12 @@
 										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'gallery_of_images')); ?>">Альбомы</a></li>
 									</ul>
 								</li>
+								<li><span class="group">Галереи видео</span>
+									<ul>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'contents', array('group' => 'gallery_of_videos')); ?>">Категории</a></li>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'gallery_of_videos')); ?>">Галереи</a></li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 						<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'staff'); ?>" class="group">Структура университета</a>

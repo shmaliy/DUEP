@@ -1,7 +1,20 @@
 <?php
 
-class Contents_Form_AnnouncementsEdit extends Sunny_Form
+class Contents_Form_GalleryOfVideosEdit extends Sunny_Form
 {
+	protected $_contentsCategoriesMultiOptions = array();
+	
+	public function setContentsCategoriesMultiOptions($options, $exclude = array())
+	{
+		$this->_contentsCategoriesMultiOptions = array(0 => 'Нет');
+		
+		if ($options instanceof Sunny_DataMapper_CollectionAbstract) {
+			$this->_contentsCategoriesMultiOptions = $this->collectionToMultiOptions($options, $exclude, $this->_contentsCategoriesMultiOptions);
+		} else if (is_array($options)) {
+			$this->_contentsCategoriesMultiOptions = $options;
+		}
+	}
+	
 	public function init()
 	{
 		$this->setName(strtolower('contents'));
@@ -9,13 +22,12 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		$this->setAttrib('onsubmit', 'return false;'); // Force send only with ajax
 		$this->setAttrib('class', 'via_ajax');         // Force send only with ajax
 		
-		/*  Externals  */
-		
+		/*  Externals  */		
 		$this->addElement('hidden', 'id');
 		$this->addElement('hidden', 'contents_groups_id', array('value' => $this->_contentsGroupsId));
 		$this->addElement('hidden', 'image');
 		$this->addElement('hidden', 'event');
-		$this->addElement('hidden', 'sheduled');
+		$this->addElement('hidden', 'sheduled', array('value' => 0)); // В данной версии надо не забывать про необходимые значения
 		$this->addElement('hidden', 'pages');
 		$this->addElement('hidden', 'files');
 		$this->addElement('hidden', 'photoalbums');
@@ -23,11 +35,10 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		$this->addElement('hidden', 'videos'); // в данной версии пока не реализовано хранилище
 		
 		/*  Main  */
-		$main = array();
-		
-		$main[] = 'contents_categories_id';
+		$main = array('contents_categories_id');
 		$this->addElement('select', 'contents_categories_id', array(
-			'label' => 'Родитель'
+			'label' => 'Родитель',
+			'multiOptions' => $this->_contentsCategoriesMultiOptions
 		));
 		
 		$main[] = 'title';
@@ -51,16 +62,6 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		));
 		
 		$this->addDisplayGroup($main, 'main');
-		
-		/*  Media  */
-		if (@class_exists('Media_AdminIndexController') && @method_exists('Media_AdminIndexController', 'selectImageAction')) {
-			
-			$media = array();
-			$media[] = 'image';
-		}
-		
-		
-		
 		
 				
 		/*  SEO  */
