@@ -39,6 +39,73 @@
                     </li>
                 </ul>
         </div>
+        <div style="clear:both;"></div>
+        <div>
+        <img class="file_img" alt="" src="../theme/img/front/add_file/xls.png" />
+            <div class="archive_list">
+                <a class="file_name" href="">Политика и цели университета</a> <span class="data_size">3Мб</span><span class="data_size">24.04.2011</span><span class="data_size">XLS</span>
+                <a class="file_category" href="">Категория 1</a>
+                <p>Описание политики и целей университета в полной форме и всевозможной форме, будет полезен абитуриентам, студентам, преподавателям, родителям, родственникам, политикам, рабочим, заведующим, отсутствующим, Бендеру, Кукушкинду и Адаму Козлевичу.<a href="">Подробнее &darr;</a></p>
+            </div>
+        </div>
+        <div>
+        <img class="file_img" alt="" src="../theme/img/front/add_file/doc.png" />
+            <div class="archive_list">
+                <a class="file_name" href="">Правила движения внутри университета</a> <span class="data_size">3Мб</span><span class="data_size">24.04.2011</span><span class="data_size">DOC</span>
+                <a class="file_category" href="">Категория 3</a>
+                <p>Полное издание правил пешего перемещения студентов, абитуриентов, преподавателей, ректора эти правила не касаются он перемещается, как хочет.<a href="">Подробнее &darr;</a></p>
+            </div>
+        </div>
+        <div>
+        <img class="file_img" alt="" src="../theme/img/front/add_file/pptx.png" />
+            <div class="archive_list">
+                <a class="file_name" href="">Схема врашения памятника</a> <span class="data_size">3Мб</span><span class="data_size">24.04.2011</span><span class="data_size">PPTX</span>
+                <a class="file_category" href="">Категория 1</a>
+                <p>Описание принципа вращения глобуса по и против часовой стрелки, во время магнитных буть вращение происходит согласно направления магнитного вихря.</p>
+                <p>Глобус приводится в движение очень сложным и умным инструментом, изобретенным самим Альфредом для придания вращения памятникам, установленным в его честь, во всем мире. Самая сложная и ответственная процедура это правильная мотивация и расположение основного движителя (студента). Как правило соглашаются самые ответственные и голодные студенты.</p>
+                <p>Второй по важности момент - подзарядка движителя (кормление студента) если эту процедуру выполнять не вовремя, то глобус станет вращаться в непредсказуемом направлении и изменчивой скорость. Ни в коем случае не допускать полной разрядки движителя, если это все  же произошло нужно незамедлительно найти аналогичный и установить вместо старого, постарайтесь в дальнейшем не повторять подобных ошибок, т.к. студенты хоть и возобновимый ресурс но, все-же дорогостоящий, требующий нежного и внимательного ухода.</p>
+                <strong>Файл связан с:<a href="">Структура университета,</a> <a href="">Про нас пишут,</a> <a href="">Награды</a></strong>
+                <a class="roll_up" href="">Свернуть &uarr;</a>
+            </div>
+        </div>
+        <div>
+        <img class="file_img" alt="" src="../theme/img/front/add_file/xls.png" />
+            <div class="archive_list">
+                <a class="file_name" href="">Форма записи на очередь в столовую</a> <span class="data_size">3Мб</span><span class="data_size">24.04.2011</span><span class="data_size">XLS</span>
+                <a class="file_category" href="">Категория 2</a>
+                <p>В связи с постоянными заторами в области столовой вводится жесткий график посещения столовой. Принцип действия, заполнить, отправить,  получить талоны, посетить столовую.<a href="">Подробнее &darr;</a></p>
+            </div>
+        </div>
+        <div>
+        <img class="file_img" alt="" src="../theme/img/front/add_file/doc.png" />
+            <div class="archive_list">
+                <a class="file_name" href="">Правила движения внутри университета</a> <span class="data_size">3Мб</span><span class="data_size">24.04.2011</span><span class="data_size">DOC</span>
+                <a class="file_category" href="">Категория 3</a>
+                <p>Полное издание правил пешего перемещения студентов, абитуриентов, преподавателей, ректора эти правила не касаются он перемещается, как хочет.<a href="">Подробнее &darr;</a></p>
+            </div>
+        </div>
+        <div>
+        <img class="file_img" alt="" src="../theme/img/front/add_file/xls.png" />
+            <div class="archive_list">
+                <a class="file_name" href="">Политика и цели университета</a> <span class="data_size">3Мб</span><span class="data_size">24.04.2011</span><span class="data_size">XLS</span>
+                <a class="file_category" href="">Категория 1</a>
+                <p>Описание политики и целей университета в полной форме и всевозможной форме, будет полезен абитуриентам, студентам, преподавателям, родителям, родственникам, политикам, рабочим, заведующим, отсутствующим, Бендеру, Кукушкинду и Адаму Козлевичу.<a href="">Подробнее &darr;</a></p>
+            </div>
+        </div>
+        <ul>
+              <li class="paging">
+                <a href="">&larr;</a>
+                <a href="">1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">4</a>
+                <a href="">5</a>
+                <a href="">6</a>
+                <a href="">7</a>
+                <a href="">8</a>
+                <a href="">&rarr;</a>
+            </li>
+          </ul>
       </div>
     </div>
     <!-- #content-->

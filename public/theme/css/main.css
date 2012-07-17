@@ -630,7 +630,7 @@ ul {
 	background: #ffffff;
 	padding: 16px 0px 0px;
 	margin-top: 20px;
-	z-index: 1000;
+	z-index: 2000;
 	line-height: 14px;
 	white-space:nowrap;
 	left: 9px;
@@ -1458,14 +1458,16 @@ a.photo_category:hover{
 }
 .preview_files {
     float:left;
+    position:relative;
 }
 ul li a.name_news {
     font-size: 11px;
 }
 ul.file_types {
-    position:relative;
+    position:absolute;
 	background: #ffffff;
 	left: -25px;
+    top:15px;
 }
 .file_types{
     width:142px;
@@ -1799,6 +1801,50 @@ ul.info_pack {
 }
 .info_pack li > a {
     font-size:12px;
+}
+.archive_list{
+    font-size:13px;
+    color:#3a3a3a;
+    padding:25px 0 0 35px;
+    z-index:10;
+    position:relative;
+}
+.file_img{
+    float:left;
+    padding-top:25px;
+}
+.archive_list p a, .roll_up {
+    text-decoration:none;
+    border-bottom:1px dashed #0066C1;
+    margin-left:5px;
+}
+.roll_up {
+    display:block;
+    width:68px;
+}
+.archive_list strong {
+    font-size:11px;
+    margin-right:5px;
+}
+.archive_list strong a{
+    font-weight:normal;
+    margin-left:5px;
+}
+.data_size {
+    display:block;
+    float:right;
+    margin-left:40px;
+    font-size:13px;
+    font-weight:bold;
+    color:#3a3a3a;
+}
+.file_name {
+    font-size:13px;
+    font-weight:bold;
+}
+.file_category {
+    display:block;
+    font-size:10px;
 }
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
