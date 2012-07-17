@@ -11,27 +11,31 @@
           <h1 class="developments">События</h1>
         <ul class="lineTabs">
           <li>
-            <a class="active" href=""><span>Анонсы</span></a>
+            <a href=""><span>Анонсы</span></a>
           </li>
           <li>
-            <a href=""><span>Прошедшие события</span></a>
+            <a class="active" href=""><span>Прошедшие события</span></a>
           </li>
         </ul>
           <hr />
       </div>
       <div class="adt">
         <ul class="adt_list">
-        <?php foreach ($this->announcements as $item):?>
+        <?php foreach ($this->events as $item):?>
           <li class="adt_date" style = "display: none;">
              <span class="adt_image">
-                <img alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
+                <?php if ($item->img == ''): ?>
+	            <img alt="" src="/theme/img/front/noimage.png" />
+	            <?php else: ?>
+               <img alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
+               <?php endif;?>
                 <?php foreach ($this->acats as $itemc):
                 if ($itemc->id == $item->contents_categories_id):?>
                   <a href=""><?php echo $itemc->title; ?></a>
                 <?php endif; endforeach;?>
              </span>
             <p><?php echo $item->date_created;?></p>
-            <a href=""><?php echo $item->title;?></a>
+            <a href="<?php echo $this->simpleUrl('view', 'events', 'contents', array('alias'=>$item->alias) ); ?>"><?php echo $item->title;?></a>
             <p class="adt_description"><?php echo $item->tizer;?></p>
           </li>
           <?php endforeach;?>
