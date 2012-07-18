@@ -70,6 +70,11 @@ class IndexController extends Zend_Controller_Action
     {
     	
     }
+
+    public function searchAction()
+    {
+        
+    }
     
     /**
      * ЭТОТ МЕТОД СОЗДАН ДЛЯ НАД�? ЧТОБ ОНА МОГЛА ВЕРСТАТЬ ПР�?МЕН�?ТЕЛЬНО К САЙТУ - НЕ УДАЛЯТЬ
