@@ -7,106 +7,178 @@
       <div class="tape_path">
           <a class="emblem_way" href=""></a>&rarr;
           <a href="">Университет</a>&rarr;
-          <a href="">Файловый архив</a>
+          <a href="">Архив публикаций</a>&rarr;
+          <a href="">Периодические издания</a>&rarr;
+          <a href="">Вестник Днепропетровского университета имени Альфреда Нобеля</a>&rarr;
+          <a href="">Педагогика и психология</a>
       </div>
     <div class="content">
-        <h1 class="developments">Файловый архив</h1>
-        <div >
-            <span class="sorting_files">Сортировать по:</span>
-            <span class="sorting_files">имени</span><span class="sorting_files">|</span>
-            <span class="sorting_files"><a href="">дате</a></span><span class="sorting_files">|</span>
-            <span class="sorting_files"><a href="">объему</a></span>
-            <span class="sorting_files">Тип файлов:</span>
-                <ul class="preview_files">
-                    <li><span class="sorting_files"><a class="dashed" href="">все файлы</a></span><span class="pointer">&darr;</span>
-                        <ul class="pop_up file_types inset">
-                            <li class="emphasis section_files"><a href="index.html"><img alt="" src="../theme/img/front/add_file/files.png" /><span>Все файлы</span></a><span>(53)</span></li>
-                            <li class="section_files"><a href="index.html"><img alt="" src="../theme/img/front/add_file/doc.png" /><span>Microsoft word</span></a><span>DOC(20)</span></li>
-                            <li class="section_files"><a href="index.html"><img alt="" src="../theme/img/front/add_file/xls.png" /><span>Microsoft excel</span></a>XLS(20)</li>
-                            <li class="section_files"><a href="index.html"><img alt="" src="../theme/img/front/add_file/pptx.png" /><span>Microsoft powerpoint</span></a>PPTX(7)</li>
-                            <li class="section_files"><a href="index.html"><img alt="" src="../theme/img/front/add_file/pdf.png" /><span>Adobe reader</span></a>PDF(3)</li>
-                            <li class="pop_up_left_top"></li>
-                            <li class="pop_up_right_top"></li>
-                            <li class="pop_corner"></li>
-                            <li class="pop_up_left"></li>
-                            <li class="pop_up_right"></li>
-                            <li class="pop_up_left_bottom"></li>
-                            <li class="pop_up_right_bottom"></li>
-                            <li class="pop_up_top_l"></li>
-                            <li class="pop_up_top_r"></li>
-                            <li class="pop_up_bottom"></li>
-                        </ul>
+      <div>
+        <h1 class="developments">Вестник: «Педагогика и психология»</h1>
+      </div>
+      <div class="adt">
+        <p class="pick_out info_text">В 1995 году на базе секции филологии кафедры иностранных языков была создана кафедра английской филологии и перевода, которая через 2 года отделилась от кафедры иностранных языков и стала самостоятельной кафедрой. В апреле 2006 года кафедра получила лицензию на подготовку магистров по переводу.</p>
+        <h3>Творческие связи, сотрудничество с министерствами</h3>
+        <p class="info_text">Один из популярных обозревателей журнала Guns («Ружья») Майк «Дюк» Вентурино сообщает читателям, что собирается уйти на пенсию, точнее – на «полупенсию». В его случае это означает необходимость пересмотреть свой арсенал огнестрельного оружия и и распродать те винтовки, револьверы , пистолеты, автоматы и полуавтоматические ружья, без которых можно обойтись в повседневной жизни. Перечисление стволов, которые придется оторвать от сердца, занимает полтора разворота, а на полученные от распродажи средства он собирается купить трейлер, на котором будет путешествовать от одного соревнования по стрельбе к другому. Журнал Guns – это главный американский журнал для любителей стрельбы, кстати, издающийся и в роскошной диджитал-версии..</p>
+        <p class="info_text">Из апрельского TIME(«Время») можно узнать, что США сегодня – крупнейший экспортер спермы. Для примера взята уроженка Квебека Шэри-Энн, которая желает видеть в виде спермодонора непременно еврея, которых в родном городе не найти. TIME спрашивает: что будет, когда дети, выросшие из этой экспортной продукции, начнут искать своих отцов? Нам самим адски любопытно, но рассуждения на эту волнующую всех тему можно прочитать, лишь будучи подписчиком Time – авторитетнейшего новостного издания.</p>
+        <h3>Творческие связи, сотрудничество с министерствами</h3>
+        <p class="info_text">Один из популярных обозревателей журнала Guns («Ружья») Майк «Дюк» Вентурино сообщает читателям, что собирается уйти на пенсию, точнее – на «полупенсию». В его случае это означает необходимость пересмотреть свой арсенал огнестрельного оружия и и распродать те винтовки, револьверы , пистолеты, автоматы и полуавтоматические ружья, без которых можно обойтись в повседневной жизни. Перечисление стволов, которые придется оторвать от сердца, занимает полтора разворота, а на полученные от распродажи средства он собирается купить трейлер, на котором будет путешествовать от одного соревнования по стрельбе к другому. Журнал Guns – это главный американский журнал для любителей стрельбы, кстати, издающийся и в роскошной диджитал-версии..</p>
+        <p class="info_text">Из апрельского TIME(«Время») можно узнать, что США сегодня – крупнейший экспортер спермы. Для примера взята уроженка Квебека Шэри-Энн, которая желает видеть в виде спермодонора непременно еврея, которых в родном городе не найти. TIME спрашивает: что будет, когда дети, выросшие из этой экспортной продукции, начнут искать своих отцов? Нам самим адски любопытно, но рассуждения на эту волнующую всех тему можно прочитать, лишь будучи подписчиком Time – авторитетнейшего новостного издания.</p>
+          <div class="linked_materials side_true">
+              <span class="menu_add_file">Связанные материалы</span>
+              <div class="group_materials">
+                  <strong class="">Новости</strong>
+                  <ul class="sked">
+                      <li>
+                          <p>20.12.2012<span>8:18</span></p>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                      <li>
+                          <p>20.12.2012<span>8:18</span></p>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="group_materials">
+                  <strong>Анонсы и события</strong>
+                  <ul class="sked">
+                      <li>
+                          <p>20.12.2012<span>8:18</span></p>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                      <li>
+                          <p>20.12.2012<span>8:18</span></p>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="group_materials">
+                  <strong>Прочее</strong>
+                  <ul class="sked">
+                      <li>
+                          <a class="name_news" href="">Название страницы</a>
+                          <a href="">Раздел</a>&rarr;<a href="">Подраздел</a>
+                      </li>
+                  </ul>
+              </div>
+              <div style="clear:both;"></div>
+          </div>
+      </div>
+        <div class="sideRight">
+            <div class="calendar info_public">
+                <div class="book_block info_publication">
+                <span class="menu_add_file">КОНТАКТНЫЕ ДАННЫЕ</span>
+                  <div class="terminal_block">
+                      <span class="pick_out">Адрес:</span>
+                      <span>м. Днепропетровск, ул. Набережная Ленина, 18, Аудитория 2411, 2409</span>
+                      <span class="pick_out">Телефон:</span>
+                      <span>(0562) 31-20-46, (0562) 31-24-60, (0562)31-24-50)</span>
+                      <span class="pick_out">Внутренний:</span>
+                      <span>446</span>
+                  </div>
+              </div>
+            </div>
+            <div class="calendar info_public">
+                <div class="book_block info_publication">
+                <span class="menu_add_file">Руководство</span>
+                  <div class="terminal_block">
+                      <div class="manager">
+                          <img alt="" src="../theme/img/front/commentators_photos/5.jpg" />
+                          <a class="manager_name" href="">Дяченко Ольга Петрівна</a>
+                          <p>
+                              менеджер з адміністративної діял-ті депертаменту освіти
+                          </p>
+                      </div>
+                    </div>
+                    <span class="menu_add_file">Сотрудники</span>
+                    <div class="terminal_block">
+                      <div class="manager">
+                          <img alt="" src="../theme/img/front/commentators_photos/6.jpg" />
+                          <a class="manager_name" href="">Єштокіна Юлія Валеріївна</a>
+                          <p>
+                              менеджер з адмін-ної діял-ті  сектору
+                          </p>
+                      </div>
+                      <div class="manager">
+                          <img alt="" src="../theme/img/front/commentators_photos/7.jpg" />
+                          <a class="manager_name" href="">Красовська Олена Юріївна</a>
+                          <p><a href="">Кандидат економічних наук</a>
+                              завідувач магістерських програм
+                          </p>
+                      </div>
+                      <div class="manager">
+                          <img alt="" src="../theme/img/front/commentators_photos/8.jpg" />
+                          <a class="manager_name" href="">Ткаченко Жанетта Юріївна</a>
+                          <p>
+                              завідувач сектору післядипломної освіти
+                          </p>
+                      </div>
+                      <div class="manager">
+                          <img alt="" src="../theme/img/front/commentators_photos/5.jpg" />
+                          <a class="manager_name" href="">Дяченко Ольга Петрівна</a>
+                          <p>
+                              менеджер з адміністративної діял-ті депертаменту освіти
+                          </p>
+                      </div>
+                      <div class="manager">
+                          <img alt="" src="../theme/img/front/commentators_photos/4.jpg" />
+                          <a class="manager_name" href="">Дубинский Сергей Владимирович</a>
+                          <p><a href="">Старший преподаватель</a></p>
+                      </div>
+                      <div class="manager">
+                          <img alt="" src="../theme/img/front/commentators_photos/9.jpg" />
+                          <a class="manager_name" href="">Зинукова Наталья Викторовна</a>
+                          <p><a href="">Кандидат педагогичныз наук</a>
+                              Руководитель
+                          </p>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="add_file">
+                <ul>
+                    <li>
+                        <span class="menu_add_file">Прикрепленные файлы</span>
+                    </li>
+                    <li>
+                        <img alt="" src="../theme/img/front/add_file/doc.png" />
+                        <p>
+                            <a class="name_news" href="">Лицензування та акредитация</a>
+                            <span>DOC (12Мб)</span>
+                            <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                        </p>
+                    </li>
+                    <li>
+                        <img alt="" src="../theme/img/front/add_file/pdf.png" />
+                        <p>
+                            <a class="name_news" href="">Ласкаво просимо</a>
+                            <span>PDF (12Мб)</span>
+                            <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                        </p>
+                    </li>
+                    <li>
+                        <img alt="" src="../theme/img/front/add_file/xls.png" />
+                        <p>
+                            <a class="name_news" href="">Лицензування та акредитация</a>
+                            <span>XLS (12Мб)</span>
+                            <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                        </p>
+                    </li>
+                    <li>
+                        <img alt="" src="../theme/img/front/add_file/xls.png" />
+                        <p>
+                            <a class="name_news" href="">Лицензування та акредитация</a>
+                            <span>XLS (12Мб)</span>
+                            <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                        </p>
                     </li>
                 </ul>
-        </div>
-        <div style="clear:both;"></div>
-        <div>
-        <img class="file_img" alt="" src="../theme/img/front/add_file/xls.png" />
-            <div class="archive_list">
-                <a class="file_name" href="">Политика и цели университета</a> <span class="data_size">3Мб</span><span class="data_size">24.04.2011</span><span class="data_size">XLS</span>
-                <a class="file_category" href="">Категория 1</a>
-                <p>Описание политики и целей университета в полной форме и всевозможной форме, будет полезен абитуриентам, студентам, преподавателям, родителям, родственникам, политикам, рабочим, заведующим, отсутствующим, Бендеру, Кукушкинду и Адаму Козлевичу.<a href="">Подробнее &darr;</a></p>
             </div>
         </div>
-        <div>
-        <img class="file_img" alt="" src="../theme/img/front/add_file/doc.png" />
-            <div class="archive_list">
-                <a class="file_name" href="">Правила движения внутри университета</a> <span class="data_size">3Мб</span><span class="data_size">24.04.2011</span><span class="data_size">DOC</span>
-                <a class="file_category" href="">Категория 3</a>
-                <p>Полное издание правил пешего перемещения студентов, абитуриентов, преподавателей, ректора эти правила не касаются он перемещается, как хочет.<a href="">Подробнее &darr;</a></p>
-            </div>
-        </div>
-        <div>
-        <img class="file_img" alt="" src="../theme/img/front/add_file/pptx.png" />
-            <div class="archive_list">
-                <a class="file_name" href="">Схема врашения памятника</a> <span class="data_size">3Мб</span><span class="data_size">24.04.2011</span><span class="data_size">PPTX</span>
-                <a class="file_category" href="">Категория 1</a>
-                <p>Описание принципа вращения глобуса по и против часовой стрелки, во время магнитных буть вращение происходит согласно направления магнитного вихря.</p>
-                <p>Глобус приводится в движение очень сложным и умным инструментом, изобретенным самим Альфредом для придания вращения памятникам, установленным в его честь, во всем мире. Самая сложная и ответственная процедура это правильная мотивация и расположение основного движителя (студента). Как правило соглашаются самые ответственные и голодные студенты.</p>
-                <p>Второй по важности момент - подзарядка движителя (кормление студента) если эту процедуру выполнять не вовремя, то глобус станет вращаться в непредсказуемом направлении и изменчивой скорость. Ни в коем случае не допускать полной разрядки движителя, если это все  же произошло нужно незамедлительно найти аналогичный и установить вместо старого, постарайтесь в дальнейшем не повторять подобных ошибок, т.к. студенты хоть и возобновимый ресурс но, все-же дорогостоящий, требующий нежного и внимательного ухода.</p>
-                <strong>Файл связан с:<a href="">Структура университета,</a> <a href="">Про нас пишут,</a> <a href="">Награды</a></strong>
-                <a class="roll_up" href="">Свернуть &uarr;</a>
-            </div>
-        </div>
-        <div>
-        <img class="file_img" alt="" src="../theme/img/front/add_file/xls.png" />
-            <div class="archive_list">
-                <a class="file_name" href="">Форма записи на очередь в столовую</a> <span class="data_size">3Мб</span><span class="data_size">24.04.2011</span><span class="data_size">XLS</span>
-                <a class="file_category" href="">Категория 2</a>
-                <p>В связи с постоянными заторами в области столовой вводится жесткий график посещения столовой. Принцип действия, заполнить, отправить,  получить талоны, посетить столовую.<a href="">Подробнее &darr;</a></p>
-            </div>
-        </div>
-        <div>
-        <img class="file_img" alt="" src="../theme/img/front/add_file/doc.png" />
-            <div class="archive_list">
-                <a class="file_name" href="">Правила движения внутри университета</a> <span class="data_size">3Мб</span><span class="data_size">24.04.2011</span><span class="data_size">DOC</span>
-                <a class="file_category" href="">Категория 3</a>
-                <p>Полное издание правил пешего перемещения студентов, абитуриентов, преподавателей, ректора эти правила не касаются он перемещается, как хочет.<a href="">Подробнее &darr;</a></p>
-            </div>
-        </div>
-        <div>
-        <img class="file_img" alt="" src="../theme/img/front/add_file/xls.png" />
-            <div class="archive_list">
-                <a class="file_name" href="">Политика и цели университета</a> <span class="data_size">3Мб</span><span class="data_size">24.04.2011</span><span class="data_size">XLS</span>
-                <a class="file_category" href="">Категория 1</a>
-                <p>Описание политики и целей университета в полной форме и всевозможной форме, будет полезен абитуриентам, студентам, преподавателям, родителям, родственникам, политикам, рабочим, заведующим, отсутствующим, Бендеру, Кукушкинду и Адаму Козлевичу.<a href="">Подробнее &darr;</a></p>
-            </div>
-        </div>
-        <ul>
-              <li class="paging">
-                <a href="">&larr;</a>
-                <a href="">1</a>
-                <a href="">2</a>
-                <a href="">3</a>
-                <a href="">4</a>
-                <a href="">5</a>
-                <a href="">6</a>
-                <a href="">7</a>
-                <a href="">8</a>
-                <a href="">&rarr;</a>
-            </li>
-          </ul>
-      </div>
     </div>
     <!-- #content-->
 
@@ -119,20 +191,37 @@
         <li><a href="">Руководство</a></li>
         <li><a href="">Награды</a></li>
         <li><a href="">Про нас пишут</a></li>
-        <li><a href="">Структура Университета</a></li>
-        <li><a href="">Гости Университета</a></li>
-        <li><a href="">Фотогалерея</a></li>
-        <li><a href="">Видеогалерея</a></li>
-        <li><a href="">Веб-камеры live</a></li>
         <li><div class="note">
-        <a href="">Файловый архив</a>
+        <a href="">Структура Университета</a>
         </div>
             <ul class="submenu">
-                <li><a href="">Категория 1</a></li>
-                <li><a href="">Категория 2</a></li>
-                <li><a href="">Категория 3</a></li>
+                <li><a href="">Направление</a></li>
+                <li><div class="note"><a href="">Кафедра</a></div>
+                    <ul class="podmenu">
+                        <li><a href="">Кафедра английской филологии и перевода</a></li>
+                        <li><a href="">Кафедра политологии, социологии и гуманитарных наук</a></li>
+                        <li><a href="">Кафедра экономики предприятия</a></li>
+                        <li><a href="">Кафедра экономической кибернетики и математических методов в экономике</a></li>
+                        <li><a href="">Кафедра иностранных языков</a></li>
+                        <li><a href="">Кафедра маркетинга</a></li>
+                        <li><a href="">Кафедра менеджмента</a></li>
+                        <li><a href="">Кафедра общей и социальной педагогики</a></li>
+                        <li><a href="">Кафедра международной экономики и экономической теории</a></li>
+                        <li><a href="">Кафедра учета и аудита</a></li>
+                        <li><a href="">Кафедра права</a></li>
+                        <li><a href="">Кафедра практической психологии</a></li>
+                        <li><a href="">Кафедра прикладной лингвистики и методики обучения иностранным языкам</a></li>
+                        <li><a href="">Кафедра романо-германских языков</a></li>
+                        <li><a href="">Кафедра товароведения и торгового предпринимательства</a></li>
+                        <li><a href="">Кафедра физического воспитания</a></li>
+                        <li><a href="">Кафедра финансов и банковского дела</a></li>
+                    </ul>
+                </li>
+                <li><a href="">Подразделения</a></li>
             </ul>
         </li>
+        <li><a href="">Гости Университета</a></li>
+        <li><a href="">Фотогалерея</a></li>
         <li><a href="">Контактные данные</a></li>
     </ul>
     <div class="side_true">
