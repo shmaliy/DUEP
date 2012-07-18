@@ -1,6 +1,6 @@
 <?php
 
-class Contents_EventsController extends Zend_Controller_Action
+class Contents_AnnouncementsController extends Zend_Controller_Action
 {	
 	/**
 	 * Prepare controller for work with ajax based requests
@@ -21,6 +21,7 @@ class Contents_EventsController extends Zend_Controller_Action
 		$context = $this->_helper->AjaxContext();
 		$context->addActionContext('index', 'json');
 		$context->addActionContext('config', 'json');
+		$context->addActionContext('front-announcements', 'json');
 		$context->addActionContext('front-events', 'json');
 		$context->addActionContext('front-news', 'json');
 		
@@ -64,7 +65,7 @@ class Contents_EventsController extends Zend_Controller_Action
 	    	12 => 'Декабрь'
     	);
     	
-    	$this->view->announcements->formatDate('date_created', $translatedMonths, 'г.');
+		$this->view->announcements->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->events->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->news->formatDate('date_created', $translatedMonths, 'г.');
     }
@@ -86,11 +87,10 @@ class Contents_EventsController extends Zend_Controller_Action
     	$this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id,'date_created desc');
     	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id,'date_created desc');
     	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id,'date_created desc');
-    	
-    	$contentMapper = new Contents_Model_Mapper_Contents();
-    	$this->view->event = $contentMapper->getFrontContentByAlias($alias);
 
-    	 
+    	$contentMapper = new Contents_Model_Mapper_Contents();
+    	$this->view->announcement = $contentMapper->getFrontContentByAlias($alias);
+    	
     	$translatedMonths = array(
     	1 => 'Январь',
     	2 => 'Февраль',
@@ -106,8 +106,8 @@ class Contents_EventsController extends Zend_Controller_Action
     	12 => 'Декабрь'
     	);
 
-    	$this->view->event->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->announcements->formatDate('date_created', $translatedMonths, 'г.');
+    	$this->view->announcement->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->events->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->news->formatDate('date_created', $translatedMonths, 'г.');
     }
@@ -148,7 +148,7 @@ class Contents_EventsController extends Zend_Controller_Action
     {
     	
     }
-    public function frontEventsAction()
+    public function frontAnnouncementsAction()
     {
     	$ans_id = $this->getRequest()->getParam('ans_id');
     	$contentsMapper = new Contents_Model_Mapper_Contents();
