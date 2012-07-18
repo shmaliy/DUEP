@@ -1848,9 +1848,26 @@ ul.info_pack {
 }
 .list_units {
     margin:-15px 0 -15px 20px;
-    color: #3A3A3A;
+    color: #3a3a3a;
     font-size: 13px;
     line-height:1.8;
+}
+.list_u {
+    float:left;
+    width:350px;
+    margin:-15px 0 0 0;
+    display:block;
+}
+.list_l {
+    margin:0 0 0 20px;
+}
+.list_units a{
+    color: #3A3A3A;
+}
+h3.list_name {
+    font-size:18px;
+    color: #015EB3;
+    font-weight:lighter;
 }
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
