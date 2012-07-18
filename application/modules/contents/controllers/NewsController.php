@@ -28,8 +28,7 @@ class Contents_NewsController extends Zend_Controller_Action
 	}
 	
 	/**
-	 * Main page controller
-	 * Generate questions form and procces it if ajax requested
+	 * Обработчик страницы "Список всех новостей"
 	 */
 	public function indexAction()
     {
@@ -70,6 +69,9 @@ class Contents_NewsController extends Zend_Controller_Action
     	$this->view->events->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->news->formatDate('date_created', $translatedMonths, 'г.');
     }
+    /**
+    * Обработчик страницы "Отдельная новость"
+    */
     public function viewAction()
     {
     	 

@@ -26,34 +26,52 @@ class Contents_DirectionsController extends Zend_Controller_Action
 	}
 	
 	/**
-	 * Main page controller
-	 * Generate questions form and procces it if ajax requested
+	 * Обработчик страницы "список всех Кафедр"
 	 */
 	public function indexAction()
     {
     	
     }
+    /**
+    * Обработчик страницы "Кафедра"
+    */
     public function viewAction()
     {
    // 	"directions/:direction_name" 
     	
     }
+    /**
+    * Обработчик страницы "История Кафедры"
+    */
     public function historyAction()
     {
     //	"directions/:direction_name/history"
     	 
     }
+    /**
+    * Обработчик страницы "Дисцеплины Кафедры"
+    */
     public function disciplinesAction()
     {
     //	"directions/:direction_name/disciplines"
     	 
     }
+    /**
+    * Обработчик страницы "Отдельная дисцеплина Кафедры"
+    */
     public function disciplineAction()
     {
      //   	"directions/:direction_name/disciplines/:discipline_name"
         	 
     }
+    /**
+    * Обработчик страницы "Сотрудники Кафедры"
+    */
+    public function staffAction()
+    {
+    	//   	"directions/:direction_name/disciplines/:discipline_name"
     
+    }
     /**
      * ЭТОТ МЕТОД СОЗДАН ДЛЯ НАДИ ЧТОБ ОНА МОГЛА ВЕРСТАТЬ ПРИМЕНИТЕЛЬНО К САЙТУ - НЕ УДАЛЯТЬ
      */

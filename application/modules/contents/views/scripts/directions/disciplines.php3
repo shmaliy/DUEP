@@ -42,47 +42,47 @@
                 <span class="menu_add_file">Преподаватели</span>
                   <div class="terminal_block">
                       <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/5.jpg" />
+                          <img alt="" src="/theme/img/front/commentators_photos/5.jpg" />
                           <a class="manager_name" href="">Дяченко Ольга Петрівна</a>
                           <p>
                               менеджер з адміністративної діял-ті депертаменту освіти
                           </p>
                       </div>
                       <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/6.jpg" />
+                          <img alt="" src="/theme/img/front/commentators_photos/6.jpg" />
                           <a class="manager_name" href="">Єштокіна Юлія Валеріївна</a>
                           <p>
                               менеджер з адмін-ної діял-ті  сектору
                           </p>
                       </div>
                       <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/7.jpg" />
+                          <img alt="" src="/theme/img/front/commentators_photos/7.jpg" />
                           <a class="manager_name" href="">Красовська Олена Юріївна</a>
                           <p><a href="">Кандидат економічних наук</a>
                               завідувач магістерських програм
                           </p>
                       </div>
                       <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/8.jpg" />
+                          <img alt="" src="/theme/img/front/commentators_photos/8.jpg" />
                           <a class="manager_name" href="">Ткаченко Жанетта Юріївна</a>
                           <p>
                               завідувач сектору післядипломної освіти
                           </p>
                       </div>
                       <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/5.jpg" />
+                          <img alt="" src="/theme/img/front/commentators_photos/5.jpg" />
                           <a class="manager_name" href="">Дяченко Ольга Петрівна</a>
                           <p>
                               менеджер з адміністративної діял-ті депертаменту освіти
                           </p>
                       </div>
                       <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/4.jpg" />
+                          <img alt="" src="/theme/img/front/commentators_photos/4.jpg" />
                           <a class="manager_name" href="">Дубинский Сергей Владимирович</a>
                           <p><a href="">Старший преподаватель</a></p>
                       </div>
                       <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/9.jpg" />
+                          <img alt="" src="/theme/img/front/commentators_photos/9.jpg" />
                           <a class="manager_name" href="">Зинукова Наталья Викторовна</a>
                           <p><a href="">Кандидат педагогичныз наук</a>
                               Руководитель
@@ -141,31 +141,31 @@
         <h2>Актуально</h2>
         <ul>
             <li>
-                <img alt="" src="../theme/img/front/true/1.jpg" />
+                <img alt="" src="/theme/img/front/true/1.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
             <li>
-                <img alt="" src="../theme/img/front/true/2.jpg" />
+                <img alt="" src="/theme/img/front/true/2.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
             <li>
-                <img alt="" src="../theme/img/front/true/3.jpg" />
+                <img alt="" src="/theme/img/front/true/3.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
             <li>
-                <img alt="" src="../theme/img/front/true/4.jpg" />
+                <img alt="" src="/theme/img/front/true/4.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
             <li>
-                <img alt="" src="../theme/img/front/true/5.jpg" />
+                <img alt="" src="/theme/img/front/true/5.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>

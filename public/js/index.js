@@ -109,8 +109,11 @@ var text = $(".input").val();
   	var url = window.location.href;
   	var index = window.location.protocol+'//'+window.location.hostname+'/';
   	if (url == index){
-  	 $('.load').fadeIn(3000);  
-  	}else{$('.load').show();}
+  	 $('.load').fadeIn(3000);
+  	 $('.content_show').show();
+  	}else{
+  	 $('.load').show();
+  	 $('.content_show').fadeIn(3000);}
   }
-  
+ 
  

@@ -66,11 +66,16 @@ class IndexController extends Zend_Controller_Action
     	$this->view->news->formatDate('date_created', $translatedMonths, 'г.');
     }
     
+    /**
+    * Обработчик статических страниц
+    */
     public function staticAction()
     {
     	
     }
-
+    /**
+    * Обработчик результатов поиска
+    */
     public function searchAction()
     {
         
