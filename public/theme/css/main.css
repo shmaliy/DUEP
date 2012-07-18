@@ -974,12 +974,12 @@ sup {
     float:right;
     margin-left:10px;
 }
-.adt h3 {
+.adt h3, h3.topic {
     font-size:20px;
     font-weight:lighter;
     color:#015eb3;
 }
-.adt h4 {
+.adt h4, h4.topic {
     font-size:18px;
     font-weight:lighter;
     color:#015eb3;
