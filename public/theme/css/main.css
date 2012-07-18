@@ -1421,15 +1421,20 @@ a.photo_category:hover{
     font-size:11px;
     color:#8C8C8C;
 }
-.label_photos {
+.label_photos, .icon_video {
     display:block;
     width:19px;
     height:13px;
     float:right;
     margin:3px 7px 0 0;
-    background-image:url(../img/front/label_photos.png);
     background-repeat:no-repeat;
     background-position:bottom left;
+}
+.label_photos {
+    background-image:url(../img/front/label_photos.png);
+}
+.icon_video {
+    background-image:url(../img/front/cam-icon.png);
 }
 .label_comments {
     display:block;
