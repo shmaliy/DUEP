@@ -1846,6 +1846,12 @@ ul.info_pack {
     display:block;
     font-size:10px;
 }
+.list_units {
+    margin:-15px 0 -15px 20px;
+    color: #3A3A3A;
+    font-size: 13px;
+    line-height:1.8;
+}
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
 .sideLeft {
