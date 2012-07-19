@@ -5,10 +5,10 @@
     <div class="modal_window">
         <ul class="lineTabs">
           <li>
-            <a class="active" href=""><span>Вход</span></a>
+            <a href=""><span>Вход</span></a>
           </li>
           <li>
-            <a href=""><span>Регистрация</span></a>
+            <a class="active" href=""><span>Регистрация</span></a>
           </li>
             <li>
             <a href=""><span>Забыли пароль?</span></a>
@@ -16,10 +16,12 @@
         </ul>
         <hr />
         <form action="">
+            <input class="field" type="text" value="Имя" />
+            <input class="field" type="text" value="Фамилия" />
             <input class="field" type="text" value="Адрес электронной почты" />
-            <input class="field" type="password" value="Пароль" />
-            <input class="checkbox" type="checkbox" /><span>Запомнить</span>
-            <input class="submit" type="submit" value="Войти"/>
+            <input class="field" type="text" value="Пароль" />
+            <input class="submit" type="submit" value="Зарегистрироваться"/>
+            <div style="clear:both;"></div>
         </form>
       </div>
      

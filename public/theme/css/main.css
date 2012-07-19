@@ -2101,7 +2101,6 @@ ul.day_week_r li{
 }
 .modal_window {
     width:260px;
-    height:175px;
     border:1px solid #E4E4E5;
     border-radius:5px;
     padding:15px;
@@ -2131,10 +2130,11 @@ input.field {
     margin-right:10px;
 }
 input.submit {
-    width:60px;
+    width:auto;
     border:1px solid #707070;
     float:right;
     margin-right:2px;
+    padding:0 5px;
 }
 .middle {
     width:100%;
