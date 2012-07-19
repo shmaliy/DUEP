@@ -1940,6 +1940,11 @@ h3.list_name {
     font-size:16px;
     font-style:italic;
 }
+.styled-select select:visited {
+    color:#494949;
+    font-size:16px;
+    font-style:normal;
+}
 .styled-select {
     float:left;
     width: 325px;
@@ -1974,6 +1979,57 @@ h3.list_name {
     font-weight:lighter;
     color:#949494;
 }
+.lesson {
+    position:absolute;
+    top:41px;
+    left:50px;
+    width:122px;
+    border: 1px solid #e4e4e5;
+    border-radius: 5px;
+    background-color:#fafafa;
+    padding:5px;
+    font-size:11px;
+    white-space:nowrap;
+    overflow-x:hidden;
+}
+.lesson:hover{
+    background: #e2e2e2; /* for non-css3 browsers */
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#e2e2e2'); /* для IE6-9 */
+    background: -webkit-linear-gradient(top, #fafafa, #e2e2e2); /* для webkit-браузеров */
+    background: -moz-linear-gradient(top,  #fafafa,  #e2e2e2); /* для firefox 3.6+ */
+    background: -o-linear-gradient(top,  #fafafa,  #e2e2e2); /* для Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #fafafa,  #e2e2e2); /* для IE10+ */
+    overflow:visible;
+    width:auto;
+}
+.lesson span{
+    display:block;
+}
+.info_icon {
+    background-image:url("../img/front/info_icon.png");
+    background-repeat:no-repeat;
+    width:11px;
+    height:11px;
+    margin-top:35px;
+}
+.bottom_block {
+    position:relative;
+    left:0px;
+    bottom:0px;
+    white-space:normal;
+}
+.bottom_block_r {
+    position:absolute;
+    right:0px;
+    bottom:-4px;
+}
+.lesson .number_comments{
+    display:inline;
+}
+.class {
+    font-size:13px;
+}
 .timetable {
     margin:20px 0 20px 0px;
     color:#3a3a3a;
@@ -1989,6 +2045,27 @@ h3.list_name {
     border:1px solid #e4e4e5;
     border-left:0px;
     border-top:0px;
+}
+.timetable_botoom h2{
+    color:#015eb3;
+    font-size:16px;
+    font-weight:lighter;
+    margin-bottom:5px;
+}
+.timetable_botoom {
+    margin-left:50px;
+}
+.timetable_botoom li{
+    float:left;
+    border-left:1px solid #E4E4E5;
+    width:124px;
+    min-height:90px;
+    padding:5px;
+    font-size:11px;
+}
+.timetable_botoom li a{
+    margin:5px 0;
+    display:block;
 }
 .day_week {
     width:135px;
