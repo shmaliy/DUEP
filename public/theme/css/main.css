@@ -2141,10 +2141,6 @@ input.submit {
     margin-right:2px;
     padding:0 5px;
 }
-.middle {
-    width:100%;
-    margin-bottom:200px;
-}
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
 .sideLeft {
@@ -2174,7 +2170,6 @@ ul.podmenu > li {
 ul.menu_sideLeft > li a{
    display:table-cell;
    vertical-align:middle;
-   min-height:31px;
    padding: 10px;
    width:230px;
 }
