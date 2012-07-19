@@ -37,7 +37,7 @@ class Contents_ScheduleController extends Zend_Controller_Action
     */
     public function calendarAction()
     {
-   // 	"directions/:direction_name" 
+
     	
     }
 
