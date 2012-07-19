@@ -155,4 +155,9 @@ class Users_AdminIndexController extends Sunny_Controller_AdminAction
     	$this->_setSessionFilter($form->getValues());		
 		$this->_gotoUrl('index', $this->_c, $this->_m);
     }
+    
+    public function loginAction()
+    {
+    	$this->view->form = new Users_Form_Login();
+    }
 }
