@@ -133,6 +133,7 @@
 			<a class="footer-developer-logo" href="http://sunny.net.ua/" target="_blank"></a>
 			<div style="color: #900; font-size: 24px;">BACKEND</div>
 		</div>
-	</div>	
+	</div>
+	<div class="clr"></div>	
 </body>
 </html>

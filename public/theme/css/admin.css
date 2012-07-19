@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-/* layouts/scripts/layout.php3 start */
+/* layouts/scripts/admin-layout.php3 start */
 html, body, img, div, a, span {
 	margin: 0;
 	padding: 0;
@@ -74,12 +74,150 @@ img { border: 0 none; }
 	color: #0096c8;
 	text-decoration: none;
 }
-/* layouts/scripts/layout.php3 end */
+/* layouts/scripts/admin-layout.php3 end */
 
-/* users/views/scrips/login */
+/* default/views/scrips/admin-index/index.php3 start */
+.admin-index {
+	border-style: solid;
+	border-width: 0 1px;
+	border-color: #aab0b4;
+	width: 340px;
+	margin: 0 360px 0 178px;
+	padding: 0 10px;
+}
+.admin-index-left {
+	float: left;
+	margin-left: -189px;
+	width: 168px;
+}
+.admin-index-center {
+	float: left;
+	width: 100%;
+}
+.admin-index-right {
+	float: right;
+	margin-right: -371px;
+	width: 350px;
+}
+.admin-index h2 {
+	padding: 0;
+	margin: 0;
+	height: 45px;
+	font-weight: 400;
+	font-size: 28px;
+	line-height: normal;
+	color: #181818;
+}
+.admin-index h3 {
+	padding: 0;
+	margin: 0;
+	height: 25px;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: normal;
+	color: #181818;
+}
+.admin-index-menu {
+	padding: 0 0 30px;
+	margin: 0;
+	list-style: none;
+	font-size: 14px;
+}
+.admin-index-menu li {
+	padding: 1px 0;
+}
+.admin-index-menu li a,
+.admin-index-menu li span {
+	color: #038bbb;
+	text-decoration: none;
+}
+.admin-index-online-count {
+	font-size: 12px;
+	color: #181818;
+}
+.admin-index-item-head {
+	background-color: #f5f5f5;
+	min-height: 16px;
+	padding: 2px 5px;
+}
+.admin-index-item-head .date,
+.admin-index-item-head .user {
+	float: left;
+	font-size: 10px;
+	display: block;
+	padding: 2px 0 0;
+}
+.admin-index-item-head .date {
+	color: #181818;
+}
+.admin-index-item-head .user {
+	color: #038bbb;
+	margin-left: 10px;
+	text-decoration: none;
+}
+.admin-index-item-head .comments,
+.admin-index-item-head .edit,
+.admin-index-item-head .collapse,
+.admin-index-item-head .delete {
+	display: block;
+	float: right;
+	width: 16px;
+	height: 16px;
+	margin: 0 2px;
+	background-position: left;
+	background-repeat: no-repeat;
+}
+.admin-index-item-head .edit {
+	background-image: url("/theme/img/admin/edit-16px.png");
+}
+.admin-index-item-head .collapse {
+	background-image: url("/theme/img/admin/collapse-16px.png");
+}
+.admin-index-item-head .delete {
+	background-image: url("/theme/img/admin/delete-16px.png");
+}
+.admin-index-item-head .comments {
+	width: auto;
+	padding: 2px 0 0 20px;
+	height: 14px;
+	font-size: 10px;
+	color: #181818;
+	text-decoration: none;
+	background-image: url("/theme/img/admin/comments-16px.png");
+}
+.admin-index-item-body {
+	padding: 3px 0;
+}
+.admin-index-item-body .breadcumbs {
+	font-size: 10px;
+	color: #8c8c8c;
+}
+.admin-index-item-body .breadcumbs a {
+	display: inline-block;
+	margin: 0 2px;
+	color: #8c8c8c;
+	text-decoration: none;
+}
+.admin-index-item-body .link {
+	padding: 5px 0 20px;
+}
+.admin-index-item-body .link a {
+	color: #038bbb;
+	font-size: 12px;
+	text-decoration: none;
+}
+.admin-index-item-body .tizer {
+	padding: 5px 0 20px;
+	color: #181818;
+	font-size: 12px;
+}
+/* default/views/scrips/admin-index/index.php3 end */
+
+/* users/views/scrips/admin-index/login.php3 start */
 .users_form_login {
 	font-family: Arial, Helvetica, sans-serif;
 	width: 345px;
+	height: 280px;
 	margin: 0 auto;
 }
 .users_form_login .form-composite-group-main {
@@ -127,7 +265,8 @@ img { border: 0 none; }
 	padding: 2px 0 0;
 	height: 18px;
 }
-.form-composite-end { clear: both; }
+.users_form_login-end { clear: both; }
+/* users/views/scrips/admin-index/login.php3 end */
 
 
 
