@@ -1,3 +1,4 @@
+
 <!--?php echo __FILE__; ?-->
 <html>
   <body>
@@ -8,19 +9,17 @@
             <a href=""><span>Вход</span></a>
           </li>
           <li>
-            <a class="active" href=""><span>Регистрация</span></a>
+            <a href=""><span>Регистрация</span></a>
           </li>
             <li>
-            <a href=""><span>Забыли пароль?</span></a>
+            <a class="active" href=""><span>Забыли пароль?</span></a>
           </li>
         </ul>
         <hr />
         <form action="">
-            <input class="field" type="text" value="Имя" />
-            <input class="field" type="text" value="Фамилия" />
+            <p>Введите ваш e-mail, на который будет выслана информация для восстановления пароля</p>
             <input class="field" type="text" value="Адрес электронной почты" />
-            <input class="field" type="text" value="Пароль" />
-            <input class="submit" type="submit" value="Зарегистрироваться"/>
+            <input class="submit" type="submit" value="Вспомнить"/>
             <div style="clear:both;"></div>
         </form>
       </div>

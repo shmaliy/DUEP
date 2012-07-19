@@ -2118,6 +2118,11 @@ ul.day_week_r li{
     border:1px solid #bbbbbb;
     margin-top:20px;
 }
+.modal_window p{
+    line-height:1.2;
+    margin-top:20px;
+    color: #3A3A3A;
+}
 input.field {
     width:248px;
     height:30px;
