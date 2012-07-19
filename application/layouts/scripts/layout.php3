@@ -125,7 +125,9 @@
 		<div class="pushTop"></div>
 		
 		<div class="contentWrapper">
+		<div class="content_show" style = "display: none;">
 			<?php echo $this->layout()->content; ?>
+		</div>
 		</div>
 		<div class="pushBottom"></div>
 		

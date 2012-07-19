@@ -1,6 +1,6 @@
 <?php
 
-class Contents_DirectionsController extends Zend_Controller_Action
+class Contents_ScheduleController extends Zend_Controller_Action
 {	
 	/**
 	 * Prepare controller for work with ajax based requests
@@ -26,33 +26,21 @@ class Contents_DirectionsController extends Zend_Controller_Action
 	}
 	
 	/**
-	 * Main page controller
-	 * Generate questions form and procces it if ajax requested
+	 * Обработчик страницы "Расписание занятий"
 	 */
 	public function indexAction()
     {
     	
     }
-    public function viewAction()
+    /**
+    * Обработчик страницы "Календарь"
+    */
+    public function calendarAction()
     {
-   // 	"directions/:direction_name" 
+
     	
     }
-    public function historyAction()
-    {
-    //	"directions/:direction_name/history"
-    	 
-    }
-    public function disciplinesAction()
-    {
-    //	"directions/:direction_name/disciplines"
-    	 
-    }
-    public function disciplineAction()
-    {
-     //   	"directions/:direction_name/disciplines/:discipline_name"
-        	 
-    }
+
     
     /**
      * ЭТОТ МЕТОД СОЗДАН ДЛЯ НАДИ ЧТОБ ОНА МОГЛА ВЕРСТАТЬ ПРИМЕНИТЕЛЬНО К САЙТУ - НЕ УДАЛЯТЬ

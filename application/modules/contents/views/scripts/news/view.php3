@@ -34,16 +34,16 @@
           <div class="social-services">
               <ul>
                   <li>
-                      <img alt="" src="../theme/img/front/social_v.jpg" />
+                      <img alt="" src="/theme/img/front/social_v.jpg" />
                   </li>
                   <li>
-                      <img alt="" src="../theme/img/front/social_f.jpg" />
+                      <img alt="" src="/theme/img/front/social_f.jpg" />
                   </li>
                   <li>
-                      <img alt="" src="../theme/img/front/social_t.jpg" />
+                      <img alt="" src="/theme/img/front/social_t.jpg" />
                   </li>
                   <li>
-                      <img alt="" src="../theme/img/front/social_g.jpg" />
+                      <img alt="" src="/theme/img/front/social_g.jpg" />
                   </li>
               </ul>
           </div>
@@ -94,21 +94,21 @@
               <h3>Комментарии <span>(3)</span></h3>
               <ul>
                   <li class="comments_top">
-                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/1.jpg" /></span>
+                      <span class="comments_photo"><img alt="" src="/theme/img/front/commentators_photos/1.jpg" /></span>
                       <p>
                           <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
                           <span>Собрание сегодня состоится?</span>
                       </p>
                   </li>
                   <li class="comments_bottom">
-                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/2.jpg" /></span>
+                      <span class="comments_photo"><img alt="" src="/theme/img/front/commentators_photos/2.jpg" /></span>
                       <p>
                           <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
                           <span>Собрание сегодня состоится?</span>
                       </p>
                   </li>
                   <li class="comments_top">
-                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/1.jpg" /></span>
+                      <span class="comments_photo"><img alt="" src="/theme/img/front/commentators_photos/1.jpg" /></span>
                       <p>
                           <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
                           <span>Собрание сегодня состоится?</span>
@@ -129,7 +129,7 @@
                         <span class="menu_add_file">Прикрепленные файлы</span>
                     </li>
                     <li>
-                        <img alt="" src="../theme/img/front/add_file/doc.png" />
+                        <img alt="" src="/theme/img/front/add_file/doc.png" />
                         <p>
                             <a class="name_news" href="">Лицензування та акредитация</a>
                             <span>DOC (12Мб)</span>
@@ -137,7 +137,7 @@
                         </p>
                     </li>
                     <li>
-                        <img alt="" src="../theme/img/front/add_file/pdf.png" />
+                        <img alt="" src="/theme/img/front/add_file/pdf.png" />
                         <p>
                             <a class="name_news" href="">Ласкаво просимо</a>
                             <span>PDF (12Мб)</span>
@@ -145,7 +145,7 @@
                         </p>
                     </li>
                     <li>
-                        <img alt="" src="../theme/img/front/add_file/xls.png" />
+                        <img alt="" src="/theme/img/front/add_file/xls.png" />
                         <p>
                             <a class="name_news" href="">Лицензування та акредитация</a>
                             <span>XLS (12Мб)</span>
@@ -153,7 +153,7 @@
                         </p>
                     </li>
                     <li>
-                        <img alt="" src="../theme/img/front/add_file/xls.png" />
+                        <img alt="" src="/theme/img/front/add_file/xls.png" />
                         <p>
                             <a class="name_news" href="">Лицензування та акредитация</a>
                             <span>XLS (12Мб)</span>
@@ -193,31 +193,31 @@
         <h2>Актуально</h2>
         <ul>
             <li>
-                <img alt="" src="../theme/img/front/true/1.jpg" />
+                <img alt="" src="/theme/img/front/true/1.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
             <li>
-                <img alt="" src="../theme/img/front/true/2.jpg" />
+                <img alt="" src="/theme/img/front/true/2.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
             <li>
-                <img alt="" src="../theme/img/front/true/3.jpg" />
+                <img alt="" src="/theme/img/front/true/3.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
             <li>
-                <img alt="" src="../theme/img/front/true/4.jpg" />
+                <img alt="" src="/theme/img/front/true/4.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
             <li>
-                <img alt="" src="../theme/img/front/true/5.jpg" />
+                <img alt="" src="/theme/img/front/true/5.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>

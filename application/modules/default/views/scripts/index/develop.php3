@@ -6,102 +6,185 @@
   <div class="container">
       <div class="tape_path">
           <a class="emblem_way" href=""></a>&rarr;
-          <a href="">Университет</a>&rarr;
-          <a href="">Аспирантура и докторантура</a>&rarr;
-          <a href="">Научные школы унив</a>
+          <a href="">Студенческая жизнь</a>&rarr;
+          <a href="">Расписание занятий</a>&rarr;
+          <a href="">Дневное отделение</a>
       </div>
-    <div class="content">
-        <h1 class="developments">Научные школы Днепропетровского университета экономики и права</h1>
-        <p class="info_text">Днепропетровский университет экономики и права имени Альфреда Нобеля под руководством Заслуженного деятеля науки и техники доктора экономических наук, профессора Холода Бориса Ивановича течение 17,5 лет осуществляет образовательную деятельность в тесной связи с осуществлением фундаментальных, поисковых и прикладных научных исследований в различных областях науки.</p>
-          <img class="article" alt="" src="../theme/img/front/article/1.jpg" />
-        <p class="info_text">В целом научная работа ДУЭП им. А. Нобеля осуществляется по следующей схеме: проведение фундаментальных и прикладных научных исследований с целью получения новых знаний в области экономики, права, филологии, социологии, истории и педагогики; внедрение результатов научных исследований в практику,
-подготовка научно-педагогических и научных кадров высшей квалификации через аспирантуру и докторантуру, проведение коммуникативных научных мероприятий с учеными и педагогами; издательская деятельность.</p>
-          <h3 class="topic">Заголовок в тексте ур. 1</h3>
-          <p class="info_text">Глобализация и макроэкономическое регулирование, руководитель первый проректор, заведующий кафедрой международной экономики и экономической теории, д.э.н., проф. Задоя А.А.</p>
-          <h4 class="topic">Заголовок в тексте ур. 2</h4>
-          <p class="info_text">Автор более 100 научных работ, среди которых монографии, учебники, учебные пособия: «Реформы в Украине: мифы и реальность», «Социально-экономическая система как пространство управленческого саморазвития», «Системный анализ форм и методов управления социально-экономическими процессами»; соавтор монографий: «Концептуальные направления социально-экономической реконструкции», «Практика совершенствования оперативного управления», «Оперативное управление производством. Технологическая база управления», «Управление проектами», «Информация, связь и телекоммуникации в Украине: экономика, право, управление »,« Концепция развития технологического потенциала Украины», «Мотивационные контексты развития природных технологий », учебное пособие« Экономика предприятия» , «Комплекс эконометрических моделей построения возможных вариаций развития </p>
-          <p class="info_text">Автор более 100 научных работ, среди которых монографии, учебники, учебные пособия: «Реформы в Украине: мифы и реальность», «Социально-экономическая система как пространство управленческого саморазвития», «Системный анализ форм и методов управления социально-экономическими процессами»; соавтор монографий: «Концептуальные направления социально-экономической реконструкции», «Практика совершенствования оперативного управления», «Оперативное управление производством. Технологическая база управления», «Управление проектами», «Информация, связь и телекоммуникации в Украине: экономика, право, управление »,« Концепция развития технологического потенциала Украины», «Мотивационные контексты развития природных технологий », учебное пособие« Экономика предприятия» , «Комплекс эконометрических моделей построения возможных вариаций развития </p>
-          <div class="social-services">
-              <ul>
-                  <li>
-                      <img alt="" src="../theme/img/front/social_v.jpg" />
-                  </li>
-                  <li>
-                      <img alt="" src="../theme/img/front/social_f.jpg" />
-                  </li>
-                  <li>
-                      <img alt="" src="../theme/img/front/social_t.jpg" />
-                  </li>
-                  <li>
-                      <img alt="" src="../theme/img/front/social_g.jpg" />
-                  </li>
-              </ul>
+      <div>
+      <div class="up">
+        <h1 class="developments">Расписание занятий дневного отделения на</h1>
+          <div class="styled-select">
+            <select>
+                <option>28 мая 2012 – 3 июня 2012</option>
+            </select>
           </div>
-    </div>
+       </div>
+          <div style="clear:both;"></div>
+          <div class="styled-select">
+            <select>
+                <option>Направление</option>
+                <option>Международная экономика</option>
+            </select>
+          </div>
+          <div class="styled-select drop_down">
+            <select>
+                <option>Форма обучения</option>
+                <option>Дневная</option>
+            </select>
+          </div>
+          <div class="styled-select drop_down">
+            <select>
+                <option>Группа</option>
+                <option>АК-47М</option>
+            </select>
+          </div>
+          <div style="clear:both; margin-bottom:20px;"></div>
+          <a class="report_event" href=""><span>Скачать в формате</span></a>
+        <ul class="lineTabs">
+          <li>
+            <a class="active" href=""><span>Календарь</span></a>
+          </li>
+          <li>
+            <a href=""><span>Таблица</span></a>
+          </li>
+        </ul>
+        <hr />
+      </div>
+      <div class="timetable">
+          <div class="lesson"><a class="class" href>Маркетинг и менеджмент в сложном окружении</a><span>Ауд. 412</span><a href>Ежунинов В.В.</a>,<a href="">Кононов Г.Г.</a><span>АК-47М, ФК-3259, ЛБ-2911</span>
+              <span class="bottom_block"><span class="info_icon"></span><span class="bottom_block_r"><span class="number_comments">3</span><span class="label_comments"></span></span></span>
+          </div>
+          <ul class="calendar_time">
+              <li></li>
+              <li><span>08:00</span></li>
+              <li><span>08:30</span></li>
+              <li><span>09:00</span></li>
+              <li><span>09:30</span></li>
+              <li><span>10:00</span></li>
+              <li><span>10:30</span></li>
+              <li><span>11:00</span></li>
+              <li><span>11:30</span></li>
+              <li><span>12:00</span></li>
+              <li class="day_week_b"><span>12:30</span></li>
+          </ul>
+          <ul class="day_week">
+              <li><span>28</span><span class="weekday">Понедельник</span></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li class="day_week_b"></li>
+          </ul>
+          <ul class="day_week">
+              <li><span>28</span><span class="weekday">Вторник</span></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li class="day_week_b"></li>
+          </ul>
+          <ul class="day_week">
+              <li><span>1</span><span class="weekday">Среда</span></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li class="day_week_b"></li>
+          </ul>
+          <ul class="day_week">
+              <li><span>28</span><span class="weekday">Четверг</span></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li class="day_week_b"></li>
+          </ul>
+          <ul class="day_week">
+              <li><span>28</span><span class="weekday">Пятница</span></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li class="day_week_b"></li>
+          </ul>
+          <ul class="day_week">
+              <li><span>28</span><span class="weekday">Суббота</span></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li class="day_week_b"></li>
+          </ul>
+          <ul class="day_week day_week_r">
+              <li><span>28</span><span class="weekday">Воскресенье</span></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li class="day_week_b"></li>
+          </ul>
+      </div>
+      <div class="timetable_botoom">
+          <h2>События этой недели</h2>
+          <ul>
+              <li>
+                  <a href="">Міжнародна українсько-польська літня школа</a>
+                  <a href="">Конкурс «Міс і Містер Університет-2012»</a>
+              </li>
+              <li>
+                  <a href="">Конкурс «Міс і Містер Університет-2012»</a>
+                  <p>(день 2)</p>
+              </li>
+              <li></li>
+              <li>
+                  <a href="">Міжнародна українсько-польська літня школа</a>
+                  <a href="">Конкурс «Міс і Містер Університет-2012»</a>
+              </li>
+              <li></li>
+              <li></li>
+              <li></li>
+          </ul>
+      </div>
     <!-- #content-->
 
   </div>
   <!-- #container-->
-
-  <div class="sideLeft">
-    <ul class="menu_sideLeft">
-        <li><a href="">10 причин, чтобы выбрать ДУЭП Именно наш университет</a></li>
-        <li><a href="">История</a></li>
-        <li><a href="">Структура университета</a></li>
-        <li><a href="">Нобелевское движение</a></li>
-        <li><a href="">Аспирантура и докторантура</a></li>
-        <li><div class="note">
-        <a href="">Анонсы</a>
-        </div>
-            <ul class="submenu">
-                <li><a href="">Категория1</a></li>
-                <li><a href="">Категория2</a></li>
-                <li><a href="">Категория3</a></li>
-            </ul>
-        </li>
-        <li><a href="">Научные школы Университета</a></li>
-        <li><a href="">Итоги научно-исследовательской деятельности 2010-2011 у.г.</a></li>
-        <li><a href="">Болонский процесс</a></li>
-    </ul>
-    <div class="side_true">
-        <h2>Актуально</h2>
-        <ul>
-            <li>
-                <img alt="" src="../theme/img/front/true/1.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/2.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/3.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/4.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/5.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-        </ul>
-    </div>
-  </div>
-
-  <!-- #sideLeft -->
-          
+     
 </div>
 <!-- #middle-->
   </body>

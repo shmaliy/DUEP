@@ -28,8 +28,7 @@ class Contents_EventsController extends Zend_Controller_Action
 	}
 	
 	/**
-	 * Main page controller
-	 * Generate questions form and procces it if ajax requested
+	 * Обработчик страницы "Прошедшие события"
 	 */
 	public function indexAction()
     {
@@ -68,6 +67,9 @@ class Contents_EventsController extends Zend_Controller_Action
     	$this->view->events->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->news->formatDate('date_created', $translatedMonths, 'г.');
     }
+    /**
+    * Обработчик страницы "Отдельное прошедшое событие"
+    */
     public function viewAction()
     {
     	$alias =  $this->getRequest()->getParam('alias');

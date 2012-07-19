@@ -1,6 +1,6 @@
 <?php
 
-class Contents_DirectionsController extends Zend_Controller_Action
+class Contents_SubdividionController extends Zend_Controller_Action
 {	
 	/**
 	 * Prepare controller for work with ajax based requests
@@ -26,33 +26,30 @@ class Contents_DirectionsController extends Zend_Controller_Action
 	}
 	
 	/**
-	 * Main page controller
-	 * Generate questions form and procces it if ajax requested
+	 * Обработчик страницы "Подразделения"
 	 */
 	public function indexAction()
     {
     	
     }
+	/**
+	 * Обработчик страницы "Подразделение"
+	 */
     public function viewAction()
     {
-   // 	"directions/:direction_name" 
+
     	
     }
+	/**
+	 * Обработчик страницы "Сотрудники
+	 * "
+	 */
     public function historyAction()
     {
-    //	"directions/:direction_name/history"
+
     	 
     }
-    public function disciplinesAction()
-    {
-    //	"directions/:direction_name/disciplines"
-    	 
-    }
-    public function disciplineAction()
-    {
-     //   	"directions/:direction_name/disciplines/:discipline_name"
-        	 
-    }
+    
     
     /**
      * ЭТОТ МЕТОД СОЗДАН ДЛЯ НАДИ ЧТОБ ОНА МОГЛА ВЕРСТАТЬ ПРИМЕНИТЕЛЬНО К САЙТУ - НЕ УДАЛЯТЬ

@@ -17,7 +17,5 @@ $(document).ready(function () {
 		   
 		  
 		 });
-   var h = $(".content").attr('height')
-  console.log(h);
    
 });

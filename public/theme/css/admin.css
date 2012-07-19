@@ -1,0 +1,133 @@
+@CHARSET "UTF-8";
+
+/* layouts/scripts/layout.php3 start */
+html, body, img, div, a, span {
+	margin: 0;
+	padding: 0;
+}
+html, body {
+	height: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+}
+html { background: #fff; }
+img { border: 0 none; }
+.clr { clear:both; }
+
+.header {
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+	height: 50px;
+	left: 0;
+	border-bottom: 1px solid #aab0b5;
+	background: #fff;
+}
+.header-resize {
+	width: 900px;
+	margin: 0 auto;
+	height: 50px;
+}
+.body {
+	width: 900px;
+	margin: 0 auto;
+	height: auto !important;
+	height: 100%;
+	min-height: 100%;
+}
+.body-push1 {
+	height: 60px;
+}
+.body-container {
+	width: 900px;
+	margin: 0 auto;
+}
+.body-push2 {
+	height: 90px;
+}
+.footer {
+	position: relative;
+	z-index: 100;
+	width: 100%;
+	height: 60px;
+	margin-top: -60px;
+}
+.footer-resize {
+	width: 900px;
+	margin: 0 auto;
+	height: 60px;
+}
+.footer-developer-logo {
+	width: 79px;
+	height: 40px;
+	display: block;
+	float: left;
+	background: url("/theme/img/developer-logo.png") no-repeat top left;
+}
+.footer-developer-text {
+	float: left;
+	width: 800px;
+	margin: 15px 0 0 15px;
+	color: #aab0b4;
+	font-size: 11px;
+}
+.footer-developer-text a {
+	color: #0096c8;
+	text-decoration: none;
+}
+/* layouts/scripts/layout.php3 end */
+
+/* users/views/scrips/login */
+.users_form_login {
+	font-family: Arial, Helvetica, sans-serif;
+	width: 345px;
+	margin: 0 auto;
+}
+.users_form_login .form-composite-group-main {
+	border: 1px solid #aab0b4;
+	border-radius: 5px;
+	margin: 0;
+	padding: 20px;
+}
+.users_form_login .form-composite-group-main fieldset {
+	border: 0 none;
+	margin: 0;
+	padding: 0;
+}
+.users_form_login .form-composite-group-main legend {
+	font-size: 24px;
+	display: block;
+	height: 45px;
+	padding: 0;
+	margin: 0;
+	color: #181818;
+}
+.users_form_login .form-composite-element-email .form-composite-element-label,
+.users_form_login .form-composite-element-password .form-composite-element-label {
+	font-size: 14px;
+	color: #181818;
+	height: 20px;
+}
+.users_form_login .form-composite-element-email input,
+.users_form_login .form-composite-element-password input {
+	color: #aab0b4;
+	font-size: 17px;
+	width: 290px;
+	padding: 5px;
+	margin: 0;
+	border: 1px solid #aab0b4;
+	border-radius: 3px;
+}
+.users_form_login .form-composite-element-submit input {
+	color: #181818;
+	font-size: 16px;
+	font-weight: 600;
+	width: 75px;
+}
+.users_form_login .form-composite-element-errors {
+	padding: 2px 0 0;
+	height: 18px;
+}
+.form-composite-end { clear: both; }
+
+
+

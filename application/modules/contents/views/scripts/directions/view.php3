@@ -117,7 +117,7 @@
                 <span class="menu_add_file">РУКОВОДСТВО</span>
                   <div class="terminal_block">
                       <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/3.jpg" />
+                          <img alt="" src="/theme/img/front/commentators_photos/3.jpg" />
                           <a class="manager_name" href="">Зинукова Наталья  Викторовна</a>
                           <p><a href="">Кандидат педагогических наук</a>
                               Руководитель
@@ -129,7 +129,7 @@
                 <span class="menu_add_file">СОТРУДНИКИ</span>
                   <div class="terminal_block">
                       <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/4.jpg" />
+                          <img alt="" src="/theme/img/front/commentators_photos/4.jpg" />
                           <a class="manager_name" href="">Дубинский Сергей Владимирович</a>
                           <p><a href="">Старший преподаватель</a>
                               Заместитель руководителя направления
@@ -188,31 +188,31 @@
         <h2>Актуально</h2>
         <ul>
             <li>
-                <img alt="" src="../theme/img/front/true/1.jpg" />
+                <img alt="" src="/theme/img/front/true/1.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
             <li>
-                <img alt="" src="../theme/img/front/true/2.jpg" />
+                <img alt="" src="/theme/img/front/true/2.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
             <li>
-                <img alt="" src="../theme/img/front/true/3.jpg" />
+                <img alt="" src="/theme/img/front/true/3.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
             <li>
-                <img alt="" src="../theme/img/front/true/4.jpg" />
+                <img alt="" src="/theme/img/front/true/4.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
             <li>
-                <img alt="" src="../theme/img/front/true/5.jpg" />
+                <img alt="" src="/theme/img/front/true/5.jpg" />
                 <p>30 Березня 2012</p>
                 <a class="name_news" href="">Название новости</a>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
