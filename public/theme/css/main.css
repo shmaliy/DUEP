@@ -1908,6 +1908,120 @@ h3.list_name {
 .img_error {
     margin-top:50px;
 }
+.up {
+    margin-top:10px;
+}
+.up h1{
+    float:left;
+    margin:14px 10px 10px 0;
+}
+.up .styled-select select {
+    color: #015EB3;
+    font-size: 22px;
+    font-weight: lighter;
+    line-height: 1.1;
+    font-style:normal;
+    padding-top:9px;
+    height:44px;
+}
+.up .styled-select {
+    height:44px;
+    margin-top:0;
+    background: #fafafa url("../img/front/select_icon_b.png") no-repeat 305px 5px;
+}
+.styled-select select {
+    background: rgba(0,0,0,0);
+    background: transparent\0/; /*хак для ИЕ8*/
+    -webkit-appearance: none;/*хак для хрома*/
+    width:353px;
+    height:35px;
+    padding:7px 5px 7px 5px;
+    color:#9c9c9c;
+    font-size:16px;
+    font-style:italic;
+}
+.styled-select {
+    float:left;
+    width: 325px;
+    height: 35px;
+    overflow: hidden;
+    background: #fafafa url("../img/front/select_icon.png") no-repeat 305px 5px;
+    border: 1px solid #e4e4e5;
+    border-radius: 5px;
+    margin:5px 10px 5px 0;
+}
+.drop_down select{
+    width:193px;
+}
+.drop_down{
+    width:165px;
+    background: #fafafa url("../img/front/select_icon.png") no-repeat 145px 5px;
+}
+.inactive {
+    width:100%;
+    height:100%;
+    position:absolute;
+    background-image:url("../img/front/bg_inactive.png");
+    background-repeat:repeat;
+    z-index:10;
+}
+.inactive p{
+    position:absolute;
+    top:50%;
+    left:45%;
+    font-size:18px;
+    font-style:italic;
+    font-weight:lighter;
+    color:#949494;
+}
+.timetable {
+    margin:20px 0 20px 0px;
+    color:#3a3a3a;
+    position:relative;
+    width:1000px;
+    height:450px;
+}
+.timetable ul{
+    float:left;
+}
+.timetable ul li{
+    height:40px;
+    border:1px solid #e4e4e5;
+    border-left:0px;
+    border-top:0px;
+}
+.day_week {
+    width:135px;
+    text-align:center;
+}
+.day_week span{
+    display:block;
+    margin:12px 5px 0 5px;
+    float:left;
+    font-weight:bold;
+    font-size:11px;
+}
+span.weekday {
+    margin:12px auto 0;
+    width:100px;
+}
+ul.day_week_r li{
+    border-right:0px;
+}
+.timetable li.day_week_b {
+    border-bottom:0px;
+}
+.calendar_time {
+    width:15px;
+    margin-left:35px;
+}
+.calendar_time span {
+    position:relative;
+    top:-10px;
+    left:-35px;
+    font-weight:bold;
+    font-size:11px;
+}
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
 .sideLeft {
