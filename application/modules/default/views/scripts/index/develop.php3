@@ -23,16 +23,19 @@
           <div class="styled-select">
             <select>
                 <option>Направление</option>
+                <option>Международная экономика</option>
             </select>
           </div>
           <div class="styled-select drop_down">
             <select>
                 <option>Форма обучения</option>
+                <option>Дневная</option>
             </select>
           </div>
           <div class="styled-select drop_down">
             <select>
                 <option>Группа</option>
+                <option>АК-47М</option>
             </select>
           </div>
           <div style="clear:both; margin-bottom:20px;"></div>
@@ -48,7 +51,9 @@
         <hr />
       </div>
       <div class="timetable">
-          <div class="inactive"><p>Выберите группу</p></div>
+          <div class="lesson"><a class="class" href>Маркетинг и менеджмент в сложном окружении</a><span>Ауд. 412</span><a href>Ежунинов В.В.</a>,<a href="">Кононов Г.Г.</a><span>АК-47М, ФК-3259, ЛБ-2911</span>
+              <span class="bottom_block"><span class="info_icon"></span><span class="bottom_block_r"><span class="number_comments">3</span><span class="label_comments"></span></span></span>
+          </div>
           <ul class="calendar_time">
               <li></li>
               <li><span>08:00</span></li>
@@ -152,6 +157,27 @@
               <li></li>
               <li></li>
               <li class="day_week_b"></li>
+          </ul>
+      </div>
+      <div class="timetable_botoom">
+          <h2>События этой недели</h2>
+          <ul>
+              <li>
+                  <a href="">Міжнародна українсько-польська літня школа</a>
+                  <a href="">Конкурс «Міс і Містер Університет-2012»</a>
+              </li>
+              <li>
+                  <a href="">Конкурс «Міс і Містер Університет-2012»</a>
+                  <p>(день 2)</p>
+              </li>
+              <li></li>
+              <li>
+                  <a href="">Міжнародна українсько-польська літня школа</a>
+                  <a href="">Конкурс «Міс і Містер Університет-2012»</a>
+              </li>
+              <li></li>
+              <li></li>
+              <li></li>
           </ul>
       </div>
     <!-- #content-->
