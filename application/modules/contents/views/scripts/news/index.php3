@@ -21,7 +21,7 @@
                <img alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
                <?php endif;?>
              </span>
-              <a href="<?php echo $this->simpleUrl('view', 'news', 'contents', array('alias'=>$item->alias) ); ?>"><?php echo $item->title; ?></a>
+              <a href="<?php echo $this->simpleUrl('view', 'news', 'contents', array('alias'=>$item->alias), 'contents/news/view' ); ?>"><?php echo $item->title; ?></a>
               <p><?php echo $item->date_created;?>,
               <a class="comments" href="">15 комментариев</a></p>
                               <?php foreach ($this->acats as $itemc):
