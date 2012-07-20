@@ -1225,7 +1225,7 @@ form.comments {
     height:125px;
     margin-bottom:15px;
 }
-.comments input, .feedback input.comments, ul.callback input.comments {
+.comments input, .feedback input.comments, ul.callback input.comments, .submit {
     width:90px;
     height:25px;
     border:1px solid #707070;
@@ -2099,6 +2099,48 @@ ul.day_week_r li{
     font-weight:bold;
     font-size:11px;
 }
+.modal_window {
+    width:260px;
+    border:1px solid #E4E4E5;
+    border-radius:5px;
+    padding:15px;
+    margin:130px auto 0;
+    -moz-box-shadow: 0 0 10px #5d5d5d; /* Для Firefox */
+    -webkit-box-shadow: 0 0 10px #5d5d5d; /* Для Safari и Chrome */
+    box-shadow: 0 0 10px #5d5d5d; /* Параметры тени */
+    background-color:#fff;
+    z-index:5000;
+}
+.modal_window .lineTabs li a.active{
+    margin-right:0px;
+}
+.modal_window input{
+    border:1px solid #bbbbbb;
+    margin-top:20px;
+}
+.modal_window p{
+    line-height:1.2;
+    margin-top:20px;
+    color: #3A3A3A;
+}
+input.field {
+    width:248px;
+    height:30px;
+    line-height:30px;
+    padding-left:7px;
+    font-style:italic;
+    color:#3a3a3a;
+}
+.checkbox {
+    margin-right:10px;
+}
+input.submit {
+    width:auto;
+    border:1px solid #707070;
+    float:right;
+    margin-right:2px;
+    padding:0 5px;
+}
 /* Sidebar Left
 -----------------------------------------------------------------------------*/
 .sideLeft {
@@ -2128,7 +2170,6 @@ ul.podmenu > li {
 ul.menu_sideLeft > li a{
    display:table-cell;
    vertical-align:middle;
-   min-height:31px;
    padding: 10px;
    width:230px;
 }
