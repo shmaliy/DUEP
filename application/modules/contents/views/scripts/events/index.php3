@@ -35,7 +35,7 @@
                 <?php endif; endforeach;?>
              </span>
             <p><?php echo $item->date_created;?></p>
-            <a href="<?php echo $this->simpleUrl('view', 'events', 'contents', array('alias'=>$item->alias) ); ?>"><?php echo $item->title;?></a>
+            <a href="<?php echo $this->simpleUrl('view', 'events', 'contents', array('alias'=>$item->alias), 'contents/events/view'); ?>"><?php echo $item->title;?></a>
             <p class="adt_description"><?php echo $item->tizer;?></p>
           </li>
           <?php endforeach;?>
