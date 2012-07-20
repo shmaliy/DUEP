@@ -268,5 +268,160 @@ img { border: 0 none; }
 .users_form_login-end { clear: both; }
 /* users/views/scrips/admin-index/login.php3 end */
 
+/* admin table start */
+.admin-table {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.admin-table table {
+	width: 100%;
+}
+.admin-table .checkbox,
+.admin-table .datetime {
+	width: 1%;
+	white-space: nowrap;
+}
+.admin-table th div {
+	font-size: 16px;
+	font-weight: 600;
+	text-align: left;
+	min-height: 16px;
+	color: #181818;
+	padding: 4px 9px;
+	margin: 3px 5px !important;
+}
+.admin-table td {
+	border-top: 1px solid #aab0b4;
+}
+.admin-table td div {
+	font-size: 14px;
+	color: #181818;
+	padding: 3px 8px;
+	margin: 3px 5px !important;
+}
+.admin-table td div a {
+	color: #181818;
+	text-decoration: none;
+}
+.admin-table td div a:hover {
+	text-decoration: underline;
+}
+.admin-table .delete {
+	width: 16px;
+}
+.admin-table .delete div {
+	width: 16px;
+	height: 16px;
+	padding: 0;
+	margin: 0;
+	border: 0 none;
+}
+.admin-table .delete a {
+	display: none;
+	color: #038bbb;
+	left: 0;
+	width: 16px;
+	height: 16px;
+	background: url("/theme/img/admin/delete-16px.png") no-repeat center;
+}
+.admin-table tr.hover .delete a {
+	display: block;
+}
+.admin-table .checkbox div {
+	padding: 0;
+	margin: 0;
+	border: 0 none;
+	width: 16px;
+}
+.admin-table td.datetime div {
+	text-align: right;
+}
+.admin-table .empty div {
+	padding: 0;
+	margin: 0;
+	border: 0 none;
+	text-align: center;
+}
+/* admin table end */
 
+/* admin table navigation start */
+.admin-table-navigation {
+	padding: 8px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.admin-table-navigation-pages {
+	float: left;
+	font-size: 16px;
+}
+.admin-table-navigation-pages a {
+	display: inline-block;
+	color: #038bbb;
+	padding: 0 7px;
+	text-decoration: none;
+}
+.admin-table-navigation-pages a:hover {
+	text-decoration: underline;
+}
+.admin-table-navigation-pages a.larr,
+.admin-table-navigation-pages a.rarr {
+	text-decoration: none !important;
+}
+.admin-table-navigation-pages a.current {
+	cursor: default;
+	font-weight: 600;
+	text-decoration: none !important;
+}
+.admin-table-navigation-rows {
+	padding: 2px 0 0;
+	float: right;
+	font-size: 14px;
+	font-style: italic;
+	color: #038bbb;
+}
+.admin-table-navigation-rows a {
+	display: inline-block;
+	color: #038bbb;
+	padding: 0 7px;
+	text-decoration: none;
+}
+.admin-table-navigation-rows a:hover {
+	text-decoration: underline;
+}
+.admin-table-navigation-rows a.current {
+	cursor: default;
+	font-weight: 600;
+	text-decoration: none !important;
+}
+/* admin table navigation end */
+
+/* admin table filter start */
+.admin-table-filter {
+	padding: 10px;
+	margin: 10px 0;
+	padding-left: 65px;
+	background-color: #f5f5f5;
+}
+.admin-table-filter .form-composite-element-label {
+	display: none;
+}
+.admin-table-filter .form-composite-element-tag select {
+    background: rgba(0,0,0,0);
+    background: transparent\0/; /*хак для ИЕ8*/
+    -webkit-appearance: none;/*хак для хрома*/
+    font-size: 14px;
+    padding: 5px;
+    width: 278px;
+    color: #181818;
+    border: 0 none;
+}
+.admin-table-filter .form-composite-element-tag select:visited {
+}
+.admin-table-filter .form-composite-element-tag {
+	display: inline-block;
+	width: 250px;
+	overflow: hidden;
+	border: 1px solid #aab0b4;
+	border-radius: 3px;
+	background: url("/theme/img/admin/select-button.png") no-repeat 233px 50% #fff;
+}
+/* admin table filter end */
 

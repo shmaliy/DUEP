@@ -1,13 +1,13 @@
-<div class="generic-table-nav">
+<div class="admin-table-navigation">
 	<?php if ($this->total > $this->rows && $this->rows > 0): ?>
-	<div class="generic-table-nav-pages">
+	<div class="admin-table-navigation-pages">
 		<?php
 			if ($this->page <= 1) {
-				?><a class="larr"><span>&larr;</span>Сюда</a><?php
+				?><a class="larr current"><span>&larr;</span></a><?php
 			} else {
 				?><a href="/page/<?php
 				echo ($this->page - 1);
-				?>" class="larr"><span>&larr;</span>Сюда</a><?php
+				?>" class="larr"><span>&larr;</span></a><?php
 			}
 			
 			for ($i = 1; $i <= ceil($this->total / $this->rows); $i++) {
@@ -19,16 +19,16 @@
 			}
 			
 			if ($this->page >= ceil($this->total / $this->rows)) {
-				?><a class="rarr">Туда<span>&rarr;</span></a><?php
+				?><a class="rarr current"><span>&rarr;</span></a><?php
 			} else {
 				?><a href="/page/<?php
 				echo ($this->page + 1);
-				?>" class="larr">Туда<span>&rarr;</span></a><?php
+				?>" class="larr"><span>&rarr;</span></a><?php
 			}
 		?>
 	</div>
 	<?php endif; ?>
-	<div class="generic-table-nav-rows">
+	<div class="admin-table-navigation-rows">
 		<span>Показывать по:</span>
 		<?php
 			$rows = array(10, 20, 50, 100, 200, 500, 0);
@@ -49,4 +49,5 @@
 			}
 		?>
 	</div>
+	<div class="clr"></div>
 </div>
