@@ -6,6 +6,13 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 	
 	protected $_filters = array('media_categories_id' => 0);
 	
+	protected $_categoryId = null;
+	
+	public function setCategoryId($id)
+	{
+		$this->_categoryId = $id;
+	}
+	
 	public function init()
 	{
 		$this->_helper->layout->setLayout('admin-layout');
@@ -93,56 +100,43 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     
     public function uploadAction()
     {
-    	//$headers = apache_request_headers();
-    	
     	$this->_helper->viewRenderer->setNoRender();
     	
-    	/*foreach ($headers as $header => $value) {
-    		echo "$header: $value <br />\n";
-    	} 
-    	
-    	echo mb_detect_encoding('W:/home/duep/public/uploads/SENIC-Заставка-на-нерабочий-сайт4.jpg');
-    	
-    	
-    	return;*/
     	$request = $this->getRequest();
     	
     	if ($request->isFlashRequest() || $request->isPost()) {
 	    	$postName = 'upload';
+	    	$filename = $_FILES[$postName]['name'];
+	    	$filter = new Sunny_FileRenamer(array('useCodebase' => 'utf-8'));
 	    	
-	    	$transfer = new Zend_File_Transfer_Adapter_Http();
-	    	$transfer->setDestination(PUBLIC_PATH . '/uploads');
+	    	$this->view->filename = $filter->filter($filename);
 	    	
-	    	if (!$transfer->isValid($postName)) {
-	    		$this->view->error[] = 'not valid';
-	    	}
-	    	
-	    	$transfer->receive($postName);
-	    	if (!$transfer->isReceived()) {
-	    		$this->view->error[] = 'not recieved';
-	    	}
-	    	
-	    	
-	    	
-	    	
-	    	// TODO: move to model
-	    	$filter = new Sunny_FileRenamer();
-	    	$fileInfo = $transfer->getFileInfo($postName);
-	    	$this->view->enc = mb_detect_encoding($fileInfo[$postName]['name']);
-	    	file_put_contents(PUBLIC_PATH . '/custlog', $this->view->enc . phpinfo());
-	    	
-	    	$entity = $this->_getMapper()->createEntity();
-	    	$p = strripos($postName, '/');
-	    	$entity->setName($fileInfo[$postName]['name']);
+	    	$entity = $this->_getMapper()->createEntity();	
+	    	$entity->setName($_FILES[$postName]['name']);
+	    	$entity->setTitle($_FILES[$postName]['name']);
 	    	$entity->setServerPath(realpath(PUBLIC_PATH . '/uploads'));
-	    	$entity->setType(strtolower(end(explode('.', $fileInfo[$postName]['name']))));
+	    	$entity->setType(strtolower(end(explode('.', $_FILES[$postName]['name']))));
+	    	
+	    	if (!is_null($this->_categoryId)) {
+	    		$entity->setMediaCategoriesId($this->_categoryId);
+	    	}
+	    	
 	    	$id = $this->_getMapper()->saveEntity($entity);
-	    	 
-	    	$this->view->success = true;
-	    	$this->view->fileInfo = $fileInfo;
-	    	$this->view->redirectTo = $this->_helper->url->simple('edit', $this->_c, $this->_m, array('id' => $id));
+	    	
+	    	$this->view->lastId = $id;
+	    	
+	    	$name = $id;
+	    	if(move_uploaded_file($_FILES[$postName]["tmp_name"], 'uploads/' . $name . '.' . strtolower(end(explode('.', $_FILES[$postName]['name'])))))
+	    	{
+	    		$this->view->success = true;
+	    		$this->view->fileInfo = $fileInfo;
+	    		$this->view->redirectTo = $this->_helper->url->simple('edit', $this->_c, $this->_m, array('id' => $id));
+	    	} else {
+	    		$this->_getMapper()->deleteEntity($this->_getMapper()->findEntity($id));
+	    	}
+	    	
 	    	$this->_helper->json(get_object_vars($this->view));
-    	} else {
+	    } else {
     		$this->view->form = new Media_Form_MediaCreate(array('uploadUrl' => $this->_helper->url->simple($this->_a, $this->_c, $this->_m)));
     		
     		$this->render('edit');
