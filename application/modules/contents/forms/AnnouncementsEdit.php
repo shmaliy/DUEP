@@ -135,6 +135,11 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		
 		$this->addDisplayGroup($feeds, 'feeds');
 		
+		/*  Images  */
+		//$images = array('images');
+		
+		//$this->addDisplayGroup($images, 'images');
+		
 		
 		// Submit
 		$this->addElement('submit', 'submit', array(

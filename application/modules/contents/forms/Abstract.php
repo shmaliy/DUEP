@@ -4,6 +4,7 @@ class Contents_Form_Abstract extends Zend_Form
 {
 	protected $_contentsCategoriesOptions = array();
 	protected $_entityId;
+	protected $_mediaCategoriesId;
 	
 	protected function _treeToSelect($data, $array = array(), $level = 0)
 	{
@@ -30,6 +31,11 @@ class Contents_Form_Abstract extends Zend_Form
 	public function setEntityId($id)
 	{
 		$this->_entityId = $id;
+	}
+	
+	public function setMediaCategoriesId($id)
+	{
+		$this->_mediaCategoriesId = $id;
 	}
 	
 	public function getContentsCategoriesOptions()

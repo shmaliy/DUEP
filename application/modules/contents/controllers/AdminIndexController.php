@@ -89,6 +89,17 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 			return;
 		}
 		
+		$thumbnailsRootAlias = 'content_thumbnails';
+		
+		$mediaMapper = new Media_Model_Mapper_MediaCategories();
+		$category = $mediaMapper->fetchRow(
+			array(
+				'alias = ?' => $thumbnailsRootAlias,
+				'media_categories_id = 0' 
+			)
+		);
+		$thumbnailsRootId = $category->getId();
+		
 		$request = $this->getRequest();
 		$id = $request->getParam('id');
 		$formClassName = 'Contents_Form_'

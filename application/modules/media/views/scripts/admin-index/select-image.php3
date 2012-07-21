@@ -1,4 +1,5 @@
 <!--<?php echo __FILE__; ?>-->
+<?php echo $this->action('upload', 'admin-index', 'media'); ?>
 <?php
 $adminTableNavOptions = array(
 	'page'       => $this->page,

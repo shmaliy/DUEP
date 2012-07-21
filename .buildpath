@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
-	<buildpathentry external="true" kind="lib" path="W:/home/ZEND"/>
-	<buildpathentry kind="con" path="org.eclipse.dltk.USER_LIBRARY/Zend_Framework"/>
-	<buildpathentry kind="con" path="org.eclipse.dltk.USER_LIBRARY/ZEND"/>
 	<buildpathentry kind="src" path=""/>
+	<buildpathentry kind="con" path="org.eclipse.dltk.USER_LIBRARY/ZEND"/>
 </buildpath>
