@@ -53,14 +53,13 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	));
     	
     	$router->addRoute('contents/news/index', new Zend_Controller_Router_Route(
-    	    	    	':lang/news/',
-    	array(
-    	        			'module' => 'contents',
-    	        			'controller' => 'news',
-    	        			'action' => 'index',
-    	        			'lang' => 'ru'
-    	)
-    	 
+    	    ':lang/news/',
+    	    array(
+    	        'module' => 'contents',
+    	        'controller' => 'news',
+    	        'action' => 'index',
+    	        'lang' => 'ru'
+    	    )
     	));
     	$router->addRoute('contents/events/view', new Zend_Controller_Router_Route(
     	    	    	    	':lang/events/:alias/',

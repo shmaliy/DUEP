@@ -91,7 +91,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
                 	        'lang' => 'ru'
     )
     ));
-     
+    
     $router->addRoute('media/video-gallery/index', new Zend_Controller_Router_Route(
                 	    ':lang/video/',
     array(
