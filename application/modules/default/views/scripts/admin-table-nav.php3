@@ -2,28 +2,31 @@
 	<?php if ($this->total > $this->rows && $this->rows > 0): ?>
 	<div class="admin-table-navigation-pages">
 		<?php
+			$this->params = (array) $this->params;
 			if ($this->page <= 1) {
 				?><a class="larr current"><span>&larr;</span></a><?php
 			} else {
-				?><a href="/page/<?php
-				echo ($this->page - 1);
-				?>" class="larr"><span>&larr;</span></a><?php
+				$this->params[Sunny_Controller_Action::SESSION_PAGE] = $this->page - 1;
+				$url =  $this->simpleUrl('set-page', $this->controller, $this->module, $this->params);
+				?><a href="<?php echo $url; ?>" class="larr"><span>&larr;</span></a><?php
 			}
 			
 			for ($i = 1; $i <= ceil($this->total / $this->rows); $i++) {
+				$this->params[Sunny_Controller_Action::SESSION_PAGE] = $i; 
+				$url =  $this->simpleUrl('set-page', $this->controller, $this->module, $this->params);
 				if ($this->page == $i) {
 					?><a class="current"><?php echo $i; ?></a><?php
 				} else {
-					?><a href="/page/<?php echo $i; ?>"><?php echo $i; ?></a><?php
+					?><a href="<?php echo $url; ?>"><?php echo $i; ?></a><?php
 				}
 			}
 			
 			if ($this->page >= ceil($this->total / $this->rows)) {
 				?><a class="rarr current"><span>&rarr;</span></a><?php
 			} else {
-				?><a href="/page/<?php
-				echo ($this->page + 1);
-				?>" class="larr"><span>&rarr;</span></a><?php
+				$this->params[Sunny_Controller_Action::SESSION_PAGE] = $this->page + 1;
+				$url =  $this->simpleUrl('set-page', $this->controller, $this->module, $this->params);
+				?><a href="<?php echo $url;	?>" class="larr"><span>&rarr;</span></a><?php
 			}
 		?>
 	</div>

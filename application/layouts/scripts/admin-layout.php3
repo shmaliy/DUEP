@@ -7,6 +7,7 @@
 		$this->headLink()->appendStylesheet('/theme/css/admin.css');
 		$this->headLink()->appendStylesheet('/js/jquery/jquery-ui-1.8.20.custom/css/smoothness/jquery-ui-1.8.20.custom.css');
 		$this->headLink()->appendStylesheet('/js/jquery/jquery.jqGrid-4.3.3/css/ui.jqgrid.css');
+		$this->headLink()->appendStylesheet('/js/jquery/jquery-wm/jquery-wm.css');
 		$this->headLink()->headLink(array('rel' => 'SHORTCUT ICON', 'href' => '/favicon.png'), 'PREPEND');
 		
 		echo $this->headLink();
@@ -17,6 +18,7 @@
 		$this->headScript()->appendFile('/js/jquery/jquery.jqGrid-4.3.3/i18n/grid.locale-ru.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload/swfupload.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload.js');
+		$this->headScript()->appendFile('/js/jquery/jquery-wm/jquery-wm.js');
 		$this->headScript()->appendFile('/js/script.js');
 		echo $this->headScript();
     ?>

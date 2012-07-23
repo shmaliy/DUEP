@@ -50,6 +50,13 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 			'label' => 'Полный текст'
 		));
 		
+		$main[] = 'media_id';
+		$this->addElement('button', 'media_id', array(
+			'label' => 'Главное изображение',
+			'buttonLabel' => 'Выбрать',
+			'onClick' => "var w = $.WM_open('/media/admin-index/select-image');"
+		));
+		
 		$this->addDisplayGroup($main, 'main');
 		
 		/*  Media  */
@@ -157,5 +164,7 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		
 		$this->addPrefixPath('Sunny_Form_Decorator', 'Sunny/Form/Decorator/', 'decorator');
 		$this->setDecorators(array('CompositeFormDiv'));
+		
+		$this->getElement('media_id')->setDecorators(array('FileSelectorDiv'));
 	}
 }

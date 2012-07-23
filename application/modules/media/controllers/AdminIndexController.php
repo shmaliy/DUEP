@@ -180,7 +180,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     		{
     			$this->view->success = true;
     			$this->view->fileInfo = $fileInfo;
-    			$this->view->redirectTo = '';
+    			$this->view->redirectTo = $this->_helper->url->simple('select-image', $this->_c, $this->_m);
     		} else {
     			$this->_getMapper()->deleteEntity($this->_getMapper()->findEntity($id));
     		}
@@ -255,14 +255,15 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	// Version 14.07.2012
     	$validator = new Zend_Validate_Int();
     	$param = $this->getRequest()->getParam(self::SESSION_PAGE);
+    	$redirectTo = $this->getRequest()->getParam('redirectTo', 'index');
 		if (!$validator->isValid($param)) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set page</div>');
-			$this->_gotoUrl('index', $this->_c, $this->_m);
+			$this->_gotoUrl($redirectTo, $this->_c, $this->_m);
 			return;
 		}
 		
 		$this->_setSessionPage($param);
-		$this->_gotoUrl('index', $this->_c, $this->_m);
+		$this->_gotoUrl($redirectTo, $this->_c, $this->_m);
     }
     
     public function setLimitAction()

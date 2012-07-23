@@ -10,10 +10,13 @@ $adminTableNavOptions = array(
 	'action'     => $this->a,
 	'controller' => $this->c,
 	'module'     => $this->m,
+	'params'	 => array(
+						'redirectTo' => $this->a
+					)
 );
 ?>
 <?php echo $this->partial('admin-table-filter.php3', 'default', array('filter' => $this->filter)); ?>
-
+<?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
 <?php if (count($this->rowset) > 0): ?>
 	<div class="selectImage_images_contanier">
 	<?php foreach ($this->rowset as $row): ?>
@@ -27,5 +30,5 @@ $adminTableNavOptions = array(
 <?php else : ?>
 
 <?php endif; ?>
-
+<?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
 </fieldset>
