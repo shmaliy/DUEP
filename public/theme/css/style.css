@@ -543,9 +543,9 @@ table.generic-table a {
 
 .selectImage_images_contanier .selectImage_images_contanier_element {
 	float:left;
-	width:150px;
-	height:150px;
-	margin: 0 15px 25px 0;
+	width:160px;
+	height:160px;
+	margin: 0 20px 25px 0;
 	position:relative;
 	background:#ccc;
 }
