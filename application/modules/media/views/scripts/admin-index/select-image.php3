@@ -13,14 +13,15 @@ $adminTableNavOptions = array(
 <?php echo $this->partial('admin-table-filter.php3', 'default', array('filter' => $this->filter)); ?>
 
 <?php if (count($this->rowset) > 0): ?>
+	<div class="selectImage_images_contanier">
 	<?php foreach ($this->rowset as $row): ?>
-		<div>
+		<div class="selectImage_images_contanier_element">
+			<img src="/uploads/<?php echo $row->getId(); ?>.<?php echo $row->getType(); ?>" width="120" height="120">
 			<input name="thumbnail" type="radio" value = "<?php echo $row->getId(); ?>" />
-			<span>
-				<img src="/uploads/<?php echo $row->getId(); ?>.<?php echo $row->getType(); ?>" width="150" height="150">
-			</span>
 		</div>
 	<?php endforeach; ?>
+	<div class="clr"></div>
+	</div>
 <?php else : ?>
 
 <?php endif; ?>
