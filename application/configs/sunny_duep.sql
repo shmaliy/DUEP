@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 23, 2012 at 04:02 PM
+-- Generation Time: Jul 23, 2012 at 04:07 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -138,7 +138,6 @@ INSERT INTO `contents_categories` (`id`, `contents_groups_id`, `contents_categor
 (2, 1, 1, 'Лента 1', 'strip_1', '', 1, 1, 1, NULL, 1, 1, 'создано в phpMyAdmin', 'Лента 1', '', '', 'Лента 1', 'лента 1', 1341326917, NULL, 1341326917, NULL),
 (7, 2, 16, 'Студенту', 'for_students', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343044884, NULL, 1343044884, NULL),
 (6, 1, 1, 'Лента 2', '', '', 0, 0, 0, NULL, NULL, 0, NULL, '', '', '', NULL, '', 1341330281, NULL, 1341330281, NULL),
-(8, 2, 1, 'Лента 1', 'strip_1', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1341388929, NULL, 1341388929, NULL),
 (9, 3, 0, 'Категория 1', 'events_cat_1', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1341394037, NULL, 1341394037, NULL),
 (10, 4, 0, 'Методички', 'metodical', '', 0, 0, 0, NULL, NULL, 0, NULL, '', '', '', NULL, '', 1341395336, NULL, 1341395336, NULL),
 (11, 5, 0, 'Галерея изображений', 'gallery', '123', 0, 0, 0, NULL, NULL, 0, NULL, '', '', '', NULL, '', 1342426383, NULL, 1342426383, NULL),
