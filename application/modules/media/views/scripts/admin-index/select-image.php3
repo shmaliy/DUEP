@@ -1,4 +1,6 @@
 <!--<?php echo __FILE__; ?>-->
+<fieldset>
+<legend>Главное изображение</legend>
 <?php echo $this->action('upload-image-widget', 'admin-index', 'media'); ?>
 <?php
 $adminTableNavOptions = array(
@@ -26,3 +28,4 @@ $adminTableNavOptions = array(
 
 <?php endif; ?>
 
+</fieldset>
