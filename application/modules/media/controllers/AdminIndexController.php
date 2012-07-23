@@ -221,6 +221,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	);
     	$this->view->total  = $this->_getMapper()->fetchCount($where);
     	
+    	
     	$form = new Media_Form_AdminIndexFilter();
     	$categoriesMapper = new Media_Model_Mapper_MediaCategories();
     	$collection = $categoriesMapper->fetchTree(null, array('id', 'title', 'media_categories_id'));
