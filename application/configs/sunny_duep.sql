@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 23, 2012 at 04:07 PM
+-- Generation Time: Jul 23, 2012 at 07:20 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -225,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `media` (
   `user_modified` int(11) DEFAULT NULL,
   `published` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `media`
@@ -247,7 +247,14 @@ INSERT INTO `media` (`id`, `media_categories_id`, `name`, `server_path`, `public
 (13, 5, 'pia12832-browse.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'pia12832-browse.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039699, NULL, 1343039699, NULL, NULL),
 (14, 5, 'Random-Picture-I-have-in-my-images-folder-PART-1-random-4862339-1024-1024.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'Random-Picture-I-have-in-my-images-folder-PART-1-random-4862339-1024-1024.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039703, NULL, 1343039703, NULL, NULL),
 (15, 5, 'img_bibo_10_.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'img_bibo_10_.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343040535, NULL, 1343040535, NULL, NULL),
-(16, 5, 'teddy2.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'teddy2.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343040577, NULL, 1343040577, NULL, NULL);
+(16, 5, 'teddy2.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'teddy2.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343040577, NULL, 1343040577, NULL, NULL),
+(17, 5, 'myspace-sunset-images-dam7-0012.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'myspace-sunset-images-dam7-0012.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343049940, NULL, 1343049940, NULL, NULL),
+(18, 0, '1_images.jpg', 'W:\\home\\duep\\public\\uploads', '', '1_images.jpg', '', 'jpg', '', '', '', 1343049973, NULL, 1343050000, NULL, 0),
+(19, 5, 'myspace-sunset-images-dam7-0002.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'myspace-sunset-images-dam7-0002.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343050177, NULL, 1343050177, NULL, NULL),
+(20, 5, 'GettyImages_144127204_0.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'GettyImages_144127204_0.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343050355, NULL, 1343050355, NULL, NULL),
+(21, 5, 'FD_image.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'FD_image.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343050394, NULL, 1343050394, NULL, NULL),
+(22, 5, 'SENIC-Заставка-на-нерабочий-сайт4.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'SENIC-Заставка-на-нерабочий-сайт4.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343050439, NULL, 1343050439, NULL, NULL),
+(23, 5, 'i5P8C1Kljyw.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'i5P8C1Kljyw.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343051455, NULL, 1343051455, NULL, NULL);
 
 -- --------------------------------------------------------
 
