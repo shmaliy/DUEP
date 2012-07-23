@@ -180,7 +180,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     		{
     			$this->view->success = true;
     			$this->view->fileInfo = $fileInfo;
-    			$this->view->redirectTo = $params["redirect"];
+    			$this->view->redirectTo = '';
     		} else {
     			$this->_getMapper()->deleteEntity($this->_getMapper()->findEntity($id));
     		}
