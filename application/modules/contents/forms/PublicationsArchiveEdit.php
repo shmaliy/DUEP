@@ -1,6 +1,6 @@
 <?php
 
-class Contents_Form_PublicationsArchiveEdit extends Zend_Form
+class Contents_Form_PublicationsArchiveEdit extends Sunny__Form
 {
 	protected $_contentsGroupsId;
 	
