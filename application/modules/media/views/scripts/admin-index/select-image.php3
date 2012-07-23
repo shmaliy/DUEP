@@ -14,7 +14,12 @@ $adminTableNavOptions = array(
 
 <?php if (count($this->rowset) > 0): ?>
 	<?php foreach ($this->rowset as $row): ?>
-		<?php echo $row->getServerPath(); ?>/<?php echo $row->getName(); ?>
+		<div>
+			<input name="thumbnail" type="radio" value = "<?php echo $row->getId(); ?>" />
+			<span>
+				<img src="/uploads/<?php echo $row->getId(); ?>.<?php echo $row->getType(); ?>" width="150" height="150">
+			</span>
+		</div>
 	<?php endforeach; ?>
 <?php else : ?>
 
