@@ -38,6 +38,7 @@ class Contents_NewsController extends Zend_Controller_Action
     	$this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
     	$this->view->ngroup = $groupsMapper->getFrontGroupByAlias ("news");
     	$this->view->egroup = $groupsMapper->getFrontGroupByAlias ("events");
+    	$this->view->group = $groupsMapper->getFrontGroup();
     	 
     	$catMapper = new Contents_Model_Mapper_ContentsCategories();
     	$this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id);
@@ -48,6 +49,7 @@ class Contents_NewsController extends Zend_Controller_Action
     	$this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id,'date_created desc');
     	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id,'date_created desc');
     	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id,'date_created desc');
+    	$this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->egroup->id, $this->view->agroup->id),'date_created desc',5);
     	
     	    	
     	$translatedMonths = array(
@@ -68,6 +70,7 @@ class Contents_NewsController extends Zend_Controller_Action
     	$this->view->announcements->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->events->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->news->formatDate('date_created', $translatedMonths, 'г.');
+    	$this->view->actual->formatDate('date_created', $translatedMonths, 'г.');
     }
     /**
     * Обработчик страницы "Отдельная новость"
@@ -81,6 +84,7 @@ class Contents_NewsController extends Zend_Controller_Action
     	$this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
     	$this->view->ngroup = $groupsMapper->getFrontGroupByAlias ("news");
     	$this->view->egroup = $groupsMapper->getFrontGroupByAlias ("events");
+    	$this->view->group = $groupsMapper->getFrontGroup();
     	 
     	$catMapper = new Contents_Model_Mapper_ContentsCategories();
     	$this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id);
@@ -91,6 +95,7 @@ class Contents_NewsController extends Zend_Controller_Action
     	$this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id,'date_created desc');
     	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id,'date_created desc');
     	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id,'date_created desc');
+    	$this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->egroup->id, $this->view->agroup->id),'date_created desc',5);
     	
     	$contentMapper = new Contents_Model_Mapper_Contents();
     	$this->view->one_news = $contentMapper->getFrontContentByAlias($alias);
@@ -114,6 +119,7 @@ class Contents_NewsController extends Zend_Controller_Action
     	$this->view->announcements->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->events->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->news->formatDate('date_created', $translatedMonths, 'г.');
+    	$this->view->actual->formatDate('date_created', $translatedMonths, 'г.');
     }
     
     /**
