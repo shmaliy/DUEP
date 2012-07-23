@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 23, 2012 at 01:41 PM
+-- Generation Time: Jul 23, 2012 at 04:02 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `contents` (
   `enable_calendar` int(11) NOT NULL,
   `admin_email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='таблица контента, являет собой сборную солянку всех требуемы' AUTO_INCREMENT=29 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='таблица контента, являет собой сборную солянку всех требуемы' AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `contents`
@@ -93,7 +93,8 @@ INSERT INTO `contents` (`id`, `contents_categories_id`, `contents_groups_id`, `t
 (25, 9, 3, 'Палка палке рознь', 'another_stick', 'Жили-были два товарища. Впрочем, почему жили — и сейчас живы и здоровы. И объединяло их одно увлечение. Впрочем, почему объединяло — и сейчас объединяет. А увлечение это — старый добрый DOS.\r\n', 'Жили-были два товарища. Впрочем, почему жили — и сейчас живы и здоровы. И объединяло их одно увлечение. Впрочем, почему объединяло — и сейчас объединяет. А увлечение это — старый добрый DOS.\r\n\r\nИ один товарищ для другого решил утилиту написать. Утилита та состояла из двух файлов — EXE и BAT. Впрочем, почему состояла — и сейчас состоит. Первый товарищ второму готовую утилиту переслал. А у того не фурычит.\r\n\r\nДолго думали, почему у первого фурычит, а у второго нет. Неделю разбирались. Чуть дружба врозь у них не стала. А потом причину нашли.\r\n\r\nУ первого товарища на специально выделенной машине FreeDOS, у второго — MS-DOS. И первый товарищ, когда утилиту писал, в BAT-файле прямые слэши использовал по линуксовой привычке. FreeDOS по фигу, какой слэш — прямой или обратный, а микрософтовскому только обратный подавай.\r\n\r\nИстория закончилась хорошо. Второй товарищ тоже поставил на «испытательную машину» FreeDOS и уже потихоньку интересуется, что за зверь такой — линукс.', NULL, NULL, 1, 0, 0, NULL, 'Палка палке рознь', '', '', NULL, '', 1341394181, NULL, 1341394181, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 1, NULL, NULL, 1, NULL),
 (26, 10, 4, 'Метода по экономике', 'economics', 'Я хозяйка бассет-хаунда. Для тех, кто не знает, это такая кривоногая, низкая, толстенькая, смешная собачка с большими ушами и грустным взглядом. Собак таких в моём городе немного, потому на нас обращают внимание. Я не против дать возможность сфотографироваться или погладить, но как же задолбали люди, которые лезут без спросу в лицо псу или не держат своих детей!', 'Я хозяйка бассет-хаунда. Для тех, кто не знает, это такая кривоногая, низкая, толстенькая, смешная собачка с большими ушами и грустным взглядом. Собак таких в моём городе немного, потому на нас обращают внимание. Я не против дать возможность сфотографироваться или погладить, но как же задолбали люди, которые лезут без спросу в лицо псу или не держат своих детей!\r\n\r\n— А ваша собачка не кусается? — верещит через весь сквер мамаша, чья милая трёхлетняя дочурка уже находится в метре от нас.\r\n— Нет, но заберите ребёнка, пожалуйста!\r\n— А зачем забирать, если не кусается?\r\n\r\nИ правда, зачем, если ты не будешь кричать на меня и мою собаку, когда твоя дочка вымажется в собачьей слюне? И да, абсолютно все собаки кусаются, если им сделать больно. Может, твоя дочь своим крохотным ботиночком собаке на лапу наступит, я же не знаю. Ещё вариант:\r\n\r\n— Ну как я её удержу, это же ребёнок, она хочет бегать!\r\n\r\nОкей, тогда я отцеплю поводок, ведь это же пёс, он хочет играть. И, воспользовавшись свободой, он опрокинет девочку на лопатки в две секунды и наступит на неё играючи своими 35 килограммами.\r\n\r\nЕсть и приятные случаи, когда родители, у которых ребёнок боится собак, приучают его быть аккуратными с животными: «Давай спросим у тёти, можно ли погладить собачку и как её зовут». Малыш неуверенно тянет ручку, радуется, когда собака большими коричневыми глазами смотрит на него и принюхивается. Надеюсь, что благодаря нам несколько детей стали лучше относиться к животным.\r\n\r\nВторая категория задолбавших — это пьяные. Кажется, все знают: собаки не любят пьяных, потому что чувствуют, как выделяется адреналин, и начинают нервничать. Я понимаю, что по моему псу так сразу не скажешь, что он может укусить, но, ёлки, зачем лезть ему в морду проверять? Пасть у него размером с овчарочью, да и со скоростью реакции всё в порядке. Правда хочется, чтобы тебя покусали? Нет? Тогда зачем перегораживаешь нам дорогу, пошатывающийся человек с красным лицом и неприятным запахом?', NULL, NULL, 1, 0, 0, NULL, '', '', '', NULL, '', 1341395430, NULL, 1341395430, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, NULL),
 (27, 0, 5, 'Альбом1', 'album1', '123', '', NULL, NULL, 0, 0, 0, NULL, '', '', '', NULL, '', 1342427172, NULL, 1342427172, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, NULL),
-(28, 12, 6, 'Тест', 'test', 'eer', 'tretrtrt', NULL, NULL, 1, 0, 0, NULL, '', '', '', NULL, '', 1342511867, NULL, 1342511867, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, NULL);
+(28, 12, 6, 'Тест', 'test', 'eer', 'tretrtrt', NULL, NULL, 1, 0, 0, NULL, '', '', '', NULL, '', 1342511867, NULL, 1342511867, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, 0, NULL),
+(29, 16, 2, 'Відбувся другий випуск магістрів за програмою «Бізнес-адміністрування»', 'business-administration', 'В Школі Бізнесу Дніпропетровського університету імені Альфреда Нобеля 9 червня 2012 року відбувся другий випуск магістрів за програмою «Бізнес-адміністрування». Цього року 24 слухачі успішно захистили дипломні роботи та отримали дипломи державного зразка, серед яких чотири – з відзнакою. Окрім співробітників Школи Бізнесу та викладачів, випускників привітав перший проректор університету, д.е.н., професор Анатолій Олександрович Задоя, побажавши їм успішного розвитку та добрих друзів, які завжди підтримають у будь-якій ситуації. ', 'В Школі Бізнесу Дніпропетровського університету імені Альфреда Нобеля 9 червня 2012 року відбувся другий випуск магістрів за програмою «Бізнес-адміністрування». Цього року 24 слухачі успішно захистили дипломні роботи та отримали дипломи державного зразка, серед яких чотири – з відзнакою. Окрім співробітників Школи Бізнесу та викладачів, випускників привітав перший проректор університету, д.е.н., професор Анатолій Олександрович Задоя, побажавши їм успішного розвитку та добрих друзів, які завжди підтримають у будь-якій ситуації.\r\nПротягом двох років слухачі двічі на тиждень старанно відвідували заняття після виснажливих робочих днів та навіть у вихідні. Але ці зусилля безумовно були вартими досягнутих результатів.  Опанував такі дисципліни, як економіка, стратегічне управління, маркетинг, фінанси, управлінський облік та багато інших, а також скористувавшись можливістю використати отримані знання на практиці, випускники щиро зізнаються, що вже значно розширили свої уявлення про світ бізнесу. Але ж це тільки початок, перший крок до нових успіхів та досягнень. Вчорашні слухачі сміливо дивляться у майбутнє, добре усвідомлюючи, що вони вже володіють необхідними інструментами для ефективного вирішення проблем та подальшого професійного розвитку. Серед двох десятків випускників є представники різних сфер бізнесу, але немає сумніву, що отримані знання та навички обов’язково стануть їм у нагоді.\r\nНавчання на програмі МВА для слухачів вже завершено, але Школа Бізнесу не прощається з ними. Восени планується зустріч випускників, де вони зможуть поділитися отриманим досвідом та розповісти своїм наставникам, як продовжується їх життя після отримання заповітного ступеню МВА, та які якісні зміни відбулися на їх кар’єрному шляху. Окрім того, ця зустріч може стати початком плідного співробітництва, реалізації сумісних проектів та втілення нових ідей.\r\nШкола Бізнесу з нетерпінням чекає на нові зустрічі\r\nзі своїми улюбленими випускниками !\r\n', NULL, NULL, 1, 0, 1, NULL, 'Відбувся другий випуск магістрів за програмою «Бізнес-адміністрування»', 'В Школі Бізнесу Дніпропетровського університету імені Альфреда Нобеля 9 червня 2012 року відбувся другий випуск магістрів за програмою «Бізнес-адміністрування».', '', NULL, '', 1343044903, NULL, 1343044903, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 0, NULL, NULL, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -126,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `contents_categories` (
   `date_modified` int(11) DEFAULT NULL,
   `user_modified` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `contents_categories`
@@ -135,13 +136,17 @@ CREATE TABLE IF NOT EXISTS `contents_categories` (
 INSERT INTO `contents_categories` (`id`, `contents_groups_id`, `contents_categories_id`, `title`, `alias`, `description`, `enable_comments`, `enable_rss`, `enable_email`, `language`, `ordering`, `published`, `admin_comment`, `seo_title`, `seo_description`, `seo_keywords`, `name_main`, `name_bc`, `date_created`, `user_created`, `date_modified`, `user_modified`) VALUES
 (1, 1, 0, 'Анонсы', 'announcements', '', 0, 0, 0, NULL, 1, 1, 'Создано в phpMyAdmin', 'Анонсы', '', '', 'Анонсы', 'анонсы', 1341330239, NULL, 1341330239, NULL),
 (2, 1, 1, 'Лента 1', 'strip_1', '', 1, 1, 1, NULL, 1, 1, 'создано в phpMyAdmin', 'Лента 1', '', '', 'Лента 1', 'лента 1', 1341326917, NULL, 1341326917, NULL),
-(7, 2, 0, 'Категория 1', 'cat_1', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1341388914, NULL, 1341388914, NULL),
+(7, 2, 16, 'Студенту', 'for_students', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343044884, NULL, 1343044884, NULL),
 (6, 1, 1, 'Лента 2', '', '', 0, 0, 0, NULL, NULL, 0, NULL, '', '', '', NULL, '', 1341330281, NULL, 1341330281, NULL),
 (8, 2, 1, 'Лента 1', 'strip_1', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1341388929, NULL, 1341388929, NULL),
 (9, 3, 0, 'Категория 1', 'events_cat_1', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1341394037, NULL, 1341394037, NULL),
 (10, 4, 0, 'Методички', 'metodical', '', 0, 0, 0, NULL, NULL, 0, NULL, '', '', '', NULL, '', 1341395336, NULL, 1341395336, NULL),
 (11, 5, 0, 'Галерея изображений', 'gallery', '123', 0, 0, 0, NULL, NULL, 0, NULL, '', '', '', NULL, '', 1342426383, NULL, 1342426383, NULL),
-(12, 6, 0, '123', '234', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1342511855, NULL, 1342511855, NULL);
+(12, 6, 0, '123', '234', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1342511855, NULL, 1342511855, NULL),
+(13, 2, 16, 'Абурієнту', 'for_abiturients', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343044865, NULL, 1343044865, NULL),
+(14, 2, 16, 'Навчання і наука', 'education_and_science', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343044872, NULL, 1343044872, NULL),
+(15, 2, 16, 'Університет', 'univercity', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343044878, NULL, 1343044878, NULL),
+(16, 2, 0, 'Новини', 'news', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343044859, NULL, 1343044859, NULL);
 
 -- --------------------------------------------------------
 
@@ -221,14 +226,29 @@ CREATE TABLE IF NOT EXISTS `media` (
   `user_modified` int(11) DEFAULT NULL,
   `published` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `media`
 --
 
 INSERT INTO `media` (`id`, `media_categories_id`, `name`, `server_path`, `public_url`, `title`, `description`, `type`, `thumbnail`, `keywords`, `admin_comment`, `date_created`, `user_created`, `date_modified`, `user_modified`, `published`) VALUES
-(1, 5, 'Q_cLuikCuqk.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'Q_cLuikCuqk.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343036117, NULL, 1343036117, NULL, NULL);
+(1, 5, '1_images.jpg', 'W:\\home\\duep\\public\\uploads', NULL, '1_images.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039671, NULL, 1343039671, NULL, NULL),
+(2, 5, '5_images.jpg', 'W:\\home\\duep\\public\\uploads', NULL, '5_images.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039673, NULL, 1343039673, NULL, NULL),
+(3, 5, '54350main_MM_image_feature_101_jw4.jpg', 'W:\\home\\duep\\public\\uploads', NULL, '54350main_MM_image_feature_101_jw4.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039675, NULL, 1343039675, NULL, NULL),
+(4, 5, 'fantasy-5.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'fantasy-5.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039677, NULL, 1343039677, NULL, NULL),
+(5, 5, 'FD_image.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'FD_image.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039679, NULL, 1343039679, NULL, NULL),
+(6, 5, 'GettyImages_144127204_0.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'GettyImages_144127204_0.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039681, NULL, 1343039681, NULL, NULL),
+(7, 5, 'images-Autumn1600x1200.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'images-Autumn1600x1200.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039683, NULL, 1343039683, NULL, NULL),
+(8, 5, 'JSNaturePhotos-JSNaturePhotosFeaturedImages2007239.JPG', 'W:\\home\\duep\\public\\uploads', NULL, 'JSNaturePhotos-JSNaturePhotosFeaturedImages2007239.JPG', NULL, 'jpg', NULL, NULL, NULL, 1343039685, NULL, 1343039685, NULL, NULL),
+(9, 5, 'Lake-Images-11.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'Lake-Images-11.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039688, NULL, 1343039688, NULL, NULL),
+(10, 5, 'myspace-sunset-images-dam7-0002.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'myspace-sunset-images-dam7-0002.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039690, NULL, 1343039690, NULL, NULL),
+(11, 5, 'myspace-sunset-images-dam7-0012.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'myspace-sunset-images-dam7-0012.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039692, NULL, 1343039692, NULL, NULL),
+(12, 5, 'nature-images-62.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'nature-images-62.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039694, NULL, 1343039694, NULL, NULL),
+(13, 5, 'pia12832-browse.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'pia12832-browse.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039699, NULL, 1343039699, NULL, NULL),
+(14, 5, 'Random-Picture-I-have-in-my-images-folder-PART-1-random-4862339-1024-1024.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'Random-Picture-I-have-in-my-images-folder-PART-1-random-4862339-1024-1024.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343039703, NULL, 1343039703, NULL, NULL),
+(15, 5, 'img_bibo_10_.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'img_bibo_10_.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343040535, NULL, 1343040535, NULL, NULL),
+(16, 5, 'teddy2.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'teddy2.jpg', NULL, 'jpg', NULL, NULL, NULL, 1343040577, NULL, 1343040577, NULL, NULL);
 
 -- --------------------------------------------------------
 

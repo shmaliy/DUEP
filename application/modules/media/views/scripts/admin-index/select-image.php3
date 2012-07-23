@@ -1,4 +1,6 @@
 <!--<?php echo __FILE__; ?>-->
+<fieldset>
+<legend>Главное изображение</legend>
 <?php echo $this->action('upload-image-widget', 'admin-index', 'media'); ?>
 <?php
 $adminTableNavOptions = array(
@@ -16,7 +18,7 @@ $adminTableNavOptions = array(
 	<div class="selectImage_images_contanier">
 	<?php foreach ($this->rowset as $row): ?>
 		<div class="selectImage_images_contanier_element">
-			<img src="/uploads/<?php echo $row->getId(); ?>.<?php echo $row->getType(); ?>" width="120" height="120">
+			<img src="/uploads/<?php echo $row->getId(); ?>.<?php echo $row->getType(); ?>" width="130" height="130">
 			<input name="thumbnail" type="radio" value = "<?php echo $row->getId(); ?>" />
 		</div>
 	<?php endforeach; ?>
@@ -26,3 +28,4 @@ $adminTableNavOptions = array(
 
 <?php endif; ?>
 
+</fieldset>
