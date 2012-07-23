@@ -2270,3 +2270,6 @@ ul.submenu li:hover ul.podmenu{
 .side_true ul li a{
     font-size:10px; 
 }
+.lang{
+	cursor: pointer;
+}
