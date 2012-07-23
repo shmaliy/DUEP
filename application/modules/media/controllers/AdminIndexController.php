@@ -8,6 +8,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 	
 	protected $_categoryId = null;
 	
+	
 	public function setCategoryId($id)
 	{
 		$this->_categoryId = $id;
@@ -137,8 +138,61 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 	    	
 	    	$this->_helper->json(get_object_vars($this->view));
 	    } else {
-    		$this->view->form = new Media_Form_MediaCreate(array('uploadUrl' => $this->_helper->url->simple($this->_a, $this->_c, $this->_m)));
+    		$this->view->form = new Media_Form_MediaCreate(array('uploadUrl' => $this->view->simpleUrl($this->_a, $this->_c, $this->_m, array())));
     		
+    		$this->render('edit');
+    	}
+    }
+    
+    public function uploadImageWidgetAction()
+    {
+    	$request = $this->getRequest();
+    	$params = $request->getParams();
+    	
+    	$this->_helper->viewRenderer->setNoRender();
+    	 
+    	$request = $this->getRequest();
+    	 
+    	if ($request->isFlashRequest() || $request->isPost()) {
+    		$postName = 'upload';
+    		$filename = $_FILES[$postName]['name'];
+    		$filter = new Sunny_FileRenamer(array('useCodebase' => 'utf-8'));
+    	
+    		$this->view->filename = $filter->filter($filename);
+    	
+    		$entity = $this->_getMapper()->createEntity();
+    		$entity->setMediaCategoriesId($params['mediaCategoriesId']);
+    		$entity->setName($_FILES[$postName]['name']);
+    		$entity->setTitle($_FILES[$postName]['name']);
+    		$entity->setServerPath(realpath(PUBLIC_PATH . '/uploads'));
+    		$entity->setType(strtolower(end(explode('.', $_FILES[$postName]['name']))));
+    	
+    		$id = $this->_getMapper()->saveEntity($entity);
+    	
+    		$this->view->lastId = $id;
+    		//$this->view->catId = $params['mediaCategoriesId'];
+    		//$this->view->redir = $params["redirect"];
+    		
+    		
+    		
+    		$name = $id;
+    		if(move_uploaded_file($_FILES[$postName]["tmp_name"], 'uploads/' . $name . '.' . strtolower(end(explode('.', $_FILES[$postName]['name'])))))
+    		{
+    			$this->view->success = true;
+    			$this->view->fileInfo = $fileInfo;
+    			$this->view->redirectTo = $params["redirect"];
+    		} else {
+    			$this->_getMapper()->deleteEntity($this->_getMapper()->findEntity($id));
+    		}
+    	
+    		$this->_helper->json(get_object_vars($this->view));
+    	} else {
+    		$this->view->form = new Media_Form_MediaCreate(array('uploadUrl' => $this->_helper->url->simple($this->_a, $this->_c, $this->_m, 
+    			array(
+    				"mediaCategoriesId" => 5		
+    			) 
+    		)));
+    	
     		$this->render('edit');
     	}
     }

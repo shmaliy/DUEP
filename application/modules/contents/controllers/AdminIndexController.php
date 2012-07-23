@@ -138,7 +138,7 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 			if ($id && $entity) {
 				$form->setDefaults($entity->toArray());
 			}
-			
+			$this->view->catId = $thumbnailsRootId;
 			$this->view->form = $form;
 		}
 		
