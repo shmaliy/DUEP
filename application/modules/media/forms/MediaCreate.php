@@ -8,7 +8,7 @@ class Media_Form_MediaCreate extends Zend_Form
 	{
 		$this->_uploadUrl = $uploadUrl;
 	}
-	
+
 	public function init()
 	{
 		$this->setName(strtolower(get_class($this)));
@@ -21,7 +21,7 @@ class Media_Form_MediaCreate extends Zend_Form
 			'value' => 'Выбрать',
 			'label' => 'Файл',
 			'class' => 'swfupload-button',
-			'upload_url' => $this->_uploadUrl
+			'upload_url' => $this->_uploadUrl,
 		));		
 		
 		$this->addDisplayGroup($group1, 'group1');
