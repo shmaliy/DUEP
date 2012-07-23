@@ -47,6 +47,7 @@ class Contents_EventsController extends Zend_Controller_Action
     	$this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id,'date_created desc');
     	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id,'date_created desc');
     	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id,'date_created desc');
+    	$this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->ngroup->id, $this->view->agroup->id),'date_created desc');
     	
     	$translatedMonths = array(
 	    	1 => 'Январь',
@@ -66,6 +67,7 @@ class Contents_EventsController extends Zend_Controller_Action
     	$this->view->announcements->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->events->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->news->formatDate('date_created', $translatedMonths, 'г.');
+    	$this->view->actual->formatDate('date_created', $translatedMonths, 'г.');
     }
     /**
     * Обработчик страницы "Отдельное прошедшое событие"

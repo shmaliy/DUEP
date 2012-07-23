@@ -75,36 +75,18 @@
     <div class="side_true">
         <h2>Актуально</h2>
         <ul>
+         <?php foreach ($this->actual as $item):?>
             <li>
-                <img alt="" src="/theme/img/front/true/1.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
+                 <?php if ($item->img == ''): ?>
+	            <img height = 40 width = 40 alt="" src="/theme/img/front/noimage.png" />
+	            <?php else: ?>
+               <img height = 40 width = 40 alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
+               <?php endif;?>
+                <p><?php echo $item->date_created;?></p>
+                <a class="name_news" href=""><?php echo $item->title; ?></a><br/>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
             </li>
-            <li>
-                <img alt="" src="/theme/img/front/true/2.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="/theme/img/front/true/3.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="/theme/img/front/true/4.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="/theme/img/front/true/5.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
+            <?php endforeach;?>
         </ul>
     </div>
   </div>
