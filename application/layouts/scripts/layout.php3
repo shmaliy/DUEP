@@ -30,14 +30,14 @@
 	<div class='load' style="display:none;">
 	<div class="header">
 		<div class="headerResize">
-			<a href="#" class="logo">
+			<a href="/" class="logo">
 				<img src="/theme/img/front/logo.png"/>
 			</a>
 			
 			<div class="language">
 				<div class="language_active relative">
 					<div class="language_active_left lang"></div>
-					<img src="/theme/img/front/ru.jpg" class="lan lang_img"/><a href="№" class="dashed">Русский</a> &#8595;
+					<img src="/theme/img/front/ru.jpg" class="lan lang_img"/><a style = "cursor: pointer;" class="dashed">Русский</a> &#8595;
 					<div class="language_active_right"></div>
 				</div>
 				<div class="pop_up lang_dop">

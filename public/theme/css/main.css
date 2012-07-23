@@ -2240,7 +2240,7 @@ ul.submenu li:hover ul.podmenu{
 }
 .side_true {
     width: 220px;
-    height:300px;
+    padding-right: 5px;
     border:1px solid #ededed;
     border-radius:5px;
     margin-top:20px;
@@ -2273,3 +2273,8 @@ ul.submenu li:hover ul.podmenu{
 .lang{
 	cursor: pointer;
 }
+.actual{
+	margin-left: 50px;
+	display: block;
+}
+

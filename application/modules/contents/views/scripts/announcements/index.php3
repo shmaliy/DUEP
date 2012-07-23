@@ -75,19 +75,21 @@
     <div class="side_true">
         <h2>Актуально</h2>
         <ul>
-                     <?php foreach ($this->actual as $item):?>
+         <?php foreach ($this->actual as $item):?>
             <li>
                  <?php if ($item->img == ''): ?>
 	            <img height = 40 width = 40 alt="" src="/theme/img/front/noimage.png" />
 	            <?php else: ?>
                <img height = 40 width = 40 alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
                <?php endif;?>
+               <span class = "actual">
                 <p><?php echo $item->date_created;?></p>
                 <?php foreach ($this->group as $itemg):
                 if ($itemg->id == $item->contents_groups_id):?>
                 <a class="name_news" href="<?php echo $this->simpleUrl('view', $itemg->alias, 'contents', array('alias'=>$item->alias), 'contents/'.$itemg->alias.'/view' ); ?>"><?php echo $item->title; ?></a><br/>
                 <?php endif; endforeach;?>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                </span>
             </li>
             <?php endforeach;?>
         </ul>
