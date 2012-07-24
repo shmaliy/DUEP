@@ -425,3 +425,49 @@ img { border: 0 none; }
 }
 /* admin table filter end */
 
+.modalOpen {
+	cursor:pointer;
+}
+
+.ui-dialog-content-container {
+	background:#FFf !important;
+	width:100% !important;
+	height:100% !important;
+}
+
+/*  Select Images widget  */
+
+.selectImage_images_contanier {
+	
+}
+
+.selectImage_images_contanier .selectImage_images_contanier_element {
+	float:left;
+	width:150px;
+	height:150px;
+	margin: 0 17px 25px 0;
+	position:relative;
+	background:#ccc;
+}
+
+.selectImage_images_contanier .selectImage_images_contanier_elementActive {
+	float:left;
+	width:180px;
+	outline: 1px solid red;
+	margin: 0 15px 25px 0;
+}
+
+.selectImage_images_contanier .selectImage_images_contanier_element input {
+	display: block;
+	position:absolute;
+	margin:20px 0 0 20px;
+}
+
+
+.selectImage_images_contanier .selectImage_images_contanier_element img {
+	display: block;
+	position:absolute;
+	margin:10px 0 0 10px;
+}
+/*  Select Images widget end  */
+

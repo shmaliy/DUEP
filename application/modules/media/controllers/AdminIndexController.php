@@ -105,7 +105,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	
     	$request = $this->getRequest();
     	
-    	if ($request->isFlashRequest() || $request->isPost()) {
+    	if (($request->isFlashRequest() || $request->isPost()) && $request->getParam('format') != 'html') {
 	    	$postName = 'upload';
 	    	$filename = $_FILES[$postName]['name'];
 	    	$filter = new Sunny_FileRenamer(array('useCodebase' => 'utf-8'));
@@ -153,7 +153,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	 
     	$request = $this->getRequest();
     	 
-    	if ($request->isFlashRequest() || $request->isPost()) {
+    	if (($request->isFlashRequest() || $request->isPost()) && $request->getParam('format') != 'html') {
     		$postName = 'upload';
     		$filename = $_FILES[$postName]['name'];
     		$filter = new Sunny_FileRenamer(array('useCodebase' => 'utf-8'));

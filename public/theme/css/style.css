@@ -535,41 +535,7 @@ table.generic-table a {
 }
 /* Contents edit form end */
 
-/*  Select Images widget  */
 
-.selectImage_images_contanier {
-	
-}
-
-.selectImage_images_contanier .selectImage_images_contanier_element {
-	float:left;
-	width:160px;
-	height:160px;
-	margin: 0 20px 25px 0;
-	position:relative;
-	background:#ccc;
-}
-
-.selectImage_images_contanier .selectImage_images_contanier_elementActive {
-	float:left;
-	width:180px;
-	outline: 1px solid red;
-	margin: 0 15px 25px 0;
-}
-
-.selectImage_images_contanier .selectImage_images_contanier_element input {
-	display: block;
-	position:absolute;
-	margin:20px 0 0 20px;
-}
-
-
-.selectImage_images_contanier .selectImage_images_contanier_element img {
-	display: block;
-	position:absolute;
-	margin:15px 0 0 15px;
-}
-/*  Select Images widget end  */
 
 
 

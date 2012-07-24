@@ -1,8 +1,44 @@
 // Javascript main file
 
+// redirect - строка, перенаправляет на указанный адрес
+// update - строка, div.body-container (по умолчанию), либо указанный блок
+// append - строка, дописывает ответ в указанный блок
+// prepend - строка, дописывает ответ в начало указанного блока
+// exception - объект, обработка исключений
 
 
-$(document).ready(function(){
+
+function parseResponse(jqXHR)
+{
+	if (console && console.log) { 
+		console.log(jqXHR);
+	}
+	
+	var response = {};
+	
+	if (response.action == 'redirect') {
+		
+	} 
+	
+	if (response.action == 'update') {
+		
+	}
+	
+	if (response.action == 'append') {
+		
+	}
+	
+	if (response.action == 'prepend') {
+		
+	}
+	
+	if (response.action == 'exception') {
+		
+	} 
+}
+
+function observeFormOnSubmit()
+{
 	$('form.via_ajax').each(function(){
 		var url = $(this).attr('action');
 		$(this).submit(function(){
@@ -12,20 +48,28 @@ $(document).ready(function(){
 				dataType: "json",
 				type: 'POST',
 				error: function(jqXHR, textStatus, errorThrown) {
+					parseResponse(jqXHR);
 					//console.log(errorThrown);
 				},
 				success: function(data, textStatus, jqXHR) {
+					parseResponse(jqXHR);
 					//console.log(data);
 					if (data.redirectTo) {
 						window.location.href = data.redirectTo;
 					}
 				},
 				complete: function(jqXHR, textStatus) {
+					parseResponse(jqXHR);
 					//console.log(jqXHR);
 				}
 			});
 		});
 	});
+}
+
+
+$(document).ready(function(){
+	observeFormOnSubmit();
 });
 
 // Observe generic menu class toggle
@@ -195,13 +239,13 @@ function setPage(url, page)
 		dataType: "json",
 		type: 'POST',
 		error: function(jqXHR, textStatus, errorThrown) {
-			console.log(errorThrown);
+			parseResponse(jqXHR);
 		},
 		success: function(data, textStatus, jqXHR) {
-			console.log(data);
+			parseResponse(jqXHR);
 		},
 		complete: function(jqXHR, textStatus) {
-			//console.log(jqXHR);
+			parseResponse(jqXHR);
 			window.location.href = window.location.href;
 		}
 	});
@@ -217,13 +261,13 @@ function setLimit(url, rows)
 		dataType: "json",
 		type: 'POST',
 		error: function(jqXHR, textStatus, errorThrown) {
-			console.log(errorThrown);
+			parseResponse(jqXHR);
 		},
 		success: function(data, textStatus, jqXHR) {
-			console.log(data);
+			parseResponse(jqXHR);
 		},
 		complete: function(jqXHR, textStatus) {
-			//console.log(jqXHR);
+			parseResponse(jqXHR);
 			window.location.href = window.location.href;
 		}
 	});
@@ -239,13 +283,13 @@ function deleteItem(url, id)
 		dataType: "json",
 		type: 'POST',
 		error: function(jqXHR, textStatus, errorThrown) {
-			console.log(errorThrown);
+			parseResponse(jqXHR);
 		},
 		success: function(data, textStatus, jqXHR) {
-			console.log(data);
+			parseResponse(jqXHR);
 		},
 		complete: function(jqXHR, textStatus) {
-			//console.log(jqXHR);
+			parseResponse(jqXHR);
 			window.location.href = window.location.href;
 		}
 	});
