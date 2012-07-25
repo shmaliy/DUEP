@@ -37,7 +37,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     {
     	$frontController = Zend_Controller_Front::getInstance();
     	$router = $frontController->getRouter();
-    	$router->setGlobalParam('lang', 'ru');
+    	//$router->setGlobalParam('lang', 'ru');
     	 
     	// Override default route
     	
@@ -48,7 +48,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	        'controller' => 'news',
     	        'action' => 'view',
     			'alias' => '',
-    	        'lang' => 'ru'
+    	        'lang' => ''
     	    )    	 
     	));
     	
@@ -58,7 +58,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	        'module' => 'contents',
     	        'controller' => 'news',
     	        'action' => 'index',
-    	        'lang' => 'ru'
+    	        'lang' => ''
     	    )
     	));
     	$router->addRoute('contents/events/view', new Zend_Controller_Router_Route(
@@ -68,7 +68,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	        	'controller' => 'events',
     	    	        	'action' => 'view',
     	    				'alias' => '',
-    	    	        	'lang' => 'ru'
+    	    	        	'lang' => ''
     	)
     	
     	));
@@ -78,7 +78,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	        			'module' => 'contents',
     	        			'controller' => 'events',
     	        			'action' => 'index',
-    	        			'lang' => 'ru'
+    	        			'lang' => ''
     	)
     	 
     	));
@@ -89,7 +89,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	      'controller' => 'mir',
     	    	    	      'action' => 'view',
     	    	    		  'alias' => '',
-    	    	    	      'lang' => 'ru'
+    	    	    	      'lang' => ''
     	)
     	 
     	));
@@ -99,7 +99,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	        	   'module' => 'contents',
     	    	        	   'controller' => 'mir',
     	    	        		'action' => 'index',
-    	    	        		'lang' => 'ru'
+    	    	        		'lang' => ''
     	)
     	
     	));
@@ -110,7 +110,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	        	'controller' => 'licenses',
     	    	    	    	        	'action' => 'view',
     	    	    	    				'alias' => '',
-    	    	    	    	        	'lang' => 'ru'
+    	    	    	    	        	'lang' => ''
     	)
     	
     	));
@@ -120,7 +120,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	        			'module' => 'contents',
     	    	    	        			'controller' => 'licenses',
     	    	    	        			'action' => 'index',
-    	    	    	        			'lang' => 'ru'
+    	    	    	        			'lang' => ''
     	)
     	 
     	));
@@ -130,7 +130,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	        	'module' => 'contents',
     	    	    	    	        	'controller' => 'structure-university',
     	    	    	    	        	'action' => 'index',
-    	    	    	    	        	'lang' => 'ru'
+    	    	    	    	        	'lang' => ''
     	)
     	
     	));
@@ -141,7 +141,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    'controller' => 'announcements',
     	    	    	    	    	    'action' => 'view',
     	    	    	    	    		'alias' => '',
-    	    	    	    	    	        	'lang' => 'ru'
+    	    	    	    	    	        	'lang' => ''
     	)
     	 
     	));
@@ -151,7 +151,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	        	'module' => 'contents',
     	    	    	    	        	'controller' => 'announcements',
     	    	    	    	        	'action' => 'index',
-    	    	    	    	        	'lang' => 'ru'
+    	    	    	    	        	'lang' => ''
     	)
     	
     	));
@@ -161,7 +161,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    'module' => 'contents',
     	    	    	    	    	    'controller' => 'contacts',
     	    	    	    	    	    'action' => 'index',
-    	    	    	    	    	    'lang' => 'ru'
+    	    	    	    	    	    'lang' => ''
     	)
     	 
     	));
@@ -172,7 +172,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    'controller' => 'career',
     	    	    	    	    	    'action' => 'vacancy',
     	    	    	    	    	    'alias' => '',
-    	    	    	    	    	    'lang' => 'ru'
+    	    	    	    	    	    'lang' => ''
     	)
     	
     	));
@@ -182,7 +182,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	        			'module' => 'contents',
     	    	    	    	    	        			'controller' => 'career',
     	    	    	    	    	        			'action' => 'index',
-    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	        			'lang' => ''
     	)
     	 
     	));
@@ -192,7 +192,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	        			'module' => 'contents',
     	    	    	    	    	    	        			'controller' => 'arrangement',
     	    	    	    	    	    	        			'action' => 'index',
-    	    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	    	        			'lang' => ''
     	)
     	
     	));
@@ -202,7 +202,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	        			'module' => 'contents',
     	    	    	    	    	    	    	        			'controller' => 'activities',
     	    	    	    	    	    	    	        			'action' => 'index',
-    	    	    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	    	    	        			'lang' => ''
     	)
     	 
     	));
@@ -213,7 +213,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	        	'controller' => 'awards',
     	    	    	    	    	    	    	        	'action' => 'view',
     	    	    	    	    	    	    				'alias' => '',
-    	    	    	    	    	    	    	        	'lang' => 'ru'
+    	    	    	    	    	    	    	        	'lang' => ''
     	)
     	 
     	));
@@ -223,7 +223,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	        			'module' => 'contents',
     	    	    	    	    	    	        			'controller' => 'awards',
     	    	    	    	    	    	        			'action' => 'index',
-    	    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	    	        			'lang' => ''
     	)
     	
     	));
@@ -235,7 +235,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	    	    	        	'action' => 'discipline',
     	    	    	    	    	    	    	    	    	    	    				'alias' => '',
     																								'name' => '',
-    	    	    	    	    	    	    	    	    	    	    	        	'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	    	    	        	'lang' => ''
     	)
     	 
     	));
@@ -246,7 +246,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	    	        	'controller' => 'directions',
     	    	    	    	    	    	    	    	    	    	        	'action' => 'disciplines',
     	    	    	    	    	    	    	    	    	    				'alias' => '',
-    	    	    	    	    	    	    	    	    	    	        	'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	    	        	'lang' => ''
     	)
     	
     	));
@@ -257,7 +257,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	        	'controller' => 'directions',
     	    	    	    	    	    	    	    	    	        	'action' => 'history',
     	    	    	    	    	    	    	    	    				'alias' => '',
-    	    	    	    	    	    	    	    	    	        	'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	        	'lang' => ''
     	)
     	 
     	));
@@ -268,7 +268,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	    	        	'controller' => 'directions',
     	    	    	    	    	    	    	    	    	    	        	'action' => 'staff',
     	    	    	    	    	    	    	    	    	    				'alias' => '',
-    	    	    	    	    	    	    	    	    	    	        	'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	    	        	'lang' => ''
     	)
     	
     	));
@@ -279,7 +279,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	        	'controller' => 'directions',
     	    	    	    	    	    	    	    	        	'action' => 'view',
     	    	    	    	    	    	    	    				'alias' => '',
-    	    	    	    	    	    	    	    	        	'lang' => 'ru'
+    	    	    	    	    	    	    	    	        	'lang' => ''
     	)
     	
     	));
@@ -289,7 +289,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	        			'module' => 'contents',
     	    	    	    	    	    	    	        			'controller' => 'directions',
     	    	    	    	    	    	    	        			'action' => 'index',
-    	    	    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	    	    	        			'lang' => ''
     	)
     	 
     	));
@@ -300,7 +300,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	    	        	'controller' => 'lines',
     	    	    	    	    	    	    	    	    	    	        	'action' => 'staff',
     	    	    	    	    	    	    	    	    	    				'alias' => '',
-    	    	    	    	    	    	    	    	    	    	        	'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	    	        	'lang' => ''
     	)
     	
     	));
@@ -311,7 +311,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	        	'controller' => 'lines',
     	    	    	    	    	    	    	    	    	        	'action' => 'view',
     	    	    	    	    	    	    	    	    				'alias' => '',
-    	    	    	    	    	    	    	    	    	        	'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	        	'lang' => ''
     	)
     	 
     	));
@@ -321,7 +321,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	        			'module' => 'contents',
     	    	    	    	    	    	    	    	        			'controller' => 'lines',
     	    	    	    	    	    	    	    	        			'action' => 'index',
-    	    	    	    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	    	    	    	        			'lang' => ''
     	)
     	
     	));
@@ -331,7 +331,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	    	    	        			'module' => 'contents',
     	    	    	    	    	    	    	    	    	    	    	        			'controller' => 'published',
     	    	    	    	    	    	    	    	    	    	    	        			'action' => 'university',
-    	    	    	    	    	    	    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	    	    	        			'lang' => ''
     	)
     	 
     	));
@@ -341,7 +341,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	    	        			'module' => 'contents',
     	    	    	    	    	    	    	    	    	    	        			'controller' => 'published',
     	    	    	    	    	    	    	    	    	    	        			'action' => 'other',
-    	    	    	    	    	    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	    	        			'lang' => ''
     	)
     	
     	));
@@ -351,7 +351,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	        			'module' => 'contents',
     	    	    	    	    	    	    	    	    	        			'controller' => 'published',
     	    	    	    	    	    	    	    	    	        			'action' => 'index',
-    	    	    	    	    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	        			'lang' => ''
     	)
     	 
     	));
@@ -361,7 +361,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	    	        			'module' => 'contents',
     	    	    	    	    	    	    	    	    	    	        			'controller' => 'shedule',
     	    	    	    	    	    	    	    	    	    	        			'action' => 'index',
-    	    	    	    	    	    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	    	        			'lang' => ''
     	)
     	
     	));
@@ -372,7 +372,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	    	    	        			'controller' => 'shedule',
     	    	    	    	    	    	    	    	    	    	    	        			'action' => 'calendar',
     																										'alias' => '',
-    	    	    	    	    	    	    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	    	    	        			'lang' => ''
     	)
     	 
     	));
@@ -383,7 +383,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	    	    	    	    	    	        			'controller' => 'subdividion',
     	    	    	    	    	    	    	    	    	    	    	    	    	    	        			'action' => 'staff',
     	    	    	    																										'alias' => '',
-    	    	    	    	    	    	    	    	    	    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	    	    	    	    	    	        			'lang' => ''
     	)
     	
     	));
@@ -394,7 +394,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	    	    	    	    	        			'controller' => 'subdividion',
     	    	    	    	    	    	    	    	    	    	    	    	    	        			'action' => 'view',
     	    	    																										'alias' => '',
-    	    	    	    	    	    	    	    	    	    	    	    	    	        			'lang' => 'ru'
+    	    	    	    	    	    	    	    	    	    	    	    	    	        			'lang' => ''
     	)
     	 
     	));
@@ -404,7 +404,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    	    	    	    	    	    	    	        			'module' => 'contents',
     	    	    	    	    	    	    	    	    	    	    	    	        			'controller' => 'subdividion',
     	    	    	    	    	    	    	    	    	    	    	    	        			'action' => 'index',
-    	    																										'lang' => 'ru'
+    	    																										'lang' => ''
     	)
     	
     	));

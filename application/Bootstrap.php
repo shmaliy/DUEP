@@ -223,7 +223,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     {
     	$frontController = Zend_Controller_Front::getInstance();
     	$router = $frontController->getRouter();
-    	
+    	$url = $_SERVER[REQUEST_URI];
+    	$langs = explode("/", $url);
+    	$router->setGlobalParam('lang', $langs[1]);
     	// Override default route
     	$router->addRoute('default', $route = new Zend_Controller_Router_Route(
 	    	':module/:controller/:action/*',

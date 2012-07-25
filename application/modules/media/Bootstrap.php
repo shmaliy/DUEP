@@ -37,7 +37,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
     {
         $frontController = Zend_Controller_Front::getInstance();
         $router = $frontController->getRouter();
-        $router->setGlobalParam('lang', 'ru');
+        //$router->setGlobalParam('lang', 'ru');
     
         // Override default route
        

@@ -10,7 +10,7 @@ class Contents_Model_Mapper_ContentsGroups extends Sunny_DataMapper_MapperAbstra
 
 		));
 	}
-	public function getFrontGroup ()
+	public function getFrontGroup ($lang)
 	{
 	    return $this->fetchAll(array(
 	    $this->quoteIdentifier("published") . " = ?" => '1',

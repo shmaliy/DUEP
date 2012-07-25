@@ -2,7 +2,7 @@
 
 class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 {
-	public function getFrontContentsByGroupId ($id, $order = null, $lim = null)
+	public function getFrontContentsByGroupId ($id, $lang = 'ru', $order = null, $lim = null)
 	{
 	    if (is_numeric($id)){$id=array($id);};
 	    $where = array();
@@ -13,23 +13,26 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 			"(".implode(' or ', $where).")",
 			$this->quoteIdentifier("published") . " = ?" => '1',
 			$this->quoteIdentifier("sheduled") . " = ?" => '0',
+		$this->quoteIdentifier("language") . " = ?" => $lang,
 		),$order,$lim);
 	}
-	public function getFrontContentsByCatId ($id, $order = null, $lim = null)
+	public function getFrontContentsByCatId ($id, $lang = 'ru', $order = null, $lim = null)
 	{
 		return $this->fetchAll(array(
 			$this->quoteIdentifier("contents_categories_id") . " = ?" => $id,
 			$this->quoteIdentifier("published") . " = ?" => '1',
 			$this->quoteIdentifier("sheduled") . " = ?" => '0',
+		    $this->quoteIdentifier("language") . " = ?" => $lang,
 		),$order,$lim);
 	}	
 
-	public function getFrontContentByAlias ($alias)
+	public function getFrontContentByAlias ($alias, $lang = 'ru')
 	{
 		return $this->fetchrow(array(
 		$this->quoteIdentifier("alias") . " = ?" => $alias,
 		$this->quoteIdentifier("published") . " = ?" => '1',
 		$this->quoteIdentifier("sheduled") . " = ?" => '0',
+		$this->quoteIdentifier("language") . " = ?" => $lang,
 		));
 	}
 }
