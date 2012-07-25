@@ -34,6 +34,8 @@ function uiDialogOpen(title, content)
 			complete: function(jqXHR, textStatus) {
 				//console.log(jqXHR);
 				observeFormOnSubmit();
+				observeAnchorOnClick();
+				uploader();
 			}
 		});		
 	} else {

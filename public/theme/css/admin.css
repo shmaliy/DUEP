@@ -364,6 +364,7 @@ img { border: 0 none; }
 .admin-table-navigation-pages a.larr,
 .admin-table-navigation-pages a.rarr {
 	text-decoration: none !important;
+	font-weight:400 !important;
 }
 .admin-table-navigation-pages a.current {
 	cursor: default;
