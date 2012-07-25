@@ -12,6 +12,16 @@
 <?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
 <?php echo $this->partial('admin-table-filter.php3', 'default', array('filter' => $this->filter)); ?>
 <div class="admin-table">
+	<div class="admin-actions">
+		<ul>
+			<li class="single"><a class="add" href="#"></a></li>
+			<li class="multi"><a class="delete" href="#"></a></li>
+			<li class="multi"><a class="move" href="#"></a></li>
+			<li class="multi"><a class="copy" href="#"></a></li>
+			<!--<li class="single"><a class="save" href="#"></a></li>
+			<li class="single"><a class="apply" href="#"></a></li>-->
+		</ul>
+	</div>
 	<table cellpadding="0" cellspacing="0">
 		<thead>
 			<tr>

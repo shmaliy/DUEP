@@ -38,6 +38,39 @@ $(document).ready(function(){
 	});
 });
 
+// Observe table checkbox
+$(document).ready(function(){
+	function toggleActions()
+	{
+		var cbChecked = $('.admin-table table tr input[type=checkbox]:checked');
+		if (cbChecked.length > 0) {
+			$('.admin-table-actions .single').hide();
+			$('.admin-table-actions .multi').show();
+		} else {
+			$('.admin-table-actions .single').show();
+			$('.admin-table-actions .multi').hide();
+		}
+		
+	}
+	
+	var cbAll = $('.admin-table table th input[type=checkbox]');
+	var cbRow = $('.admin-table table tr input[type=checkbox]');
+	
+	cbAll.change(function(){
+		var checked = cbAll.attr('checked');
+		if (checked) {
+			cbRow.attr('checked', checked);
+		} else {
+			cbRow.attr('checked', false);
+		}
+		
+		toggleActions();
+	});
+	
+	cbRow.change(function(){ toggleActions(); });
+});
+
+// Flash messenger
 $(document).ready(function(){
 	function hidePreviousFlashMessage(div)
 	{

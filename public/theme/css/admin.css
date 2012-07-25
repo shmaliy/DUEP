@@ -275,47 +275,47 @@ img { border: 0 none; }
 .admin-table table {
 	width: 100%;
 }
-.admin-table .checkbox,
-.admin-table .datetime {
+.admin-table table .checkbox,
+.admin-table table .datetime {
 	width: 1%;
 	white-space: nowrap;
 }
-.admin-table th div {
+.admin-table table th div {
 	font-size: 16px;
 	font-weight: 600;
 	text-align: left;
 	min-height: 16px;
 	color: #181818;
-	padding: 4px 9px;
+	padding: 7px 9px;
 	margin: 3px 5px !important;
 }
-.admin-table td {
+.admin-table table td {
 	border-top: 1px solid #aab0b4;
 }
-.admin-table td div {
+.admin-table table td div {
 	font-size: 14px;
 	color: #181818;
-	padding: 3px 8px;
+	padding: 7px 8px;
 	margin: 3px 5px !important;
 }
-.admin-table td div a {
+.admin-table table td div a {
 	color: #181818;
 	text-decoration: none;
 }
-.admin-table td div a:hover {
+.admin-table table td div a:hover {
 	text-decoration: underline;
 }
-.admin-table .delete {
+.admin-table table .delete {
 	width: 16px;
 }
-.admin-table .delete div {
+.admin-table table .delete div {
 	width: 16px;
 	height: 16px;
 	padding: 0;
 	margin: 0;
 	border: 0 none;
 }
-.admin-table .delete a {
+.admin-table table .delete a {
 	display: none;
 	color: #038bbb;
 	left: 0;
@@ -323,23 +323,68 @@ img { border: 0 none; }
 	height: 16px;
 	background: url("/theme/img/admin/delete-16px.png") no-repeat center;
 }
-.admin-table tr.hover .delete a {
+.admin-table table tr.hover .delete a {
 	display: block;
 }
-.admin-table .checkbox div {
+.admin-table table .checkbox div {
 	padding: 0;
 	margin: 0;
 	border: 0 none;
 	width: 16px;
 }
-.admin-table td.datetime div {
+.admin-table table td.datetime div {
 	text-align: right;
 }
-.admin-table .empty div {
+.admin-table table .empty div {
 	padding: 0;
 	margin: 0;
 	border: 0 none;
 	text-align: center;
+}
+.admin-actions {
+	position: fixed;
+	left: 0;
+}
+.admin-actions ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.admin-actions ul li {
+	padding: 10px;
+	margin: 0;
+	list-style: none;
+}
+.admin-actions a {
+	display: block;
+	width: 32px;
+	height: 32px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.admin-actions .add {
+	background: url("/theme/img/admin/add-32px.png");
+}
+.admin-actions .delete {
+	background: url("/theme/img/admin/delete-32px.png");
+}
+.admin-actions .save {
+	background: url("/theme/img/admin/save-32px.png");
+}
+.admin-actions .apply {
+	background: url("/theme/img/admin/apply-32px.png");
+}
+.admin-actions .move {
+	background: url("/theme/img/admin/move-32px.png");
+}
+.admin-actions .copy {
+	background: url("/theme/img/admin/copy-32px.png");
+}
+.admin-actions .single {
+	display: block;
+}
+.admin-actions .multi {
+	display: none;
 }
 /* admin table end */
 
