@@ -7,6 +7,7 @@
 		$this->headLink()->appendStylesheet('/theme/css/admin.css');
 		$this->headLink()->appendStylesheet('/js/jquery/jquery-ui-1.8.20.custom/css/smoothness/jquery-ui-1.8.20.custom.css');
 		$this->headLink()->appendStylesheet('/js/jquery/jquery.jqGrid-4.3.3/css/ui.jqgrid.css');
+		$this->headLink()->appendStylesheet('/js/jquery/jquery-wm/jquery-wm.css');
 		$this->headLink()->headLink(array('rel' => 'SHORTCUT ICON', 'href' => '/favicon.png'), 'PREPEND');
 		
 		echo $this->headLink();
@@ -17,6 +18,8 @@
 		$this->headScript()->appendFile('/js/jquery/jquery.jqGrid-4.3.3/i18n/grid.locale-ru.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload/swfupload.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload.js');
+		$this->headScript()->appendFile('/js/jquery/jquery-wm/jquery-wm.js');
+		$this->headScript()->appendFile('/js/WindowManager.js');
 		$this->headScript()->appendFile('/js/script.js');
 		echo $this->headScript();
     ?>
@@ -25,6 +28,7 @@
 	<div class="header">
 		<div class="header-resize">
 			<ul class="generic-menu">
+				<li><a onclick="uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});" class="modalOpen">Open modal</a></li>	
 				<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'default'); ?>">Центр</a></li>				
 				<li><a href="<?php echo $this->simpleUrl('config', 'admin-index', 'default'); ?>">Настройки</a></li>				
 				<li><a>Структура</a></li>				
@@ -65,6 +69,12 @@
 									<ul>
 										<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'contents', array('group' => 'gallery_of_images')); ?>">Категории</a></li>
 										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'gallery_of_images')); ?>">Альбомы</a></li>
+									</ul>
+								</li>
+								<li><span class="group">Галереи видео</span>
+									<ul>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'contents', array('group' => 'gallery_of_videos')); ?>">Категории</a></li>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'gallery_of_videos')); ?>">Галереи</a></li>
 									</ul>
 								</li>
 							</ul>

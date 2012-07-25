@@ -44,7 +44,7 @@ class Contents_SubdividionController extends Zend_Controller_Action
 	 * Обработчик страницы "Сотрудники
 	 * "
 	 */
-    public function historyAction()
+    public function staffAction()
     {
 
     	 

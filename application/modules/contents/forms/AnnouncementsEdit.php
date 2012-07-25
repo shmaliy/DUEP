@@ -1,14 +1,7 @@
 <?php
 
-class Contents_Form_AnnouncementsEdit extends Zend_Form
+class Contents_Form_AnnouncementsEdit extends Sunny_Form
 {
-	protected $_contentsGroupsId;
-	
-	public function setContentsGroupsId($id)
-	{
-		$this->_contentsGroupsId = $id;
-	}
-	
 	public function init()
 	{
 		$this->setName(strtolower('contents'));
@@ -30,7 +23,7 @@ class Contents_Form_AnnouncementsEdit extends Zend_Form
 		$this->addElement('hidden', 'videos'); // в данной версии пока не реализовано хранилище
 		
 		/*  Main  */
-		$main = array('main');
+		$main = array();
 		
 		$main[] = 'contents_categories_id';
 		$this->addElement('select', 'contents_categories_id', array(
@@ -57,7 +50,24 @@ class Contents_Form_AnnouncementsEdit extends Zend_Form
 			'label' => 'Полный текст'
 		));
 		
+		$main[] = 'media_id';
+		$this->addElement('button', 'media_id', array(
+			'label' => 'Главное изображение',
+			'buttonLabel' => 'Выбрать',
+			'onClick' => "var w = $.WM_open('/media/admin-index/select-image');"
+		));
+		
 		$this->addDisplayGroup($main, 'main');
+		
+		/*  Media  */
+		if (@class_exists('Media_AdminIndexController') && @method_exists('Media_AdminIndexController', 'selectImageAction')) {
+			
+			$media = array();
+			$media[] = 'image';
+		}
+		
+		
+		
 		
 				
 		/*  SEO  */
@@ -132,6 +142,11 @@ class Contents_Form_AnnouncementsEdit extends Zend_Form
 		
 		$this->addDisplayGroup($feeds, 'feeds');
 		
+		/*  Images  */
+		//$images = array('images');
+		
+		//$this->addDisplayGroup($images, 'images');
+		
 		
 		// Submit
 		$this->addElement('submit', 'submit', array(
@@ -149,5 +164,7 @@ class Contents_Form_AnnouncementsEdit extends Zend_Form
 		
 		$this->addPrefixPath('Sunny_Form_Decorator', 'Sunny/Form/Decorator/', 'decorator');
 		$this->setDecorators(array('CompositeFormDiv'));
+		
+		$this->getElement('media_id')->setDecorators(array('FileSelectorDiv'));
 	}
 }

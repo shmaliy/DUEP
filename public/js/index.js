@@ -31,6 +31,21 @@ var text = $(".input").val();
             $(".lang_dop").fadeOut(200); 
         }
     );  
+    $(".lang").click(function () {
+       	   var attr_langs = $(this).attr('ele');
+       	   
+       	var langs = $(this).text();
+       	$('.lang_img').attr({
+          src: "/theme/img/front/"+attr_langs+".jpg",
+        });
+       	$('.dashed').text(langs);
+       	var url = document.location.href;
+       
+       	var url_new = url.split("/");
+       	url_new[3] = attr_langs;
+
+       	document.location.href = url_new.join('/'); 
+            }); 
     $(".input").focus(function(){
     	$(this).val('');
     }).blur(function(){
@@ -103,6 +118,21 @@ var text = $(".input").val();
     			  
     		   }
     		 });
+    });
+    $('.lang').each(function() {
+    	var urls = document.location.href;
+        
+       	var urls_new = urls.split("/");
+       	var znach = $(this).attr('ele');
+       	if (znach == urls_new[3]){
+       		
+       		var langs_base = $(this).text();
+           	$('.lang_img').attr({
+              src: "/theme/img/front/"+znach+".jpg",
+            });
+           	$('.dashed').text(langs_base);
+       	}
+       	
     });
 });
   function load(){

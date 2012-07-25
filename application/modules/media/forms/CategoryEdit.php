@@ -35,6 +35,11 @@ class Media_Form_CategoryEdit extends Sunny_Form
 			'label' => 'Заголовок'
 		));
 		
+		$group1[] = 'alias';
+		$this->addElement('text', 'alias', array(
+					'label' => 'Псевдоним'
+		));
+		
 		$group1[] = 'public_url';
 		$this->addElement('text', 'public_url', array(
 			'label' => 'Урл'

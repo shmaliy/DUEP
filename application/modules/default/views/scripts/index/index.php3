@@ -57,10 +57,12 @@
 					</div>
 					<span class = "ans_block">
 					<?php foreach ($this->announcements as $item):?>
+					<a style = 'color: #737373; text-decoration:none;' href = "<?php echo $this->simpleUrl('view', 'announcements', 'contents', array('alias'=>$item->alias), 'contents/announcements/view' ); ?>">
 					<div class="pl_item_box">
 						<div class="pl_item_title"><?php echo $item->date_created;?></div>
 						<div><?php echo $item->tizer;?></div>
 					</div>
+					</a>
 					<?php endforeach;?>
 					</span>
 				</div>
@@ -92,10 +94,12 @@
 					</div>
 					<span class = "news_block">
 					<?php foreach ($this->news as $item):?>
+					<a style = 'color: #737373; text-decoration:none;' href = "<?php echo $this->simpleUrl('view', 'news', 'contents', array('alias'=>$item->alias), 'contents/news/view' ); ?>">
 					<div class="pl_item_box">
 						<div class="pl_item_title"><?php echo $item->date_created;?></div>
 						<div><?php echo $item->tizer;?></div>
 					</div>
+					</a>
 					<?php endforeach;?>
 					</span>
 				</div>

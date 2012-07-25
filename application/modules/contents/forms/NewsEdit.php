@@ -1,6 +1,6 @@
 <?php
 
-class Contents_Form_NewsEdit extends Zend_Form
+class Contents_Form_NewsEdit extends Sunny_Form
 {
 	protected $_contentsGroupsId;
 	
