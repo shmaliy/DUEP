@@ -189,6 +189,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	} else {
     		$this->view->form = new Media_Form_MediaCreate(array('uploadUrl' => $this->_helper->url->simple($this->_a, $this->_c, $this->_m, 
     			array(
+    				//TODO Must get this value from DB by default category alias!!!!!
     				"mediaCategoriesId" => 5		
     			) 
     		)));
@@ -207,6 +208,11 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	$filter            = $this->_getSessionFilter();
     	$this->view->page  = $this->_getSessionPage();
     	$this->view->rows  = $this->_getSessionRows();
+    	
+    	if(empty($filter['media_categories_id']) || !isset($filter['media_categories_id']))
+    	{
+    		$filter['media_categories_id'] = 0;
+    	}
     	
     	$where = array(
     				'media_categories_id = ?' => $filter['media_categories_id'],
@@ -229,7 +235,16 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	$form->getElement('media_categories_id')->setMultiOptions($options);
     	
     	$form->setDefaults($filter);
-    	$form->setAction($this->view->simpleUrl('set-filter', $this->_c, $this->_m, array('back' => 'select-image')));
+    	$form->setAction($this->view->simpleUrl(
+    		'set-filter', 
+    		$this->_c, $this->_m, 
+    		array(
+    			'back' => 'select-image',
+    			'update_m' => $this->_m,
+    			'update_c' => $this->_c,
+    			'update_a' => $this->_a
+    		)
+    	));
     	$this->view->filter = $form;
     	//$this->render('index');
     }
@@ -253,38 +268,53 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     public function setPageAction()
     {
     	// Version 14.07.2012
+    	$request = $this->getRequest();
+    	$this->_helper->viewRenderer->setNoRender();
     	$validator = new Zend_Validate_Int();
     	$param = $this->getRequest()->getParam(self::SESSION_PAGE);
     	$redirectTo = $this->getRequest()->getParam('redirectTo', 'index');
 		if (!$validator->isValid($param)) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set page</div>');
-			$this->_gotoUrl($redirectTo, $this->_c, $this->_m);
+			//$this->_gotoUrl($redirectTo, $this->_c, $this->_m);
 			return;
 		}
 		
 		$this->_setSessionPage($param);
-		$this->_gotoUrl($redirectTo, $this->_c, $this->_m);
+		//$this->_gotoUrl($redirectTo, $this->_c, $this->_m);
+		$this->view->action = 'update';
+		$this->view->back = $this->getRequest()->getParam('redirectTo', 'index');
+		$this->view->update_m = $request->getParam('update_m');
+		$this->view->update_c = $request->getParam('update_c');
+		$this->view->update_a = $request->getParam('update_a');
     }
     
     public function setLimitAction()
     {
     	// Version 14.07.2012
+    	$request = $this->getRequest();
+    	$this->_helper->viewRenderer->setNoRender();
     	$validator = new Zend_Validate_Int();
     	$param = $this->getRequest()->getParam(self::SESSION_ROWS);
 		if (!$validator->isValid($param)) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set rows</div>');
-			$this->_gotoUrl('index', $this->_c, $this->_m);
+			//$this->_gotoUrl('index', $this->_c, $this->_m);
 			return;
 		}
 		
     	$this->_setSessionPage(1);		
     	$this->_setSessionRows($param);
-		$this->_gotoUrl('index', $this->_c, $this->_m);
+		//$this->_gotoUrl('index', $this->_c, $this->_m);
+		$this->view->action = 'update';
+		//$this->view->back = $this->getRequest()->getParam('redirectTo', 'index');
+		$this->view->update_m = $request->getParam('update_m');
+		$this->view->update_c = $request->getParam('update_c');
+		$this->view->update_a = $request->getParam('update_a');
     }
     
     public function setFilterAction()
     {
-		$request = $this->getRequest();
+    	$this->_helper->viewRenderer->setNoRender();
+    	$request = $this->getRequest();
 		$goto = $request->getParam('back', 'index');
     	
     	// Version 14.07.2012
@@ -303,7 +333,13 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 		
     	$this->_setSessionPage(1);
     	$this->_setSessionFilter($form->getValues());	
+    	$this->view->action = 'update';
+    	$this->view->back = $goto;
+    	
+    	$this->view->update_m = $request->getParam('update_m');
+    	$this->view->update_c = $request->getParam('update_c');
+    	$this->view->update_a = $request->getParam('update_a');
     		
-		$this->_gotoUrl($goto, $this->_c, $this->_m);
+		//$this->_gotoUrl($goto, $this->_c, $this->_m);
     }
 }

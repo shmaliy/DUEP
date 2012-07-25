@@ -8,9 +8,6 @@ $adminTableNavOptions = array(
 	'action'     => $this->a,
 	'controller' => $this->c,
 	'module'     => $this->m,
-	'params'	 => array(
-						'redirectTo' => $this->a
-					)
 );
 ?>
 <?php echo $this->partial('admin-table-filter.php3', 'default', array('filter' => $this->filter)); ?>

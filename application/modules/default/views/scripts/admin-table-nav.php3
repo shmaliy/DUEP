@@ -1,31 +1,49 @@
+<?php 
+	$params = (array) $this->params;
+	
+	if (empty($this->params['update_m'])) {
+		$params['update_m'] = $this->module;
+	}
+	
+	if (empty($this->params['update_c'])) {
+		$params['update_c'] = $this->controller;
+	}
+	
+	if (empty($this->params['update_a'])) {
+		$params['update_a'] = $this->action;
+	}
+
+?>
+
+
 <div class="admin-table-navigation">
 	<?php if ($this->total > $this->rows && $this->rows > 0): ?>
 	<div class="admin-table-navigation-pages">
 		<?php
-			$this->params = (array) $this->params;
+			
 			if ($this->page <= 1) {
 				?><a class="larr current"><span>&larr;</span></a><?php
 			} else {
-				$this->params[Sunny_Controller_Action::SESSION_PAGE] = $this->page - 1;
-				$url =  $this->simpleUrl('set-page', $this->controller, $this->module, $this->params);
-				?><a href="<?php echo $url; ?>" class="larr"><span>&larr;</span></a><?php
+				$params[Sunny_Controller_Action::SESSION_PAGE] = $this->page - 1;
+				$url =  $this->simpleUrl('set-page', $this->controller, $this->module, $params);
+				?><a href="<?php echo $url; ?>" class="larr via_ajax"><span>&larr;</span></a><?php
 			}
 			
 			for ($i = 1; $i <= ceil($this->total / $this->rows); $i++) {
-				$this->params[Sunny_Controller_Action::SESSION_PAGE] = $i; 
-				$url =  $this->simpleUrl('set-page', $this->controller, $this->module, $this->params);
+				$params[Sunny_Controller_Action::SESSION_PAGE] = $i; 
+				$url =  $this->simpleUrl('set-page', $this->controller, $this->module, $params);
 				if ($this->page == $i) {
 					?><a class="current"><?php echo $i; ?></a><?php
 				} else {
-					?><a href="<?php echo $url; ?>"><?php echo $i; ?></a><?php
+					?><a href="<?php echo $url; ?>" class="via_ajax"><?php echo $i; ?></a><?php
 				}
 			}
 			
 			if ($this->page >= ceil($this->total / $this->rows)) {
 				?><a class="rarr current"><span>&rarr;</span></a><?php
 			} else {
-				$this->params[Sunny_Controller_Action::SESSION_PAGE] = $this->page + 1;
-				$url =  $this->simpleUrl('set-page', $this->controller, $this->module, $this->params);
+				$params[Sunny_Controller_Action::SESSION_PAGE] = $this->page + 1;
+				$url =  $this->simpleUrl('set-page', $this->controller, $this->module, $params);
 				?><a href="<?php echo $url;	?>" class="larr"><span>&rarr;</span></a><?php
 			}
 		?>
@@ -45,9 +63,10 @@
 				if ($r == $this->rows) {
 					?><a class="current"><?php echo $title; ?></a><?php
 				} else {
-					?><a href="#" onclick="return setLimit('<?php
-						echo $this->simpleUrl('set-limit', $this->controller, $this->module, $this->params);
-					?>', <?php echo $r; ?>);"><?php echo $title; ?></a><?php
+					?><a class="via_ajax" href="<?php
+						$params[Sunny_Controller_Action::SESSION_ROWS] = $r;
+						echo $this->simpleUrl('set-limit', $this->controller, $this->module, $params);
+					?>"><?php echo $title; ?></a><?php
 				}
 			}
 		?>
