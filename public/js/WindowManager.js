@@ -48,7 +48,7 @@ function uiDialogOpen(title, content)
 function uiDialogShow(title, content)
 {
 	var wrapper = $('<div class="ui-dialog-content-wrapper" id="ui-dialog-content-wrapper' + wIncrement + '"></div>').append(
-		$('<div class="ui-dialog-content-container" id="ui-dialog-content-container' + wIncrement + '"></div>').append(content)
+		$('<div class="ui-dialog-content-container" id="ui-dialog-content-container' + wIncrement + '"></div>').html(content)
 	);
 	
 	wrapper.dialog({

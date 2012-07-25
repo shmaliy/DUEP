@@ -7,34 +7,61 @@
 // exception - объект, обработка исключений
 
 
-
 function parseResponse(jqXHR)
 {
 	if (console && console.log) { 
-		console.log(jqXHR);
+		//console.log(jqXHR.getAllResponseHeaders());
+		//console.log(jqXHR.getResponseHeader('Content-Type'));
+		//console.log(jqXHR.statusText);
+	}
+
+	var contentType = jqXHR.getResponseHeader('Content-Type');
+	
+	if (contentType == 'application/json') {
+		var response = $.parseJSON(jqXHR.responseText);
+	
+		if (response.action == 'redirect') {
+			
+		} 
+		
+		if (response.action == 'update') {
+			//alert(response.back);
+			var url = '/' + response.m + '/' + response.c + '/' + response.back;
+			//alert(url);
+			var content = {format: 'html'};
+			$.ajax({
+				url: url,
+				data: content,
+				//dataType: "json",
+				type: 'POST',
+				error: function(jqXHR, textStatus, errorThrown) {
+					//console.log(errorThrown);
+				},
+				success: function(data, textStatus, jqXHR) {
+					//console.log(data);
+					$(document).find('.ui-dialog-content-container').html(data);
+					observeFormOnSubmit();
+				},
+				complete: function(jqXHR, textStatus) {
+					//console.log(jqXHR);
+					//observeFormOnSubmit();
+				}
+			});		
+		}
+		
+		if (response.action == 'append') {
+			
+		}
+		
+		if (response.action == 'prepend') {
+			
+		}
+		
+		if (response.action == 'exception') {
+			
+		} 
 	}
 	
-	var response = {};
-	
-	if (response.action == 'redirect') {
-		
-	} 
-	
-	if (response.action == 'update') {
-		
-	}
-	
-	if (response.action == 'append') {
-		
-	}
-	
-	if (response.action == 'prepend') {
-		
-	}
-	
-	if (response.action == 'exception') {
-		
-	} 
 }
 
 function observeFormOnSubmit()

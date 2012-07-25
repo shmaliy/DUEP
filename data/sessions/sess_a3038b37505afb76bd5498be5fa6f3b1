@@ -1,0 +1,1 @@
+Media_AdminIndexController|a:3:{s:14:"SESSION_FILTER";a:1:{s:19:"media_categories_id";s:1:"5";}s:12:"SESSION_PAGE";i:1;s:12:"SESSION_ROWS";s:2:"20";}Contents_AdminCategoriesController|a:3:{s:18:"SESSION_FILTERnews";a:1:{s:22:"contents_categories_id";i:0;}s:16:"SESSION_PAGEnews";i:1;s:16:"SESSION_ROWSnews";i:20;}

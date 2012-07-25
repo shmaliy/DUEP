@@ -208,6 +208,11 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	$this->view->page  = $this->_getSessionPage();
     	$this->view->rows  = $this->_getSessionRows();
     	
+    	if(empty($filter['media_categories_id']) || !isset($filter['media_categories_id']))
+    	{
+    		$filter['media_categories_id'] = 0;
+    	}
+    	
     	$where = array(
     				'media_categories_id = ?' => $filter['media_categories_id'],
     				"type = 'jpg' OR type = 'jpeg' OR type = 'png' OR type = 'gif'"
@@ -303,7 +308,9 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 		
     	$this->_setSessionPage(1);
     	$this->_setSessionFilter($form->getValues());	
+    	$this->view->action = 'update';
+    	$this->view->back = $goto;
     		
-		$this->_gotoUrl($goto, $this->_c, $this->_m);
+		//$this->_gotoUrl($goto, $this->_c, $this->_m);
     }
 }
