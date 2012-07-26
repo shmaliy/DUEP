@@ -54,7 +54,7 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		$this->addElement('button', 'media_id', array(
 			'label' => 'Главное изображение',
 			'buttonLabel' => 'Выбрать',
-			'onClick' => "var w = $.WM_open('/media/admin-index/select-image');"
+			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
 		));
 		
 		$this->addDisplayGroup($main, 'main');

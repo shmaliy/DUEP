@@ -28,6 +28,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 		$context->addActionContext('set-page', 'json');		
 		$context->addActionContext('set-filter', 'json');	
 		$context->addActionContext('select-image', 'json');
+		$context->addActionContext('render-form-main-image', 'json');
 		$context->addActionContext('select-file', 'json');
 		$context->initContext('json');
 	}
@@ -179,8 +180,13 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     		if(move_uploaded_file($_FILES[$postName]["tmp_name"], 'uploads/' . $name . '.' . strtolower(end(explode('.', $_FILES[$postName]['name'])))))
     		{
     			$this->view->success = true;
+    			$this->view->action = 'update';
     			$this->view->fileInfo = $fileInfo;
-    			$this->view->redirectTo = $this->_helper->url->simple('select-image', $this->_c, $this->_m);
+    			//$this->view->redirectTo = $this->_helper->url->simple('select-image', $this->_c, $this->_m);
+    			
+    			$this->view->update_m = $this->_m;
+    			$this->view->update_c = $this->_c;
+    			$this->view->update_a = 'select-image';
     		} else {
     			$this->_getMapper()->deleteEntity($this->_getMapper()->findEntity($id));
     		}
@@ -239,7 +245,6 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     		'set-filter', 
     		$this->_c, $this->_m, 
     		array(
-    			'back' => 'select-image',
     			'update_m' => $this->_m,
     			'update_c' => $this->_c,
     			'update_a' => $this->_a
@@ -247,6 +252,18 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	));
     	$this->view->filter = $form;
     	//$this->render('index');
+    }
+    
+    public function renderFormMainImageAction()
+    {
+    	$this->_helper->viewRenderer->setNoRender();
+    	
+    	$request = $this->getRequest();
+    	$params = $request->getParams();
+    	
+    	$this->view->id = $params['imgId'];
+    	$entity = $this->_getMapper()->findEntity($params['imgId']);
+    	$this->view->file = '/uploads/' . $params['imgId'] . '.' . $entity->type;
     }
     
     public function deleteAction()
@@ -315,8 +332,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     {
     	$this->_helper->viewRenderer->setNoRender();
     	$request = $this->getRequest();
-		$goto = $request->getParam('back', 'index');
-    	
+		
     	// Version 14.07.2012
 		$form = new Media_Form_AdminIndexFilter();
 		$categoriesMapper = new Media_Model_Mapper_MediaCategories();
@@ -327,14 +343,14 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 		
     	if (!$form->isValid($this->getRequest()->getParams())) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set filter</div>');
-			$this->_gotoUrl($goto, $this->_c, $this->_m);
+			//$this->_gotoUrl($goto, $this->_c, $this->_m);
 			return;
 		}
 		
     	$this->_setSessionPage(1);
     	$this->_setSessionFilter($form->getValues());	
     	$this->view->action = 'update';
-    	$this->view->back = $goto;
+    	$this->view->back = $this->getRequest()->getParams();
     	
     	$this->view->update_m = $request->getParam('update_m');
     	$this->view->update_c = $request->getParam('update_c');

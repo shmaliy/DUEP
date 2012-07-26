@@ -23,7 +23,10 @@
 			var response = $.parseJSON(serverData);
 			
 			if(response !== null) {
-				console.log();
+				if (response.action) {
+					var method = 'response_' + response.action;
+					$(this).cmsManager(method, response);
+				}
 			}
 		},
 		
@@ -79,7 +82,6 @@
 			return this.each(function(){
 				var action = null;
 				var attr   = null;
-				var data   = {};
 				
 				if ($(this).is('a')) {
 					action = 'click';
@@ -87,8 +89,9 @@
 				} else if ($(this).is('form')) {
 					action = 'submit';
 					attr   = 'action';
-					data   = $(this).serialize();
 				}
+				
+				$(this).serialize();
 				
 				if (action === null) {
 					$.error( "Can't observe selected tags" );
@@ -96,6 +99,12 @@
 				
 				$(this).bind(action, function(event){
 					event.preventDefault();
+					
+					var data   = {};
+					if (action == 'submit') {
+						data = $(this).serialize();
+					}
+					
 					$(this).cmsManager('request', $(this).attr(attr), data);
 				});
 			});
@@ -126,6 +135,36 @@
 				},
 				success: function(data, textStatus, jqXHR) {
 					$(this).cmsManager('parseHttpResponse', jqXHR);
+				},
+				complete: function(jqXHR, textStatus) {
+				
+				}
+			});
+		},
+		
+		mainImageFormSelector: function (value, hidden_id, wId)
+		{
+			$('#' + hidden_id).attr('value', value);
+			$(this).cmsManager('mainImageRenderer', value);
+			wId.dialog('close');
+		},
+		
+		mainImageRenderer: function (id)
+		{
+			var url = '/media/admin-index/render-form-main-image/imgId/' + id; 
+			//alert(id);
+			$.ajax({
+				url: url,
+				//data: data,
+				type: 'POST',
+				error: function(jqXHR, textStatus, errorThrown) {
+					//$(this).cmsManager('parseHttpResponse', jqXHR);
+				},
+				success: function(data, textStatus, jqXHR) {
+					//$(this).cmsManager('parseHttpResponse', jqXHR);
+					var response = $.parseJSON(jqXHR.responseText);
+					var file = response.file;
+					$('.media_id-list').append('<li id="result-list-item-' + id + '"><img src="' + file + '" width="150" height="150"></li>');
 				},
 				complete: function(jqXHR, textStatus) {
 				
@@ -316,7 +355,7 @@ function uploader()
 		su.bind('uploadSuccess', function(event, file, serverData){
 			//$('#log').append('<li>Upload success - '+file.name+'</li>');
 			console.log('Upload success - ' + file.name);
-			parseFlashResponse(serverData);
+			$('.via_ajax').cmsManager('parseFlashResponse', serverData);
 			eval('var json = ' + serverData);
 			
 			if (json.success === true) {
@@ -325,7 +364,7 @@ function uploader()
 				progress.dialog("destroy");
 				
 				if (json.redirectTo != '') {
-					window.location.href = json.redirectTo;
+					//window.location.href = json.redirectTo;
 				}
 			}
 		});

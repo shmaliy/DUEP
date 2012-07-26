@@ -46,6 +46,8 @@
 				$url =  $this->simpleUrl('set-page', $this->controller, $this->module, $params);
 				?><a href="<?php echo $url;	?>" class="larr"><span>&rarr;</span></a><?php
 			}
+			
+			unset($params[Sunny_Controller_Action::SESSION_PAGE]);
 		?>
 	</div>
 	<?php endif; ?>
@@ -69,6 +71,7 @@
 					?>"><?php echo $title; ?></a><?php
 				}
 			}
+			unset($params[Sunny_Controller_Action::SESSION_ROWS]);
 		?>
 	</div>
 	<div class="clr"></div>
