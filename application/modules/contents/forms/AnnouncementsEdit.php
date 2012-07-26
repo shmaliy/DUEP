@@ -13,7 +13,6 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		
 		$this->addElement('hidden', 'id');
 		$this->addElement('hidden', 'contents_groups_id', array('value' => $this->_contentsGroupsId));
-		$this->addElement('hidden', 'image');
 		$this->addElement('hidden', 'event');
 		$this->addElement('hidden', 'sheduled');
 		$this->addElement('hidden', 'pages');

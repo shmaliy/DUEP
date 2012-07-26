@@ -129,6 +129,8 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 				
 				$this->_helper->flashMessenger->addMessage('<div class="notification-done">Saved success</div>');
 				$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+				$this->view->action = 'update';
+				$this->view->sourceUrl = 1;
 			} else {
     			$this->view->formErrors        = $form->getErrors();
     			$this->view->formErrorMessages = $form->getErrorMessages();
