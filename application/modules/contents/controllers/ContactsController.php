@@ -31,6 +31,52 @@ class Contents_ContactsController extends Zend_Controller_Action
 	 */
 	public function indexAction()
     {
+        $url = $_SERVER[REQUEST_URI];
+        $langs = explode("/", trim($url,'/'));
+        if($langs[0] == ''){
+            $langs[0] = 'ru';
+        };
+        
+        
+         
+         
+        $groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+        $this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
+        $this->view->ngroup = $groupsMapper->getFrontGroupByAlias ("news");
+        $this->view->egroup = $groupsMapper->getFrontGroupByAlias ("events");
+        $this->view->group = $groupsMapper->getFrontGroup();
+        
+        $catMapper = new Contents_Model_Mapper_ContentsCategories();
+        $this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $langs[0]);
+        $this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $langs[0]);
+        $this->view->ecats = $catMapper->getFrontCatsByGroupId($this->view->egroup->id, $langs[0]);
+        
+        $contentsMapper = new Contents_Model_Mapper_Contents();
+        $this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $langs[0],'date_created desc');
+        $this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $langs[0],'date_created desc');
+        $this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $langs[0], 'date_created desc');
+        $this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->egroup->id, $this->view->agroup->id, $this->view->ngroup->id), $langs[0],'date_created desc',5);
+         
+        
+        $translatedMonths = array(
+        1 => 'Январь',
+        2 => 'Февраль',
+        3 => 'Март',
+        4 => 'Апрель',
+        5 => 'Май',
+        6 => 'Июнь',
+        7 => 'Июль',
+        8 => 'Август',
+        9 => 'Сентябрь',
+        10 => 'Октябрь',
+        11 => 'Ноябрь',
+        12 => 'Декабрь'
+        );
+         
+        $this->view->announcements->formatDate('date_created', $translatedMonths, 'г.');
+        $this->view->events->formatDate('date_created', $translatedMonths, 'г.');
+        $this->view->news->formatDate('date_created', $translatedMonths, 'г.');
+        $this->view->actual->formatDate('date_created', $translatedMonths, 'г.');
 
     }
     

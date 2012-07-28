@@ -39,6 +39,14 @@
     	'SEARCH_SITE' => 'Search site',
     	'ALL_NEWS' => 'All news',
     	'OTHER' => 'Other',
+    	'CONTACTS_DATE' => 'Contacts dates',
+    	'CALL_BEACK' => 'Call beack',
+        'CALL' => 'Add call',
+        'Y_NAME' => 'You name*',
+        'Y_EMAIL' => 'You email*',
+        'TEMS_MAIL' => 'RE:',
+        'TEXT_MAIL' => 'Text mail*',
+        'RULLS' => 'Reqvaide,  (*) to write',
                 );
 
 ?>
