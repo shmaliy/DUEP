@@ -7,150 +7,191 @@
 // exception - объект, обработка исключений
 
 
-function parseFlashResponse(serverData)
-{
-	if (!serverData) {
-		return;
-	}
-	
-	var response = $.parseJSON(serverData);
-	
-	if(response !== null) {
-		console.log(response);
-		
-	}
-}
 
-function parseResponse(jqXHR)
-{
-	if (console && console.log) { 
-		//console.log(jqXHR.getAllResponseHeaders());
-		//console.log(jqXHR.getResponseHeader('Content-Type'));
-		//console.log(jqXHR.statusText);
-	}
-
-	var contentType = jqXHR.getResponseHeader('Content-Type');
+(function( $ ) {
 	
-	if (contentType == 'application/json') {
-		var response = $.parseJSON(jqXHR.responseText);
+	var methods = {
+		init: function () {
+				
+		},
 		
-		if (response.action == 'redirect') {
+		parseFlashResponse: function (serverData) {
+			if (!serverData) {
+				return;
+			}
 			
-		} 
+			var response = $.parseJSON(serverData);
+			
+			if(response !== null) {
+				if (response.action) {
+					var method = 'response_' + response.action;
+					$(this).cmsManager(method, response);
+				}
+			}
+		},
 		
-		if (response.action == 'update') {
-			//alert(response.back);
-			var url = '/' + response.update_m + '/' + response.update_c + '/' + response.update_a;
-			//alert(url);
-			var content = {format: 'html'};
-			$.ajax({
-				url: url,
-				data: content,
-				//dataType: "json",
-				type: 'POST',
-				error: function(jqXHR, textStatus, errorThrown) {
-					//console.log(errorThrown);
-				},
-				success: function(data, textStatus, jqXHR) {
-					//console.log(data);
-					var modal = $(document).find('.ui-dialog-content-container');
-					if (modal.length > 0) {
-						$(document).find('.ui-dialog-content-container').html(data);
-					} else {
-						$(document).find('.body-container').html(data);
+		parseHttpResponse: function (jqXHR) 
+		{
+			var contentType = jqXHR.getResponseHeader('Content-Type');	
+			if (contentType == 'application/json') {
+				var response = $.parseJSON(jqXHR.responseText);
+				
+				if (response.action) {
+					var method = 'response_' + response.action;
+					$(this).cmsManager(method, response);
+				}
+			}
+		},
+		
+		response_update: function (response) {
+			console.log(response);
+			if (!response.sourceUrl || response.sourceUrl !=1) {
+				var url = '/' + response.update_m + '/' + response.update_c + '/' + response.update_a;
+				var content = {format: 'html'};
+			
+				$.ajax({
+					url: url,
+					data: content,
+					type: 'POST',
+					error: function(jqXHR, textStatus, errorThrown) {},
+					
+					success: function(data, textStatus, jqXHR) {
+						var modal = $(document).find('.ui-dialog-content-container');
+						if (modal.length > 0) {
+							$(document).find('.ui-dialog-content-container').html(data);
+						} else {
+							$(document).find('.body-container').html(data);
+						}
+						
+						$('.via_ajax').cmsManager('observe');
+						
+						uploader();
+					},
+					
+					complete: function(jqXHR, textStatus) {}
+				});		
+			} else {
+				window.location = response.redirectTo;
+			}
+			
+		},
+		
+		observe: function()
+		{
+			return this.each(function(){
+				var action = null;
+				var attr   = null;
+				
+				if ($(this).is('a')) {
+					action = 'click';
+					attr   = 'href';
+				} else if ($(this).is('form')) {
+					action = 'submit';
+					attr   = 'action';
+				}
+				
+				$(this).serialize();
+				
+				if (action === null) {
+					$.error( "Can't observe selected tags" );
+				}
+				
+				$(this).bind(action, function(event){
+					event.preventDefault();
+					
+					var data   = {};
+					if (action == 'submit') {
+						data = $(this).serialize();
 					}
 					
-					observeFormOnSubmit();
-					observeAnchorOnClick();
-					uploader();
+					$(this).cmsManager('request', $(this).attr(attr), data);
+				});
+			});
+		},
+		
+		request: function (url, data)
+		{
+			if (!data) {
+				data = '';
+			}
+			
+			if (typeof url != 'string') {
+				$.error( 'Url passed in to "request" must be a string!' );
+			}
+			
+			if (typeof data != 'string' && !$.isPlainObject(data)) {
+				$.error( 'Data passed in to "request" must be a string or isPlainObject!' );
+			}
+			
+			//alert(typeof data);
+			
+			$.ajax({
+				url: url,
+				data: data,
+				type: 'POST',
+				error: function(jqXHR, textStatus, errorThrown) {
+					$(this).cmsManager('parseHttpResponse', jqXHR);
+				},
+				success: function(data, textStatus, jqXHR) {
+					$(this).cmsManager('parseHttpResponse', jqXHR);
 				},
 				complete: function(jqXHR, textStatus) {
-					//console.log(jqXHR);
-					//observeFormOnSubmit();
+				
 				}
-			});		
-		}
+			});
+		},
 		
-		if (response.action == 'append') {
-			
-		}
+		mainImageFormSelector: function (value, hidden_id, wId)
+		{
+			$('#' + hidden_id).attr('value', value);
+			$(this).cmsManager('mainImageRenderer', value);
+			wId.dialog('close');
+		},
 		
-		if (response.action == 'prepend') {
-			
+		mainImageRenderer: function (id)
+		{
+			var url = '/media/admin-index/render-form-main-image/imgId/' + id; 
+			//alert(id);
+			$.ajax({
+				url: url,
+				//data: data,
+				type: 'POST',
+				error: function(jqXHR, textStatus, errorThrown) {
+					//$(this).cmsManager('parseHttpResponse', jqXHR);
+				},
+				success: function(data, textStatus, jqXHR) {
+					//$(this).cmsManager('parseHttpResponse', jqXHR);
+					var response = $.parseJSON(jqXHR.responseText);
+					var file = response.file;
+					$('.media_id-list').append('<li id="result-list-item-' + id + '"><img src="' + file + '" width="150" height="150"></li>');
+				},
+				complete: function(jqXHR, textStatus) {
+				
+				}
+			});
 		}
-		
-		if (response.action == 'exception') {
-			
-		} 
-	}
+	};
 	
-}
+	$.fn.cmsManager = function( method ) {
+  
+		if ( methods[method] ) {
+			return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
+		} else if ( typeof method === 'object' || ! method ) {
+			return methods.init.apply( this, arguments );
+		} else {
+			$.error( 'Method ' +  method + ' does not exist on jQuery.tooltip' );
+		}    
 
-function observeFormOnSubmit()
-{
-	$('form.via_ajax').each(function(){
-		var url = $(this).attr('action');
-		$(this).submit(function(){
-			$.ajax({
-				url: url,
-				data: $(this).serialize(),
-				//dataType: "json",
-				type: 'POST',
-				error: function(jqXHR, textStatus, errorThrown) {
-					parseResponse(jqXHR);
-					//console.log(errorThrown);
-				},
-				success: function(data, textStatus, jqXHR) {
-					parseResponse(jqXHR);
-					//console.log(data);
-					if (data.redirectTo) {
-						window.location.href = data.redirectTo;
-					}
-				},
-				complete: function(jqXHR, textStatus) {
-					parseResponse(jqXHR);
-					//console.log(jqXHR);
-				}
-			});
-		});
-	});
-}
+	};
+})( jQuery );
 
-function observeAnchorOnClick()
-{
-	$('a.via_ajax').each(function(){
-		var url = $(this).attr('href');
-		$(this).click(function(event){
-			event.preventDefault();
-			$.ajax({
-				url: url,
-				//data: $(this).serialize(),
-				//dataType: "json",
-				type: 'POST',
-				error: function(jqXHR, textStatus, errorThrown) {
-					parseResponse(jqXHR);
-					//console.log(errorThrown);
-				},
-				success: function(data, textStatus, jqXHR) {
-					parseResponse(jqXHR);
-					//console.log(data);
-					if (data.redirectTo) {
-						window.location.href = data.redirectTo;
-					}
-				},
-				complete: function(jqXHR, textStatus) {
-					parseResponse(jqXHR);
-					//console.log(jqXHR);
-				}
-			});
-		});
-	});
-}
 
 
 $(document).ready(function(){
-	observeFormOnSubmit();
-	observeAnchorOnClick();
+	//observeFormOnSubmit();
+	//observeAnchorOnClick();
+
+	$('.via_ajax').cmsManager('observe');
 });
 
 // Observe generic menu class toggle
@@ -169,11 +210,11 @@ $(document).ready(function(){
 	{
 		var cbChecked = $('.admin-table table tr input[type=checkbox]:checked');
 		if (cbChecked.length > 0) {
-			$('.admin-table-actions .single').hide();
-			$('.admin-table-actions .multi').show();
+			$('.admin-actions .single').hide();
+			$('.admin-actions .multi').show();
 		} else {
-			$('.admin-table-actions .single').show();
-			$('.admin-table-actions .multi').hide();
+			$('.admin-actions .single').show();
+			$('.admin-actions .multi').hide();
 		}
 		
 	}
@@ -313,7 +354,7 @@ function uploader()
 		su.bind('uploadSuccess', function(event, file, serverData){
 			//$('#log').append('<li>Upload success - '+file.name+'</li>');
 			console.log('Upload success - ' + file.name);
-			parseFlashResponse(serverData);
+			$('.via_ajax').cmsManager('parseFlashResponse', serverData);
 			eval('var json = ' + serverData);
 			
 			if (json.success === true) {
@@ -322,7 +363,7 @@ function uploader()
 				progress.dialog("destroy");
 				
 				if (json.redirectTo != '') {
-					window.location.href = json.redirectTo;
+					//window.location.href = json.redirectTo;
 				}
 			}
 		});

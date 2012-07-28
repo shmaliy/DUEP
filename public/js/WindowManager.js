@@ -33,8 +33,7 @@ function uiDialogOpen(title, content)
 			},
 			complete: function(jqXHR, textStatus) {
 				//console.log(jqXHR);
-				observeFormOnSubmit();
-				observeAnchorOnClick();
+				$('.via_ajax').cmsManager('observe');
 				uploader();
 			}
 		});		
