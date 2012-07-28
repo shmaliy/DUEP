@@ -34,7 +34,8 @@ class Contents_AnnouncementsController extends Zend_Controller_Action
 	public function indexAction()
     {
         $url = $_SERVER[REQUEST_URI];
-        $langs = explode("/", $url);
+        $langs = explode("/", trim($url,'/'));
+         if($langs[0] == ''){ $langs[0] = 'ru';};
     	
     	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
     	$this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
@@ -43,15 +44,15 @@ class Contents_AnnouncementsController extends Zend_Controller_Action
     	$this->view->group = $groupsMapper->getFrontGroup();
     	 
     	$catMapper = new Contents_Model_Mapper_ContentsCategories();
-    	$this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $langs[1]);
-    	$this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $langs[1]);
-    	$this->view->ecats = $catMapper->getFrontCatsByGroupId($this->view->egroup->id, $langs[1]);
+    	$this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $langs[0]);
+    	$this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $langs[0]);
+    	$this->view->ecats = $catMapper->getFrontCatsByGroupId($this->view->egroup->id, $langs[0]);
     	 
     	$contentsMapper = new Contents_Model_Mapper_Contents();
-    	$this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $langs[1],'date_created desc');
-    	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $langs[1],'date_created desc');
-    	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $langs[1],'date_created desc');
-    	$this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->ngroup->id, $this->view->egroup->id), $langs[1],'date_created desc',5);
+    	$this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $langs[0],'date_created desc');
+    	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $langs[0],'date_created desc');
+    	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $langs[0],'date_created desc');
+    	$this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->ngroup->id, $this->view->egroup->id), $langs[0],'date_created desc',5);
     	
     	$translatedMonths = array(
 	    	1 => 'Январь',
@@ -79,7 +80,8 @@ class Contents_AnnouncementsController extends Zend_Controller_Action
     public function viewAction()
     {
         $url = $_SERVER[REQUEST_URI];
-        $langs = explode("/", $url);
+        $langs = explode("/", trim($url,'/'));
+         if($langs[0] == ''){ $langs[0] = 'ru';};
 
     	$alias =  $this->getRequest()->getParam('alias');
     	
@@ -90,18 +92,18 @@ class Contents_AnnouncementsController extends Zend_Controller_Action
     	$this->view->group = $groupsMapper->getFrontGroup();
     	 
     	$catMapper = new Contents_Model_Mapper_ContentsCategories();
-    	$this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $langs[1]);
-    	$this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $langs[1]);
-    	$this->view->ecats = $catMapper->getFrontCatsByGroupId($this->view->egroup->id, $langs[1]);
+    	$this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $langs[0]);
+    	$this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $langs[0]);
+    	$this->view->ecats = $catMapper->getFrontCatsByGroupId($this->view->egroup->id, $langs[0]);
     	 
     	$contentsMapper = new Contents_Model_Mapper_Contents();
-    	$this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $langs[1],'date_created desc');
-    	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $langs[1],'date_created desc');
-    	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $langs[1],'date_created desc');
-    	$this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->ngroup->id, $this->view->egroup->id), $langs[1],'date_created desc',5);
+    	$this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $langs[0],'date_created desc');
+    	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $langs[0],'date_created desc');
+    	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $langs[0],'date_created desc');
+    	$this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->ngroup->id, $this->view->egroup->id), $langs[0],'date_created desc',5);
 
     	$contentMapper = new Contents_Model_Mapper_Contents();
-    	$this->view->announcement = $contentMapper->getFrontContentByAlias($alias, $langs[1]);
+    	$this->view->announcement = $contentMapper->getFrontContentByAlias($alias, $langs[0]);
     	
     	$translatedMonths = array(
     	1 => 'Январь',
@@ -119,7 +121,9 @@ class Contents_AnnouncementsController extends Zend_Controller_Action
     	);
 
     	$this->view->announcements->formatDate('date_created', $translatedMonths, 'г.');
+    	if($this->view->one_news !== NULL){
     	$this->view->announcement->formatDate('date_created', $translatedMonths, 'г.');
+    	};
     	$this->view->events->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->news->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->actual->formatDate('date_created', $translatedMonths, 'г.');

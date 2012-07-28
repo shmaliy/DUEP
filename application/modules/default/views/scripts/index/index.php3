@@ -18,7 +18,7 @@
 				<div class="box">
 					<div class="box_left_top"></div>
 					<div class="box_left_bottom"></div>
-					<span class="left MyriadProCondRegular">СТАНДАРТЫ <br> КАЧЕСТВА:</span>
+					<span class="left MyriadProCondRegular"><?php echo Zend_Registry::get('trasvistit')->_("STANDART");?> <br> <?php echo Zend_Registry::get('trasvistit')->_("QUALITY");?>:</span>
 					<a href=""><img src="/theme/img/front/standart1.jpg" class="standart_img"/></a>
 					<a href=""><img src="/theme/img/front/standart2.jpg" class="standart_img"/></a>
 					<a href=""><img src="/theme/img/front/standart3.jpg" class="standart_img"/></a>
@@ -30,9 +30,9 @@
 				</div>
 				<div class="left content_left bg_ed1c24">
 					<div class="pl_bg_box">
-						<div class="pl_title_box">Анонсы</div>
+						<div class="pl_title_box"><?php echo Zend_Registry::get('trasvistit')->_("ANNOUNCEMENTS");?></div>
 						<div class="right pl_all_box relative">
-							<a href="" class="dashed">Все анонсы</a> &#8595;
+							<a href="" class="dashed"><?php echo Zend_Registry::get('trasvistit')->_("ALL_ANNOUNCEMENTS");?></a> &#8595;
 							<div class="pop_up" style = "display: none">
 								<div class="pop_up_left_top"></div>
 								<div class="pop_up_right_top"></div>
@@ -69,8 +69,8 @@
 				
 				<div class="left content_center bg_0066c1">
 					<div class="pl_bg_box">
-						<div class="pl_title_box">Новости</div>
-						<div class="right pl_all_box"><a href="" class="dashed">Все новости</a> &#8595;
+						<div class="pl_title_box"><?php echo Zend_Registry::get('trasvistit')->_("NEWS");?></div>
+						<div class="right pl_all_box"><a href="" class="dashed"><?php echo Zend_Registry::get('trasvistit')->_("ALL_NEWS");?></a> &#8595;
 							<div class="pop_up" style = "display: none">
 								<div class="pop_up_left_top"></div>
 								<div class="pop_up_right_top"></div>
@@ -105,7 +105,7 @@
 				</div>
 				<div class="right content_right">
 					<div class="grey_box">
-						<div class="title_box">Актуальная информация</div>
+						<div class="title_box"><?php echo Zend_Registry::get('trasvistit')->_("ACTUAL_INFO");?></div>
 						<div class="text_box">
 							<ul>
 								<li><a href="">Ліцензування та акредитація</a></li>
@@ -124,7 +124,7 @@
 						</div>
 					</div>
 					<div class="grey_box">
-						<div class="title_box">Госорганы образования</div>
+						<div class="title_box"><?php echo Zend_Registry::get('trasvistit')->_("GOS");?></div>
 						<div class="text_box">
 							<ul>
 								<li><center><img src="/theme/img/front/logo_m.jpg"/></center></li>
@@ -136,8 +136,8 @@
 				<div class="clearer"></div>
 				<div class="bg_61a123">
 					<div class="pl_bg_box">
-						<div class="pl_title_box">Прошедшие события</div>
-						<div class="right pl_all_box"><a href="" class="dashed">Все события</a> &#8595;</div>
+						<div class="pl_title_box"><?php echo Zend_Registry::get('trasvistit')->_("LAST_EVENTS");?></div>
+						<div class="right pl_all_box"><a href="" class="dashed"><?php echo Zend_Registry::get('trasvistit')->_("ALL_EVENTS");?></a> &#8595;</div>
 						<div class="clearer"></div>
 					</div>
 					<div class="last_photo">

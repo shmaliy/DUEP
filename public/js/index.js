@@ -1,4 +1,9 @@
-$(document).ready(function () {   
+$(document).ready(function () { 
+	var url = document.location.href;
+    
+   	var url_lang = url.split("/");
+	if (url_lang[3] == '') {url_lang[3] = 'ru';}
+	
 var text = $(".input").val();
    $(".main_down").hover(
    	    function () {
@@ -67,7 +72,7 @@ var text = $(".input").val();
     	var ans_id = $(this).attr('ans_id');
     	$.ajax({
     		   type: "POST",
-    		   url: "/default/index/front-announcements",
+    		   url: "/"+url_lang[3]+"/default/index/front-announcements",
     		   data: {"ans_id": ans_id},
     		   success: function(content){
     			   var html = '';
@@ -93,10 +98,12 @@ var text = $(".input").val();
 
     });
     $(".cat_news").live("click",function(){
+
     	var news_id = $(this).attr('news_id');
+
     	$.ajax({
     		   type: "POST",
-    		   url: "/default/index/front-news",
+    		   url: "/"+url_lang[3]+"/default/index/front-news",
     		   data: {"news_id": news_id},
     		   success: function(content){
     			   var html = '';
@@ -130,7 +137,7 @@ var text = $(".input").val();
            	$('.lang_img').attr({
               src: "/theme/img/front/"+znach+".jpg",
             });
-           	$('.dashed').text(langs_base);
+           	$('.dashed_lang').text(langs_base);
        	}
        	
     });

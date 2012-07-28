@@ -8,11 +8,11 @@
       </div>
     <div class="content">
       <div>
-        <h1 class="developments">Новости</h1>
+        <h1 class="developments"><?php echo Zend_Registry::get('trasvistit')->_("NEWS");?></h1>
       </div>
       <div class="adt">
         <ul class="adt_list">
-          <?php foreach ($this->news as $item):?>
+          <?php foreach ($this->news as $item): if($item):?>
           <li class="adt_date">
             <span class="adt_image">
 	            <?php if ($item->img == ''): ?>
@@ -23,7 +23,7 @@
              </span>
               <a href="<?php echo $this->simpleUrl('view', 'news', 'contents', array('alias'=>$item->alias), 'contents/news/view' ); ?>"><?php echo $item->title; ?></a>
               <p><?php echo $item->date_created;?>,
-              <a class="comments" href="">15 комментариев</a></p>
+              <a class="comments" href="">15 <?php echo Zend_Registry::get('trasvistit')->_("COMMENTS");?></a></p>
                               <?php foreach ($this->acats as $itemc):
                 if ($itemc->id == $item->contents_categories_id):?>
                 <a class="category_news" href=""><?php echo $itemc->title; ?></a>
@@ -31,7 +31,7 @@
               
               <p class="adt_description"><?php echo $item->tizer; ?></p>
           </li>
-           <?php endforeach;?>
+            <?php endif; endforeach;?>
             <li class="paging">
                 <a href="">&larr;</a>
                 <a href="">1</a>
@@ -69,7 +69,7 @@
         <li><a href="">Нобелевское движение</a></li>
         <li><a href="">Аспирантура и докторантура</a></li>
         <li><div class="note">
-        <a href="">Новости</a>
+        <a href=""><?php echo Zend_Registry::get('trasvistit')->_("NEWS");?></a>
         </div>
             <ul class="submenu">
                 <li><a href="">Студенту</a></li>
@@ -81,9 +81,9 @@
         <li><a href="">Болонский процесс</a></li>
     </ul>
     <div class="side_true">
-        <h2>Актуально</h2>
+        <h2><?php echo Zend_Registry::get('trasvistit')->_("ACTUAL");?></h2>
         <ul>
-         <?php foreach ($this->actual as $item):?>
+         <?php  foreach ($this->actual as $item): if($item):?>
             <li>
                  <?php if ($item->img == ''): ?>
 	            <img height = 40 width = 40 alt="" src="/theme/img/front/noimage.png" />
@@ -99,7 +99,7 @@
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
                 </span>
             </li>
-            <?php endforeach;?>
+            <?php endif; endforeach;?>
         </ul>
     </div>
   </div>

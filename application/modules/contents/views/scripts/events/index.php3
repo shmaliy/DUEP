@@ -8,20 +8,20 @@
       </div>
     <div class="content">
       <div>
-          <h1 class="developments">События</h1>
+          <h1 class="developments"><?php echo Zend_Registry::get('trasvistit')->_("EVENTS");?></h1>
         <ul class="lineTabs">
           <li>
-            <a href=""><span>Анонсы</span></a>
+            <a href=""><span><?php echo Zend_Registry::get('trasvistit')->_("ANNOUNCEMENTS");?></span></a>
           </li>
           <li>
-            <a class="active" href=""><span>Прошедшие события</span></a>
+            <a class="active" href=""><span><?php echo Zend_Registry::get('trasvistit')->_("LAST_EVENTS");?></span></a>
           </li>
         </ul>
           <hr />
       </div>
       <div class="adt">
         <ul class="adt_list">
-        <?php foreach ($this->events as $item):?>
+        <?php foreach ($this->events as $item): if($item):?>
           <li class="adt_date" style = "display: none;">
              <span class="adt_image">
                 <?php if ($item->img == ''): ?>
@@ -38,7 +38,7 @@
             <a href="<?php echo $this->simpleUrl('view', 'events', 'contents', array('alias'=>$item->alias), 'contents/events/view'); ?>"><?php echo $item->title;?></a>
             <p class="adt_description"><?php echo $item->tizer;?></p>
           </li>
-          <?php endforeach;?>
+          <?php endif; endforeach;?>
         </ul>
       </div>
         <div class="calendar"></div>
@@ -61,7 +61,7 @@
         <li><a href="">Нобелевское движение</a></li>
         <li><a href="">Аспирантура и докторантура</a></li>
         <li><div class="note">
-        <a href="">События</a>
+        <a href=""><?php echo Zend_Registry::get('trasvistit')->_("EVENTS");?></a>
         </div>
             <ul class="submenu">
                 <li><a href="">Категория1</a></li>
@@ -73,9 +73,9 @@
         <li><a href="">Болонский процесс</a></li>
     </ul>
     <div class="side_true">
-        <h2>Актуально</h2>
+        <h2><?php echo Zend_Registry::get('trasvistit')->_("ACTUAL");?></h2>
         <ul>
-         <?php foreach ($this->actual as $item):?>
+         <?php foreach ($this->actual as $item): if($item):?>
             <li>
                  <?php if ($item->img == ''): ?>
 	            <img height = 40 width = 40 alt="" src="/theme/img/front/noimage.png" />
@@ -91,7 +91,7 @@
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
                 </span>
             </li>
-            <?php endforeach;?>
+            <?php endif; endforeach;?>
             
         </ul>
     </div>

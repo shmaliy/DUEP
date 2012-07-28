@@ -37,7 +37,7 @@
 			<div class="language">
 				<div class="language_active relative">
 					<div class="language_active_left lang"></div>
-					<img src="/theme/img/front/ru.jpg" class="lan lang_img"/><a style = "cursor: pointer;" class="dashed">Русский</a> &#8595;
+					<img src="/theme/img/front/ru.jpg" class="lan lang_img"/><a style = "cursor: pointer;" class="dashed dashed_lang">Русский</a> &#8595;
 					<div class="language_active_right"></div>
 				</div>
 				<div class="pop_up lang_dop">
@@ -61,9 +61,9 @@
 			</div>
 				
 			<div class="user_block">
-				<div><a href="">Вход</a> / <a href="">Регистрация</a></div>
-				<div><a href="">Забыли пароль?</a></div>
-				<div><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'default'); ?>">Админка</a></div>
+				<div><a href=""><?php echo Zend_Registry::get('trasvistit')->_("INPUT");?></a> / <a href=""><?php echo Zend_Registry::get('trasvistit')->_("REGISTRATION");?></a></div>
+				<div><a href=""><?php echo Zend_Registry::get('trasvistit')->_("REMEMBER_PASS");?></a></div>
+				<div><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'default'); ?>"><?php echo Zend_Registry::get('trasvistit')->_("ADMIN");?></a></div>
 			</div>
 			
 			<div class="clear"></div>
@@ -162,7 +162,7 @@
 			   <form action="" method="">
 					<div class="search">
 						<div class="search_left"></div>
-						<input type="text" class="input" value="Поиск по сайту"/> 
+						<input type="text" class="input" value="<?php echo Zend_Registry::get('trasvistit')->_("SEARCH_SITE");?>"/> 
 						<input type="submit" class="submit" value=""/> 
 					</div>
 			   </form>

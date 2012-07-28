@@ -46,6 +46,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     		$this->_setRouter();
     		$this->_setPlugins();
     		$this->_setHelpers();
+    		$this->_setTranslate();
     	} catch (Exception $e) {
     		echo $e->getMessage() . '<br /><br />';
     		echo nl2br($e->getTraceAsString());
@@ -140,6 +141,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	
     	// Store back to registry
     	Zend_Registry::set(self::MULTIDB_REGISTRY_KEY, $adapters);
+    	
     }
     
     /**
@@ -224,15 +226,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	$frontController = Zend_Controller_Front::getInstance();
     	$router = $frontController->getRouter();
     	$url = $_SERVER[REQUEST_URI];
-    	$langs = explode("/", $url);
-    	$router->setGlobalParam('lang', $langs[1]);
+    	$langs = explode("/", trim($url,'/'));
+    	$router->setGlobalParam('lang', $langs[0]);
     	// Override default route
     	$router->addRoute('default', $route = new Zend_Controller_Router_Route(
-	    	':module/:controller/:action/*',
+	    	':lang/:module/:controller/:action/*',
     		array(
     			'module' => 'default',
     			'controller' => 'index',
-    			'action' => 'index'
+    			'action' => 'index',
+    			'lang' => ''
     		)
     	));
     	
@@ -247,7 +250,25 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	
     	$frontController->setRouter($router);
     }
-    
+    /**
+    * Add routes for navigation
+    */
+    protected function _setTranslate()
+    {
+        $url = $_SERVER[REQUEST_URI];
+        $langs = explode("/", trim($url,'/'));
+         if($langs[0] == ''){ $langs[0] = 'ru';};
+        $translate = new Zend_Translate(
+            array(
+                 'adapter' => 'array',
+                 'content' => APPLICATION_PATH . '/language/ru.php',
+                 'locale'  => 'ru'
+  				 )
+        );
+        $translate->addTranslation(array('content' => APPLICATION_PATH . '/language/en.php', 'locale' => 'en'));
+        $translate->setLocale($langs[0]);
+        Zend_Registry::set('trasvistit', $translate);
+    }
     /**
      * Post module initialization process
      */
@@ -287,5 +308,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	$front = $this->getResource('FrontController');
     	$front->setParam('bootstrap', $this);
     }
+    
 }
 
