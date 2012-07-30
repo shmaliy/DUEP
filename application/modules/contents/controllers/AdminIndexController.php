@@ -124,7 +124,14 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		
 		if ($request->isXmlHttpRequest() || $request->isPost()) {
 			if ($form->isValid($request->getParams())) {
-				$entity = $this->_getMapper()->createEntity($form->getValues());
+				
+				$values = $form->getValues();
+				$params = $request->getParams();
+				if (isset($params['media_id'])) {
+					$values['media_id'] = $params['media_id'];
+				}
+				
+				$entity = $this->_getMapper()->createEntity($values);
 				$this->_getMapper()->saveEntity($entity);
 				
 				$this->_helper->flashMessenger->addMessage('<div class="notification-done">Saved success</div>');

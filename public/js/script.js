@@ -88,6 +88,7 @@
 				} else if ($(this).is('form')) {
 					action = 'submit';
 					attr   = 'action';
+					
 				}
 				
 				$(this).serialize();
@@ -101,10 +102,12 @@
 					
 					var data   = {};
 					if (action == 'submit') {
+						
 						data = $(this).serialize();
 					}
 					
 					$(this).cmsManager('request', $(this).attr(attr), data);
+					return false;
 				});
 			});
 		},
@@ -150,7 +153,14 @@
 		
 		mainImageRenderer: function (id)
 		{
-			var url = '/media/admin-index/render-form-main-image/imgId/' + id; 
+			if (!id) {
+				id = $("#media_id").attr('value');
+				//alert(id);
+			}
+			
+			if(id == '') {return;}
+			
+			var url = '/ru/media/admin-index/render-form-main-image/imgId/' + id; 
 			//alert(id);
 			$.ajax({
 				url: url,
@@ -163,12 +173,22 @@
 					//$(this).cmsManager('parseHttpResponse', jqXHR);
 					var response = $.parseJSON(jqXHR.responseText);
 					var file = response.file;
-					$('.media_id-list').append('<li id="result-list-item-' + id + '"><img src="' + file + '" width="150" height="150"></li>');
+					var appendContent = '<li id="result-list-item-' + id + '">';
+					appendContent += '<img src="' + file + '" width="150" height="150">';
+					appendContent += '<a onclick="$.fn.cmsManager(\'mainImageClearer\', ' + id + ');">удалить</a>';
+					appendContent += '</li>';
+					$('.media_id-list').html(appendContent);
 				},
 				complete: function(jqXHR, textStatus) {
 				
 				}
 			});
+		},
+		
+		mainImageClearer: function (id)
+		{
+			$('#result-list-item-' + id).remove();
+			$('#media_id').attr('value', '');
 		}
 	};
 	
@@ -190,7 +210,7 @@
 $(document).ready(function(){
 	//observeFormOnSubmit();
 	//observeAnchorOnClick();
-
+	$.fn.cmsManager('mainImageRenderer');
 	$('.via_ajax').cmsManager('observe');
 });
 
