@@ -47,6 +47,8 @@
         'TEMS_MAIL' => 'RE:',
         'TEXT_MAIL' => 'Text mail*',
         'RULLS' => 'Reqvaide,  (*) to write',
+    	'S_U' => 'Stryktyre University',
+        'S_P' => 'Strykryre napravlenija',
                 );
 
 ?>
