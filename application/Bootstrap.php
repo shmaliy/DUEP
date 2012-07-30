@@ -227,7 +227,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	$router = $frontController->getRouter();
     	$url = $_SERVER[REQUEST_URI];
     	$langs = explode("/", trim($url,'/'));
-    	$router->setGlobalParam('lang', $langs[0]);
+    	//$router->setGlobalParam('lang', $langs[0]);
     	// Override default route
     	$router->addRoute('default', $route = new Zend_Controller_Router_Route(
 	    	':lang/:module/:controller/:action/*',
@@ -257,7 +257,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     {
         $url = $_SERVER[REQUEST_URI];
         $langs = explode("/", trim($url,'/'));
-         if($langs[0] == ''){ $langs[0] = 'ru';};
+        if ($langs[0] == '' || strlen($langs[0]) != 2) { 
+        	$langs[0] = 'ru';
+        };
         $translate = new Zend_Translate(
             array(
                  'adapter' => 'array',
@@ -267,6 +269,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         );
         $translate->addTranslation(array('content' => APPLICATION_PATH . '/language/en.php', 'locale' => 'en'));
         $translate->setLocale($langs[0]);
+       	Zend_Registry::set('lang', $langs[0]);
         Zend_Registry::set('trasvistit', $translate);
     }
     /**
