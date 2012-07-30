@@ -49,22 +49,16 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 			'label' => 'Полный текст'
 		));
 		
-		$main[] = 'media_id';
+		$this->addDisplayGroup($main, 'main');
+		
+		/*  Media  */
+		$media = array('media_id');
 		$this->addElement('button', 'media_id', array(
 			'label' => 'Главное изображение',
 			'buttonLabel' => 'Выбрать',
 			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
 		));
-		
-		$this->addDisplayGroup($main, 'main');
-		
-		/*  Media  */
-		if (@class_exists('Media_AdminIndexController') && @method_exists('Media_AdminIndexController', 'selectImageAction')) {
-			
-			$media = array();
-			$media[] = 'image';
-		}
-		
+		$this->addDisplayGroup($media, 'media');
 		
 		
 		
