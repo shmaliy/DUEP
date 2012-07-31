@@ -2,6 +2,13 @@
 
 class Contents_Form_AnnouncementsEdit extends Sunny_Form
 {
+	protected $_contentsGroupsId;
+	
+	public function setContentsGroupsId($id)
+	{
+		$this->_contentsGroupsId = $id;
+	}
+	
 	public function init()
 	{
 		$this->setName(strtolower('contents'));
@@ -22,11 +29,21 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		$this->addElement('hidden', 'videos'); // в данной версии пока не реализовано хранилище
 		
 		/*  Main  */
-		$main = array();
+		$main = array('contents_categories_id');
 		
 		$main[] = 'contents_categories_id';
 		$this->addElement('select', 'contents_categories_id', array(
 			'label' => 'Родитель'
+		));
+		
+		$main[] = 'languages_alias';
+		$this->addElement('select', 'languages_alias', array(
+			'label' => 'Язык'
+		));
+		
+		$main[] = 'contents_id';
+		$this->addElement('select', 'contents_id', array(
+			'label' => 'Статья-оригинал'
 		));
 		
 		$main[] = 'title';

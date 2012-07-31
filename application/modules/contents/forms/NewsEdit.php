@@ -20,7 +20,6 @@ class Contents_Form_NewsEdit extends Sunny_Form
 		
 		$this->addElement('hidden', 'id');
 		$this->addElement('hidden', 'contents_groups_id', array('value' => $this->_contentsGroupsId));
-		$this->addElement('hidden', 'image');
 		$this->addElement('hidden', 'event');
 		$this->addElement('hidden', 'sheduled');
 		$this->addElement('hidden', 'pages');
@@ -58,7 +57,15 @@ class Contents_Form_NewsEdit extends Sunny_Form
 		));
 		
 		$this->addDisplayGroup($main, 'main');
-		
+
+		/*  Media  */
+		$media = array('media_id');
+		$this->addElement('button', 'media_id', array(
+			'label' => 'Главное изображение',
+			'buttonLabel' => 'Выбрать',
+			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
+		));
+		$this->addDisplayGroup($media, 'media');
 				
 		/*  SEO  */
 		$seo = array('seo');
@@ -149,5 +156,7 @@ class Contents_Form_NewsEdit extends Sunny_Form
 		
 		$this->addPrefixPath('Sunny_Form_Decorator', 'Sunny/Form/Decorator/', 'decorator');
 		$this->setDecorators(array('CompositeFormDiv'));
+		
+		$this->getElement('media_id')->setDecorators(array('FileSelectorDiv'));
 	}
 }

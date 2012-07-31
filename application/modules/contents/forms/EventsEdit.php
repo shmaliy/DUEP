@@ -1,8 +1,8 @@
 <?php
 
-class Contents_Form_EventsEdit extends Sunny__Form
+class Contents_Form_EventsEdit extends Sunny_Form
 {
-	protected $_contentsGroupsId;
+protected $_contentsGroupsId;
 	
 	public function setContentsGroupsId($id)
 	{
@@ -20,7 +20,7 @@ class Contents_Form_EventsEdit extends Sunny__Form
 		
 		$this->addElement('hidden', 'id');
 		$this->addElement('hidden', 'contents_groups_id', array('value' => $this->_contentsGroupsId));
-		$this->addElement('hidden', 'image');
+		//$this->addElement('hidden', 'image');
 		$this->addElement('hidden', 'event');
 		$this->addElement('hidden', 'sheduled');
 		$this->addElement('hidden', 'pages');
@@ -59,6 +59,14 @@ class Contents_Form_EventsEdit extends Sunny__Form
 		
 		$this->addDisplayGroup($main, 'main');
 		
+		/*  Media  */
+		$media = array('media_id');
+		$this->addElement('button', 'media_id', array(
+					'label' => 'Главное изображение',
+					'buttonLabel' => 'Выбрать',
+					'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
+		));
+		$this->addDisplayGroup($media, 'media');
 				
 		/*  SEO  */
 		$seo = array('seo');
@@ -149,5 +157,12 @@ class Contents_Form_EventsEdit extends Sunny__Form
 		
 		$this->addPrefixPath('Sunny_Form_Decorator', 'Sunny/Form/Decorator/', 'decorator');
 		$this->setDecorators(array('CompositeFormDiv'));
+		
+		$this->getElement('media_id')->setDecorators(array('FileSelectorDiv'));
+		
+		// http://www.public.duep/en/contents/admin-index/edit/id/25/group/events
+		//http://www.public.duep/en/contents/admin-index/edit/id/29/group/news
+		
+		
 	}
 }

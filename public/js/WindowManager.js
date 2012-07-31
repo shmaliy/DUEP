@@ -16,7 +16,8 @@ function uiDialogOpen(title, content)
 		var module     = content.module ? content.module : 'default';
 		var controller = content.controller ? content.controller : 'index';
 		var action     = content.action ? content.action : 'index';
-		var url = '/' + module + '/' + controller + '/' + action;
+		var lang     = content.lang ? content.lang : 'ru';
+		var url =  '/' + lang + '/' + module + '/' + controller + '/' + action;
 		
 		var wrapper = uiDialogShow(title, '');
 		$.ajax({

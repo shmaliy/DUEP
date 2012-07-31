@@ -84,14 +84,29 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 	 */
     public function editAction()
     {
+		//Getting request
+    	$request = $this->getRequest();
+		
 		// Version 14.07.2012
 		if (false === ($group = $this->_checkGroup())) {
 			return;
 		}
 		
-		$thumbnailsRootAlias = 'content_thumbnails';
 		
+		// Mappers section
 		$mediaMapper = new Media_Model_Mapper_MediaCategories();
+		$languagesMapper = new Contents_Model_Mapper_Languages();
+		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
+		$contentsMapper = new Contents_Model_Mapper_Contents();
+		
+		
+		// Alias of default language
+		$defaultLanguage = $languagesMapper->getDefaultLanguage();
+		
+		
+		
+		//Auto set filter thumbnails
+		$thumbnailsRootAlias = 'content_thumbnails';
 		$category = $mediaMapper->fetchRow(
 			array(
 				'alias = ?' => $thumbnailsRootAlias,
@@ -100,7 +115,7 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		);
 		$thumbnailsRootId = $category->getId();
 		
-		$request = $this->getRequest();
+				
 		$id = $request->getParam('id');
 		$formClassName = 'Contents_Form_'
 		               . ucfirst(Zend_Filter::filterStatic($group->alias, 'Word_UnderscoreToCamelCase'))
@@ -112,7 +127,20 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		
 		$form = new $formClassName();
 		
-		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
+		$parentContents = $contentsMapper->getContentsFromGroup($group->id, array($request->getParam('id', 0)));
+		$parentContents = $form->collectionToMultiOptions($parentContents, array(), array('Нет'));
+		$form->getElement('contents_id')->setMultiOptions($parentContents);
+		
+		
+		$languages = $languagesMapper->fetchAll(
+			array('published = 1'),
+			array('ordering')
+		);
+		//var_export($languages);
+		$languages = $form->createAssocMultioptions($languages, array());
+		$form->getElement('languages_alias')->setMultiOptions($languages);
+		
+		
 		$collection = $categoriesMapper->fetchTree(
 			array('contents_groups_id = ?' => $group->id),
 			array('id', 'title', 'contents_categories_id')
@@ -124,7 +152,14 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		
 		if ($request->isXmlHttpRequest() || $request->isPost()) {
 			if ($form->isValid($request->getParams())) {
-				$entity = $this->_getMapper()->createEntity($form->getValues());
+				
+				$values = $form->getValues();
+				$params = $request->getParams();
+				if (isset($params['media_id'])) {
+					$values['media_id'] = $params['media_id'];
+				}
+				
+				$entity = $this->_getMapper()->createEntity($values);
 				$this->_getMapper()->saveEntity($entity);
 				
 				$this->_helper->flashMessenger->addMessage('<div class="notification-done">Saved success</div>');

@@ -1,24 +1,17 @@
 <?php
 
-class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
+class Contents_Model_Mapper_Languages extends Sunny_DataMapper_MapperAbstract
 {
-	public function getContentsFromGroup($group = null, $ignoreIds = array())
+	public function getDefaultLanguage()
 	{
-		$where = array();
-		$where[$this->quoteIdentifier("contents_groups_id") . " = ?"] = $group;
-		
-		if (!empty($ignoreIds)) {
-			foreach ($ignoreIds as $id) {
-				$where[$this->quoteIdentifier("id") . " != ?"] = $id;
-			}
-		}
-		
-		return $this->fetchAll(
-			$where, 'ordering asc'
-		);
+		$item = $this->fetchRow(array(
+			$this->quoteIdentifier("default") . " = 1",
+		));
+		return $item->alias;
 	}
 	
-	public function getFrontContentsByGroupId ($id, $lang = 'ru', $order = null, $lim = null)
+	
+	/*public function getFrontContentsByGroupId ($id, $lang = 'ru', $order = null, $lim = null)
 	{
 	    if (is_numeric($id)){$id=array($id);};
 	    $where = array();
@@ -29,7 +22,7 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 			"(".implode(' or ', $where).")",
 			$this->quoteIdentifier("published") . " = ?" => '1',
 			$this->quoteIdentifier("sheduled") . " = ?" => '0',
-		$this->quoteIdentifier("languages_alias") . " = ?" => $lang,
+		$this->quoteIdentifier("language") . " = ?" => $lang,
 		),$order,$lim);
 	}
 	public function getFrontContentsByCatId ($id, $lang = 'ru', $order = null, $lim = null)
@@ -38,7 +31,7 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 			$this->quoteIdentifier("contents_categories_id") . " = ?" => $id,
 			$this->quoteIdentifier("published") . " = ?" => '1',
 			$this->quoteIdentifier("sheduled") . " = ?" => '0',
-		    $this->quoteIdentifier("languages_alias") . " = ?" => $lang,
+		    $this->quoteIdentifier("language") . " = ?" => $lang,
 		),$order,$lim);
 	}	
 
@@ -48,7 +41,7 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 		$this->quoteIdentifier("alias") . " = ?" => $alias,
 		$this->quoteIdentifier("published") . " = ?" => '1',
 		$this->quoteIdentifier("sheduled") . " = ?" => '0',
-		$this->quoteIdentifier("languages_alias") . " = ?" => $lang,
+		$this->quoteIdentifier("language") . " = ?" => $lang,
 		));
-	}
+	}*/
 }
