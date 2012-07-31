@@ -8,6 +8,7 @@ class Contents_PublishedController extends Zend_Controller_Action
 	 * (non-PHPdoc)
 	 * @see Zend_Controller_Action::init()
 	 */
+    protected $_lang;
 	public function init()
 	{
 		$request = $this->getRequest();

@@ -13,7 +13,7 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 			"(".implode(' or ', $where).")",
 			$this->quoteIdentifier("published") . " = ?" => '1',
 			$this->quoteIdentifier("sheduled") . " = ?" => '0',
-		$this->quoteIdentifier("language") . " = ?" => $lang,
+		$this->quoteIdentifier("languages_alias") . " = ?" => $lang,
 		),$order,$lim);
 	}
 	public function getFrontContentsByCatId ($id, $lang = 'ru', $order = null, $lim = null)
@@ -22,7 +22,7 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 			$this->quoteIdentifier("contents_categories_id") . " = ?" => $id,
 			$this->quoteIdentifier("published") . " = ?" => '1',
 			$this->quoteIdentifier("sheduled") . " = ?" => '0',
-		    $this->quoteIdentifier("language") . " = ?" => $lang,
+		    $this->quoteIdentifier("languages_alias") . " = ?" => $lang,
 		),$order,$lim);
 	}	
 
@@ -32,7 +32,7 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 		$this->quoteIdentifier("alias") . " = ?" => $alias,
 		$this->quoteIdentifier("published") . " = ?" => '1',
 		$this->quoteIdentifier("sheduled") . " = ?" => '0',
-		$this->quoteIdentifier("language") . " = ?" => $lang,
+		$this->quoteIdentifier("languages_alias") . " = ?" => $lang,
 		));
 	}
 }

@@ -166,7 +166,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	 
     	));
     	$router->addRoute('contents/career/vacancy', new Zend_Controller_Router_Route(
-    	    	    	    	    	    	 ':lang/career/:alias/',
+    	    	    	    	    	    	 ':lang/career/vacancys/:alias/',
     	array(
     	    	    	    	    	    'module' => 'contents',
     	    	    	    	    	    'controller' => 'career',
@@ -175,6 +175,16 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    	    	    	    	    'lang' => ''
     	)
     	
+    	));
+    	$router->addRoute('contents/career/vacancys', new Zend_Controller_Router_Route(
+    	    	    	    	    	    	    	 ':lang/career/vacancys/',
+    	array(
+    	    	    	    	    	    	    'module' => 'contents',
+    	    	    	    	    	    	    'controller' => 'career',
+    	    	    	    	    	    	    'action' => 'vacancys',
+    	    	    	    	    	    	    'lang' => ''
+    	)
+    	 
     	));
     	$router->addRoute('contents/career/index', new Zend_Controller_Router_Route(
     	    	    	    	    	    	    	':lang/career',
@@ -355,27 +365,17 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	)
     	 
     	));
-    	$router->addRoute('contents/shedule/index', new Zend_Controller_Router_Route(
-    	    	    	    	    	    	    	    	    	    	    	    	':lang/shedule',
+    	$router->addRoute('contents/schedule/index', new Zend_Controller_Router_Route(
+    	    	    	    	    	    	    	    	    	    	    	    	':lang/schedule',
     	array(
     	    	    	    	    	    	    	    	    	    	        			'module' => 'contents',
-    	    	    	    	    	    	    	    	    	    	        			'controller' => 'shedule',
+    	    	    	    	    	    	    	    	    	    	        			'controller' => 'schedule',
     	    	    	    	    	    	    	    	    	    	        			'action' => 'index',
     	    	    	    	    	    	    	    	    	    	        			'lang' => ''
     	)
     	
     	));
-    	$router->addRoute('contents/shedule/calendar', new Zend_Controller_Router_Route(
-    	    	    	    	    	    	    	    	    	    	    	    	    	':lang/shedule/:alias/calendar',
-    	array(
-    	    	    	    	    	    	    	    	    	    	    	        			'module' => 'contents',
-    	    	    	    	    	    	    	    	    	    	    	        			'controller' => 'shedule',
-    	    	    	    	    	    	    	    	    	    	    	        			'action' => 'calendar',
-    																										'alias' => '',
-    	    	    	    	    	    	    	    	    	    	    	        			'lang' => ''
-    	)
-    	 
-    	));
+
     	$router->addRoute('contents/subdividion/staff', new Zend_Controller_Router_Route(
     	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	':lang/subdividion/:alias/staff',
     	array(

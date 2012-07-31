@@ -8,6 +8,7 @@ class IndexController extends Zend_Controller_Action
 	 * (non-PHPdoc)
 	 * @see Zend_Controller_Action::init()
 	 */
+    protected $_lang;
 	public function init()
 	{
 		$request = $this->getRequest();
@@ -27,6 +28,7 @@ class IndexController extends Zend_Controller_Action
 		$context->initContext('json');
     	//var_export($this->getRequest()->getParams());
     	//var_export(getenv('REQUEST_URI'));
+		$this->_lang = Zend_Registry::get('lang');
 	}
 	
 	/**
@@ -35,23 +37,19 @@ class IndexController extends Zend_Controller_Action
 	 */
 	public function indexAction()
     {
-      
-        $url = $_SERVER[REQUEST_URI];
-        $langs = trim($url,'/');
 
-        if($langs == ''){ $langs = 'ru';};
         
     	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
     	$this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
     	$this->view->ngroup = $groupsMapper->getFrontGroupByAlias ("news");
     	
     	$catMapper = new Contents_Model_Mapper_ContentsCategories();
-    	$this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $langs);
-    	$this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $langs);
+    	$this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $this->_lang);
+    	$this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $this->_lang);
     	
     	$contentsMapper = new Contents_Model_Mapper_Contents();
-    	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $langs,'date_created desc',6);
-    	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $langs,'date_created desc',6);
+    	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc',6);
+    	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $this->_lang,'date_created desc',6);
     	
     	$translatedMonths = array(
 	    	1 => 'Январь',
@@ -101,28 +99,18 @@ class IndexController extends Zend_Controller_Action
     }
     public function frontAnnouncementsAction()
     {
-        $url = $_SERVER[REQUEST_URI];
-        $langs = trim($url,'/');
-        
-        if($langs == ''){
-            $langs = 'ru';
-        };
+
         
     	$ans_id = $this->getRequest()->getParam('ans_id');
     	$contentsMapper = new Contents_Model_Mapper_Contents();
-    	$this->view->contents = $contentsMapper->getFrontContentsByCatId($ans_id, $langs,'date_created desc',6)->toArray();
+    	$this->view->contents = $contentsMapper->getFrontContentsByCatId($ans_id, $this->_lang,'date_created desc',6)->toArray();
     }
     public function frontNewsAction()
     {
-        $url = $_SERVER[REQUEST_URI];
-        $langs = trim($url,'/');
-        
-        if($langs == ''){
-            $langs = 'ru';
-        };
+
     	$news_id = $this->getRequest()->getParam('news_id');
     	$contentsMapper = new Contents_Model_Mapper_Contents();
-    	$this->view->contents = $contentsMapper->getFrontContentsByCatId($news_id, $langs,'date_created desc',6)->toArray();
+    	$this->view->contents = $contentsMapper->getFrontContentsByCatId($news_id, $this->_lang,'date_created desc',6)->toArray();
     }
     
 }

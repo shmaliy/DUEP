@@ -32,14 +32,6 @@ class Contents_ScheduleController extends Zend_Controller_Action
     {
     	
     }
-    /**
-    * Обработчик страницы "Календарь"
-    */
-    public function calendarAction()
-    {
-
-    	
-    }
 
     
     /**
@@ -78,6 +70,7 @@ class Contents_ScheduleController extends Zend_Controller_Action
     {
     	
     }
+    /*
     public function frontAnnouncementsAction()
     {
     	$ans_id = $this->getRequest()->getParam('ans_id');
@@ -90,5 +83,5 @@ class Contents_ScheduleController extends Zend_Controller_Action
     	$contentsMapper = new Contents_Model_Mapper_Contents();
     	$this->view->contents = $contentsMapper->getFrontContentsByCatId($news_id,'date_created desc',6)->toArray();
     }
-    
+    */
 }

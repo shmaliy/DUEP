@@ -8,6 +8,7 @@ class Contents_DirectionsController extends Zend_Controller_Action
 	 * (non-PHPdoc)
 	 * @see Zend_Controller_Action::init()
 	 */
+    protected $_lang;
 	public function init()
 	{
 		$request = $this->getRequest();
@@ -23,6 +24,7 @@ class Contents_DirectionsController extends Zend_Controller_Action
 		$context->addActionContext('config', 'json');
 		
 		$context->initContext('json');
+		$this->_lang = Zend_Registry::get('lang');
 	}
 	
 	/**

@@ -40,6 +40,14 @@ class Contents_CareerController extends Zend_Controller_Action
 
     	
     }
+    /**
+    * Обработчик страницы "Вакансия"
+    */
+    public function vacancysAction()
+    {
+    
+         
+    }
     
     
     /**

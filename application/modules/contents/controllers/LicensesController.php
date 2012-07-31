@@ -32,14 +32,7 @@ class Contents_LicensesController extends Zend_Controller_Action
     {
     	
     }
-    /**
-    * Обработчик страницы "Отдельной Лицензии"
-    */
-    public function viewAction()
-    {
 
-    	
-    }
         
     /**
      * ЭТОТ МЕТОД СОЗДАН ДЛЯ НАДИ ЧТОБ ОНА МОГЛА ВЕРСТАТЬ ПРИМЕНИТЕЛЬНО К САЙТУ - НЕ УДАЛЯТЬ

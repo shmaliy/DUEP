@@ -9,7 +9,7 @@
       </div>
     <div class="content">
       <div>
-        <h1 class="developments">О нас пишут</h1>
+        <h1 class="developments">Вакансии</h1>
       </div>
       <div class="adt">
         <ul class="adt_list">

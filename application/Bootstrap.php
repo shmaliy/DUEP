@@ -258,15 +258,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $url = $_SERVER[REQUEST_URI];
         $langs = explode("/", trim($url,'/'));
         if ($langs[0] == '' || strlen($langs[0]) != 2) { 
-        	$langs[0] = 'ru';
+        	$langs[0] = 'uk';
         };
         $translate = new Zend_Translate(
             array(
                  'adapter' => 'array',
-                 'content' => APPLICATION_PATH . '/language/ru.php',
-                 'locale'  => 'ru'
+                 'content' => APPLICATION_PATH . '/language/uk.php',
+                 'locale'  => 'uk'
   				 )
         );
+        $translate->addTranslation(array('content' => APPLICATION_PATH . '/language/ru.php', 'locale' => 'ru'));
         $translate->addTranslation(array('content' => APPLICATION_PATH . '/language/en.php', 'locale' => 'en'));
         $translate->setLocale($langs[0]);
        	Zend_Registry::set('lang', $langs[0]);

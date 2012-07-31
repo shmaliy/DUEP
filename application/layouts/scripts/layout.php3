@@ -37,7 +37,7 @@
 			<div class="language">
 				<div class="language_active relative">
 					<div class="language_active_left lang"></div>
-					<img src="/theme/img/front/ru.jpg" class="lan lang_img"/><a style = "cursor: pointer;" class="dashed dashed_lang">Русский</a> &#8595;
+					<img src="/theme/img/front/uk.jpg" class="lan lang_img"/><a style = "cursor: pointer;" class="dashed dashed_lang">Українська</a> &#8595;
 					<div class="language_active_right"></div>
 				</div>
 				<div class="pop_up lang_dop">
@@ -48,7 +48,7 @@
 					<div class="pop_up_left"></div>
 					<div class="pop_corner"></div>
 						<ul>
-							<li><img src="/theme/img/front/ua.jpg" class="lan"/><a class="lang" ele = "ua">Українська</a></li>
+							<li><img src="/theme/img/front/uk.jpg" class="lan"/><a class="lang" ele = "uk">Українська</a></li>
 							<li><img src="/theme/img/front/en.jpg" class="lan"/><a class="lang" ele = "en">English</a></li>
 							<li><img src="/theme/img/front/us.jpg" class="lan"/><a class="lang" ele = "us">US English</a></li>
 							<li><img src="/theme/img/front/ru.jpg" class="lan"/><a class="lang" ele = "ru">Русский</a></li>
