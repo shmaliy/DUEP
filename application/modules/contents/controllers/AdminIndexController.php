@@ -84,14 +84,14 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 	 */
     public function editAction()
     {
-		$request = $this->getRequest();
+		//Getting request
+    	$request = $this->getRequest();
 		
 		// Version 14.07.2012
 		if (false === ($group = $this->_checkGroup())) {
 			return;
 		}
 		
-		$thumbnailsRootAlias = 'content_thumbnails';
 		
 		// Mappers section
 		$mediaMapper = new Media_Model_Mapper_MediaCategories();
@@ -105,6 +105,8 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		
 		
 		
+		//Auto set filter thumbnails
+		$thumbnailsRootAlias = 'content_thumbnails';
 		$category = $mediaMapper->fetchRow(
 			array(
 				'alias = ?' => $thumbnailsRootAlias,
@@ -113,6 +115,7 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		);
 		$thumbnailsRootId = $category->getId();
 		
+				
 		$id = $request->getParam('id');
 		$formClassName = 'Contents_Form_'
 		               . ucfirst(Zend_Filter::filterStatic($group->alias, 'Word_UnderscoreToCamelCase'))
