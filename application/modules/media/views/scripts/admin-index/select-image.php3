@@ -16,7 +16,7 @@ $adminTableNavOptions = array(
 	<div class="selectImage_images_contanier">
 	<?php foreach ($this->rowset as $row): ?>
 		<div class="selectImage_images_contanier_element">
-			<a onclick="$.fn.cmsManager('mainImageFormSelector', this.rel, 'media_id', $(this).parents('.ui-dialog-content-wrapper'));" rel="<?php echo $row->getId(); ?>">
+			<a media-type="<?php echo $row->getType();?>" media-id="<?php echo $row->getId(); ?>" onclick="$.fn.cmsManager('mainImageFormSelector', $(this), 'media_id', $(this).parents('.ui-dialog-content-wrapper'));">
 				<img src="/uploads/<?php echo $row->getId(); ?>.<?php echo $row->getType(); ?>" width="130" height="130">
 			</a>
 		</div>

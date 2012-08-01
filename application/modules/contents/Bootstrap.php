@@ -408,6 +408,20 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	)
     	
     	));
+    	
+    	/*  Mr. Fogg!!!! Please make the right order in the your's shitcode abowe!!!  */
+    	
+    	$router->addRoute(
+    		'admin/contents', 
+    		new Zend_Controller_Router_Route(
+    	    	'contents/:controller/:action/*',
+    			array(
+    	    		'module' => 'contents',
+    	    		'controller' => 'subdividion',
+    	    		'action' => 'view',
+    	    	)
+    		)
+    	);
 
     }
 }

@@ -37,6 +37,16 @@ protected $_contentsGroupsId;
 			'label' => 'Родитель'
 		));
 		
+		$main[] = 'languages_alias';
+		$this->addElement('select', 'languages_alias', array(
+					'label' => 'Язык'
+		));
+		
+		$main[] = 'contents_id';
+		$this->addElement('select', 'contents_id', array(
+					'label' => 'Статья-оригинал'
+		));
+		
 		$main[] = 'title';
 		$this->addElement('text', 'title', array(
 			'label' => 'Заголовок'
