@@ -24,6 +24,7 @@ class Contents_PublishedController extends Zend_Controller_Action
 		$context->addActionContext('config', 'json');
 		
 		$context->initContext('json');
+		$this->_lang = Zend_Registry::get('lang');
 	}
 	
 	/**
