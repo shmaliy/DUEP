@@ -17,13 +17,13 @@
         <h1 class="developments">№3(156). Внешнеэкономичекая деятельность</h1>
         <ul class="lineTabs">
           <li>
-            <a class="active" href=""><span>Основная информация</span></a>
+            <a class="active" href=""><span><?php echo Zend_Registry::get('trasvistit')->_("INFO");?></span></a>
           </li>
           <li>
-            <a href=""><span><span class="label_camera"><span>Фотоальбом </span><sup>3</sup></span></span></a>
+            <a href=""><span><span class="label_camera"><span><?php echo Zend_Registry::get('trasvistit')->_("FOTO_AL");?> </span><sup>3</sup></span></span></a>
           </li>
           <li>
-            <a href=""><span><span class="label_video"><span>Видеозаписи </span><sup>1</sup></span></span></a>
+            <a href=""><span><span class="label_video"><span><?php echo Zend_Registry::get('trasvistit')->_("VIDEO_AL");?> </span><sup>1</sup></span></span></a>
           </li>
         </ul>
         <hr />
@@ -61,9 +61,9 @@
               </ul>
             </div>
           <div class="linked_materials side_true">
-              <span class="menu_add_file">Это издание связано с:</span>
+              <span class="menu_add_file"><?php echo Zend_Registry::get('trasvistit')->_("PUBLISHED_AS");?></span>
               <div class="group_materials">
-                  <strong class="">Новости</strong>
+                  <strong class=""><?php echo Zend_Registry::get('trasvistit')->_("NEWS");?></strong>
                   <ul class="sked">
                       <li>
                           <p>20.12.2012<span>8:18</span></p>
@@ -78,7 +78,7 @@
                   </ul>
               </div>
               <div class="group_materials">
-                  <strong>Анонсы и события</strong>
+                  <strong><?php echo Zend_Registry::get('trasvistit')->_("EVENTS_ANNOUNCEMENTS");?></strong>
                   <ul class="sked">
                       <li>
                           <p>20.12.2012<span>8:18</span></p>
@@ -95,7 +95,7 @@
               <div style="clear:both;"></div>
           </div>
           <div class="comments">
-              <h3>Комментарии <span>(3)</span></h3>
+              <h3><?php echo Zend_Registry::get('trasvistit')->_("COMMENT");?> <span>(3)</span></h3>
               <ul>
                   <li class="comments_top">
                       <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/1.jpg" /></span>
@@ -120,49 +120,49 @@
                   </li>
               </ul>
           </div>
-          <h4>Ваш комментарий</h4>
+          <h4><?php echo Zend_Registry::get('trasvistit')->_("Y_COMMENT");?> </h4>
           <form class="comments">
               <textarea name="" cols="" rows=""></textarea>
-              <input type="submit" value="Отправить">
+              <input type="submit" value="<?php echo Zend_Registry::get('trasvistit')->_("SEND");?>">
           </form>
       </div>
         <div class="sideRight">
             <img class="publication_cover" alt="" src="../theme/img/front/publication_cover/2.jpg" />
             <div class="calendar info_public">
                 <div class="book_block info_publication">
-                <span class="menu_add_file">ИНФОРМАЦИЯ О ИЗДАНИИ</span>
+                <span class="menu_add_file"><?php echo Zend_Registry::get('trasvistit')->_("INFO_PUB");?></span>
                   <ul>
                     <li>
-                        <span class="time">Название:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("NAME");?></span>
                         <span><a href="">Вестник: Педагогика и психология</a></span>
                     </li>
                     <li>
-                        <span class="time">Год:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("YEAR");?></span>
                         <span>2011-2012</span>
                     </li>
                     <li>
-                        <span class="time">Тип издания:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("TYPE_PUB");?></span>
                         <span>Журнал</span>
                     </li>
                     <li>
-                        <span class="time">Город:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("CITY");?></span>
                         <span>Днепропетровск</span>
                     </li>
                     <li>
-                        <span class="time">Издатель:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("ROOT");?></span>
                         <span>Типография ДУЭПа</span>
                     </li>
                     <li>
-                        <span class="time">Подписной<br /> индекс:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("PODPIS");?><br /> <?php echo Zend_Registry::get('trasvistit')->_("INDEX");?></span>
                         <span>56-689</span>
                     </li>
                     <li style="clear:both;"></li>
                     <li>
-                        <span class="time">ISBN:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("ISBN");?>:</span>
                         <span>978-5-271-39667-2</span>
                     </li>
                     <li>
-                        <span class="time">Где купить:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("BY");?></span>
                         <span><a href="">ozon.ru</a></span>
                     </li>
                  </ul>
@@ -171,7 +171,7 @@
             <div class="add_file">
                 <ul>
                     <li>
-                        <span class="menu_add_file">Прикрепленные файлы</span>
+                        <span class="menu_add_file"><?php echo Zend_Registry::get('trasvistit')->_("ADD_FILE");?></span>
                     </li>
                     <li>
                         <img alt="" src="../theme/img/front/add_file/pdf.png" />
@@ -207,39 +207,26 @@
         </li>
         <li><a href="">Болонский процесс</a></li>
     </ul>
-    <div class="side_true">
-        <h2>Актуально</h2>
+        <div class="side_true">
+        <h2><?php echo Zend_Registry::get('trasvistit')->_("ACTUAL");?></h2>
         <ul>
+            <?php foreach ($this->actual as $item): if($item):?>
             <li>
-                <img alt="" src="../theme/img/front/true/1.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
+                 <?php if ($item->img == ''): ?>
+	            <img height = 40 width = 40 alt="" src="/theme/img/front/noimage.png" />
+	            <?php else: ?>
+               <img height = 40 width = 40 alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
+               <?php endif;?>
+               <span class = "actual">
+                <p><?php echo $item->date_created;?></p>
+                <?php foreach ($this->group as $itemg):
+                if ($itemg->id == $item->contents_groups_id):?>
+                <a class="name_news" href="<?php echo $this->simpleUrl('view', $itemg->alias, 'contents', array('alias'=>$item->alias), 'contents/'.$itemg->alias.'/view' ); ?>"><?php echo $item->title; ?></a><br/>
+                <?php endif; endforeach;?>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                </span>
             </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/2.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/3.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/4.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/5.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
+            <?php endif; endforeach;?>
         </ul>
     </div>
   </div>

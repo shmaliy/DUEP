@@ -18,36 +18,36 @@
                   <a class="name_publication" href="">Финансовый менеджмент: в схемах и таблицах: учеб. пособие.</a>
                   <ul>
                     <li>
-                        <span class="time">Год:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("YEAR");?></span>
                         <span>2011-2012</span>
                     </li>
                     <li>
-                        <span class="time">№ выпуска:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("NOMER");?></span>
                         <span>5(203)</span>
                     </li>
                     <li>
-                        <span class="time">Тип издания:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("TYPE_PUB");?></span>
                         <span>Журнал</span>
                     </li>
                     <li>
-                        <span class="time">Город:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("CITY");?></span>
                         <span>Днепропетровск</span>
                     </li>
                     <li>
-                        <span class="time">Издатель:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("ADD_FILE");?></span>
                         <span>Типография ДУЭПа</span>
                     </li>
                     <li>
-                        <span class="time">Подписной<br /> индекс:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("ADD_FILE");?><br /> <?php echo Zend_Registry::get('trasvistit')->_("ADD_FILE");?></span>
                         <span>56-689</span>
                     </li>
                     <li style="clear:both;"></li>
                     <li>
-                        <span class="time">ISBN:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("ADD_FILE");?></span>
                         <span>978-5-271-39667-2</span>
                     </li>
                     <li>
-                        <span class="time">Где купить:</span>
+                        <span class="time"><?php echo Zend_Registry::get('trasvistit')->_("ADD_FILE");?></span>
                         <span><a href="">ozon.ru</a></span>
                     </li>
                  </ul>
@@ -283,39 +283,26 @@
         <li><a href="">Научные школы Университета</a></li>
         <li><a href="">Болонский процесс</a></li>
     </ul>
-    <div class="side_true">
-        <h2>Актуально</h2>
+        <div class="side_true">
+        <h2><?php echo Zend_Registry::get('trasvistit')->_("ACTUAL");?></h2>
         <ul>
+            <?php foreach ($this->actual as $item): if($item):?>
             <li>
-                <img alt="" src="../theme/img/front/true/1.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
+                 <?php if ($item->img == ''): ?>
+	            <img height = 40 width = 40 alt="" src="/theme/img/front/noimage.png" />
+	            <?php else: ?>
+               <img height = 40 width = 40 alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
+               <?php endif;?>
+               <span class = "actual">
+                <p><?php echo $item->date_created;?></p>
+                <?php foreach ($this->group as $itemg):
+                if ($itemg->id == $item->contents_groups_id):?>
+                <a class="name_news" href="<?php echo $this->simpleUrl('view', $itemg->alias, 'contents', array('alias'=>$item->alias), 'contents/'.$itemg->alias.'/view' ); ?>"><?php echo $item->title; ?></a><br/>
+                <?php endif; endforeach;?>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                </span>
             </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/2.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/3.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/4.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/5.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
+            <?php endif; endforeach;?>
         </ul>
     </div>
   </div>

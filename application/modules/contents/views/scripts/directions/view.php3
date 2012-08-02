@@ -13,10 +13,10 @@
         <h1 class="developments">Кафедра английской филологии и перевода</h1>
         <ul class="lineTabs">
           <li>
-            <a class="active" href=""><span>Основная информация</span></a>
+            <a class="active" href=""><span><?php echo Zend_Registry::get('trasvistit')->_("INFO");?></span></a>
           </li>
           <li>
-            <a href=""><span>История кафедры</span></a>
+            <a href=""><span><?php echo Zend_Registry::get('trasvistit')->_("HISTORY_K");?></span></a>
           </li>
         </ul>
         <hr />
@@ -34,7 +34,7 @@
           <p class="info_text">В Высший школе бизнеса «WSB-NLU» (г. Новый Сонч, Польша) стажируются как преподаватели, так и студенты, которые желают усовершенствовать знания английского или немецкого языков.</p>
           <p class="info_text">Кроме того, преподаватели кафедры постоянно принимают участие в научно-практических конференциях не только в Украине, но и за ее пределами. Зинукова Н.В., Степанова А.А., Звезда В.В. печатаются в зарубежных изданиях.</p>
           <p class="info_text">В марте-апреле 2011 г. преподаватель Курдюкова В.С. прошла интенсивное обучение по программе Кембриджского университета и получила сертификат на право преподавания английского языка взрослым / CELTA - Certificate of English Language Teaching to Adults, Британский совет.</p>
-          <h3>Дисциплины кафедры</h3>
+          <h3><?php echo Zend_Registry::get('trasvistit')->_("CALL_BEACK");?>Дисциплины кафедры</h3>
             <div class="subjects_list">
                 <a href="">Вступление в переводоведения</a>
                 <a href="">Деловой иностранный язык (английский)</a>
@@ -55,9 +55,9 @@
                 <a href="">Практика устного перевода (основной иностранный язык)</a>
             </div>
           <div class="linked_materials side_true">
-              <span class="menu_add_file">Связанные материалы</span>
+              <span class="menu_add_file"><?php echo Zend_Registry::get('trasvistit')->_("CONNECT_CONTENTS");?></span>
               <div class="group_materials">
-                  <strong class="">Новости</strong>
+                  <strong class=""><?php echo Zend_Registry::get('trasvistit')->_("NEWS");?></strong>
                   <ul class="sked">
                       <li>
                           <p>20.12.2012<span>8:18</span></p>
@@ -72,7 +72,7 @@
                   </ul>
               </div>
               <div class="group_materials">
-                  <strong>Анонсы и события</strong>
+                  <strong><?php echo Zend_Registry::get('trasvistit')->_("EVENTS_ANNOUNCEMENTS");?></strong>
                   <ul class="sked">
                       <li>
                           <p>20.12.2012<span>8:18</span></p>
@@ -101,32 +101,32 @@
         <div class="sideRight">
             <div class="calendar info_public">
                 <div class="book_block info_publication">
-                <span class="menu_add_file">КОНТАКТНЫЕ ДАННЫЕ</span>
+                <span class="menu_add_file"><?php echo Zend_Registry::get('trasvistit')->_("CONTACT_DATE");?>КОНТАКТНЫЕ ДАННЫЕ</span>
                   <div class="terminal_block">
-                      <span class="pick_out">Адрес:</span>
+                      <span class="pick_out"><?php echo Zend_Registry::get('trasvistit')->_("ADRES");?>Адрес:</span>
                       <span>м. Днепропетровск, ул. Набережная Ленина, 18, Аудитория 2411, 2409</span>
-                      <span class="pick_out">Телефон:</span>
+                      <span class="pick_out"><?php echo Zend_Registry::get('trasvistit')->_("TEL");?>Телефон:</span>
                       <span>(0562) 31-20-46, (0562) 31-24-60, (0562)31-24-50)</span>
-                      <span class="pick_out">Внутренний:</span>
+                      <span class="pick_out"><?php echo Zend_Registry::get('trasvistit')->_("IN_TEL");?>Внутренний:</span>
                       <span>446</span>
                   </div>
               </div>
             </div>
             <div class="calendar info_public">
                 <div class="book_block info_publication">
-                <span class="menu_add_file">РУКОВОДСТВО</span>
+                <span class="menu_add_file"><?php echo Zend_Registry::get('trasvistit')->_("DIREKT");?>РУКОВОДСТВО</span>
                   <div class="terminal_block">
                       <div class="manager">
                           <img alt="" src="/theme/img/front/commentators_photos/3.jpg" />
                           <a class="manager_name" href="">Зинукова Наталья  Викторовна</a>
                           <p><a href="">Кандидат педагогических наук</a>
-                              Руководитель
+                            Руководитель
                           </p>
                       </div>
                   </div>
                 </div>
                 <div class="book_block info_publication">
-                <span class="menu_add_file">СОТРУДНИКИ</span>
+                <span class="menu_add_file"><?php echo Zend_Registry::get('trasvistit')->_("STAFF");?>СОТРУДНИКИ</span>
                   <div class="terminal_block">
                       <div class="manager">
                           <img alt="" src="/theme/img/front/commentators_photos/4.jpg" />
@@ -184,39 +184,26 @@
         <li><a href="">Фотогалерея</a></li>
         <li><a href="">Контактные данные</a></li>
     </ul>
-    <div class="side_true">
-        <h2>Актуально</h2>
+            <div class="side_true">
+        <h2><?php echo Zend_Registry::get('trasvistit')->_("ACTUAL");?></h2>
         <ul>
+            <?php foreach ($this->actual as $item): if($item):?>
             <li>
-                <img alt="" src="/theme/img/front/true/1.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
+                 <?php if ($item->img == ''): ?>
+	            <img height = 40 width = 40 alt="" src="/theme/img/front/noimage.png" />
+	            <?php else: ?>
+               <img height = 40 width = 40 alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
+               <?php endif;?>
+               <span class = "actual">
+                <p><?php echo $item->date_created;?></p>
+                <?php foreach ($this->group as $itemg):
+                if ($itemg->id == $item->contents_groups_id):?>
+                <a class="name_news" href="<?php echo $this->simpleUrl('view', $itemg->alias, 'contents', array('alias'=>$item->alias), 'contents/'.$itemg->alias.'/view' ); ?>"><?php echo $item->title; ?></a><br/>
+                <?php endif; endforeach;?>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                </span>
             </li>
-            <li>
-                <img alt="" src="/theme/img/front/true/2.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="/theme/img/front/true/3.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="/theme/img/front/true/4.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="/theme/img/front/true/5.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
+            <?php endif; endforeach;?>
         </ul>
     </div>
   </div>

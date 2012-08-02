@@ -40,6 +40,16 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	//$router->setGlobalParam('lang', 'ru');
     	 
     	// Override default route
+    	$router->addRoute('contents/static/index', new Zend_Controller_Router_Route(
+    	    		':lang/:alias/',
+    	array(
+    	    	    	'module' => 'contents',
+    	    	        'controller' => 'static',
+    	    	        'action' => 'index',
+    	    			'alias' => '',
+    	    	        'lang' => ''
+    	)
+    	));
     	
     	$router->addRoute('contents/news/view', new Zend_Controller_Router_Route(
     		':lang/news/:alias/',

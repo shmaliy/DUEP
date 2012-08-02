@@ -23,11 +23,11 @@
                         <ul class="pop_up file_types inset callback">
                             <li class="field_text"><p><strong>Укажите свой номер телефона, интересующую тему, и соответствующий специалист перезвонит вам в течение получаса</strong> (если сейчас не три часа ночи – мы не роботы, что, кстати, является нашим конкурентным преимуществом).</p>
                                 <form action="">
-                                    <input class="button_name" type="text" value="Ваше имя*" />
-                                    <input type="text" value="Тема вопроса" />
-                                    <input type="text" value="Номер телефона*" />
-                                    <input class="comments" type="submit" value=" Отправить" />
-                                    <span>Поля, помеченные (*) обязательны к заполнению</span>
+                                    <input class="button_name" type="text" value="<?php echo Zend_Registry::get('trasvistit')->_("Y_NAME");?>" />
+                                    <input type="text" value="<?php echo Zend_Registry::get('trasvistit')->_("TEMS_QUESTIONS");?>" />
+                                    <input type="text" value="<?php echo Zend_Registry::get('trasvistit')->_("NUMBER");?>" />
+                                    <input class="comments" type="submit" value="<?php echo Zend_Registry::get('trasvistit')->_("SEND");?>" />
+                                    <span><?php echo Zend_Registry::get('trasvistit')->_("RULLS");?></span>
                                 </form>
                             </li>
                             <li class="pop_up_left_top"></li>
