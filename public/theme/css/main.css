@@ -878,6 +878,9 @@ hr {
 .panel {
     margin:0 0 30px 10px;
 }
+.adt .on {
+	width:750px;
+}
 .adt {
     width:520px;
     float:left;
@@ -974,6 +977,9 @@ sup {
     float:right;
     margin-left:10px;
 }
+.adt .comments h4{
+    margin-top:20px;
+   }
 .adt h3, h3.topic {
     font-size:20px;
     font-weight:lighter;
@@ -2278,4 +2284,3 @@ ul.submenu li:hover ul.podmenu{
 	margin-left: 50px;
 	display: block;
 }
-

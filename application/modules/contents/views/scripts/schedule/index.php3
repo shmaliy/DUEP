@@ -20,30 +20,30 @@
           <div style="clear:both;"></div>
           <div class="styled-select">
             <select>
-                <option>Направление</option>
+                <option><?php echo Zend_Registry::get('trasvistit')->_("ROUT");?></option>
                 <option>Международная экономика</option>
             </select>
           </div>
           <div class="styled-select drop_down">
             <select>
-                <option>Форма обучения</option>
+                <option><?php echo Zend_Registry::get('trasvistit')->_("FORM_EDU");?></option>
                 <option>Дневная</option>
             </select>
           </div>
           <div class="styled-select drop_down">
             <select>
-                <option>Группа</option>
+                <option><?php echo Zend_Registry::get('trasvistit')->_("GROUP");?></option>
                 <option>АК-47М</option>
             </select>
           </div>
           <div style="clear:both; margin-bottom:20px;"></div>
-          <a class="report_event" href=""><span>Скачать в формате</span></a>
+          <a class="report_event" href=""><span><?php echo Zend_Registry::get('trasvistit')->_("DOWNLOUAD_FORMAT");?></span></a>
         <ul class="lineTabs">
           <li>
-            <a class="active" href=""><span>Календарь</span></a>
+            <a class="active" href=""><span><?php echo Zend_Registry::get('trasvistit')->_("CALENDAR");?></span></a>
           </li>
           <li>
-            <a href=""><span>Таблица</span></a>
+            <a href=""><span><?php echo Zend_Registry::get('trasvistit')->_("TABLE");?></span></a>
           </li>
         </ul>
         <hr />
@@ -66,7 +66,7 @@
               <li class="day_week_b"><span>12:30</span></li>
           </ul>
           <ul class="day_week">
-              <li><span>28</span><span class="weekday">Понедельник</span></li>
+              <li><span>28</span><span class="weekday"><?php echo Zend_Registry::get('trasvistit')->_("MN");?></span></li>
               <li></li>
               <li></li>
               <li></li>
@@ -79,7 +79,7 @@
               <li class="day_week_b"></li>
           </ul>
           <ul class="day_week">
-              <li><span>28</span><span class="weekday">Вторник</span></li>
+              <li><span>28</span><span class="weekday"><?php echo Zend_Registry::get('trasvistit')->_("TH");?></span></li>
               <li></li>
               <li></li>
               <li></li>
@@ -92,7 +92,7 @@
               <li class="day_week_b"></li>
           </ul>
           <ul class="day_week">
-              <li><span>1</span><span class="weekday">Среда</span></li>
+              <li><span>1</span><span class="weekday"><?php echo Zend_Registry::get('trasvistit')->_("WN");?></span></li>
               <li></li>
               <li></li>
               <li></li>
@@ -105,7 +105,7 @@
               <li class="day_week_b"></li>
           </ul>
           <ul class="day_week">
-              <li><span>28</span><span class="weekday">Четверг</span></li>
+              <li><span>28</span><span class="weekday"><?php echo Zend_Registry::get('trasvistit')->_("TR");?></span></li>
               <li></li>
               <li></li>
               <li></li>
@@ -118,7 +118,7 @@
               <li class="day_week_b"></li>
           </ul>
           <ul class="day_week">
-              <li><span>28</span><span class="weekday">Пятница</span></li>
+              <li><span>28</span><span class="weekday"><?php echo Zend_Registry::get('trasvistit')->_("FR");?></span></li>
               <li></li>
               <li></li>
               <li></li>
@@ -131,7 +131,7 @@
               <li class="day_week_b"></li>
           </ul>
           <ul class="day_week">
-              <li><span>28</span><span class="weekday">Суббота</span></li>
+              <li><span>28</span><span class="weekday"><?php echo Zend_Registry::get('trasvistit')->_("ST");?></span></li>
               <li></li>
               <li></li>
               <li></li>
@@ -144,7 +144,7 @@
               <li class="day_week_b"></li>
           </ul>
           <ul class="day_week day_week_r">
-              <li><span>28</span><span class="weekday">Воскресенье</span></li>
+              <li><span>28</span><span class="weekday"><?php echo Zend_Registry::get('trasvistit')->_("SN");?></span></li>
               <li></li>
               <li></li>
               <li></li>
@@ -158,7 +158,7 @@
           </ul>
       </div>
       <div class="timetable_botoom">
-          <h2>События этой недели</h2>
+          <h2><?php echo Zend_Registry::get('trasvistit')->_("EVENTS_W");?></h2>
           <ul>
               <li>
                   <a href="">Міжнародна українсько-польська літня школа</a>

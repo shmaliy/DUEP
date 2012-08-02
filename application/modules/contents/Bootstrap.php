@@ -40,6 +40,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	//$router->setGlobalParam('lang', 'ru');
     	 
     	// Override default route
+
     	
     	$router->addRoute('contents/news/view', new Zend_Controller_Router_Route(
     		':lang/news/:alias/',
@@ -407,6 +408,16 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    																										'lang' => ''
     	)
     	
+    	));
+    	$router->addRoute('contents/static/index', new Zend_Controller_Router_Route(
+    	    	    		':lang/info/:alias/',
+    	array(
+    	    	    	    	'module' => 'contents',
+    	    	    	        'controller' => 'static',
+    	    	    	        'action' => 'index',
+    	    	    			'alias' => '',
+    	    	    	        'lang' => ''
+    	)
     	));
     	
     	/*  Mr. Fogg!!!! Please make the right order in the your's shitcode abowe!!!  */

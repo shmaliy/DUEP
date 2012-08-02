@@ -1,4 +1,3 @@
-  <body>
 <div class="middle">
 
   <div class="container">
@@ -87,12 +86,14 @@
             </li>
         </ul>
       </div>
-        <div class="calendar"></div>
-        <div class="rss_card">
-            <strong>Будьте в курсе</strong>
-            <p>Подпишитесь на обновления сайта - и вы всегда будете в курсе событий!</p>
-            <a class="rss_orang" href="">RSS-лента</a><br />
-            <a href="">Электронная рассылка</a>
+        <div class="sideRight">
+            <div class="calendar"></div>
+            <div class="rss_card">
+                <strong>Будьте в курсе</strong>
+                <p>Подпишитесь на обновления сайта - и вы всегда будете в курсе событий!</p>
+                <a class="rss_orang" href="">RSS-лента</a><br />
+                <a href="">Электронная рассылка</a>
+            </div>
         </div>
     </div>
     <!-- #content-->
@@ -108,7 +109,7 @@
         <li><a href="">Нобелевское движение</a></li>
         <li><a href="">Аспирантура и докторантура</a></li>
         <li><div class="note">
-        <a href="">Новости</a>
+        <a href=""><?php echo Zend_Registry::get('trasvistit')->_("NEWS");?></a>
         </div>
             <ul class="submenu">
                 <li><a href="">Студенту</a></li>
@@ -120,38 +121,25 @@
         <li><a href="">Болонский процесс</a></li>
     </ul>
     <div class="side_true">
-        <h2>Актуально</h2>
+        <h2><?php echo Zend_Registry::get('trasvistit')->_("ACTUAL");?></h2>
         <ul>
+         <?php  foreach ($this->actual as $item): if($item):?>
             <li>
-                <img alt="" src="../theme/img/front/true/1.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
+                 <?php if ($item->img == ''): ?>
+	            <img height = 40 width = 40 alt="" src="/theme/img/front/noimage.png" />
+	            <?php else: ?>
+               <img height = 40 width = 40 alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
+               <?php endif;?>
+               <span class = "actual">
+                <p><?php echo $item->date_created;?></p>
+                <?php foreach ($this->group as $itemg):
+                if ($itemg->id == $item->contents_groups_id):?>
+                <a class="name_news" href="<?php echo $this->simpleUrl('view', $itemg->alias, 'contents', array('alias'=>$item->alias), 'contents/'.$itemg->alias.'/view' ); ?>"><?php echo $item->title; ?></a><br/>
+                <?php endif; endforeach;?>
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                </span>
             </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/2.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/3.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/4.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="../theme/img/front/true/5.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
+            <?php endif; endforeach;?>
         </ul>
     </div>
   </div>
@@ -160,4 +148,3 @@
           
 </div>
 <!-- #middle-->
-  </body>
