@@ -52,6 +52,11 @@ protected $_contentsGroupsId;
 			'label' => 'Заголовок'
 		));
 		
+		$main[] = 'contents_events_announcement_id';
+		$this->addElement('select', 'contents_events_announcement_id', array(
+			'label' => 'Анонс-предшественник'
+		));
+		
 		$main[] = 'alias';
 		$this->addElement('text', 'alias', array(
 			'label' => 'Псевдоним (ЧПУ)'
@@ -67,7 +72,7 @@ protected $_contentsGroupsId;
 			'label' => 'Полный текст'
 		));
 		
-		$this->addDisplayGroup($main, 'main');
+		$this->addDisplayGroup($main, 'main', array('legend' => 'Основная информация'));
 		
 		/*  Media  */
 		$media = array('media_id');
@@ -76,7 +81,7 @@ protected $_contentsGroupsId;
 					'buttonLabel' => 'Выбрать',
 					'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
 		));
-		$this->addDisplayGroup($media, 'media');
+		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
 				
 		/*  SEO  */
 		$seo = array('seo');
@@ -96,7 +101,7 @@ protected $_contentsGroupsId;
 			'label' => 'SEO ключевые слова'
 		));
 		
-		$this->addDisplayGroup($seo, 'seo');
+		$this->addDisplayGroup($seo, 'seo', array('legend' => 'SEO'));
 		
 		
 		/*  System  */
@@ -127,7 +132,7 @@ protected $_contentsGroupsId;
 			'label' => 'Комментарий администратора'
 		));
 		
-		$this->addDisplayGroup($system, 'system');
+		$this->addDisplayGroup($system, 'system', array('legend' => 'Системная информация'));
 		
 		
 		/*  Feeds  */
@@ -148,7 +153,7 @@ protected $_contentsGroupsId;
 			'label' => 'Включать в электронный календарь'
 		));
 		
-		$this->addDisplayGroup($feeds, 'feeds');
+		$this->addDisplayGroup($feeds, 'feeds', array('legend' => 'Рассылки'));
 		
 		
 		// Submit

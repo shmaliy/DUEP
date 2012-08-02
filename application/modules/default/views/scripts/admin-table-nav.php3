@@ -1,10 +1,9 @@
 <?php 
 	$params = array (
 		"backAction" => $this->backAction,
-		"update_container" => $this->updateContainer
+		"update_container" => $this->updateContainer,
+		"group" => $this->group
 	);
-	
-
 ?>
 
 

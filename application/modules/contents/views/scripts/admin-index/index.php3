@@ -7,6 +7,7 @@
 		'action'     => $this->a,
 		'controller' => $this->c,
 		'module'     => $this->m,
+		'group' => $this->group->alias
 	);
 ?>
 <h1><?php echo $this->group->title; ?></h1>

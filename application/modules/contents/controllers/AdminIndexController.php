@@ -51,7 +51,8 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
     	$this->view->page  = $this->_getSessionPage($group->alias);
     	$this->view->rows  = $this->_getSessionRows($group->alias);
 		$this->view->group = $group;
-    	
+		
+		
 		$where = array(
 			'contents_groups_id = ?'     => $group->id,
 			'contents_categories_id = ?' => $filter['contents_categories_id']
@@ -71,7 +72,11 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 			array('contents_groups_id = ?' => $group->id),
 			array('id', 'title', 'contents_categories_id')
 		);
-		$options = $form->collectionToMultiOptions($collection, array(), array('Нет'));		
+		$options = $form->collectionToMultiOptions($collection, array());	
+		foreach ($options as $key=>$value) {
+			unset($options[$key]);
+			break;
+		}
 		$form->getElement('contents_categories_id')->setMultiOptions($options);
 		
 		$form->setDefaults($filter);
@@ -99,6 +104,8 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		$languagesMapper = new Contents_Model_Mapper_Languages();
 		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
 		$contentsMapper = new Contents_Model_Mapper_Contents();
+		$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+		
 		
 		
 		// Alias of default language
@@ -127,9 +134,18 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		
 		$form = new $formClassName();
 		
+		if($group->alias == 'events') {
+			$annoucement = $groupsMapper->getFrontGroupByAlias('announcements');
+			$childAnnouncements = $contentsMapper->getContentsFromGroup($annoucement->id, array($request->getParam('id', 0)));
+			$childAnnouncements = $form->collectionToMultiOptions($childAnnouncements, array(), array('Нет'));
+			$form->getElement('contents_events_announcement_id')->setMultiOptions($childAnnouncements);
+		}
+		
 		$parentContents = $contentsMapper->getContentsFromGroup($group->id, array($request->getParam('id', 0)));
-		$parentContents = $form->collectionToMultiOptions($parentContents, array(), array('Нет'));
-		$form->getElement('contents_id')->setMultiOptions($parentContents);
+		if(count($parentContents) > 0) {
+			$parentContents = $form->collectionToMultiOptions($parentContents, array(), array('Нет'));
+			$form->getElement('contents_id')->setMultiOptions($parentContents);
+		}
 		
 		
 		$languages = $languagesMapper->fetchAll(
@@ -144,7 +160,11 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 			array('contents_groups_id = ?' => $group->id),
 			array('id', 'title', 'contents_categories_id')
 		);
-		$options = $form->collectionToMultiOptions($collection, array(), array($category_id => 'Нет'));		
+		$options = $form->collectionToMultiOptions($collection, array());	
+		foreach ($options as $key=>$value) {
+			unset($options[$key]);
+			break;
+		}	
 		$form->getElement('contents_categories_id')->setMultiOptions($options);		
 		$form->getElement('contents_groups_id')->setValue($group->id);
 		$form->setAction($this->view->simpleUrl('edit', $this->_c, $this->_m, array('group' => $group->alias)));

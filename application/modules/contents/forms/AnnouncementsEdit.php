@@ -48,7 +48,8 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		
 		$main[] = 'title';
 		$this->addElement('text', 'title', array(
-			'label' => 'Заголовок'
+			'label' => 'Заголовок',
+			'required' => true
 		));
 		
 		$main[] = 'alias';

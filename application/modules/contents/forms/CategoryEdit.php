@@ -48,7 +48,7 @@ class Contents_Form_CategoryEdit extends Sunny_Form
 			'label' => 'Описание'
 		));
 		
-		$this->addDisplayGroup($main, 'main');
+		$this->addDisplayGroup($main, 'main', array('legend' => 'Основная информация'));
 		
 		
 		/*  SEO  */		
@@ -68,7 +68,7 @@ class Contents_Form_CategoryEdit extends Sunny_Form
 			'label' => 'SEO ключевые слова'
 		));
 				
-		$this->addDisplayGroup($seo, 'seo');
+		$this->addDisplayGroup($seo, 'seo', array('legend' => 'SEO'));
 		
 		
 		
@@ -91,7 +91,7 @@ class Contents_Form_CategoryEdit extends Sunny_Form
 			'label' => 'Опубликовать'
 		));
 
-		$this->addDisplayGroup($system, 'system');
+		$this->addDisplayGroup($system, 'system', array('legend' => 'Системная информация'));
 		
 		
 		/*  Feeds  */
@@ -107,7 +107,7 @@ class Contents_Form_CategoryEdit extends Sunny_Form
 			'label' => 'Включать в email рассылку'
 		));
 		
-		$this->addDisplayGroup($feeds, 'feeds');
+		$this->addDisplayGroup($feeds, 'feeds', array('legend' => 'Рассылки'));
 		
 		// Submit
 		$this->addElement('submit', 'submit', array(
