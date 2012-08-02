@@ -416,9 +416,7 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     		new Zend_Controller_Router_Route(
     	    	'contents/:controller/:action/*',
     			array(
-    	    		'module' => 'contents',
-    	    		'controller' => 'subdividion',
-    	    		'action' => 'view',
+    	    		'module' => 'contents'
     	    	)
     		)
     	);

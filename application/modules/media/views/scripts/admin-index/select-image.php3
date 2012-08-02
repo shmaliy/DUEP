@@ -8,7 +8,10 @@ $adminTableNavOptions = array(
 	'action'     => $this->a,
 	'controller' => $this->c,
 	'module'     => $this->m,
+	'backAction' => $this->a,	
+	'updateContainer' => $this->update_container
 );
+
 ?>
 <?php echo $this->partial('admin-table-filter.php3', 'default', array('filter' => $this->filter)); ?>
 <?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>

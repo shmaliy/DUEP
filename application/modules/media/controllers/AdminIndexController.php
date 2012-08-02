@@ -215,6 +215,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	$this->view->page  = $this->_getSessionPage();
     	$this->view->rows  = $this->_getSessionRows();
     	
+    	
     	if(empty($filter['media_categories_id']) || !isset($filter['media_categories_id']))
     	{
     		$filter['media_categories_id'] = 0;
@@ -232,6 +233,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	$this->view->page
     	);
     	$this->view->total  = $this->_getMapper()->fetchCount($where);
+    	$this->view->update_container = ".ui-dialog-content-wrapper";
     	
     	
     	$form = new Media_Form_AdminIndexFilter();
@@ -243,12 +245,12 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	$form->setDefaults($filter);
     	$form->setAction($this->view->simpleUrl(
     		'set-filter', 
-    		$this->_c, $this->_m, 
+    		$this->_c, 
+    		$this->_m,
     		array(
-    			'update_m' => $this->_m,
-    			'update_c' => $this->_c,
-    			'update_a' => $this->_a
-    		)
+    			'update_container' => ".ui-dialog-content-wrapper",
+    			'backAction' => $this->_a
+    			)
     	));
     	$this->view->filter = $form;
     	//$this->render('index');
@@ -285,53 +287,48 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     public function setPageAction()
     {
     	// Version 14.07.2012
-    	$request = $this->getRequest();
     	$this->_helper->viewRenderer->setNoRender();
+    	$request = $this->getRequest();
+    	$backAction = $request->getParam('backAction', 'index');
+    	
     	$validator = new Zend_Validate_Int();
     	$param = $this->getRequest()->getParam(self::SESSION_PAGE);
     	$redirectTo = $this->getRequest()->getParam('redirectTo', 'index');
 		if (!$validator->isValid($param)) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set page</div>');
-			//$this->_gotoUrl($redirectTo, $this->_c, $this->_m);
+			$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
 			return;
 		}
 		
 		$this->_setSessionPage($param);
-		//$this->_gotoUrl($redirectTo, $this->_c, $this->_m);
-		$this->view->action = 'update';
-		$this->view->back = $this->getRequest()->getParam('redirectTo', 'index');
-		$this->view->update_m = $request->getParam('update_m');
-		$this->view->update_c = $request->getParam('update_c');
-		$this->view->update_a = $request->getParam('update_a');
+		$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
     }
     
     public function setLimitAction()
     {
     	// Version 14.07.2012
-    	$request = $this->getRequest();
     	$this->_helper->viewRenderer->setNoRender();
+    	$request = $this->getRequest();
+    	$backAction = $request->getParam('backAction', 'index');
+    	
     	$validator = new Zend_Validate_Int();
     	$param = $this->getRequest()->getParam(self::SESSION_ROWS);
 		if (!$validator->isValid($param)) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set rows</div>');
-			//$this->_gotoUrl('index', $this->_c, $this->_m);
+			$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
 			return;
 		}
 		
     	$this->_setSessionPage(1);		
     	$this->_setSessionRows($param);
-		//$this->_gotoUrl('index', $this->_c, $this->_m);
-		$this->view->action = 'update';
-		//$this->view->back = $this->getRequest()->getParam('redirectTo', 'index');
-		$this->view->update_m = $request->getParam('update_m');
-		$this->view->update_c = $request->getParam('update_c');
-		$this->view->update_a = $request->getParam('update_a');
+		$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
     }
     
     public function setFilterAction()
     {
     	$this->_helper->viewRenderer->setNoRender();
     	$request = $this->getRequest();
+    	$backAction = $request->getParam('backAction', 'index');
 		
     	// Version 14.07.2012
 		$form = new Media_Form_AdminIndexFilter();
@@ -343,19 +340,12 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 		
     	if (!$form->isValid($this->getRequest()->getParams())) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set filter</div>');
-			//$this->_gotoUrl($goto, $this->_c, $this->_m);
+			$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
 			return;
 		}
 		
     	$this->_setSessionPage(1);
     	$this->_setSessionFilter($form->getValues());	
-    	$this->view->action = 'update';
-    	$this->view->back = $this->getRequest()->getParams();
-    	
-    	$this->view->update_m = $request->getParam('update_m');
-    	$this->view->update_c = $request->getParam('update_c');
-    	$this->view->update_a = $request->getParam('update_a');
-    		
-		//$this->_gotoUrl($goto, $this->_c, $this->_m);
+    	$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
     }
 }

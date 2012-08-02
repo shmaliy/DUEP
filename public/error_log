@@ -32,3 +32,4 @@
 [02-Aug-2012 11:11:23] PHP Fatal error:  Call to a member function getExtendChilds() on a non-object in W:\home\zend\Sunny\Form.php on line 41
 [02-Aug-2012 13:27:43] PHP Warning:  urlencode() expects parameter 1 to be string, object given in W:\home\zend\Zend\Controller\Router\Route.php on line 403
 [02-Aug-2012 13:27:43] PHP Warning:  urlencode() expects parameter 1 to be string, object given in W:\home\zend\Zend\Controller\Router\Route.php on line 403
+[02-Aug-2012 15:13:18] PHP Fatal error:  Nesting level too deep - recursive dependency? in W:\home\duep\application\modules\default\views\scripts\admin-table-nav.php3 on line 2

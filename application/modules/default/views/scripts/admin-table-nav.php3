@@ -1,17 +1,9 @@
 <?php 
-	$params = (array) $this->params;
+	$params = array (
+		"backAction" => $this->backAction,
+		"update_container" => $this->updateContainer
+	);
 	
-	if (empty($this->params['update_m'])) {
-		$params['update_m'] = $this->module;
-	}
-	
-	if (empty($this->params['update_c'])) {
-		$params['update_c'] = $this->controller;
-	}
-	
-	if (empty($this->params['update_a'])) {
-		$params['update_a'] = $this->action;
-	}
 
 ?>
 
