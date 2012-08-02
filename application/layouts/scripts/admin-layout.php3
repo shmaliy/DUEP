@@ -19,10 +19,20 @@
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload/swfupload.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload.js');
 		$this->headScript()->appendFile('/js/jquery/jquery-wm/jquery-wm.js');
+		$this->headScript()->appendFile('/js/tiny_mce/tiny_mce.js');
 		$this->headScript()->appendFile('/js/WindowManager.js');
 		$this->headScript()->appendFile('/js/script.js');
 		echo $this->headScript();
     ?>
+<script type="text/javascript">
+tinyMCE.init({
+	
+});
+
+tinyMCE.execCommand("mceAddControl", true, "tizer");
+tinyMCE.execCommand("mceAddControl", true, "description");
+</script>
+    
 </head>
 <body>
 	<div class="header">

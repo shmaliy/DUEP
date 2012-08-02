@@ -502,38 +502,10 @@ table.generic-table a {
 }
 .contents  .form-composite-end { clear: both; }
 
-.contents .form-composite-group-main {
-	float:left;
-	clear:both;
-	width:600px;
-}
 
-.contents .form-composite-group-main textarea {
-	width:550px;
-	height:200px;
-}
 
-.contents .form-composite-group-seo,
-.contents .form-composite-group-media,
-.contents .form-composite-group-system,
-.contents .form-composite-group-feeds,
-.contents .form-composite-group-feeds
- {
-	float:right;
-	width:280px;
-}
 
-.contents .form-composite-group-seo textarea,
-.contents .form-composite-group-system textarea,
-.contents .form-composite-group-feeds textarea,
-.contents .form-composite-group-feeds textarea {
-	width:250px;
-	height:50px;
-}
 
-.contents .form-composite-element-submit {
-	clear: both;
-}
 /* Contents edit form end */
 
 

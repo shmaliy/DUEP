@@ -227,6 +227,7 @@
 					
 					var data   = {};
 					if (action == 'submit') {
+						tinyMCE.triggerSave();
 						data = $(this).serialize();
 						$(this).find('input, select, textarea, button').attr("disabled", "disabled");				
 					}
