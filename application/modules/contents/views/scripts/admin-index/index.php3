@@ -9,6 +9,7 @@
 		'module'     => $this->m,
 	);
 ?>
+<h1><?php echo $this->group->title; ?></h1>
 <?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
 <?php echo $this->partial('admin-table-filter.php3', 'default', array('filter' => $this->filter)); ?>
 <div class="admin-table">
@@ -41,8 +42,8 @@
 						<td class="delete"><div><a class="via_ajax" href="<?php echo $this->simpleUrl('delete', $this->c, $this->m, array('id' => $row->id, 'group' => $this->group->alias)); ?>"></a></div></td>
 						<td class="checkbox"><div><input type="checkbox" /></div></td>
 						<td><div><a href="<?php
-							echo $this->simpleUrl('edit', $this->c, $this->m, array('id' => $row->getId()));
-						?>"><?php echo $row->getTitle();?></a></div></td>
+							echo $this->simpleUrl('edit', $this->c, $this->m, array('id' => $row->getId(), 'group' => $this->group->alias));
+						?>"><?php echo $row->getTitle();?></a> (<?php echo $row->getAlias(); ?>)</div></td>
 						<td class="datetime"><div><?php echo date('m.d.Y', $row->getDateCreated()); ?></div></td>
 						<td class="datetime"><div><?php echo date('m.d.Y', $row->getDateModified()); ?></div></td>
 					</tr>

@@ -39,8 +39,8 @@
 				<?php foreach ($this->rowset as $row): ?>
 					<tr>
 						<td class="delete"><div><a href="<?php
-							echo $this->simpleUrl('delete', $this->c, $this->m, array('id' => $row->getId()));
-						?>"></a></div></td>
+							echo $this->simpleUrl('delete', $this->c, $this->m, array('id' => $row->getId(), 'group' => $this->group->alias));
+						?>" class="via_ajax"></a></div></td>
 						<td class="checkbox"><div><input type="checkbox" /></div></td>
 						<td><div><a href="<?php echo $this->simpleUrl('edit', $this->c, $this->m, array('id' => $row->id, 'group' => $this->group->alias)); ?>"><?php echo $row->getTitle();?></a> (<?php echo $row->alias; ?>)</div></td>
 						<td class="datetime"><div><?php echo date('m.d.Y', $row->getDateCreated()); ?></div></td>
@@ -55,6 +55,5 @@
 		</tbody>
 	</table>
 </div>
-<?php echo $this->partial('admin-table-filter.php3', 'default', array('filter' => $this->filter)); ?>
 <?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
 

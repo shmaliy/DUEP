@@ -30,3 +30,5 @@
 [02-Aug-2012 11:07:26] PHP Fatal error:  Call to a member function getExtendChilds() on a non-object in W:\home\zend\Sunny\Form.php on line 41
 [02-Aug-2012 11:07:45] PHP Fatal error:  Call to a member function getExtendChilds() on a non-object in W:\home\zend\Sunny\Form.php on line 41
 [02-Aug-2012 11:11:23] PHP Fatal error:  Call to a member function getExtendChilds() on a non-object in W:\home\zend\Sunny\Form.php on line 41
+[02-Aug-2012 13:27:43] PHP Warning:  urlencode() expects parameter 1 to be string, object given in W:\home\zend\Zend\Controller\Router\Route.php on line 403
+[02-Aug-2012 13:27:43] PHP Warning:  urlencode() expects parameter 1 to be string, object given in W:\home\zend\Zend\Controller\Router\Route.php on line 403
