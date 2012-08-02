@@ -34,7 +34,7 @@ class Contents_AdminCategoriesController extends Sunny_Controller_AdminAction
 		$context->addActionContext('index', 'json');		
 		$context->addActionContext('edit', 'json');		
 		$context->addActionContext('delete', 'json');		
-		$context->addActionContext('set-rows', 'json');		
+		$context->addActionContext('set-limit', 'json');		
 		$context->addActionContext('set-page', 'json');		
 		$context->addActionContext('set-filter', 'json');		
 		$context->initContext('json');
@@ -162,6 +162,7 @@ class Contents_AdminCategoriesController extends Sunny_Controller_AdminAction
     {
     	// Version 14.07.2012
 		if (false === ($group = $this->_checkGroup())) {
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
 		
@@ -169,19 +170,20 @@ class Contents_AdminCategoriesController extends Sunny_Controller_AdminAction
     	$param = $this->getRequest()->getParam(self::SESSION_ROWS);
 		if (!$validator->isValid($param)) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set rows</div>');
-			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
 		
 		$this->_setSessionPage(1, $group->alias);		
     	$this->_setSessionRows($param, $group->alias);
-		$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+		$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
     }
     
     public function setFilterAction()
     {
     	// Version 14.07.2012
-		if (false === ($group = $this->_checkGroup())) {
+    	if (false === ($group = $this->_checkGroup())) {
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
 		
@@ -195,12 +197,12 @@ class Contents_AdminCategoriesController extends Sunny_Controller_AdminAction
 		
     	if (!$form->isValid($this->getRequest()->getParams())) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set filter</div>');
-			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
 		
     	$this->_setSessionPage(1, $group->alias);
     	$this->_setSessionFilter($form->getValues(), null, $group->alias);		
-		$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+		$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
     }
 }

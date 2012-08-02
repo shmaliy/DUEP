@@ -526,26 +526,3 @@ function uploader()
 $(document).ready(function(){
 	uploader();
 });
-
-function deleteItem(url, id)
-{
-	$.ajax({
-		url: url,
-		data: {'id': id},
-		dataType: "json",
-		type: 'POST',
-		error: function(jqXHR, textStatus, errorThrown) {
-			parseResponse(jqXHR);
-		},
-		success: function(data, textStatus, jqXHR) {
-			parseResponse(jqXHR);
-		},
-		complete: function(jqXHR, textStatus) {
-			parseResponse(jqXHR);
-			window.location.href = window.location.href;
-		}
-	});
-	
-	return false;
-}
-

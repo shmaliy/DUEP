@@ -136,7 +136,6 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 			array('published = 1'),
 			array('ordering')
 		);
-		//var_export($languages);
 		$languages = $form->createAssocMultioptions($languages, array());
 		$form->getElement('languages_alias')->setMultiOptions($languages);
 		
@@ -145,7 +144,7 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 			array('contents_groups_id = ?' => $group->id),
 			array('id', 'title', 'contents_categories_id')
 		);
-		$options = $form->collectionToMultiOptions($collection, array(), array('Нет'));		
+		$options = $form->collectionToMultiOptions($collection, array(), array($category_id => 'Нет'));		
 		$form->getElement('contents_categories_id')->setMultiOptions($options);		
 		$form->getElement('contents_groups_id')->setValue($group->id);
 		$form->setAction($this->view->simpleUrl('edit', $this->_c, $this->_m, array('group' => $group->alias)));
@@ -189,8 +188,12 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
     
     public function deleteAction()
     {
+    	$request = $this->getRequest();
+    	$params = $request->getParams();
+    	
     	// Version 14.07.2012
-		if (false === ($group = $this->_checkGroup())) {
+		if (false === ($group = $this->_checkGroup(array('group' => $params['group'])))) {
+			
 			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
@@ -198,14 +201,16 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
     	$validator = new Zend_Validate_Int();
     	if (!$validator->isValid($this->getRequest()->getParam('id'))) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error delete item</div>');
-			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
 		
     	$entity = $this->_getMapper()->findEntity($request->getParam('id'));
+    	//var_export($entity);
+    	//exit;
     	$this->_getMapper()->deleteEntity($entity);
 		$this->_helper->flashMessenger->addMessage('<div class="notification-done">Success delete item</div>');
-		$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+		$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
     }
         
     public function setPageAction()
@@ -247,8 +252,7 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		$this->_setSessionPage(1, $group->alias);		
     	$this->_setSessionRows($param, $group->alias);
 		$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
-		//$this->
-    }
+	}
     
     public function setFilterAction()
     {
