@@ -101,5 +101,19 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
                 	        'lang' => 'ru'
     )
     ));
+    
+    
+    /*  Макс, шо за каша в роутерах????  */
+    
+    $router->addRoute(
+        'admin/media', 
+    	new Zend_Controller_Router_Route(
+        	'media/:controller/:action/*',
+    		array(
+        		'module' => 'media'
+    		)
+    	)
+    );
+    
     }
 }

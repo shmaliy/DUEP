@@ -30,54 +30,179 @@
 			}
 		},
 		
-		parseHttpResponse: function (jqXHR) 
+		parseHttpResponse: function (jqXHR, _htmlCallback) 
 		{
+			console.log('parseHttpResponse');
 			var contentType = jqXHR.getResponseHeader('Content-Type');	
+			
 			if (contentType == 'application/json') {
 				var response = $.parseJSON(jqXHR.responseText);
 				
-				if (response.action) {
-					var method = 'response_' + response.action;
-					$(this).cmsManager(method, response);
+				if (response && response.actions && $.isArray(response.actions)) {					
+					for (var i=0; i < response.actions.length; i++) {						
+						for (var key in response.actions[i]) {							
+							var method = 'parse' + key.charAt(0).toUpperCase() + key.substr(1);
+							$(this).cmsManager(method, response.actions[i][key]);
+							if (key == 'redirect') {
+								return;
+							}
+							
+						}
+					}
 				}
+				
+				return;
+			}
+			
+			if (_htmlCallback.method == 'html') {
+				$(_htmlCallback.container).html(jqXHR.responseText);
+			} else if (_htmlCallback.method == 'before') {
+				$(_htmlCallback.container).before(jqXHR.responseText);
+			} else if (_htmlCallback.method == 'after') {
+				$(_htmlCallback.container).after(jqXHR.responseText);
+			}
+			$('.via_ajax').cmsManager('observe');
+			return;			
+			
+			var response_pattern = {
+				actions: [
+				    {redirect: {
+				    	url: 'url'|{m:m, c:c, a:a, params:{}}
+				    }},
+				    {update: {
+				    	container: '#container',
+				    	url: 'url'|{m:m, c:c, a:a, params:{}},
+				    	source: 'source'
+				    }},
+				    {insert: {
+				    	container: '#container',
+				    	url: 'url'|{m:m, c:c, a:a, params:{}},
+				    	source: 'source'
+				    }},
+				    {append: {
+				    	container: '#container',
+				    	url: 'url'|{m:m, c:c, a:a, params:{}},
+				    	source: 'source'
+				    }}
+				],
+				exception: {}
+			};
+		},
+		
+		/**
+		 * 
+		 */
+		_assembleUrl: function (object)
+		{
+			console.log('_assembleUrl');
+			if (typeof object == 'string') {
+				return object;
+			}
+			
+			if (!$.isPlainObject(object)) {
+				$.error('Are you fucking kidding me???');
+			}
+			
+			var module = 'default';
+			if (object.m && typeof object.m == 'string') {
+				module = object.m;
+			}
+			
+			var controller = 'index';
+			if (object.c && typeof object.c == 'string') {
+				controller = object.c;
+			}
+
+			var action = 'index';
+			if (object.a && typeof object.a == 'string') {
+				action = object.a;
+			}
+			
+			var params = {};
+			if (object.params && $.isPlainObject) {
+				params = object.params;
+			}
+			
+			var url = '/' + module + '/' + controller + '/' + action;
+			for (var key in params) {
+				url += '/' + key + '/' + params[key];
+			}
+			
+			return url;
+		},
+		
+		_getHtml: function (data, method)
+		{
+			console.log('_getHtml');
+			if (!data.url && !data.source) {
+				return;
+			}
+			
+			if (data.source && typeof data.source == 'string') {
+				return data.source;
+			}
+			
+			if (data.url && (typeof data.url == 'string' || $.isPlainObject(data.url))) {
+				var url = $(this).cmsManager('_assembleUrl', data.url);
+				data.method = method;
+				$(this).cmsManager('request', url, {format: 'html'}, data);
+				return;
 			}
 		},
 		
-		response_update: function (response) {
-			console.log(response);
-			if (!response.sourceUrl || response.sourceUrl !=1) {
-				var url = '/' + response.update_m + '/' + response.update_c + '/' + response.update_a;
-				var content = {format: 'html'};
-			
-				$.ajax({
-					url: url,
-					data: content,
-					type: 'POST',
-					error: function(jqXHR, textStatus, errorThrown) {},
-					
-					success: function(data, textStatus, jqXHR) {
-						var modal = $(document).find('.ui-dialog-content-container');
-						if (modal.length > 0) {
-							$(document).find('.ui-dialog-content-container').html(data);
-						} else {
-							$(document).find('.body-container').html(data);
-						}
-						
-						$('.via_ajax').cmsManager('observe');
-						
-						uploader();
-					},
-					
-					complete: function(jqXHR, textStatus) {}
-				});		
-			} else {
-				window.location = response.redirectTo;
+		/**
+		 * It Works! Mazafaka!
+		 * @param data
+		 */
+		parseRedirect: function (data)
+		{
+			console.log('parseRedirect');
+			if (!data || !data.url) {
+				return;
 			}
 			
+			window.location = $(this).cmsManager('_assembleUrl', data.url);
+		},
+		
+		parseUpdate: function (data)
+		{
+			console.log('parseUpdate');
+			if(!data.container || typeof data.container != 'string') {
+				data.container = '.body-container';
+			}
+			
+			$(data.container).html(function(){
+				$(this).cmsManager('_getHtml', data, 'html');
+			});
+		},
+		
+		parsePrepend: function (data) 
+		{
+			console.log('parsePrepend');
+			if(!data.container || typeof data.container != 'string') {
+				data.container = '.body-container';
+			}
+			
+			$(data.container).before(function(){
+				$(this).cmsManager('_getHtml', data, 'before');
+			});
+		},
+		
+		parseAppend: function (data)
+		{
+			console.log('parseAppend');
+			if(!data.container || typeof data.container != 'string') {
+				data.container = '.body-container';
+			}
+			
+			$(data.container).after(function(){
+				$(this).cmsManager('_getHtml', data, 'after');
+			});
 		},
 		
 		observe: function()
 		{
+			console.log('observe');
 			return this.each(function(){
 				var action = null;
 				var attr   = null;
@@ -91,19 +216,19 @@
 					
 				}
 				
-				$(this).serialize();
-				
 				if (action === null) {
 					$.error( "Can't observe selected tags" );
 				}
 				
+				$(this).unbind(action);
 				$(this).bind(action, function(event){
 					event.preventDefault();
+					event.stopPropagation();
 					
 					var data   = {};
 					if (action == 'submit') {
-						
 						data = $(this).serialize();
+						$(this).find('input, select, textarea, button').attr("disabled", "disabled");				
 					}
 					
 					$(this).cmsManager('request', $(this).attr(attr), data);
@@ -112,8 +237,9 @@
 			});
 		},
 		
-		request: function (url, data)
+		request: function (url, data, _htmlCallback)
 		{
+			console.log('request');
 			if (!data) {
 				data = '';
 			}
@@ -126,67 +252,57 @@
 				$.error( 'Data passed in to "request" must be a string or isPlainObject!' );
 			}
 			
-			//alert(typeof data);
-			
 			$.ajax({
 				url: url,
 				data: data,
 				type: 'POST',
 				error: function(jqXHR, textStatus, errorThrown) {
-					$(this).cmsManager('parseHttpResponse', jqXHR);
+					$(this).cmsManager('parseHttpResponse', jqXHR, _htmlCallback);
 				},
 				success: function(data, textStatus, jqXHR) {
-					$(this).cmsManager('parseHttpResponse', jqXHR);
+					$(this).cmsManager('parseHttpResponse', jqXHR, _htmlCallback);
 				},
-				complete: function(jqXHR, textStatus) {
-				
-				}
+				complete: function(jqXHR, textStatus) {}
 			});
 		},
 		
 		mainImageFormSelector: function (value, hidden_id, wId)
 		{
-			$('#' + hidden_id).attr('value', value);
+			console.log('mainImageFormSelector');
+			
+			$('#' + hidden_id).attr('value', $(value).attr('media-id'));
+			$('#' + hidden_id).attr('media-type', $(value).attr('media-type'));
+			
 			$(this).cmsManager('mainImageRenderer', value);
+			
 			wId.dialog('close');
+			wId.dialog('destroy');
 		},
 		
-		mainImageRenderer: function (id)
+		mainImageRenderer: function (element)
 		{
-			if (!id) {
+			console.log('mainImageRenderer');
+			if (!element) {
 				id = $("#media_id").attr('value');
+				type = $("#media_id").attr('media-type');
 				//alert(id);
+			} else {
+				id = $(element).attr('media-id');
+				type = $(element).attr('media-type');
 			}
 			
-			if(id == '') {return;}
+			if(id == '' || type == '') {return;}
 			
-			var url = '/ru/media/admin-index/render-form-main-image/imgId/' + id; 
-			//alert(id);
-			$.ajax({
-				url: url,
-				//data: data,
-				type: 'POST',
-				error: function(jqXHR, textStatus, errorThrown) {
-					//$(this).cmsManager('parseHttpResponse', jqXHR);
-				},
-				success: function(data, textStatus, jqXHR) {
-					//$(this).cmsManager('parseHttpResponse', jqXHR);
-					var response = $.parseJSON(jqXHR.responseText);
-					var file = response.file;
-					var appendContent = '<li id="result-list-item-' + id + '">';
-					appendContent += '<img src="' + file + '" width="150" height="150">';
-					appendContent += '<a onclick="$.fn.cmsManager(\'mainImageClearer\', ' + id + ');">удалить</a>';
-					appendContent += '</li>';
-					$('.media_id-list').html(appendContent);
-				},
-				complete: function(jqXHR, textStatus) {
-				
-				}
-			});
+			var appendContent = '<li id="result-list-item-' + id + '">';
+				appendContent += '<img src="/uploads/' + id + '.' + type + '" width="150" height="150">';
+				appendContent += '<a onclick="$.fn.cmsManager(\'mainImageClearer\', ' + id + ');">удалить</a>';
+				appendContent += '</li>';
+			$('.media_id-list').html(appendContent);
 		},
 		
 		mainImageClearer: function (id)
 		{
+			console.log('mainImageClearer');
 			$('#result-list-item-' + id).remove();
 			$('#media_id').attr('value', '');
 		}
@@ -410,26 +526,3 @@ function uploader()
 $(document).ready(function(){
 	uploader();
 });
-
-function deleteItem(url, id)
-{
-	$.ajax({
-		url: url,
-		data: {'id': id},
-		dataType: "json",
-		type: 'POST',
-		error: function(jqXHR, textStatus, errorThrown) {
-			parseResponse(jqXHR);
-		},
-		success: function(data, textStatus, jqXHR) {
-			parseResponse(jqXHR);
-		},
-		complete: function(jqXHR, textStatus) {
-			parseResponse(jqXHR);
-			window.location.href = window.location.href;
-		}
-	});
-	
-	return false;
-}
-

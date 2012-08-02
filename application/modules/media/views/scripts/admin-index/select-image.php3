@@ -8,7 +8,10 @@ $adminTableNavOptions = array(
 	'action'     => $this->a,
 	'controller' => $this->c,
 	'module'     => $this->m,
+	'backAction' => $this->a,	
+	'updateContainer' => $this->update_container
 );
+
 ?>
 <?php echo $this->partial('admin-table-filter.php3', 'default', array('filter' => $this->filter)); ?>
 <?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
@@ -16,7 +19,7 @@ $adminTableNavOptions = array(
 	<div class="selectImage_images_contanier">
 	<?php foreach ($this->rowset as $row): ?>
 		<div class="selectImage_images_contanier_element">
-			<a onclick="$.fn.cmsManager('mainImageFormSelector', this.rel, 'media_id', $(this).parents('.ui-dialog-content-wrapper'));" rel="<?php echo $row->getId(); ?>">
+			<a media-type="<?php echo $row->getType();?>" media-id="<?php echo $row->getId(); ?>" onclick="$.fn.cmsManager('mainImageFormSelector', $(this), 'media_id', $(this).parents('.ui-dialog-content-wrapper'));">
 				<img src="/uploads/<?php echo $row->getId(); ?>.<?php echo $row->getType(); ?>" width="130" height="130">
 			</a>
 		</div>

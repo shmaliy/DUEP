@@ -94,7 +94,8 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		
 		
 		// Mappers section
-		$mediaMapper = new Media_Model_Mapper_MediaCategories();
+		$mediaMapper = new Media_Model_Mapper_Media();
+		$mediaCategoriesMapper = new Media_Model_Mapper_MediaCategories();
 		$languagesMapper = new Contents_Model_Mapper_Languages();
 		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
 		$contentsMapper = new Contents_Model_Mapper_Contents();
@@ -104,10 +105,9 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		$defaultLanguage = $languagesMapper->getDefaultLanguage();
 		
 		
-		
 		//Auto set filter thumbnails
 		$thumbnailsRootAlias = 'content_thumbnails';
-		$category = $mediaMapper->fetchRow(
+		$category = $mediaCategoriesMapper->fetchRow(
 			array(
 				'alias = ?' => $thumbnailsRootAlias,
 				'media_categories_id = 0' 
@@ -136,7 +136,6 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 			array('published = 1'),
 			array('ordering')
 		);
-		//var_export($languages);
 		$languages = $form->createAssocMultioptions($languages, array());
 		$form->getElement('languages_alias')->setMultiOptions($languages);
 		
@@ -145,7 +144,7 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 			array('contents_groups_id = ?' => $group->id),
 			array('id', 'title', 'contents_categories_id')
 		);
-		$options = $form->collectionToMultiOptions($collection, array(), array('Нет'));		
+		$options = $form->collectionToMultiOptions($collection, array(), array($category_id => 'Нет'));		
 		$form->getElement('contents_categories_id')->setMultiOptions($options);		
 		$form->getElement('contents_groups_id')->setValue($group->id);
 		$form->setAction($this->view->simpleUrl('edit', $this->_c, $this->_m, array('group' => $group->alias)));
@@ -163,9 +162,11 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 				$this->_getMapper()->saveEntity($entity);
 				
 				$this->_helper->flashMessenger->addMessage('<div class="notification-done">Saved success</div>');
-				$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
-				$this->view->action = 'update';
-				$this->view->sourceUrl = 1;
+				
+				// Create redirect structure
+				//$this->_makeRedirectStructure('index', null, null, array('group' => $group->alias));
+				$this->_makeResponderStructure('index', null, null, array('group' => $group->alias));
+
 			} else {
     			$this->view->formErrors        = $form->getErrors();
     			$this->view->formErrorMessages = $form->getErrorMessages();
@@ -174,6 +175,10 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 			$entity = $this->_getMapper()->findEntity($id);
 			if ($id && $entity) {
 				$form->setDefaults($entity->toArray());
+				$media = $mediaMapper->findEntity($entity->getMediaId());
+				if($media) {
+					$form->getElement("media_id")->setAttrib('media-type', $media->getType());
+				}
 			}
 			$this->view->catId = $thumbnailsRootId;
 			$this->view->form = $form;
@@ -183,28 +188,36 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
     
     public function deleteAction()
     {
+    	$request = $this->getRequest();
+    	$params = $request->getParams();
+    	
     	// Version 14.07.2012
-		if (false === ($group = $this->_checkGroup())) {
+		if (false === ($group = $this->_checkGroup(array('group' => $params['group'])))) {
+			
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
     	
     	$validator = new Zend_Validate_Int();
     	if (!$validator->isValid($this->getRequest()->getParam('id'))) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error delete item</div>');
-			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
 		
     	$entity = $this->_getMapper()->findEntity($request->getParam('id'));
+    	//var_export($entity);
+    	//exit;
     	$this->_getMapper()->deleteEntity($entity);
 		$this->_helper->flashMessenger->addMessage('<div class="notification-done">Success delete item</div>');
-		$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+		$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
     }
         
     public function setPageAction()
     {
     	// Version 14.07.2012
 		if (false === ($group = $this->_checkGroup())) {
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
     	
@@ -212,18 +225,19 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
     	$param = $this->getRequest()->getParam(self::SESSION_PAGE);
 		if (!$validator->isValid($param)) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set page</div>');
-			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
 		
 		$this->_setSessionPage($param, $group->alias);
-		$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+		$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
     }
     
     public function setLimitAction()
     {
     	// Version 14.07.2012
 		if (false === ($group = $this->_checkGroup())) {
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
 		
@@ -231,18 +245,20 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
     	$param = $this->getRequest()->getParam(self::SESSION_ROWS);
 		if (!$validator->isValid($param)) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set rows</div>');
-			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
+			return;
 		}
 		
 		$this->_setSessionPage(1, $group->alias);		
     	$this->_setSessionRows($param, $group->alias);
-		$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
-    }
+		$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
+	}
     
     public function setFilterAction()
     {
     	// Version 14.07.2012
 		if (false === ($group = $this->_checkGroup())) {
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
 		
@@ -257,12 +273,12 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 				
     	if (!$form->isValid($this->getRequest()->getParams())) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set filter</div>');
-			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 			return;
 		}
 		
     	$this->_setSessionPage(1, $group->alias);
     	$this->_setSessionFilter($form->getValues(), null, $group->alias);		
-		$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+		$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
 	}
 }
