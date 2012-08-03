@@ -31,8 +31,8 @@
 				<div class="left content_left bg_ed1c24">
 					<div class="pl_bg_box">
 						<div class="pl_title_box"><?php echo Zend_Registry::get('trasvistit')->_("ANNOUNCEMENTS");?></div>
-						<div class="right pl_all_box relative">
-							<a href="" class="dashed"><?php echo Zend_Registry::get('trasvistit')->_("ALL_ANNOUNCEMENTS");?></a> &#8595;
+						<div class="right pl_all_box relative" style ="cursor: pointer;">
+							<a style ="cursor: pointer;" class="dashed events"><?php echo Zend_Registry::get('trasvistit')->_("ALL_ANNOUNCEMENTS");?></a> &#8595;
 							<div class="pop_up" style = "display: none">
 								<div class="pop_up_left_top"></div>
 								<div class="pop_up_right_top"></div>
@@ -70,7 +70,7 @@
 				<div class="left content_center bg_0066c1">
 					<div class="pl_bg_box">
 						<div class="pl_title_box"><?php echo Zend_Registry::get('trasvistit')->_("NEWS");?></div>
-						<div class="right pl_all_box"><a href="" class="dashed"><?php echo Zend_Registry::get('trasvistit')->_("ALL_NEWS");?></a> &#8595;
+						<div class="right pl_all_box " style ="cursor: pointer;"><a style ="cursor: pointer;" class="dashed news"><?php echo Zend_Registry::get('trasvistit')->_("ALL_NEWS");?></a> &#8595;
 							<div class="pop_up" style = "display: none">
 								<div class="pop_up_left_top"></div>
 								<div class="pop_up_right_top"></div>
@@ -137,7 +137,7 @@
 				<div class="bg_61a123">
 					<div class="pl_bg_box">
 						<div class="pl_title_box"><?php echo Zend_Registry::get('trasvistit')->_("LAST_EVENTS");?></div>
-						<div class="right pl_all_box"><a href="" class="dashed"><?php echo Zend_Registry::get('trasvistit')->_("ALL_EVENTS");?></a> &#8595;</div>
+						<div class="right pl_all_box"><a style = "cursor: pinter;" class="dashed"><?php echo Zend_Registry::get('trasvistit')->_("ALL_EVENTS");?></a> &#8595;</div>
 						<div class="clearer"></div>
 					</div>
 					<div class="last_photo">

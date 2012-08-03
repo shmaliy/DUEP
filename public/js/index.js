@@ -68,6 +68,64 @@ var text = $(".input").val();
           $(this).find('.pop_up').fadeOut(200); 
         }
     );  
+  $(".events").live("click",function(){
+    	var ans_id = $(this).attr('ans_id');
+    	$.ajax({
+    		   type: "POST",
+    		   url: "/"+url_lang[3]+"/default/index/front-announcements-all",
+    		   success: function(content){
+    			   var html = '';
+    			   for ( var i = 0; i < content.contents.length; i++) {
+    			  html += '<div class="pl_item_box box_ans" style = "display: none;">';
+    				  html += '<div class="pl_item_title">'+content.contents[i].date_created+'</div>';
+    				  html += '<div>'+content.contents[i].tizer+'</div>';
+    				  html += '</div>';
+    			   }
+    			   $('.ans_block').html(html);
+    			   var speed = 1000;
+    			  
+				   $(".box_ans").each(function(){
+					   $(this).fadeIn(speed);
+					   speed = speed + 1000;
+					   
+					  
+					 });
+    			  
+    		   }    		   
+    		 });
+    	
+
+    });
+    $(".news").live("click",function(){
+
+    	var news_id = $(this).attr('news_id');
+
+    	$.ajax({
+    		   type: "POST",
+    		   url: "/"+url_lang[3]+"/default/index/front-news-all",
+    		   success: function(content){
+    			   var html = '';
+    			   for ( var i = 0; i < content.contents.length; i++) {
+    			  html += '<div class="pl_item_box box_news" style = "display: none;">';
+    				  html += '<div class="pl_item_title">'+content.contents[i].date_created+'</div>';
+    				  html += '<div>'+content.contents[i].tizer+'</div>';
+    				  html += '</div>';
+    			   }
+    			   $('.news_block').html(html);
+    			   var speed = 1000;
+     			  
+				   $(".box_news").each(function(){
+					   $(this).fadeIn(speed);
+					   speed = speed + 1000;
+					   
+					  
+					 });
+    			  
+    		   }
+    		 });
+
+    });
+
     $(".cat_anons").live("click",function(){
     	var ans_id = $(this).attr('ans_id');
     	$.ajax({

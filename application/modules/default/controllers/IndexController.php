@@ -24,6 +24,8 @@ class IndexController extends Zend_Controller_Action
 		$context->addActionContext('config', 'json');
 		$context->addActionContext('front-announcements', 'json');
 		$context->addActionContext('front-news', 'json');
+		$context->addActionContext('front-announcements-all', 'json');
+		$context->addActionContext('front-news-all', 'json');
 		
 		$context->initContext('json');
     	//var_export($this->getRequest()->getParams());
@@ -99,18 +101,112 @@ class IndexController extends Zend_Controller_Action
     }
     public function frontAnnouncementsAction()
     {
-
+        $translatedMonths = array(
+        1 => 'Январь',
+        2 => 'Февраль',
+        3 => 'Март',
+        4 => 'Апрель',
+        5 => 'Май',
+        6 => 'Июнь',
+        7 => 'Июль',
+        8 => 'Август',
+        9 => 'Сентябрь',
+        10 => 'Октябрь',
+        11 => 'Ноябрь',
+        12 => 'Декабрь'
+        );
         
     	$ans_id = $this->getRequest()->getParam('ans_id');
     	$contentsMapper = new Contents_Model_Mapper_Contents();
-    	$this->view->contents = $contentsMapper->getFrontContentsByCatId($ans_id, $this->_lang,'date_created desc',6)->toArray();
+    	$this->view->contents = $contentsMapper->getFrontContentsByCatId($ans_id, $this->_lang,'date_created desc',6);
+    	$this->view->contents->formatDate('date_created', $translatedMonths, 'г.');
+    	$this->view->contents = $this->view->contents->toArray();
+    	
     }
     public function frontNewsAction()
     {
+        $translatedMonths = array(
+        1 => 'Январь',
+        2 => 'Февраль',
+        3 => 'Март',
+        4 => 'Апрель',
+        5 => 'Май',
+        6 => 'Июнь',
+        7 => 'Июль',
+        8 => 'Август',
+        9 => 'Сентябрь',
+        10 => 'Октябрь',
+        11 => 'Ноябрь',
+        12 => 'Декабрь'
+        );
 
     	$news_id = $this->getRequest()->getParam('news_id');
     	$contentsMapper = new Contents_Model_Mapper_Contents();
-    	$this->view->contents = $contentsMapper->getFrontContentsByCatId($news_id, $this->_lang,'date_created desc',6)->toArray();
+    	$this->view->contents = $contentsMapper->getFrontContentsByCatId($news_id, $this->_lang,'date_created desc',6);
+    	$this->view->contents->formatDate('date_created', $translatedMonths, 'г.');
+    	$this->view->contents = $this->view->contents->toArray();
     }
+
+    public function frontAnnouncementsAllAction()
+    {
+        $groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+        $this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
+         
+        $catMapper = new Contents_Model_Mapper_ContentsCategories();
+        $this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $this->_lang);
+         
+        $contentsMapper = new Contents_Model_Mapper_Contents();
+        $this->view->contents = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc',6);
+         
+        $translatedMonths = array(
+        1 => 'Январь',
+        2 => 'Февраль',
+        3 => 'Март',
+        4 => 'Апрель',
+        5 => 'Май',
+        6 => 'Июнь',
+        7 => 'Июль',
+        8 => 'Август',
+        9 => 'Сентябрь',
+        10 => 'Октябрь',
+        11 => 'Ноябрь',
+        12 => 'Декабрь'
+        );
+         
+        $this->view->contents->formatDate('date_created', $translatedMonths, 'г.');
+        $this->view->contents = $this->view->contents->toArray();
+
+    }
+    public function frontNewsAllAction()
+    {
+    
+               $groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+        $this->view->ngroup = $groupsMapper->getFrontGroupByAlias ("news");
+         
+        $catMapper = new Contents_Model_Mapper_ContentsCategories();
+        $this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $this->_lang);
+         
+        $contentsMapper = new Contents_Model_Mapper_Contents();
+        $this->view->contents = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $this->_lang,'date_created desc',6);
+         
+        $translatedMonths = array(
+        1 => 'Январь',
+        2 => 'Февраль',
+        3 => 'Март',
+        4 => 'Апрель',
+        5 => 'Май',
+        6 => 'Июнь',
+        7 => 'Июль',
+        8 => 'Август',
+        9 => 'Сентябрь',
+        10 => 'Октябрь',
+        11 => 'Ноябрь',
+        12 => 'Декабрь'
+        );
+         
+        $this->view->contents->formatDate('date_created', $translatedMonths, 'г.');
+        $this->view->contents = $this->view->contents->toArray();
+    }
+
     
 }
