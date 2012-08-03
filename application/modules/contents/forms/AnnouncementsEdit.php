@@ -48,7 +48,8 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		
 		$main[] = 'title';
 		$this->addElement('text', 'title', array(
-			'label' => 'Заголовок'
+			'label' => 'Заголовок',
+			'required' => true
 		));
 		
 		$main[] = 'alias';
@@ -66,7 +67,7 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 			'label' => 'Полный текст'
 		));
 		
-		$this->addDisplayGroup($main, 'main');
+		$this->addDisplayGroup($main, 'main', array('legend' => 'Основная информация'));
 		
 		/*  Media  */
 		$media = array('media_id');
@@ -75,7 +76,7 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 			'buttonLabel' => 'Выбрать',
 			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
 		));
-		$this->addDisplayGroup($media, 'media');
+		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
 		
 		
 		
@@ -98,7 +99,7 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 			'label' => 'SEO ключевые слова'
 		));
 		
-		$this->addDisplayGroup($seo, 'seo');
+		$this->addDisplayGroup($seo, 'seo', array('legend' => 'SEO'));
 		
 		
 		/*  System  */
@@ -129,7 +130,7 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 			'label' => 'Комментарий администратора'
 		));
 		
-		$this->addDisplayGroup($system, 'system');
+		$this->addDisplayGroup($system, 'system', array('legend' => 'Системная информация'));
 		
 		
 		/*  Feeds  */
@@ -150,13 +151,7 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 			'label' => 'Включать в электронный календарь'
 		));
 		
-		$this->addDisplayGroup($feeds, 'feeds');
-		
-		/*  Images  */
-		//$images = array('images');
-		
-		//$this->addDisplayGroup($images, 'images');
-		
+		$this->addDisplayGroup($feeds, 'feeds', array('legend' => 'Рассылки'));
 		
 		// Submit
 		$this->addElement('submit', 'submit', array(

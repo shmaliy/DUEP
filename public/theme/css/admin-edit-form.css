@@ -1,0 +1,199 @@
+@CHARSET "UTF-8";
+
+.form-composite {
+	
+}
+
+.form-composite-group {
+	
+}
+
+.form-composite-group-main {
+	width:550px;	
+	float:left;
+	padding: 0;
+	margin: 0;
+	clear:both;
+}
+
+.form-composite-group-main fieldset {
+	border:none;
+	padding: 0;
+	margin: 0;
+	width:550px;
+	
+}
+
+.form-composite-group-main fieldset legend {
+	color:#181818;
+	font-size:24px;
+	display:block;
+	margin:0 0 25px 0;
+}
+
+.form-composite-group-main fieldset .form-composite-element {
+	width:550px;
+	margin: 0 0 30px 0;
+}
+
+.form-composite-group-main fieldset .form-composite-element textarea {
+	width:550px;
+}
+
+.form-composite-group-main fieldset .form-composite-element .form-composite-element-label {
+	width:100%;
+	font-size:16px;
+	color: #181818;
+	margin:0 0 10px 0;
+}
+
+.form-composite-group-main fieldset .form-composite-element .form-composite-element-tag {
+	
+}
+
+.form-composite-group-main fieldset .form-composite-element .form-composite-element-tag select {
+	background: rgba(0,0,0,0);
+    background: transparent\0/; /*хак для ИЕ8*/
+    -webkit-appearance: none;/*хак для хрома*/
+    font-size: 14px;
+    padding: 7px 5px 7px 5px;
+    width: 573px;
+    color: #181818;
+    border: 0 none;
+    outline:0;
+    
+}
+
+.form-composite-group-main fieldset .form-composite-element .formSelect {
+	display: inline-block;
+	width: 550px;
+	overflow: hidden;
+	border: 1px solid #aab0b4;
+	border-radius: 3px;
+	background: url("/theme/img/admin/select-button.png") no-repeat 530px 50% #fff;
+}
+
+.form-composite-group-main fieldset .form-composite-element .form-composite-element-tag input {
+	background: rgba(0,0,0,0);
+    background: transparent\0/; /*хак для ИЕ8*/
+    -webkit-appearance: none;/*хак для хрома*/
+    font-size: 14px;
+    padding: 7px 5px 7px 5px;
+    width: 540px;
+    color: #181818;
+    border: 0 none;
+    outline:0;
+    border: 1px solid #aab0b4;
+	border-radius: 3px;
+	
+}
+
+.form-composite-group-main fieldset .form-composite-element .form-composite-element-errors {
+	
+}
+
+.form-composite-group-main fieldset .form-composite-element .form-composite-element-description {
+	
+}
+
+.form-composite-group-media,
+.form-composite-group-seo,
+.form-composite-group-system,
+.form-composite-group-feeds {
+	width: 270px;
+	float: right;
+	background:#f5f5f5;
+	padding:5px 10px 10px 10px;
+	margin:0 0 15px 0;
+}
+
+.form-composite-group-media fieldset,
+.form-composite-group-seo fieldset,
+.form-composite-group-system fieldset,
+.form-composite-group-feeds fieldset {
+	width: 270px;
+	border:none;
+	padding: 0;
+	margin: 0;
+}
+
+.form-composite-group-media fieldset legend,
+.form-composite-group-seo fieldset legend,
+.form-composite-group-system fieldset legend,
+.form-composite-group-feeds fieldset legend {
+	font-size:18px;
+	color: #038bbb;
+	padding:5px 25px 5px 0;
+	background: url(/theme/img/admin/right_arrow_bottom-17px.png) center right no-repeat;
+}
+
+.form-composite-group-media fieldset .form-composite-element,
+.form-composite-group-seo fieldset .form-composite-element,
+.form-composite-group-system fieldset .form-composite-element,
+.form-composite-group-feeds fieldset .form-composite-element {
+	display:none;
+	margin:15px 0 0 0;
+}
+
+.form-composite-group-media fieldset .form-composite-element-active,
+.form-composite-group-seo fieldset .form-composite-element-active,
+.form-composite-group-system fieldset .form-composite-element-active,
+.form-composite-group-feeds fieldset .form-composite-element-active {
+	display:block;
+	margin:15px 0 0 0;
+}
+
+.form-composite-group-media fieldset .form-composite-element-active textarea,
+.form-composite-group-seo fieldset .form-composite-element-active textarea,
+.form-composite-group-system fieldset .form-composite-element-active textarea,
+.form-composite-group-feeds fieldset .form-composite-element-active textarea {
+	width: 270px;
+	height: 100px;
+	padding: 0;
+	margin: 0;
+}
+
+.form-composite-group-media fieldset .form-composite-element-active input,
+.form-composite-group-seo fieldset .form-composite-element-active input,
+.form-composite-group-system fieldset .form-composite-element-active input,
+.form-composite-group-feeds fieldset .form-composite-element-active input {
+	width: 270px;
+	height:25px;
+	padding: 0;
+	margin: 0;
+}
+
+.form-composite-group-media fieldset .form-composite-element-active .media_id-list-container ul {
+	margin:25px 0 0 0;
+	padding:0;
+	list-style: none;
+}
+
+.form-composite-group-media fieldset .form-composite-element-active .media_id-list-container ul li {
+	width: 270px;
+	padding:0 0 10px 0;
+	border-bottom:1px dashed #ccc;
+}
+
+.form-composite-group-media fieldset .form-composite-element-active .media_id-list-container ul li img {
+	display:block;
+	margin:0 0 5px 25px;
+}
+
+.form-composite-group-media fieldset .form-composite-element-active .media_id-list-container ul li a {
+	margin:0 0 0 25px;
+	border-bottom:1px dotted black;
+	cursor:pointer;	
+}
+
+.contents .form-composite-element-submit {
+	clear: both;
+}
+
+.form-composite-element-active label {
+	font-size:16px;
+	color:#181818;
+	margin:0 0 5px 0;
+	display:block;
+	
+}

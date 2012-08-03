@@ -41,6 +41,16 @@ class Contents_Form_GalleryOfImagesEdit extends Sunny_Form
 			'multiOptions' => $this->_contentsCategoriesMultiOptions
 		));
 		
+		$main[] = 'languages_alias';
+		$this->addElement('select', 'languages_alias', array(
+					'label' => 'Язык'
+		));
+		
+		$main[] = 'contents_id';
+		$this->addElement('select', 'contents_id', array(
+					'label' => 'Галерея-оригинал'
+		));
+		
 		$main[] = 'title';
 		$this->addElement('text', 'title', array(
 			'label' => 'Заголовок'
@@ -61,8 +71,16 @@ class Contents_Form_GalleryOfImagesEdit extends Sunny_Form
 			'label' => 'Полный текст'
 		));
 		
-		$this->addDisplayGroup($main, 'main');
+		$this->addDisplayGroup($main, 'main', array('legend' => 'Основная информация'));
 		
+		/*  Media  */
+		$media = array('media_id');
+		$this->addElement('button', 'media_id', array(
+					'label' => 'Главное изображение',
+					'buttonLabel' => 'Выбрать',
+					'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
+		));
+		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
 				
 		/*  SEO  */
 		$seo = array('seo');
@@ -82,7 +100,7 @@ class Contents_Form_GalleryOfImagesEdit extends Sunny_Form
 			'label' => 'SEO ключевые слова'
 		));
 		
-		$this->addDisplayGroup($seo, 'seo');
+		$this->addDisplayGroup($seo, 'seo', array('legend' => 'SEO'));
 		
 		
 		/*  System  */
@@ -113,7 +131,7 @@ class Contents_Form_GalleryOfImagesEdit extends Sunny_Form
 			'label' => 'Комментарий администратора'
 		));
 		
-		$this->addDisplayGroup($system, 'system');
+		$this->addDisplayGroup($system, 'system', array('legend' => 'Системная информация'));
 		
 		
 		/*  Feeds  */
@@ -134,7 +152,7 @@ class Contents_Form_GalleryOfImagesEdit extends Sunny_Form
 			'label' => 'Включать в электронный календарь'
 		));
 		
-		$this->addDisplayGroup($feeds, 'feeds');
+		$this->addDisplayGroup($feeds, 'feeds', array('legend' => 'Рассылки'));
 		
 		
 		// Submit
@@ -153,5 +171,7 @@ class Contents_Form_GalleryOfImagesEdit extends Sunny_Form
 		
 		$this->addPrefixPath('Sunny_Form_Decorator', 'Sunny/Form/Decorator/', 'decorator');
 		$this->setDecorators(array('CompositeFormDiv'));
+		
+		$this->getElement('media_id')->setDecorators(array('FileSelectorDiv'));
 	}
 }

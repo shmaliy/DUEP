@@ -1,5 +1,7 @@
 @CHARSET "UTF-8";
 
+@import "/theme/css/admin-edit-form.css" screen; /* Стиль для вывода результата на монитор */
+
 /* layouts/scripts/admin-layout.php3 start */
 html, body, img, div, a, span {
 	margin: 0;

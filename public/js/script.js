@@ -203,6 +203,7 @@
 		observe: function()
 		{
 			console.log('observe');
+			uploader();
 			return this.each(function(){
 				var action = null;
 				var attr   = null;
@@ -227,6 +228,7 @@
 					
 					var data   = {};
 					if (action == 'submit') {
+						tinyMCE.triggerSave();
 						data = $(this).serialize();
 						$(this).find('input, select, textarea, button').attr("disabled", "disabled");				
 					}
@@ -521,8 +523,40 @@ function uploader()
 		});
 }
 
+function rightFormSelector()
+{
+	var fields = ['#media', '#seo', '#system', '#feeds'];
+	for (var i = 0; i <fields.length; i++) {
+		$(fields[i] + " > legend").css("cursor", "pointer");
+		$(fields[i] + " > legend").bind('click', {id:fields[i]}, function(event){
+			rightFormSelectorManipulator(event.data.id);
+		});
+	}
+	console.log(fields);
+}
+
+function rightFormSelectorManipulator(id)
+{
+	var controls = $(id + " > div");
+	controls.each(function() {
+		if ($(this).is('.form-composite-element')) {
+			$(id + " > legend").css("background", "url(/theme/img/admin/right_arrow_top-17px.png) center right no-repeat");
+			$(this).removeClass('form-composite-element');
+			$(this).addClass('form-composite-element-active');
+		} else {
+			$(id + " > legend").css("background", "url(/theme/img/admin/right_arrow_bottom-17px.png) center right no-repeat");
+			$(this).removeClass('form-composite-element-active');
+			$(this).addClass('form-composite-element');
+		}
+	});
+	console.log(controls);
+}
 
 //Observe generic menu class toggle
 $(document).ready(function(){
 	uploader();
+	rightFormSelector();
 });
+
+
+
