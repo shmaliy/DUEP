@@ -34,8 +34,8 @@ function uiDialogOpen(title, content)
 			},
 			complete: function(jqXHR, textStatus) {
 				//console.log(jqXHR);
-				$('.via_ajax').cmsManager('observe');
 				uploader();
+				$('.via_ajax').cmsManager('observe');
 			}
 		});		
 	} else {

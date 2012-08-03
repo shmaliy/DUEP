@@ -203,6 +203,7 @@
 		observe: function()
 		{
 			console.log('observe');
+			uploader();
 			return this.each(function(){
 				var action = null;
 				var attr   = null;
