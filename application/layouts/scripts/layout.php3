@@ -156,7 +156,7 @@
 				<a href="">Другие формы связи</a><br/>
 			</div>
 			<div class="right">
-			   <a href=""><img src="/theme/img/front/sunny_logo.png" class="sunny_logo"/></a>
+			   <a href="sunny.net.ua"><img src="/theme/img/front/sunny_logo.png" class="sunny_logo"/></a>
 			</div>						
 			<div class="right footer_item">
 			   <form action="" method="">

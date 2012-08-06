@@ -15,11 +15,11 @@
           <?php foreach ($this->news as $item): if($item):?>
           <li class="adt_date">
             <span class="adt_image">
-	            <?php if ($item->img == ''): ?>
+	            <?php// if ($item->img == ''): ?>
 	            <img alt="" src="/theme/img/front/noimage.png" />
-	            <?php else: ?>
-               <img alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
-               <?php endif;?>
+	            <?php// else: ?>
+            <!--   <img alt="" src="/theme/img/front/developments/<?php //echo $item->img; ?>" />  -->  
+               <?php// endif;?>
              </span>
               <a href="<?php echo $this->simpleUrl('view', 'news', 'contents', array('alias'=>$item->alias), 'contents/news/view' ); ?>"><?php echo $item->title; ?></a>
               <p><?php echo $item->date_created;?>,
@@ -85,11 +85,11 @@
         <ul>
          <?php  foreach ($this->actual as $item): if($item):?>
             <li>
-                 <?php if ($item->img == ''): ?>
+                 <?php// if ($item->img == ''): ?>
 	            <img height = 40 width = 40 alt="" src="/theme/img/front/noimage.png" />
-	            <?php else: ?>
-               <img height = 40 width = 40 alt="" src="/theme/img/front/developments/<?php echo $item->img; ?>" />
-               <?php endif;?>
+	            <?php// else: ?>
+              <!--  <img height = 40 width = 40 alt="" src="/theme/img/front/developments/<?php// echo $item->img; ?>" />  -->
+               <?php// endif;?>
                <span class = "actual">
                 <p><?php echo $item->date_created;?></p>
                 <?php foreach ($this->group as $itemg):

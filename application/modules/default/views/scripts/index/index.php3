@@ -30,7 +30,7 @@
 				</div>
 				<div class="left content_left bg_ed1c24">
 					<div class="pl_bg_box">
-						<div class="pl_title_box"><?php echo Zend_Registry::get('trasvistit')->_("ANNOUNCEMENTS");?></div>
+						<div class="pl_title_box"><a style ="cursor: pointer; color: #FFFFFF;" href = "<?php echo $this->simpleUrl('view', 'announcements', 'contents', array('alias'=>$item->alias), 'contents/announcements/index' );?>"><?php echo Zend_Registry::get('trasvistit')->_("ANNOUNCEMENTS");?></a></div>
 						<div class="right pl_all_box relative" style ="cursor: pointer;">
 							<a style ="cursor: pointer;" class="dashed events"><?php echo Zend_Registry::get('trasvistit')->_("ALL_ANNOUNCEMENTS");?></a> &#8595;
 							<div class="pop_up" style = "display: none">
@@ -69,7 +69,7 @@
 				
 				<div class="left content_center bg_0066c1">
 					<div class="pl_bg_box">
-						<div class="pl_title_box"><?php echo Zend_Registry::get('trasvistit')->_("NEWS");?></div>
+						<div class="pl_title_box"><a style ="cursor: pointer; color: #FFFFFF;" href = "<?php echo $this->simpleUrl('view', 'news', 'contents', array('alias'=>$item->alias), 'contents/news/index' ); ?>"><?php echo Zend_Registry::get('trasvistit')->_("NEWS");?></a></div>
 						<div class="right pl_all_box " style ="cursor: pointer;"><a style ="cursor: pointer;" class="dashed news"><?php echo Zend_Registry::get('trasvistit')->_("ALL_NEWS");?></a> &#8595;
 							<div class="pop_up" style = "display: none">
 								<div class="pop_up_left_top"></div>
