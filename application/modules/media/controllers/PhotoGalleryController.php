@@ -1,6 +1,6 @@
 <?php
 
-class Contents_PhotoGalleryController extends Zend_Controller_Action
+class Media_PhotoGalleryController extends Zend_Controller_Action
 {	
 	/**
 	 * Prepare controller for work with ajax based requests

@@ -37,7 +37,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
     {
         $frontController = Zend_Controller_Front::getInstance();
         $router = $frontController->getRouter();
-        //$router->setGlobalParam('lang', 'ru');
+        //$router->setGlobalParam('lang', 'uk');
     
         // Override default route
        
@@ -48,7 +48,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
         	        'controller' => 'file',
         	        'action' => 'view',
         			'alias' => '',
-        	        'lang' => 'ru'
+        	        'lang' => 'uk'
     )
     ));
      
@@ -58,7 +58,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
         	        'module' => 'media',
         	        'controller' => 'file',
         	        'action' => 'index',
-        	        'lang' => 'ru'
+        	        'lang' => 'uk'
     )
     ));
     $router->addRoute('media/photo-gallery/view', new Zend_Controller_Router_Route(
@@ -68,7 +68,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
             	        'controller' => 'photo-gallery',
             	        'action' => 'view',
             			'alias' => '',
-            	        'lang' => 'ru'
+            	        'lang' => 'uk'
     )
     ));
      
@@ -78,7 +78,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
             	        'module' => 'media',
             	        'controller' => 'photo-gallery',
             	        'action' => 'index',
-            	        'lang' => 'ru'
+            	        'lang' => 'uk'
     )
     ));
     $router->addRoute('media/video-gallery/view', new Zend_Controller_Router_Route(
@@ -88,7 +88,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
                 	        'controller' => 'video-gallery',
                 	        'action' => 'view',
                 			'alias' => '',
-                	        'lang' => 'ru'
+                	        'lang' => 'uk'
     )
     ));
     
@@ -98,7 +98,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
                 	        'module' => 'media',
                 	        'controller' => 'video-gallery',
                 	        'action' => 'index',
-                	        'lang' => 'ru'
+                	        'lang' => 'uk'
     )
     ));
     

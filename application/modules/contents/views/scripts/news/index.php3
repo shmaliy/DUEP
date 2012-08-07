@@ -15,11 +15,12 @@
           <?php foreach ($this->news as $item): if($item):?>
           <li class="adt_date">
             <span class="adt_image">
-	            <?php// if ($item->img == ''): ?>
+                <?php if ($item->media_id == ''): ?>
 	            <img alt="" src="/theme/img/front/noimage.png" />
-	            <?php// else: ?>
-            <!--   <img alt="" src="/theme/img/front/developments/<?php //echo $item->img; ?>" />  -->  
-               <?php// endif;?>
+	            <?php else: ?>
+	            <?php foreach ($this->imgs as $img): if($item->media_id == $img->id):?>
+            <img width = 106 height = 106 alt="" src="/uploads/<?php echo $img->id.'.'.$img->type; ?>" />
+               <?php endif; endforeach; endif; ?>
              </span>
               <a href="<?php echo $this->simpleUrl('view', 'news', 'contents', array('alias'=>$item->alias), 'contents/news/view' ); ?>"><?php echo $item->title; ?></a>
               <p><?php echo $item->date_created;?>,
@@ -80,16 +81,17 @@
         <li><a href="">Итоги научно-исследовательской деятельности 2010-2011 у.г.</a></li>
         <li><a href="">Болонский процесс</a></li>
     </ul>
-    <div class="side_true">
+       <div class="side_true">
         <h2><?php echo Zend_Registry::get('trasvistit')->_("ACTUAL");?></h2>
         <ul>
-         <?php  foreach ($this->actual as $item): if($item):?>
+         <?php foreach ($this->actual as $item):?>
             <li>
-                 <?php// if ($item->img == ''): ?>
-	            <img height = 40 width = 40 alt="" src="/theme/img/front/noimage.png" />
-	            <?php// else: ?>
-              <!--  <img height = 40 width = 40 alt="" src="/theme/img/front/developments/<?php// echo $item->img; ?>" />  -->
-               <?php// endif;?>
+                <?php if ($item->media_id == ''): ?>
+	            <img width = 40 height = 40 alt="" src="/theme/img/front/noimage.png" />
+	            <?php else: ?>
+	            <?php foreach ($this->imgs as $img): if($item->media_id == $img->id):?>
+            <img width = 40 height = 40 alt="" src="/uploads/<?php echo $img->id.'.'.$img->type; ?>" />
+               <?php endif; endforeach; endif; ?>
                <span class = "actual">
                 <p><?php echo $item->date_created;?></p>
                 <?php foreach ($this->group as $itemg):
@@ -99,7 +101,7 @@
                 <a href="">Лента</a>&rarr;<a href="">Категория</a>
                 </span>
             </li>
-            <?php endif; endforeach;?>
+            <?php endforeach;?>
         </ul>
     </div>
   </div>
