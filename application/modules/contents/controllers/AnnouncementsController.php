@@ -53,6 +53,9 @@ class Contents_AnnouncementsController extends Zend_Controller_Action
     	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $this->_lang,'date_created desc');
     	$this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->ngroup->id, $this->view->egroup->id), $this->_lang,'date_created desc',5);
     	
+    	$imgMapper = new Media_Model_Mapper_Media();
+    	$this->view->imgs = $imgMapper->getContentImgAll();
+    	
     	$translatedMonths = array(
 	    	1 => 'Январь',
 	    	2 => 'Февраль',
@@ -101,6 +104,9 @@ class Contents_AnnouncementsController extends Zend_Controller_Action
 
     	$contentMapper = new Contents_Model_Mapper_Contents();
     	$this->view->announcement = $contentMapper->getFrontContentByAlias($alias, $this->_lang);
+    	
+    	$imgMapper = new Media_Model_Mapper_Media();
+    	$this->view->imgs = $imgMapper->getContentImgAll();
     	
     	$translatedMonths = array(
     	1 => 'Январь',

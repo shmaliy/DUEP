@@ -189,7 +189,7 @@
         <li><a href="">Итоги научно-исследовательской деятельности 2010-2011 у.г.</a></li>
         <li><a href="">Болонский процесс</a></li>
     </ul>
-    <div class="side_true">
+       <div class="side_true">
         <h2><?php echo Zend_Registry::get('trasvistit')->_("ACTUAL");?></h2>
         <ul>
          <?php foreach ($this->actual as $item):?>
