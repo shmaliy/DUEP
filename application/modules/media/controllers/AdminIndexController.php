@@ -180,13 +180,20 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     		if(move_uploaded_file($_FILES[$postName]["tmp_name"], 'uploads/' . $name . '.' . strtolower(end(explode('.', $_FILES[$postName]['name'])))))
     		{
     			$this->view->success = true;
-    			$this->view->action = 'update';
     			$this->view->fileInfo = $fileInfo;
-    			//$this->view->redirectTo = $this->_helper->url->simple('select-image', $this->_c, $this->_m);
+    			$this->_makeResponderStructure(
+    				'select-image', 
+    				'admin-index', 
+    				'media', 
+    				array(), 
+    				'update', 
+    				$this->getRequest()->getParam('update_container', '.ui-dialog-content')
+    			);
     			
-    			$this->view->update_m = $this->_m;
-    			$this->view->update_c = $this->_c;
-    			$this->view->update_a = 'select-image';
+    			
+    			
+    			//TODO Зас
+    			//$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
     		} else {
     			$this->_getMapper()->deleteEntity($this->_getMapper()->findEntity($id));
     		}
