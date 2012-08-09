@@ -15,56 +15,52 @@
 				
 		},
 		
-		parseFlashResponse: function (serverData) {
-			if (!serverData) {
-				return;
-			}
-			
-			var response = $.parseJSON(serverData);
-			
-			if(response !== null) {
-				if (response.action) {
-					var method = 'response_' + response.action;
-					$(this).cmsManager(method, response);
-				}
-			}
-		},
-		
 		parseHttpResponse: function (jqXHR, _htmlCallback) 
 		{
 			console.log('parseHttpResponse');
-			var contentType = jqXHR.getResponseHeader('Content-Type');	
+			//console.log($.type(jqXHR));
 			
-			if (contentType == 'application/json') {
-				var response = $.parseJSON(jqXHR.responseText);
-				
-				if (response && response.actions && $.isArray(response.actions)) {					
-					for (var i=0; i < response.actions.length; i++) {						
-						for (var key in response.actions[i]) {							
-							var method = 'parse' + key.charAt(0).toUpperCase() + key.substr(1);
-							$(this).cmsManager(method, response.actions[i][key]);
-							if (key == 'redirect') {
-								return;
-							}
-							
+			var isJSON = false;
+			if ($.isFunction(jqXHR.getResponseHeader)) {
+				if (jqXHR.getResponseHeader('Content-Type') == 'application/json') {
+					var response = $.parseJSON(jqXHR.responseText);
+					isJSON = true;
+					//alert ('jqxhr');
+				}
+			} else if($.isPlainObject(jqXHR)) {
+				var response = jqXHR;
+				isJSON = true;
+				//alert ('json');
+			}
+			
+			if (isJSON && response && response.actions && $.isArray(response.actions)) {					
+				for (var i=0; i < response.actions.length; i++) {						
+					for (var key in response.actions[i]) {							
+						var method = 'parse' + key.charAt(0).toUpperCase() + key.substr(1);
+						$(this).cmsManager(method, response.actions[i][key]);
+						if (key == 'redirect') {
+							return;
 						}
+						
 					}
 				}
-				
 				return;
 			}
 			
-			if (_htmlCallback.method == 'html') {
-				$(_htmlCallback.container).html(jqXHR.responseText);
-			} else if (_htmlCallback.method == 'before') {
-				$(_htmlCallback.container).before(jqXHR.responseText);
-			} else if (_htmlCallback.method == 'after') {
-				$(_htmlCallback.container).after(jqXHR.responseText);
-			}
-			$('.via_ajax').cmsManager('observe');
-			return;			
+			if (_htmlCallback && $.isFunction(jqXHR.getResponseHeader)) {
 			
-			var response_pattern = {
+				if (_htmlCallback.method == 'html') {
+					$(_htmlCallback.container).html(jqXHR.responseText);
+				} else if (_htmlCallback.method == 'before') {
+					$(_htmlCallback.container).before(jqXHR.responseText);
+				} else if (_htmlCallback.method == 'after') {
+					$(_htmlCallback.container).after(jqXHR.responseText);
+				}
+				$('.via_ajax').cmsManager('observe');
+			}
+			
+			return;
+			/*var response_pattern = {
 				actions: [
 				    {redirect: {
 				    	url: 'url'|{m:m, c:c, a:a, params:{}}
@@ -86,7 +82,7 @@
 				    }}
 				],
 				exception: {}
-			};
+			};*/
 		},
 		
 		/**
@@ -94,7 +90,6 @@
 		 */
 		_assembleUrl: function (object)
 		{
-			console.log('_assembleUrl');
 			if (typeof object == 'string') {
 				return object;
 			}
@@ -128,6 +123,7 @@
 				url += '/' + key + '/' + params[key];
 			}
 			
+			console.log('_assembleUrl - ' + url);
 			return url;
 		},
 		
@@ -167,6 +163,7 @@
 		parseUpdate: function (data)
 		{
 			console.log('parseUpdate');
+			console.log(data);
 			if(!data.container || typeof data.container != 'string') {
 				data.container = '.body-container';
 			}
@@ -330,6 +327,8 @@ $(document).ready(function(){
 	//observeAnchorOnClick();
 	$.fn.cmsManager('mainImageRenderer');
 	$('.via_ajax').cmsManager('observe');
+	//uploader();
+	rightFormSelector();
 });
 
 // Observe generic menu class toggle
@@ -430,7 +429,9 @@ function uploader()
 		};
 		
 		var su = $('.swfupload-button').swfupload(swfuploadOptions);
-		
+		var buttons =  $('.swfupload-button');
+		console.log ('Buttons length - ' + buttons.length);
+		su.unbind();
 		su.bind('swfuploadLoaded', function(event){
 			//$('#log').append('<li>Loaded</li>');
 			console.log('Loaded');
@@ -451,7 +452,7 @@ function uploader()
 				width: 400,
 				height: 150,
 				beforeClose: function(event, ui) {
-					$.swfupload.getInstance(su).cancelUpload();
+					//$.swfupload.getInstance(su).cancelUpload();
 				}
 			});
 			
@@ -492,17 +493,15 @@ function uploader()
 		su.bind('uploadSuccess', function(event, file, serverData){
 			//$('#log').append('<li>Upload success - '+file.name+'</li>');
 			console.log('Upload success - ' + file.name);
-			$('.via_ajax').cmsManager('parseFlashResponse', serverData);
-			eval('var json = ' + serverData);
+			//$('.via_ajax').cmsManager('parseFlashResponse', serverData);
+			var json = $.parseJSON(serverData);
 			
-			if (json.success === true) {
+			if (json.success == true) {
 				progress = su.data('__bar');
 				progress.dialog("close");
 				progress.dialog("destroy");
 				
-				if (json.redirectTo != '') {
-					//window.location.href = json.redirectTo;
-				}
+				$('.via_ajax').cmsManager('parseHttpResponse', json);
 			}
 		});
 		
@@ -532,7 +531,7 @@ function rightFormSelector()
 			rightFormSelectorManipulator(event.data.id);
 		});
 	}
-	console.log(fields);
+	//console.log(fields);
 }
 
 function rightFormSelectorManipulator(id)
@@ -549,14 +548,9 @@ function rightFormSelectorManipulator(id)
 			$(this).addClass('form-composite-element');
 		}
 	});
-	console.log(controls);
+	//console.log(controls);
 }
 
-//Observe generic menu class toggle
-$(document).ready(function(){
-	uploader();
-	rightFormSelector();
-});
 
 
 

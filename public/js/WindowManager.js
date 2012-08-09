@@ -34,7 +34,7 @@ function uiDialogOpen(title, content)
 			},
 			complete: function(jqXHR, textStatus) {
 				//console.log(jqXHR);
-				uploader();
+				//uploader();
 				$('.via_ajax').cmsManager('observe');
 			}
 		});		
@@ -46,6 +46,8 @@ function uiDialogOpen(title, content)
 		uiDialogShow(title, content);
 	}
 }
+
+
 
 function uiDialogShow(title, content)
 {
@@ -60,6 +62,8 @@ function uiDialogShow(title, content)
 		width: 900,
 		height: 600,
 		beforeClose: function(event, ui) {
+			$('.swfupload-button').remove();
+			
 			wCount--;
 			if (wCount == 0) {
 				$('#ui-dialog-collection-overlay').remove();
