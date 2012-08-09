@@ -1,19 +1,28 @@
-<div class="middle">
+<section class="middle">
 
   <div class="container">
-      <div class="tape_path">
+        <div class="tape_path">
           <a class="emblem_way" href=""></a>&rarr;
           <a href="">Университет</a>&rarr;
           <a href="">События</a>
       </div>
     <div class="content">
       <div>
-        <h1 class="developments"><?php echo Zend_Registry::get('trasvistit')->_("NEWS");?></h1>
+          <h1 class="developments"><?php echo Zend_Registry::get('trasvistit')->_("EVENTS");?></h1>
+        <ul class="lineTabs">
+          <li>
+            <a class="active" href=""><span><?php echo Zend_Registry::get('trasvistit')->_("ANNOUNCEMENTS");?></span></a>
+          </li>
+          <li>
+            <a href=""><span><?php echo Zend_Registry::get('trasvistit')->_("LAST_EVENTS");?></span></a>
+          </li>
+        </ul>
+          <hr />
       </div>
       <div class="adt">
         <ul class="adt_list">
-          <?php foreach ($this->news as $item): if($item):?>
-          <li class="adt_date">
+        <?php foreach ($this->announcements as $item): if($item):?>
+          <li class="adt_date" style = "display: none;">
             <span class="adt_image">
                 <?php if ($item->media_id == ''): ?>
 	            <img alt="" src="/theme/img/front/noimage.png" />
@@ -22,43 +31,22 @@
             <img width = 106 height = 106 alt="" src="/uploads/<?php echo $img->id.'.'.$img->type; ?>" />
                <?php endif; endforeach; endif; ?>
              </span>
-              <a href="<?php echo $this->simpleUrl('view', 'news', 'contents', array('alias'=>$item->alias), 'contents/news/view' ); ?>"><?php echo $item->title; ?></a>
-              <p><?php echo $item->date_created;?>,
-              <a class="comments" href="">15 <?php echo Zend_Registry::get('trasvistit')->_("COMMENTS");?></a></p>
-                              <?php foreach ($this->acats as $itemc):
-                if ($itemc->id == $item->contents_categories_id):?>
-                <a class="category_news" href=""><?php echo $itemc->title; ?></a>
-                <?php endif; endforeach;?>
-              
-              <p class="adt_description"><?php echo $item->tizer; ?></p>
+            <p><?php echo $item->date_created;?></p>
+            <a href="<?php echo $this->simpleUrl('view', 'announcements', 'contents', array('alias'=>$item->alias), 'contents/announcements/view' ); ?>"><?php echo $item->title;?></a>
+            <p class="adt_description"><?php echo $item->tizer;?></p>
           </li>
-            <?php endif; endforeach;?>
-            <li class="paging">
-                <a href="">&larr;</a>
-                <a href="">1</a>
-                <a href="">2</a>
-                <a href="">3</a>
-                <a href="">4</a>
-                <a href="">5</a>
-                <a href="">6</a>
-                <a href="">7</a>
-                <a href="">8</a>
-                <a href="">&rarr;</a>
-            </li>
+          <?php endif; endforeach;?>
         </ul>
       </div>
-        <div class="sideRight">
-            <div class="calendar"></div>
-            <div class="rss_card">
-                <strong>Будьте в курсе</strong>
-                <p>Подпишитесь на обновления сайта - и вы всегда будете в курсе событий!</p>
-                <a class="rss_orang" href="">RSS-лента</a><br />
-                <a href="">Электронная рассылка</a>
-            </div>
+        <div class="calendar"></div>
+<div class="rss_card">
+            <strong>Будьте в курсе</strong>
+            <p>Подпишитесь на обновления сайта - и вы всегда будете в курсе событий!</p>
+            <a class="rss_orang" href="">RSS-лента</a><br />
+            <a href="">Электронная рассылка</a>
         </div>
     </div>
     <!-- #content-->
-
   </div>
   <!-- #container-->
 
@@ -70,11 +58,11 @@
         <li><a href="">Нобелевское движение</a></li>
         <li><a href="">Аспирантура и докторантура</a></li>
         <li><div class="note">
-        <a href=""><?php echo Zend_Registry::get('trasvistit')->_("NEWS");?></a>
+        <a href=""><?php echo Zend_Registry::get('trasvistit')->_("EVENTS");?></a>
         </div>
             <ul class="submenu">
-                <li><a href="">Студенту</a></li>
-                <li><a href="">Абитуриенту</a></li>
+                <li><a href="">Категория1</a></li>
+                <li><a href="">Категория2</a></li>
             </ul>
         </li>
         <li><a href="">Научные школы Университета</a></li>
@@ -98,16 +86,7 @@
                 if ($itemg->id == $item->contents_groups_id):?>
                 <a class="name_news" href="<?php echo $this->simpleUrl('view', $itemg->alias, 'contents', array('alias'=>$item->alias), 'contents/'.$itemg->alias.'/view' ); ?>"><?php echo $item->title; ?></a><br/>
                 <?php endif; endforeach;?>
-                <?php foreach ($this->cats as $itemc):
-                if ($itemc->id == $item->contents_categories_id):?>
-                 <a href=""><?php echo $itemc->title; ?></a>
-                <?php endif; endforeach;?>
-                &rarr;
-                <?php foreach ($this->group as $itemg):
-                if ($itemg->id == $item->contents_groups_id):?>
-                 <a href="<?php echo $this->simpleUrl('view', $itemg->alias, 'contents', array(), 'contents/'.$itemg->alias.'/index' ); ?>"><?php echo $itemg->title; ?></a>
-                <?php endif; endforeach;?>
-               
+                <a href="">Лента</a>&rarr;<a href="">Категория</a>
                 </span>
             </li>
             <?php endforeach;?>
@@ -116,6 +95,6 @@
   </div>
 
   <!-- #sideLeft -->
-          
-</div>
+
+</section>
 <!-- #middle-->

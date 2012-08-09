@@ -40,18 +40,30 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	//$router->setGlobalParam('lang', 'ru');
     	 
     	// Override default route
-
     	
     	$router->addRoute('contents/news/view', new Zend_Controller_Router_Route(
-    		':lang/news/:alias/',
+    	':lang/news/:cat/:alias/',
+    	    	array(
+    	'module' => 'contents',
+    	'controller' => 'news',
+    	    	    	        'action' => 'view',
+    	'alias' => '',
+    	    					'cat' => '',
+    	    	    	        'lang' => ''
+    	    	)
+    	));
+    	
+    	$router->addRoute('contents/news/cat', new Zend_Controller_Router_Route(
+    		':lang/news/:cat/',
     	    array(
     	    	'module' => 'contents',
     	        'controller' => 'news',
-    	        'action' => 'view',
-    			'alias' => '',
+    	        'action' => 'cat',
+    			'cat' => '',
     	        'lang' => ''
     	    )    	 
     	));
+
     	
     	$router->addRoute('contents/news/index', new Zend_Controller_Router_Route(
     	    ':lang/news/',
@@ -63,15 +75,26 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	    )
     	));
     	$router->addRoute('contents/events/view', new Zend_Controller_Router_Route(
-    	    	    	    	':lang/events/:alias/',
-    	array(
-    	    	        	'module' => 'contents',
-    	    	        	'controller' => 'events',
-    	    	        	'action' => 'view',
-    	    				'alias' => '',
-    	    	        	'lang' => ''
-    	)
+    	':lang/events/:cat/:alias/',
+    	    	array(
+    	'module' => 'contents',
+    	'controller' => 'events',
+    	    	    	        'action' => 'view',
+    	'alias' => '',
+    	    					'cat' => '',
+    	    	    	        'lang' => ''
+    	    	)
+    	));
     	
+    	$router->addRoute('contents/events/cat', new Zend_Controller_Router_Route(
+    		':lang/events/:cat/',
+    	    array(
+    	    	'module' => 'contents',
+    	        'controller' => 'events',
+    	        'action' => 'cat',
+    			'cat' => '',
+    	        'lang' => ''
+    	    )    	 
     	));
     	$router->addRoute('contents/events/index', new Zend_Controller_Router_Route(
     	    	    	':lang/events',
@@ -135,16 +158,27 @@ class Contents_Bootstrap extends Zend_Application_Module_Bootstrap
     	)
     	
     	));
-    	$router->addRoute('contents/announcements/view', new Zend_Controller_Router_Route(
-    	    	    	    	    	    	    	':lang/announcements/:alias/',
-    	array(
-    	    	    	    	    	    'module' => 'contents',
-    	    	    	    	    	    'controller' => 'announcements',
-    	    	    	    	    	    'action' => 'view',
-    	    	    	    	    		'alias' => '',
-    	    	    	    	    	        	'lang' => ''
-    	)
-    	 
+$router->addRoute('contents/announcements/view', new Zend_Controller_Router_Route(
+    	':lang/announcements/:cat/:alias/',
+    	    	array(
+    	'module' => 'contents',
+    	'controller' => 'announcements',
+    	    	    	        'action' => 'view',
+    	'alias' => '',
+    	    					'cat' => '',
+    	    	    	        'lang' => ''
+    	    	)
+    	));
+    	
+    	$router->addRoute('contents/announcements/cat', new Zend_Controller_Router_Route(
+    		':lang/announcements/:cat/',
+    	    array(
+    	    	'module' => 'contents',
+    	        'controller' => 'announcements',
+    	        'action' => 'cat',
+    			'cat' => '',
+    	        'lang' => ''
+    	    )    	 
     	));
     	$router->addRoute('contents/announcements/index', new Zend_Controller_Router_Route(
     	    	    	    	    	    	':lang/announcements',

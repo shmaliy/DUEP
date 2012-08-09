@@ -12,6 +12,7 @@
       </div>
       <div class="adt">
         <ul class="adt_list">
+        
           <?php foreach ($this->news as $item): if($item):?>
           <li class="adt_date">
             <span class="adt_image">

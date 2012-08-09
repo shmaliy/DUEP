@@ -18,7 +18,7 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 		);
 	}
 	
-	public function getFrontContentsByGroupId ($id, $lang = 'ru', $order = null, $lim = null)
+	public function getFrontContentsByGroupId ($id, $lang = 'uk', $order = null, $lim = null)
 	{
 	    if (is_numeric($id)){$id=array($id);};
 	    $where = array();
@@ -32,7 +32,7 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 		$this->quoteIdentifier("languages_alias") . " = ?" => $lang,
 		),$order,$lim);
 	}
-	public function getFrontContentsByCatId ($id, $lang = 'ru', $order = null, $lim = null)
+	public function getFrontContentsByCatId ($id, $lang = 'uk', $order = null, $lim = null)
 	{
 		return $this->fetchAll(array(
 			$this->quoteIdentifier("contents_categories_id") . " = ?" => $id,
@@ -42,7 +42,7 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 		),$order,$lim);
 	}	
 
-	public function getFrontContentByAlias ($alias, $lang = 'ru')
+	public function getFrontContentByAlias ($alias, $lang = 'uk')
 	{
 		return $this->fetchrow(array(
 		$this->quoteIdentifier("alias") . " = ?" => $alias,
