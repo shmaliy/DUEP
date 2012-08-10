@@ -43,7 +43,7 @@ class Contents_MirController extends Zend_Controller_Action
         $this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $this->_lang);
         $this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $this->_lang);
         $this->view->ecats = $catMapper->getFrontCatsByGroupId($this->view->egroup->id, $this->_lang);
-        
+        $this->view->cats = $catMapper->getFrontCats();
         $contentsMapper = new Contents_Model_Mapper_Contents();
         $this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
         $this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
@@ -87,7 +87,7 @@ class Contents_MirController extends Zend_Controller_Action
         $this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $this->_lang);
         $this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $this->_lang);
         $this->view->ecats = $catMapper->getFrontCatsByGroupId($this->view->egroup->id, $this->_lang);
-        
+        $this->view->cats = $catMapper->getFrontCats();
         $contentsMapper = new Contents_Model_Mapper_Contents();
         $this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
         $this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
