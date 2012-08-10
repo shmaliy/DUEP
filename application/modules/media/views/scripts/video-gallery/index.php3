@@ -111,41 +111,7 @@
         </li>
         <li><a href="">Контактные данные</a></li>
     </ul>
-    <div class="side_true">
-        <h2>Актуально</h2>
-        <ul>
-            <li>
-                <img alt="" src="/theme/img/front/true/1.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="/theme/img/front/true/2.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="/theme/img/front/true/3.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="/theme/img/front/true/4.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-            <li>
-                <img alt="" src="/theme/img/front/true/5.jpg" />
-                <p>30 Березня 2012</p>
-                <a class="name_news" href="">Название новости</a>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-            </li>
-        </ul>
-    </div>
+    <?php echo $this->Actual(); ?>
   </div>
 
   <!-- #sideLeft -->

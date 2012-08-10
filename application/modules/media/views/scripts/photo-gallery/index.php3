@@ -113,29 +113,7 @@
         </li>
         <li><a href="">Контактные данные</a></li>
     </ul>
-    <div class="side_true">
-        <h2><?php echo Zend_Registry::get('trasvistit')->_("ACTUAL");?></h2>
-        <ul>
-         <?php foreach ($this->actual as $item):?>
-            <li>
-                <?php if ($item->media_id == ''): ?>
-	            <img width = 40 height = 40 alt="" src="/theme/img/front/noimage.png" />
-	            <?php else: ?>
-	            <?php foreach ($this->imgs as $img): if($item->media_id == $img->id):?>
-            <img width = 40 height = 40 alt="" src="/uploads/<?php echo $img->id.'.'.$img->type; ?>" />
-               <?php endif; endforeach; endif; ?>
-               <span class = "actual">
-                <p><?php echo $item->date_created;?></p>
-                <?php foreach ($this->group as $itemg):
-                if ($itemg->id == $item->contents_groups_id):?>
-                <a class="name_news" href="<?php echo $this->simpleUrl('view', $itemg->alias, 'contents', array('alias'=>$item->alias), 'contents/'.$itemg->alias.'/view' ); ?>"><?php echo $item->title; ?></a><br/>
-                <?php endif; endforeach;?>
-                <a href="">Лента</a>&rarr;<a href="">Категория</a>
-                </span>
-            </li>
-            <?php endforeach;?>
-        </ul>
-    </div>
+    <?php echo $this->Actual(); ?>
   </div>
 
   <!-- #sideLeft -->
