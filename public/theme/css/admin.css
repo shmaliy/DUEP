@@ -471,6 +471,15 @@ img { border: 0 none; }
 	border-radius: 3px;
 	background: url("/theme/img/admin/select-button.png") no-repeat 233px 50% #fff;
 }
+
+.admin-table-filter .formSubmit {
+	background:none;
+	border:none;
+}
+
+.admin-table-filter .formSubmit input {
+	
+}
 /* admin table filter end */
 
 .modalOpen {

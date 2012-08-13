@@ -13,5 +13,11 @@ class Contents_Form_AdminIndexFilter extends Sunny_Form
 			'label' => 'Категория',
 			'onchange' => '$(this).parents("form").submit();'
 		));
+		
+		$this->addElement('submit', 'submit', array(
+			'ignore' => true,
+			'label' => '',
+			'value' => 'Применить'
+		));
 	}
 }
