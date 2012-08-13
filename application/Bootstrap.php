@@ -230,6 +230,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     	//$router->setGlobalParam('lang', $langs[0]);
     	// Override default route
     	$router->addRoute('default', $route = new Zend_Controller_Router_Route(
+	    	':module/:controller/:action/*',
+    		array(
+    			'module' => 'default',
+    			'controller' => 'index',
+    			'action' => 'index',
+    			'lang' => ''
+    		)
+    	));
+    	
+    	$router->addRoute('default2', $route = new Zend_Controller_Router_Route(
 	    	':lang/:module/:controller/:action/*',
     		array(
     			'module' => 'default',

@@ -477,9 +477,22 @@ img { border: 0 none; }
 	border:none;
 }
 
-.admin-table-filter .formSubmit input {
-	
+.admin-table-filter .form-composite-element-contents_categories_id {
+	float:left;
+	clear:both;
+	display:block;
 }
+
+.admin-table-filter .form-composite-element-submit {
+	float:left;
+	margin:0 0 0 15px;
+}
+
+.admin-table-filter .form-composite-element-submit input {
+	height:30px;
+	font-size:14px;
+}
+
 /* admin table filter end */
 
 .modalOpen {

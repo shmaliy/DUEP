@@ -52,8 +52,6 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
     	$this->view->rows  = $this->_getSessionRows($group->alias);
 		$this->view->group = $group;
 		
-		var_export($filter);
-		
 		$where = array(
 			'contents_groups_id = ?'     => $group->id,
 			'contents_categories_id = ?' => $filter['contents_categories_id']

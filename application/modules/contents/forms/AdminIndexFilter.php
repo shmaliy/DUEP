@@ -17,7 +17,7 @@ class Contents_Form_AdminIndexFilter extends Sunny_Form
 		$this->addElement('submit', 'submit', array(
 			'ignore' => true,
 			'label' => '',
-			'value' => 'Применить'
+			'value' => 'Применить фильтр'
 		));
 	}
 }

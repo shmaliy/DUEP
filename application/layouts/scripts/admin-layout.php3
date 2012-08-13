@@ -112,7 +112,7 @@ tinyMCE.execCommand("mceAddControl", true, "description");
 			</ul>
 			<div class="flash-messenger-container">
 				<div class="flash-messenger-messages">
-				<?php if ($this->flashMessenger()->hasMessages()): ?>
+				<?php /*if ($this->flashMessenger()->hasMessages()): ?>
 				<?php foreach ($this->flashMessenger()->getMessages() as $message) : ?>
 					<div class="flash-messenger-message ui-corner-all" style="display: none;"><?php echo $message; ?></div>
 				<?php endforeach; ?>
@@ -123,7 +123,7 @@ tinyMCE.execCommand("mceAddControl", true, "description");
 					<div class="flash-messenger-message ui-corner-all" style="display: none;"><?php echo $message; ?></div>
 				<?php endforeach; ?>
 				<?php $this->flashMessenger()->clearCurrentMessages(); ?>
-				<?php endif; ?>
+				<?php endif;*/ ?>
 				</div>
 			</div>
 			<div class="clr"></div>
