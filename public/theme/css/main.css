@@ -214,7 +214,7 @@ ul {
 	position: absolute;
 	z-index: 100;
 	width: 203px;
-	top:100%;
+	top:45px;
 	margin-left:-20px;
 	overflow:hidden;
 }
@@ -1060,9 +1060,7 @@ sup {
     width:535px;
     height:125px;
     position:relative;
-    left:-10px;
     bottom:0;
-    margin-bottom:15px;
 }
 .horizontal_carousel ul li {
     float:left;
@@ -1080,17 +1078,29 @@ sup {
     text-shadow:0 0 1px #000;
 }
 .b_carousel {
-    width:770px;
-    height:100px;
+    width:720px;
+    height:115px;
+    overflow: hidden;
+    float: left;
 }
 .b_carousel ul li{
     margin:2px;
 }
-.b_carousel li.arrow_left {
-    margin-left:0;
+.arrow_left {
+    background-image:url(../img/front/button_left.png);
+    width: 17px;
+    height: 75px;
+    float: left;
+    display: block;
+    margin: 13px 2px 13px 0px;
 }
-.b_carousel li.arrow_right {
-    margin-right:0;
+.arrow_right {
+    background-image:url(../img/front/button_right.png);
+    width: 17px;
+    height: 75px;
+    float: left;
+    display: block;
+    margin: 13px 0px 13px 4px;
 }
 .b_carousel img{
     border:1px solid #ededed;
@@ -1119,7 +1129,7 @@ ul.video span a{
     background-image:url(../img/front/border_img_bg.png);
     background-repeat:no-repeat;
     display:block;
-    padding:2px 2px 5px 2px;
+    padding:2px 2px 6px 2px;
     margin:0 -1px;
 }
 .b_carousel li.active_v {
@@ -1142,12 +1152,7 @@ ul.video span a{
 .b_carousel li span a:hover {
     color:#2698FD;
 }
-.arrow_left a {
-    background-image:url(../img/front/button_left.png);
-}
-.arrow_right a {
-    background-image:url(../img/front/button_right.png);
-}
+
 .social-services ul li {
     float:left;
     margin-right:15px;
@@ -2283,4 +2288,10 @@ ul.submenu li:hover ul.podmenu{
 .actual{
 	margin-left: 50px;
 	display: block;
+}
+.foto_slide{
+	position: absolute;
+	white-space: nowrap;
+	width: 100000px;
+	
 }

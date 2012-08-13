@@ -2,7 +2,7 @@ $(document).ready(function () {
 	var url = document.location.href;
     
    	var url_lang = url.split("/");
-	if (url_lang[3] == '') {url_lang[3] = 'ru';}
+	if (url_lang[3] == '') {url_lang[3] = 'uk';}
 	
 var text = $(".input").val();
    $(".main_down").hover(

@@ -13,17 +13,21 @@
         <h1 class="developments">Собрание активистов</h1>
       <div class="area">
         <p class="info_text">27 апреля 2012 в Школе Бизнеса Днепропетровского университета имени Альфреда Нобеля состоялся квалификационный экзамен слушателей подготовительных курсов для получения специальных знаний в области восстановления платежеспособности и банкротства и осуществления деятельности арбитражного управляющего (распорядителя имущества, управляющего санацией, ликвидатора) при внедрении дела о банкротстве.</p>
+          <a class="arrow_left" href=""></a>
           <div class="horizontal_carousel b_carousel">
-                <ul>
-                    <li class="arrow_left"><a href=""></a></li>
+                <ul class = "foto_slide">
                     <li><span>1</span><a href=""><img alt="" src="/theme/img/front/photo_preview/9.jpg" /></a></li>
                     <li class="active"><span>2</span><a href=""><img alt="" src="/theme/img/front/photo_preview/10.jpg" /></a></li>
                     <li><span>3</span><a href=""><img alt="" src="/theme/img/front/photo_preview/11.jpg" /></a></li>
                     <li><span>4</span><a href=""><img alt="" src="/theme/img/front/photo_preview/9.jpg" /></a></li>
                     <li><span>5</span><a href=""><img alt="" src="/theme/img/front/photo_preview/10.jpg" /></a></li>
-                    <li class="arrow_right"><a href=""></a></li>
+                    <li><span>5</span><a href=""><img alt="" src="/theme/img/front/photo_preview/10.jpg" /></a></li>
+                    <li><span>5</span><a href=""><img alt="" src="/theme/img/front/photo_preview/10.jpg" /></a></li>
+                    <li><span>5</span><a href=""><img alt="" src="/theme/img/front/photo_preview/10.jpg" /></a></li>
+                    
                 </ul>
             </div>
+            <a class="arrow_right" href=""></a>
           <img class="b_photo" alt="" src="/theme/img/front/photo_preview/12.jpg" />
           <h2>2/18</h2>
         <p class="info_text">Это была первая группа слушателей, подготовка которых проводилась в соответствии с разделом II Положения о системе подготовки арбитражных управляющих (распорядителей имущества, управляющих санацией, ликвидаторов), утвержденного приказом Министерства юстиции Украины от 12.09.2011 № 2049/5, зарегистрированным в Министерстве юстиции Украины </p>
