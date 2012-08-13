@@ -17,15 +17,19 @@
             <?php foreach ($this->gallery as $item): if($item):?> 
           <div class="photo_preview">
               <?php if ($item->media_id == ''): ?>
-	            <img alt="" src="/theme/img/front/noimage.png" />
+	            <img width = 170 height = 140 alt="" src="/theme/img/front/noimage.png" />
 	            <?php else: ?>
 	            <?php foreach ($this->imgs as $img): if($item->media_id == $img->id):?>
-            <img width = 106 height = 106 alt="" src="<?php echo $this->Path(); ?><?php echo $img->id.'.'.$img->type; ?>" />
+            <img width = 170 height = 140 alt="<?php echo $img->title; ?>" src="<?php echo $this->Path(); ?><?php echo $img->id.'.'.$img->type; ?>" />
                <?php endif; endforeach; endif; ?>
-              <div class="photo_underline"><span class="number_photos">3</span><span class="label_photos"></span></div>
+              <div class="photo_underline"><span class="number_photos"></span><span class="label_photos"></span></div>
               <p class="photo_description">
-                  <a class="photo_name" href="<?php echo $this->simpleUrl('view', 'photo-gallery', 'media', array('alias'=>$item->alias, 'cat'=>$itemc->alias), 'contents/photo-gallery/view' ); ?>"><?php echo $itemc->title; ?></a><br />
-                  <a class="photo_category" href="<?php echo $this->simpleUrl('view', 'photo-gallery', 'media', array('alias'=>$item->alias, 'cat'=>$itemc->alias), 'contents/photo-gallery/cat' ); ?>"><?php echo $itemc->title; ?></a><br />
+                <?php foreach ($this->cats as $itemc):
+                if ($itemc->id == $item->contents_categories_id):?>
+                  <a class="photo_name" href="<?php echo $this->simpleUrl('view', 'photo-gallery', 'media', array('alias'=>$item->alias, 'cat'=>$itemc->alias), 'media/photo-gallery/view' ); ?>"><?php echo $item->title; ?></a><br />
+
+                  <a class="photo_category" href="<?php echo $this->simpleUrl('view', 'photo-gallery', 'media', array('alias'=>$item->alias, 'cat'=>$itemc->alias), 'media/photo-gallery/cat' ); ?>"><?php echo $itemc->title; ?></a><br />
+                  <?php endif; endforeach;?>
                   <span class="date_comments"><?php echo $item->date_created;?>,</span><span class="number_comments">3</span><span class="label_comments"></span>
               </p>
           </div>

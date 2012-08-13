@@ -37,22 +37,16 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
          
          
         $groupsMapper = new Contents_Model_Mapper_ContentsGroups();
-        $this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
-            	$this->view->ngroup = $groupsMapper->getFrontGroupByAlias ("news");
-        $this->view->egroup = $groupsMapper->getFrontGroupByAlias ("events");
+        $this->view->pgroup = $groupsMapper->getFrontGroupByAlias ("gallery_of_images");
         $this->view->group = $groupsMapper->getFrontGroup();
         
         $catMapper = new Contents_Model_Mapper_ContentsCategories();
-        $this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $this->_lang);
-        $this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $this->_lang);
-        $this->view->ecats = $catMapper->getFrontCatsByGroupId($this->view->egroup->id, $this->_lang);
+        $this->view->pcats = $catMapper->getFrontCatsByGroupId($this->view->pgroup->id, $this->_lang);
+        $this->view->cats = $catMapper->getFrontCats();
+
         
         $contentsMapper = new Contents_Model_Mapper_Contents();
-        $this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
-        $this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
-        $this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $this->_lang, 'date_created desc');
-        $this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->egroup->id, $this->view->agroup->id, $this->view->ngroup->id), $this->_lang,'date_created desc',5);
-         
+        $this->view->gallery = $contentsMapper->getFrontContentsByGroupId($this->view->pgroup->id, $this->_lang,'date_created desc');        
 
         $imgMapper = new Media_Model_Mapper_Media();
         $this->view->imgs = $imgMapper->getContentImgAll();
@@ -72,7 +66,7 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
         12 => 'Декабрь'
         );
 
-        $this->view->actual->formatDate('date_created', $translatedMonths, 'г.');
+        $this->view->gallery->formatDate('date_created', $translatedMonths, 'г.');
     
     }
     /**
@@ -82,28 +76,23 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
     {
     
          
+        $cat =  $this->getRequest()->getParam('cat');
          
         $groupsMapper = new Contents_Model_Mapper_ContentsGroups();
-        $this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
-        $this->view->ngroup = $groupsMapper->getFrontGroupByAlias ("news");
-        $this->view->egroup = $groupsMapper->getFrontGroupByAlias ("events");
+        $this->view->pgroup = $groupsMapper->getFrontGroupByAlias ("gallery_of_images");
         $this->view->group = $groupsMapper->getFrontGroup();
-    
+        
         $catMapper = new Contents_Model_Mapper_ContentsCategories();
-        $this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $this->_lang);
-        $this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $this->_lang);
-        $this->view->ecats = $catMapper->getFrontCatsByGroupId($this->view->egroup->id, $this->_lang);
-    
+        $this->view->pcats = $catMapper->getFrontCatsByGroupId($this->view->pgroup->id, $this->_lang);
+        $this->view->cat = $catMapper->getFrontCatsByAlias($cat, $this->_lang);
+        $this->view->cats = $catMapper->getFrontCats();
+        
         $contentsMapper = new Contents_Model_Mapper_Contents();
-        $this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
-        $this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
-        $this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $this->_lang, 'date_created desc');
-        $this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->egroup->id, $this->view->agroup->id, $this->view->ngroup->id), $this->_lang,'date_created desc',5);
-         
-    
+   
+        $this->view->gallery = $contentsMapper->getFrontContentsByCatId($this->view->cat->id, $this->_lang, 'date_created desc');
+        
         $imgMapper = new Media_Model_Mapper_Media();
         $this->view->imgs = $imgMapper->getContentImgAll();
-    
         $translatedMonths = array(
         1 => 'Январь',
         2 => 'Февраль',
@@ -118,9 +107,8 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
         11 => 'Ноябрь',
         12 => 'Декабрь'
         );
-    
-        $this->view->actual->formatDate('date_created', $translatedMonths, 'г.');
-    
+
+        $this->view->gallery->formatDate('date_created', $translatedMonths, 'г.');   
     }
     /**
     * Обработчик страницы "отдельного Альбома"
@@ -128,43 +116,47 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
     public function viewAction()
     {
 
+        $cat =  $this->getRequest()->getParam('cat');
+    	$alias =  $this->getRequest()->getParam('alias');
+    	
         $groupsMapper = new Contents_Model_Mapper_ContentsGroups();
-        $this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
-        $this->view->ngroup = $groupsMapper->getFrontGroupByAlias ("news");
-        $this->view->egroup = $groupsMapper->getFrontGroupByAlias ("events");
+        $this->view->pgroup = $groupsMapper->getFrontGroupByAlias ("gallery_of_images");
         $this->view->group = $groupsMapper->getFrontGroup();
-        
+       
         $catMapper = new Contents_Model_Mapper_ContentsCategories();
-        $this->view->acats = $catMapper->getFrontCatsByGroupId($this->view->agroup->id, $this->_lang);
-        $this->view->ncats = $catMapper->getFrontCatsByGroupId($this->view->ngroup->id, $this->_lang);
-        $this->view->ecats = $catMapper->getFrontCatsByGroupId($this->view->egroup->id, $this->_lang);
-        
-        $contentsMapper = new Contents_Model_Mapper_Contents();
-        $this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
-        $this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
-        $this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $this->_lang, 'date_created desc');
-        $this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->egroup->id, $this->view->agroup->id, $this->view->ngroup->id), $this->_lang,'date_created desc',5);
-         
-        
-        $imgMapper = new Media_Model_Mapper_Media();
-        $this->view->imgs = $imgMapper->getContentImgAll();
-        
-        $translatedMonths = array(
-        1 => 'Январь',
-        2 => 'Февраль',
-        3 => 'Март',
-        4 => 'Апрель',
-        5 => 'Май',
-        6 => 'Июнь',
-        7 => 'Июль',
-        8 => 'Август',
-        9 => 'Сентябрь',
-        10 => 'Октябрь',
-        11 => 'Ноябрь',
-        12 => 'Декабрь'
-        );
-        
-        $this->view->actual->formatDate('date_created', $translatedMonths, 'г.');
+        $this->view->pcats = $catMapper->getFrontCatsByGroupId($this->view->pgroup->id, $this->_lang);
+        $this->view->cat = $catMapper->getFrontCatsByAlias($cat, $this->_lang);
+   
+        $this->view->cats = $catMapper->getFrontCats();
+    	 
+    	$contentsMapper = new Contents_Model_Mapper_Contents();
+   
+        $this->view->gallery = $contentsMapper->getFrontContentsByCatId($this->view->cat->id, $this->_lang, 'date_created desc');
+   
+    	$contentMapper = new Contents_Model_Mapper_Contents();
+    	$this->view->album = $contentMapper->getFrontContentByAlias($alias, $this->_lang);
+    	$rediarelationsMapper = new Media_Model_Mapper_MediaRelations();
+    	$this->view->img = $rediarelationsMapper->getImgByAlbumId($this->view->album->media_id);
+    	$imgMapper = new Media_Model_Mapper_Media();
+    	$this->view->imgs = $imgMapper->getContentImgAll();
+    	$translatedMonths = array(
+    	1 => 'Январь',
+    	2 => 'Февраль',
+    	3 => 'Март',
+    	4 => 'Апрель',
+    	5 => 'Май',
+    	6 => 'Июнь',
+    	7 => 'Июль',
+    	8 => 'Август',
+    	9 => 'Сентябрь',
+    	10 => 'Октябрь',
+    	11 => 'Ноябрь',
+    	12 => 'Декабрь'
+    	);
+    	 if($this->view->img !== NULL){
+    	$this->view->imgs->formatDate('date_created', $translatedMonths, 'г.');
+    	 };
+    	
     	
     }
     

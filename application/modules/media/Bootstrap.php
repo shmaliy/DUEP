@@ -62,16 +62,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
     )
     ));
      
-    $router->addRoute('media/photo-gallery/cat', new Zend_Controller_Router_Route(
-                		':lang/photo/:cat/',
-    array(
-                	    	'module' => 'media',
-                	        'controller' => 'photo-gallery',
-                	        'action' => 'cat',
-        					'cat' => '',
-                	        'lang' => 'uk'
-    )
-    ));
+
      
     $router->addRoute('media/photo-gallery/view', new Zend_Controller_Router_Route(
                 		':lang/photo/:cat/:alias/',
@@ -82,6 +73,16 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
                 			'alias' => '',
         					'cat' => '',
                 	        'lang' => 'uk'
+    )
+    ));
+    $router->addRoute('media/photo-gallery/cat', new Zend_Controller_Router_Route(
+                    		':lang/photo/:cat/',
+    array(
+                    	    	'module' => 'media',
+                    	        'controller' => 'photo-gallery',
+                    	        'action' => 'cat',
+            					'cat' => '',
+                    	        'lang' => 'uk'
     )
     ));
     

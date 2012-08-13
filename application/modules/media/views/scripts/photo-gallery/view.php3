@@ -16,15 +16,9 @@
           <a class="arrow_left" href=""></a>
           <div class="horizontal_carousel b_carousel">
                 <ul class = "foto_slide">
-                    <li><span>1</span><a href=""><img alt="" src="/theme/img/front/photo_preview/9.jpg" /></a></li>
-                    <li class="active"><span>2</span><a href=""><img alt="" src="/theme/img/front/photo_preview/10.jpg" /></a></li>
-                    <li><span>3</span><a href=""><img alt="" src="/theme/img/front/photo_preview/11.jpg" /></a></li>
-                    <li><span>4</span><a href=""><img alt="" src="/theme/img/front/photo_preview/9.jpg" /></a></li>
-                    <li><span>5</span><a href=""><img alt="" src="/theme/img/front/photo_preview/10.jpg" /></a></li>
-                    <li><span>5</span><a href=""><img alt="" src="/theme/img/front/photo_preview/10.jpg" /></a></li>
-                    <li><span>5</span><a href=""><img alt="" src="/theme/img/front/photo_preview/10.jpg" /></a></li>
-                    <li><span>5</span><a href=""><img alt="" src="/theme/img/front/photo_preview/10.jpg" /></a></li>
-                    
+               <?php $kol = 0; foreach ($this->img as $item): foreach ($this->imgs as $items): if($item->media_id == $items->id): $kol = $kol + 1;?> 
+                    <li class="active"><span><?php echo $kol;?></span><a href=""><img alt="<?php echo $items->title; ?>" src="<?php echo $this->Path(); ?><?php echo $items->id.'.'.$items->type; ?>" /></a></li>
+                    <?php endif; endforeach; endforeach;?>   
                 </ul>
             </div>
             <a class="arrow_right" href=""></a>

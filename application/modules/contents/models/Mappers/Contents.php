@@ -44,7 +44,7 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 
 	public function getFrontContentByAlias ($alias, $lang = 'uk')
 	{
-		return $this->fetchrow(array(
+		return $this->fetchRow(array(
 		$this->quoteIdentifier("alias") . " = ?" => $alias,
 		$this->quoteIdentifier("published") . " = ?" => '1',
 		$this->quoteIdentifier("sheduled") . " = ?" => '0',

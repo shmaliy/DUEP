@@ -8,4 +8,11 @@ class Media_Model_Mapper_MediaRelations extends Sunny_DataMapper_MapperAbstract
        // $this->quoteIdentifier("published") . " = ?" => '1',
         ));
     }
+    public function getImgByAlbumId ($id)
+    {
+        return $this->fetchAll(array(
+        $this->quoteIdentifier("relation_tbl_id") . " = ?"       => $id,
+    
+        ));
+    }
 }
