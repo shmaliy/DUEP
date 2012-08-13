@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 13, 2012 at 02:54 PM
+-- Generation Time: Aug 13, 2012 at 03:26 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -437,7 +437,7 @@ CREATE TABLE IF NOT EXISTS `media_relations` (
   `media_id` int(11) NOT NULL,
   `relation_tbl_name` varchar(50) NOT NULL,
   `relation_tbl_id` int(11) NOT NULL,
-  `filetype` varchar(50) NOT NULL,
+  `relation_type` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=9 ;
 
@@ -445,15 +445,15 @@ CREATE TABLE IF NOT EXISTS `media_relations` (
 -- Dumping data for table `media_relations`
 --
 
-INSERT INTO `media_relations` (`id`, `media_id`, `relation_tbl_name`, `relation_tbl_id`, `filetype`) VALUES
-(1, 11, 'contents', 67, ''),
-(2, 12, 'contents', 67, ''),
-(3, 13, 'contents', 67, ''),
-(4, 14, 'contents', 67, ''),
-(5, 15, 'contents', 67, ''),
-(6, 16, 'contents', 67, ''),
-(7, 17, 'contents', 67, ''),
-(8, 18, 'contents', 67, '');
+INSERT INTO `media_relations` (`id`, `media_id`, `relation_tbl_name`, `relation_tbl_id`, `relation_type`) VALUES
+(1, 11, 'contents', 67, 'gallery_of_images'),
+(2, 12, 'contents', 67, 'gallery_of_images'),
+(3, 13, 'contents', 67, 'gallery_of_images'),
+(4, 14, 'contents', 67, 'gallery_of_images'),
+(5, 15, 'contents', 67, 'gallery_of_images'),
+(6, 16, 'contents', 67, 'gallery_of_images'),
+(7, 17, 'contents', 67, 'gallery_of_images'),
+(8, 18, 'contents', 67, 'gallery_of_images');
 
 -- --------------------------------------------------------
 
