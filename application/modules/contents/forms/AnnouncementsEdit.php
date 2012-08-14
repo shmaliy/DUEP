@@ -76,8 +76,19 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 			'buttonLabel' => 'Выбрать',
 			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
 		));
-		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
 		
+		$media[] = 'contents_photogallery_id';
+		$this->addElement('select', 'contents_photogallery_id', array(
+					'label' => 'Добавить фотогалерею'
+		));
+		
+		$media[] = 'contents_videogallery_id';
+		$this->addElement('select', 'contents_videogallery_id', array(
+							'label' => 'Добавить видеогалерею'
+		));
+		
+		
+		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
 		
 		
 				
