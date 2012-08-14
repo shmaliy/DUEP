@@ -9,6 +9,8 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
 	 * @see Zend_Controller_Action::init()
 	 */
     protected $_lang;
+    protected $_resizer;
+    
 	public function init()
 	{
 		$request = $this->getRequest();
@@ -23,6 +25,7 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
 		$context->addActionContext('index', 'json');
 		$context->addActionContext('config', 'json');
 
+		$this->_resizer = new Sunny_ImageResizer();
 		
 		$context->initContext('json');
 		$this->_lang = Zend_Registry::get('lang');
@@ -161,7 +164,7 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
     	     foreach ($this->view->imgs as $items):
     	         if($item->media_id == $items->id):
     	             $img = $items->toArray();
-    	             $img['small'] = $this->resize($items->server_path.'/'.$items->id.'.'.$items->type,140,100);
+    	             $img['small'] = $this->resize($items->server_path . '/' . $items->id . '.' . $items->type, 140, 100);
     	             $img['big'] = '';
                     $resizer[] = $img;
     	         endif;
@@ -221,38 +224,39 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
     }
     protected  function resize($image,$w,$h)
     {
-      if (file_exists(ltrim($image, '/'))) {
-      $savepath = explode('/', ltrim($image, '/'));
-      $filename = $savepath[count($savepath)-1];
-      $savepath[count($savepath)-1] = 'cache_'.$w.'x'.$h;
-      $savepath[] = $filename;
-      $cached = implode('/', $savepath);
+		if (file_exists(ltrim($image, '/'))) {
+			$savepath = explode('/', ltrim($image, '/'));
+			$filename = $savepath[count($savepath)-1];
+			$savepath[count($savepath)-1] = 'cache_'.$w.'x'.$h;
+			$savepath[] = $filename;
+			$cached = implode('/', $savepath);
+      		
+			
+			if (!file_exists($cached) || filemtime($cached) + 100000 < time()) {
+				if (file_exists($cached)) {
+					unlink($cached);
+				}
       
-      if (!file_exists($cached) || filemtime($cached) + 100000 < time()) {
-       if (file_exists($cached)) {
-        @unlink($cached);
-       }
+				$imageID = $this->_resizer->readImage(ltrim($image, '/'));
+				if ($imageID) {
+					$imageID = $this->_resizer->resize(
+						$imageID,
+						$w,
+						$h,
+						Sunny_ImageResizer::FIT_BOX,
+						'center',
+						'center'
+        			);
+       			}
+				
+				if ($imageID) {
+					$this->_resizer->writeImage($imageID, 'jpg', $cached, 90);
+				}
+			} 
       
-       $imageID = @$resizer->readImage(ltrim($image, '/'));
-       if ($imageID) {
-        $imageID = @$resizer->resize(
-         $imageID,
-         $w,
-         $h,
-         Custom_ImageResizer::FIT_BOX,
-         'center',
-         'center'
-        );
-       }
-       if ($imageID) {
-        @$resizer->writeImage($imageID, 'jpg', $cached, 90);
-       }
-      } 
-      
-      $url = implode('/', $savepath);
-     } else {
-      $url = 'error';
-     }
+			$url = implode('/', $savepath);
+		} else {
+			$url = 'error';
+		}
     }
-    
 }

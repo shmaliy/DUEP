@@ -34,3 +34,5 @@
 [02-Aug-2012 13:27:43] PHP Warning:  urlencode() expects parameter 1 to be string, object given in W:\home\zend\Zend\Controller\Router\Route.php on line 403
 [02-Aug-2012 15:13:18] PHP Fatal error:  Nesting level too deep - recursive dependency? in W:\home\duep\application\modules\default\views\scripts\admin-table-nav.php3 on line 2
 [13-Aug-2012 14:05:46] PHP Warning:  Invalid argument supplied for foreach() in W:\home\duep\application\modules\media\views\scripts\photo-gallery\index.php3 on line 17
+[14-Aug-2012 18:31:49] PHP Warning:  include_once(Sunny\ImageResizer.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in W:\phpLibs\Zend\Loader.php on line 146
+[14-Aug-2012 18:31:49] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening 'Sunny\ImageResizer.php' for inclusion (include_path='W:\/phpLibs;W:\home/ZEND;W:\home\duep/library;.;/usr/local/php5/PEAR') in W:\phpLibs\Zend\Loader.php on line 146
