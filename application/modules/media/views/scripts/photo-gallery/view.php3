@@ -10,20 +10,24 @@
           <a href="">Собрание активистов</a>
       </div>
     <div class="content">
-        <h1 class="developments">Собрание активистов</h1>
+        <h1 class="developments"><?php echo $this->album->title;?></h1>
       <div class="area">
-        <p class="info_text">27 апреля 2012 в Школе Бизнеса Днепропетровского университета имени Альфреда Нобеля состоялся квалификационный экзамен слушателей подготовительных курсов для получения специальных знаний в области восстановления платежеспособности и банкротства и осуществления деятельности арбитражного управляющего (распорядителя имущества, управляющего санацией, ликвидатора) при внедрении дела о банкротстве.</p>
-          <a class="arrow_left" href=""></a>
+        <p class="info_text"><?php echo $this->album->description;?></p>
+          <a class="arrow_left" style = "cursor: pointer;"></a>
           <div class="horizontal_carousel b_carousel">
-                <ul class = "foto_slide">
-               <?php $kol = 0; foreach ($this->img as $item): foreach ($this->imgs as $items): if($item->media_id == $items->id): $kol = $kol + 1;?> 
-                    <li class="active"><span><?php echo $kol;?></span><a href=""><img alt="<?php echo $items->title; ?>" src="<?php echo $this->Path(); ?><?php echo $items->id.'.'.$items->type; ?>" /></a></li>
-                    <?php endif; endforeach; endforeach;?>   
+                <ul class = "foto_slide" style = "left: 0px;">
+               <?php $i = 0; $kol = 0; foreach ($this->img as $item): foreach ($this->imgs as $items): if($item->media_id == $items->id): $kol = $kol + 1; if($i == 0): $i = 1;?> 
+                    <li class="active"><span><?php echo $kol;?></span><a class = "open_photo" idfoto = "<?php echo $items->id; ?>"><img width = 140 height = 100 alt="<?php echo $items->title; ?>" src="<?php echo $this->Path(); ?><?php echo $items->id.'.'.$items->type; ?>" /></a></li>
+                    <?php else: ?>
+                    <li><span><?php echo $kol;?></span><a class = "open_photo" idfoto = "<?php echo $items->id; ?>"><img width = 140 height = 100 alt="<?php echo $items->title; ?>" src="<?php echo $this->Path(); ?><?php echo $items->id.'.'.$items->type; ?>" /></a></li>
+                    <?php endif; endif; endforeach; endforeach;?>   
                 </ul>
             </div>
-            <a class="arrow_right" href=""></a>
-          <img class="b_photo" alt="" src="/theme/img/front/photo_preview/12.jpg" />
-          <h2>2/18</h2>
+            <a class="arrow_right" style = "cursor: pointer;"></a>
+             <?php $i = 0; foreach ($this->img as $item): foreach ($this->imgs as $items): if($item->media_id == $items->id and $i == 0): $i = 1;?> 
+          <span class = "big_foto"><img class="b_photo" width = 760 height = 500 alt="" src="<?php echo $this->Path(); ?><?php echo $items->id.'.'.$items->type; ?>" /></span>
+                              <?php endif; endforeach; endforeach;?> 
+          <h2><span class = "number">1</span>/<span class = "kol_img"><?php echo $kol;?></span></h2>
         <p class="info_text">Это была первая группа слушателей, подготовка которых проводилась в соответствии с разделом II Положения о системе подготовки арбитражных управляющих (распорядителей имущества, управляющих санацией, ликвидаторов), утвержденного приказом Министерства юстиции Украины от 12.09.2011 № 2049/5, зарегистрированным в Министерстве юстиции Украины </p>
           <div class="adt">
             <div class="social-services">

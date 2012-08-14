@@ -20,6 +20,7 @@
 		$this->headScript()->appendFile('/js/script.js');
 		$this->headScript()->appendFile('/js/index.js');
 		$this->headScript()->appendFile('/js/content.js');
+		$this->headScript()->appendFile('/js/gallery.js');
 		echo $this->headScript();
     ?>
 		

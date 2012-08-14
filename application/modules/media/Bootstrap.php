@@ -48,7 +48,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
         	        'controller' => 'file',
         	        'action' => 'view',
         			'alias' => '',
-        	        'lang' => 'uk'
+        	        'lang' => ''
     )
     ));
      
@@ -58,7 +58,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
         	        'module' => 'media',
         	        'controller' => 'file',
         	        'action' => 'index',
-        	        'lang' => 'uk'
+        	        'lang' => ''
     )
     ));
      
@@ -72,7 +72,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
                 	        'action' => 'view',
                 			'alias' => '',
         					'cat' => '',
-                	        'lang' => 'uk'
+                	        'lang' => ''
     )
     ));
     $router->addRoute('media/photo-gallery/cat', new Zend_Controller_Router_Route(
@@ -82,7 +82,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
                     	        'controller' => 'photo-gallery',
                     	        'action' => 'cat',
             					'cat' => '',
-                    	        'lang' => 'uk'
+                    	        'lang' => ''
     )
     ));
     
@@ -92,7 +92,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
             	        'module' => 'media',
             	        'controller' => 'photo-gallery',
             	        'action' => 'index',
-            	        'lang' => 'uk'
+            	        'lang' => ''
     )
     ));
     $router->addRoute('media/video-gallery/view', new Zend_Controller_Router_Route(
@@ -102,7 +102,7 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
                 	        'controller' => 'video-gallery',
                 	        'action' => 'view',
                 			'alias' => '',
-                	        'lang' => 'uk'
+                	        'lang' => ''
     )
     ));
     
@@ -112,12 +112,13 @@ class Media_Bootstrap extends Zend_Application_Module_Bootstrap
                 	        'module' => 'media',
                 	        'controller' => 'video-gallery',
                 	        'action' => 'index',
-                	        'lang' => 'uk'
+                	        'lang' => ''
     )
     ));
     
     
-    /*  Макс, шо за каша в роутерах????  */
+    /*  Макс, шо за каша в роутерах???? 
+     * иди в опу все нормально */
     
     $router->addRoute(
         'admin/media', 

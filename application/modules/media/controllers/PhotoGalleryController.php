@@ -136,7 +136,7 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
     	$contentMapper = new Contents_Model_Mapper_Contents();
     	$this->view->album = $contentMapper->getFrontContentByAlias($alias, $this->_lang);
     	$rediarelationsMapper = new Media_Model_Mapper_MediaRelations();
-    	$this->view->img = $rediarelationsMapper->getImgByAlbumId($this->view->album->media_id);
+    	$this->view->img = $rediarelationsMapper->getImgByAlbumId($this->view->album->id);
     	$imgMapper = new Media_Model_Mapper_Media();
     	$this->view->imgs = $imgMapper->getContentImgAll();
     	$translatedMonths = array(
@@ -156,8 +156,19 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
     	 if($this->view->img !== NULL){
     	$this->view->imgs->formatDate('date_created', $translatedMonths, 'г.');
     	 };
+    	 $resizer = array();
+    	 foreach ($this->view->img as $item):
+    	     foreach ($this->view->imgs as $items):
+    	         if($item->media_id == $items->id):
+    	             $img = $items->toArray();
+    	             $img['small'] = $this->resize($items->server_path.'/'.$items->id.'.'.$items->type,140,100);
+    	             $img['big'] = '';
+                    $resizer[] = $img;
+    	         endif;
+    	     endforeach;
+    	 endforeach;
     	
-    	
+    	var_export($resizer);
     }
     
     /**
@@ -207,6 +218,41 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
     	$news_id = $this->getRequest()->getParam('news_id');
     	$contentsMapper = new Contents_Model_Mapper_Contents();
     	$this->view->contents = $contentsMapper->getFrontContentsByCatId($news_id,'date_created desc',6)->toArray();
+    }
+    protected  function resize($image,$w,$h)
+    {
+      if (file_exists(ltrim($image, '/'))) {
+      $savepath = explode('/', ltrim($image, '/'));
+      $filename = $savepath[count($savepath)-1];
+      $savepath[count($savepath)-1] = 'cache_'.$w.'x'.$h;
+      $savepath[] = $filename;
+      $cached = implode('/', $savepath);
+      
+      if (!file_exists($cached) || filemtime($cached) + 100000 < time()) {
+       if (file_exists($cached)) {
+        @unlink($cached);
+       }
+      
+       $imageID = @$resizer->readImage(ltrim($image, '/'));
+       if ($imageID) {
+        $imageID = @$resizer->resize(
+         $imageID,
+         $w,
+         $h,
+         Custom_ImageResizer::FIT_BOX,
+         'center',
+         'center'
+        );
+       }
+       if ($imageID) {
+        @$resizer->writeImage($imageID, 'jpg', $cached, 90);
+       }
+      } 
+      
+      $url = implode('/', $savepath);
+     } else {
+      $url = 'error';
+     }
     }
     
 }
