@@ -257,7 +257,8 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     		$this->_m,
     		array(
     			'update_container' => ".ui-dialog-content-wrapper",
-    			'backAction' => $this->_a
+    			'backAction' => $this->_a,
+    			'selectmany' => $this->getRequest()->getParam('selectmany')
     			)
     	));
     	$this->view->filter = $form;
@@ -304,12 +305,12 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	$redirectTo = $this->getRequest()->getParam('redirectTo', 'index');
 		if (!$validator->isValid($param)) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set page</div>');
-			$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
+			$this->_makeResponderStructure($backAction, null, null, array('selectmany' => $this->getRequest()->getParam('selectmany')), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
 			return;
 		}
 		
 		$this->_setSessionPage($param);
-		$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
+		$this->_makeResponderStructure($backAction, null, null, array('selectmany' => $this->getRequest()->getParam('selectmany')), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
     }
     
     public function setLimitAction()
@@ -323,13 +324,13 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	$param = $this->getRequest()->getParam(self::SESSION_ROWS);
 		if (!$validator->isValid($param)) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set rows</div>');
-			$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
+			$this->_makeResponderStructure($backAction, null, null, array('selectmany' => $this->getRequest()->getParam('selectmany')), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
 			return;
 		}
 		
     	$this->_setSessionPage(1);		
     	$this->_setSessionRows($param);
-		$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
+		$this->_makeResponderStructure($backAction, null, null, array('selectmany' => $this->getRequest()->getParam('selectmany')), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
     }
     
     public function setFilterAction()
@@ -348,12 +349,12 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 		
     	if (!$form->isValid($this->getRequest()->getParams())) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set filter</div>');
-			$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
+			$this->_makeResponderStructure($backAction, null, null, array('selectmany' => $this->getRequest()->getParam('selectmany')), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
 			return;
 		}
 		
     	$this->_setSessionPage(1);
     	$this->_setSessionFilter($form->getValues());	
-    	$this->_makeResponderStructure($backAction, null, null, array(), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
+    	$this->_makeResponderStructure($backAction, null, null, array('selectmany' => $this->getRequest()->getParam('selectmany')), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
     }
 }
