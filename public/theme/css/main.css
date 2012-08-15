@@ -1602,8 +1602,38 @@ li > .info_text {
     font-size:16px;
     margin-right:5px;
 }
-.b_photo {
+.big_foto {
+	clear: both;
+	position: relative;
+	display: block;
     margin-bottom:25px;
+}
+.b_photo {
+    position: relative;
+}
+.big_foto .arrow_left {
+    background-image:url(../img/front/button_left.png);
+    width: 17px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    z-index: 5;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.big_foto .arrow_right {
+    background-image:url(../img/front/button_right.png);
+    width: 17px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    z-index: 5;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 .contacts {
     float:left;

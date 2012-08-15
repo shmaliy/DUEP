@@ -13,22 +13,28 @@
         <h1 class="developments"><?php echo $this->album->title;?></h1>
       <div class="area">
         <p class="info_text"><?php echo $this->album->description;?></p>
-          <a class="arrow_left" style = "cursor: pointer;"></a>
+          <a class="arrow_left left left" style = "cursor: pointer;"></a>
           <div class="horizontal_carousel b_carousel">
                 <ul class = "foto_slide" style = "left: 0px;">
-               <?php $i = 0; $kol = 0; foreach ($this->img as $item): foreach ($this->imgs as $items): if($item->media_id == $items->id): $kol = $kol + 1; if($i == 0): $i = 1;?> 
-                    <li class="active"><span><?php echo $kol;?></span><a class = "open_photo" idfoto = "<?php echo $items->id; ?>"><img width = 140 height = 100 alt="<?php echo $items->title; ?>" src="<?php echo $this->Path(); ?><?php echo $items->id.'.'.$items->type; ?>" /></a></li>
+               <?php $i = 0; $kol = 0;  foreach ($this->resizer as $items): $kol = $kol + 1; if($i == 0): $i = 1;?> 
+                    <li class="min_foto active"><span><?php echo $kol;?></span><a class = "open_photo" num = '<?php echo $kol;?>' idfoto = "<?php echo $items['id']; ?>"><img alt="<?php echo $items['title']; ?>" src="<?php echo $items['small']; ?>" /></a></li>
                     <?php else: ?>
-                    <li><span><?php echo $kol;?></span><a class = "open_photo" idfoto = "<?php echo $items->id; ?>"><img width = 140 height = 100 alt="<?php echo $items->title; ?>" src="<?php echo $this->Path(); ?><?php echo $items->id.'.'.$items->type; ?>" /></a></li>
-                    <?php endif; endif; endforeach; endforeach;?>   
+                    <li class="min_foto"><span><?php echo $kol;?></span><a class = "open_photo" num = '<?php echo $kol;?>' idfoto = "<?php echo $items['id']; ?>"><img alt="<?php echo $items['title']; ?>" src="<?php echo $items['small']; ?>" /></a></li>
+                    <?php endif; endforeach;?>   
                 </ul>
             </div>
-            <a class="arrow_right" style = "cursor: pointer;"></a>
-             <?php $i = 0; foreach ($this->img as $item): foreach ($this->imgs as $items): if($item->media_id == $items->id and $i == 0): $i = 1;?> 
-          <span class = "big_foto"><img class="b_photo" width = 760 height = 500 alt="" src="<?php echo $this->Path(); ?><?php echo $items->id.'.'.$items->type; ?>" /></span>
-                              <?php endif; endforeach; endforeach;?> 
+            <a class="arrow_right right" style = "cursor: pointer;"></a>
+             <?php $i = 0; $kol = 0; foreach ($this->resizer as $items): $kol = $kol + 1; if($i == 0): $i = 1;?> 
+          <span class = "big_foto" id = "<?php echo $items['id']; ?>"  number = "<?php echo $kol;?>"><a class="arrow_left pre" style = "cursor: pointer;"></a><img class="b_photo" alt="" src="<?php echo $items['big']; ?>" /><a class="arrow_right next" style = "cursor: pointer;"></a></span>
+          <?php else:?>
+             <span class = "big_foto" id = "<?php echo $items['id']; ?>" number = "<?php echo $kol;?>" style = "display: none;"><a class="arrow_left pre" style = "cursor: pointer;"></a><img class="b_photo" alt="" src="<?php echo $items['big']; ?>" /><a class="arrow_right next" style = "cursor: pointer;"></a></span>
+                              <?php endif; endforeach;?> 
           <h2><span class = "number">1</span>/<span class = "kol_img"><?php echo $kol;?></span></h2>
-        <p class="info_text">Это была первая группа слушателей, подготовка которых проводилась в соответствии с разделом II Положения о системе подготовки арбитражных управляющих (распорядителей имущества, управляющих санацией, ликвидаторов), утвержденного приказом Министерства юстиции Украины от 12.09.2011 № 2049/5, зарегистрированным в Министерстве юстиции Украины </p>
+           <?php $i = 0; $kol = 0; foreach ($this->resizer as $items): $kol = $kol + 1; if($i == 0): $i = 1;?> 
+        <p class="info_text" num = '<?php echo $kol;?>'><?php echo $items['description']; ?></p>
+          <?php else:?>
+          <p class="info_text" num = '<?php echo $kol;?>' style = "display: none;"><?php echo $items['description']; ?></p>
+            <?php endif; endforeach;?> 
           <div class="adt">
             <div class="social-services">
               <ul>
