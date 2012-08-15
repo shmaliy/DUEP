@@ -14,12 +14,14 @@
           <a class="arrow_left" href=""></a>
           <div class="horizontal_carousel b_carousel carousel_video">
           		<ul class="video">
-                    <li><span><a href="">1. Лестница и народ</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/1.jpg" /></a></li>
-                    <li class="active_v"><span><a href="">2. Обнимашки возле...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/2.jpg" /></a></li>
-                    <li><span><a href="">3. Я памятник себе</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/3.jpg" /></a></li>
-                    <li><span><a href="">4. Внезапно украли зе...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/4.jpg" /></a></li>
-                    <li><span><a href="">5. Как Украина, только...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/5.jpg" /></a></li> 
+          		<?php $i = 0; $kol = 0;  foreach ($this->resizer as $items): $kol = $kol + 1; if($i == 0): $i = 1;?> 
+       
+                    <li class="min_video active_v"><span><a class = "open_video" ><?php echo $kol;?>. <?php echo $items['title']; ?></a></span><a num = '<?php echo $kol;?>' idfoto = "<?php echo $items['id']; ?>"><img alt="" src="../theme/img/front/video_preview/2.jpg" /></a></li>
+                     <?php else: ?>
+                    <li class="min_video"><span><a class = "open_video" ><?php echo $kol;?>. <?php echo $items['title']; ?></a></span><a num = '<?php echo $kol;?>' idfoto = "<?php echo $items['id']; ?>"><img alt="" src="../theme/img/front/video_preview/2.jpg" /></a></li>
+                    <?php endif; endforeach;?>  
                 </ul>
+            </div>
             </div>
             <a class="arrow_right" href=""></a>
           <img class="b_photo" alt="" src="../theme/img/front/video_preview/video_player.jpg" />
@@ -42,6 +44,7 @@
                   </li>
               </ul>
             </div>
+
           <div class="comments">
               <h3>Комментарии <span>(3)</span></h3>
               <ul>
