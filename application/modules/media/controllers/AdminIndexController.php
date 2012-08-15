@@ -241,6 +241,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	);
     	$this->view->total  = $this->_getMapper()->fetchCount($where);
     	$this->view->update_container = ".ui-dialog-content-wrapper";
+    	$this->view->selectMany = (bool) $this->getRequest()->getParam('selectmany');
     	
     	
     	$form = new Media_Form_AdminIndexFilter();

@@ -76,11 +76,21 @@ class Contents_Form_GalleryOfImagesEdit extends Sunny_Form
 		/*  Media  */
 		$media = array('media_id');
 		$this->addElement('button', 'media_id', array(
-					'label' => 'Главное изображение',
-					'buttonLabel' => 'Выбрать',
-					'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
+			'label' => 'Главное изображение',
+			'buttonLabel' => 'Выбрать',
+			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
 		));
+		
+		$media[] = 'media_ids';
+		$this->addElement('button', 'media_ids', array(
+			'label' => 'Другие изображения',
+			'buttonLabel' => 'Выбрать',
+			'selectMultiple' => true,
+			'onClick' => "uiDialogOpen('Выбор изображений', {action:'select-image', controller:'admin-index', module:'media', format:'html', selectmany:true});"
+		));
+		
 		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
+		
 				
 		/*  SEO  */
 		$seo = array('seo');
@@ -173,5 +183,6 @@ class Contents_Form_GalleryOfImagesEdit extends Sunny_Form
 		$this->setDecorators(array('CompositeFormDiv'));
 		
 		$this->getElement('media_id')->setDecorators(array('FileSelectorDiv'));
+		$this->getElement('media_ids')->setDecorators(array('FileSelectorDiv'));
 	}
 }
