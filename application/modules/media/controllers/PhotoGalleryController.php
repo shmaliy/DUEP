@@ -164,14 +164,14 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
     	     foreach ($this->view->imgs as $items):
     	         if($item->media_id == $items->id):
     	             $img = $items->toArray();
-    	             $img['small'] = $this->resize($items->server_path . '/' . $items->id . '.' . $items->type, 140, 100);
-    	             $img['big'] = '';
+    	             $img['small'] = $this->resize($items->server_path . '/' . $items->id . '.' . $items->type, 138, 100);
+    	             $img['big'] = $this->resize($items->server_path . '/' . $items->id . '.' . $items->type, 760, 500);
                     $resizer[] = $img;
     	         endif;
     	     endforeach;
     	 endforeach;
-    	
-    	var_export($resizer);
+    	 $this->view->resizer = $resizer;
+    	;
     }
     
     /**
@@ -253,10 +253,12 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
 					$this->_resizer->writeImage($imageID, 'jpg', $cached, 90);
 				}
 			} 
-      
-			$url = implode('/', $savepath);
+			
+			$url = $this->view->Path() . $savepath[1] . '/' . $savepath[2];
 		} else {
 			$url = 'error';
 		}
+		
+		return $url;
     }
 }

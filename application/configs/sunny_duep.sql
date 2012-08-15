@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 14, 2012 at 03:16 PM
+-- Generation Time: Aug 15, 2012 at 01:14 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -22,10 +22,32 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comments`
+--
+
+CREATE TABLE IF NOT EXISTS `comments` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `tbl_name` varchar(50) NOT NULL,
+  `tbl_id` int(11) NOT NULL,
+  `users_id` int(11) NOT NULL,
+  `text` text NOT NULL,
+  `created` int(11) NOT NULL,
+  `published` int(11) NOT NULL,
+  `checked` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `comments`
+--
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `contents`
 --
 
-DROP TABLE IF EXISTS `contents`;
 CREATE TABLE IF NOT EXISTS `contents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `contents_id` int(11) NOT NULL,
@@ -107,7 +129,6 @@ INSERT INTO `contents` (`id`, `contents_id`, `contents_categories_id`, `contents
 -- Table structure for table `contents_categories`
 --
 
-DROP TABLE IF EXISTS `contents_categories`;
 CREATE TABLE IF NOT EXISTS `contents_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `contents_groups_id` int(11) DEFAULT NULL,
@@ -166,7 +187,6 @@ INSERT INTO `contents_categories` (`id`, `contents_groups_id`, `contents_categor
 -- Table structure for table `contents_groups`
 --
 
-DROP TABLE IF EXISTS `contents_groups`;
 CREATE TABLE IF NOT EXISTS `contents_groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
@@ -199,7 +219,6 @@ INSERT INTO `contents_groups` (`id`, `title`, `alias`, `description`, `ordering`
 -- Table structure for table `contents_sheduler`
 --
 
-DROP TABLE IF EXISTS `contents_sheduler`;
 CREATE TABLE IF NOT EXISTS `contents_sheduler` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `contents_id` int(11) DEFAULT NULL,
@@ -219,7 +238,6 @@ CREATE TABLE IF NOT EXISTS `contents_sheduler` (
 -- Table structure for table `languages`
 --
 
-DROP TABLE IF EXISTS `languages`;
 CREATE TABLE IF NOT EXISTS `languages` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `default` tinyint(1) NOT NULL,
@@ -246,7 +264,6 @@ INSERT INTO `languages` (`id`, `default`, `alias`, `title`, `image`, `ordering`,
 -- Table structure for table `media`
 --
 
-DROP TABLE IF EXISTS `media`;
 CREATE TABLE IF NOT EXISTS `media` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `media_categories_id` int(11) DEFAULT NULL,
@@ -398,7 +415,6 @@ INSERT INTO `media` (`id`, `media_categories_id`, `name`, `server_path`, `public
 -- Table structure for table `media_categories`
 --
 
-DROP TABLE IF EXISTS `media_categories`;
 CREATE TABLE IF NOT EXISTS `media_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text,
@@ -431,7 +447,6 @@ INSERT INTO `media_categories` (`id`, `title`, `alias`, `public_url`, `name_bc`,
 -- Table structure for table `media_relations`
 --
 
-DROP TABLE IF EXISTS `media_relations`;
 CREATE TABLE IF NOT EXISTS `media_relations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `media_id` int(11) NOT NULL,
@@ -461,7 +476,6 @@ INSERT INTO `media_relations` (`id`, `media_id`, `relation_tbl_name`, `relation_
 -- Table structure for table `media_statistic`
 --
 
-DROP TABLE IF EXISTS `media_statistic`;
 CREATE TABLE IF NOT EXISTS `media_statistic` (
   `id` int(11) NOT NULL,
   `media_id` int(11) DEFAULT NULL,
@@ -482,7 +496,6 @@ CREATE TABLE IF NOT EXISTS `media_statistic` (
 -- Table structure for table `staff`
 --
 
-DROP TABLE IF EXISTS `staff`;
 CREATE TABLE IF NOT EXISTS `staff` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `last_name` varchar(255) DEFAULT NULL,
@@ -514,7 +527,6 @@ INSERT INTO `staff` (`id`, `last_name`, `first_name`, `middle_name`, `private_ph
 -- Table structure for table `staff_references`
 --
 
-DROP TABLE IF EXISTS `staff_references`;
 CREATE TABLE IF NOT EXISTS `staff_references` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `staff_id` int(10) unsigned NOT NULL,
@@ -532,7 +544,6 @@ CREATE TABLE IF NOT EXISTS `staff_references` (
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) DEFAULT NULL,
@@ -560,7 +571,6 @@ INSERT INTO `users` (`id`, `email`, `password`, `published`, `ordering`, `date_c
 -- Table structure for table `users_groups`
 --
 
-DROP TABLE IF EXISTS `users_groups`;
 CREATE TABLE IF NOT EXISTS `users_groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
@@ -590,7 +600,6 @@ INSERT INTO `users_groups` (`id`, `title`, `alias`, `description`, `ordering`, `
 -- Table structure for table `users_permissions`
 --
 
-DROP TABLE IF EXISTS `users_permissions`;
 CREATE TABLE IF NOT EXISTS `users_permissions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
@@ -615,7 +624,6 @@ INSERT INTO `users_permissions` (`id`, `title`, `ordering`, `allow`, `assertion_
 -- Table structure for table `users_references`
 --
 
-DROP TABLE IF EXISTS `users_references`;
 CREATE TABLE IF NOT EXISTS `users_references` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `users_id` int(11) DEFAULT NULL,
