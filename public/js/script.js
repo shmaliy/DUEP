@@ -278,32 +278,118 @@
 			wId.dialog('destroy');
 		},
 		
-		mainImageRenderer: function (element)
+		imagesFormSelector: function (values, hidden_id, wId)
+		{
+			console.log('imagesFormSelector');
+			
+			if (values.length == 0) {				
+				wId.dialog('close');
+				wId.dialog('destroy');
+				return;
+			}
+			
+			$(this).cmsManager('imagesRenderer', values, hidden_id);
+			
+			wId.dialog('close');
+			wId.dialog('destroy');
+		},
+		
+		mainImageRenderer: function (element, hidden_id)
 		{
 			console.log('mainImageRenderer');
+			//alert($('#' + hidden_id).attr('value'));
 			if (!element) {
-				id = $("#media_id").attr('value');
-				type = $("#media_id").attr('media-type');
-				//alert(id);
+				//image = 
+				id = $('#' + hidden_id).attr('value');
+				type = $('#' + hidden_id).attr('media-type');
+				
 			} else {
 				id = $(element).attr('media-id');
 				type = $(element).attr('media-type');
 			}
+			$('.' + hidden_id + '-list').html('');
+			if (id == '' || type == '') {return;}
 			
-			if(id == '' || type == '') {return;}
-			
-			var appendContent = '<li id="result-list-item-' + id + '">';
-				appendContent += '<img src="/uploads/' + id + '.' + type + '" width="150" height="150">';
-				appendContent += '<a onclick="$.fn.cmsManager(\'mainImageClearer\', ' + id + ');">удалить</a>';
-				appendContent += '</li>';
-			$('.media_id-list').html(appendContent);
+			var html = '<li class="result-list-item-' + id + '">';
+			    html += '<img src="/uploads/' + id + '.' + type + '" width="150" height="150">';
+			    html += '<a onclick="$.fn.cmsManager(\'mainImageClearer\', ' + id + ', \'' + hidden_id + '\');">удалить</a>';
+			    html += '</li>';
+			$('.' + hidden_id + '-list').html(html);
 		},
 		
-		mainImageClearer: function (id)
+		imagesRenderer: function (elements, hidden_id)
+		{
+			console.log('imagesRenderer');
+			
+			if (!hidden_id) {
+				return;
+			}
+			
+			items = [];
+			values = $('#' + hidden_id).attr('value').split('|');
+			for (var i = 0; i < values.length; i++) {
+				var media = values[i].split('@');
+				items.push({'id': media[0], 'type': media[1]});
+			}
+			
+			if (elements) {
+				elements.each(function(){
+					var exists = false;
+					for (var i = 0; i < items.length; i++) {
+						if (items[i].id == $(this).attr('media-id')) {
+							exists = true;
+							break;
+						}
+					}
+					
+					if (!exists) {
+						items.push({'id': $(this).attr('media-id'), 'type': $(this).attr('media-type')});
+					}
+					
+				});
+			}
+			
+			$('.' + hidden_id + '-list').empty();
+			var html = '';
+			var newValues = [];
+			for (var i = 0; i < items.length; i++) {
+				newValues.push(items[i].id + '@' + items[i].type);
+				
+				html  = '<li class="result-list-item-' + items[i].id + '">';
+				html += '<img src="/uploads/' + items[i].id + '.' + items[i].type + '" width="70" height="70">';
+				html += '<a onclick="$.fn.cmsManager(\'imagesClearer\', ' + items[i].id + ', \'' + hidden_id + '\');">удалить</a>';
+				html += '</li>';
+				$('.' + hidden_id + '-list').append(html);
+			}
+			
+			$('#' + hidden_id).attr('value', newValues.join('|'));
+		},
+		
+		mainImageClearer: function (id, hidden_id)
 		{
 			console.log('mainImageClearer');
-			$('#result-list-item-' + id).remove();
-			$('#media_id').attr('value', '');
+			
+			$('#' + hidden_id).attr('value', '');
+			$.fn.cmsManager('mainImageRenderer', null, hidden_id);
+		},
+		
+		imagesClearer: function (id, hidden_id)
+		{
+			console.log('imagesClearer');
+			
+			values = $('#' + hidden_id).attr('value').split('|');
+			newValues = [];
+			
+			for (var i = 0; i < values.length; i++) {
+				var media = values[i].split('@');
+				
+				if (media[0] != id) {
+					newValues.push(values[i]);
+				}				
+			}
+			
+			$('#' + hidden_id).attr('value', newValues.join('|'));
+			$.fn.cmsManager('imagesRenderer', null, hidden_id);
 		}
 	};
 	
@@ -325,7 +411,6 @@
 $(document).ready(function(){
 	//observeFormOnSubmit();
 	//observeAnchorOnClick();
-	$.fn.cmsManager('mainImageRenderer');
 	$('.via_ajax').cmsManager('observe');
 	//uploader();
 	rightFormSelector();

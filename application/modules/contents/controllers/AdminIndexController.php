@@ -100,6 +100,7 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		// Mappers section
 		$mediaMapper = new Media_Model_Mapper_Media();
 		$mediaCategoriesMapper = new Media_Model_Mapper_MediaCategories();
+		$mediaRelations = new Media_Model_Mapper_MediaRelations();
 		$languagesMapper = new Contents_Model_Mapper_Languages();
 		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
 		$contentsMapper = new Contents_Model_Mapper_Contents();
@@ -177,8 +178,59 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 					$values['media_id'] = $params['media_id'];
 				}
 				
+				$mediaIds = array();
+				if (isset($params['media_ids'])) {
+					$mediaIds = explode('|', $params['media_ids']);
+					unset($values['media_ids']);
+				}
+				
 				$entity = $this->_getMapper()->createEntity($values);
-				$this->_getMapper()->saveEntity($entity);
+				$id = $this->_getMapper()->saveEntity($entity);
+				$entity->setId($id);
+				
+				// Check relations
+				$imagesRelations = $mediaRelations->fetchAll(array('relation_tbl_id = ?' => $entity->getId()));
+				// Check add relations
+				$addedRel = array();
+				foreach ($mediaIds as $newRel) {
+					$newRelId = current(explode('@', $newRel));
+					foreach ($imagesRelations as $rel) {
+						if ($newRelId == $rel->mediaId) {
+							continue 2;
+						}
+					}
+					
+					//$addedRel[] = $newRelId;
+					$mediaRelation = $mediaRelations->createEntity(array(
+						'media_id'          => $newRelId,
+						'relation_tbl_name' => 'contents',
+						'relation_tbl_id'   => $entity->getId(),
+						'relation_type'     => $group->alias
+					));
+					$mediaRelations->saveEntity($mediaRelation);
+				}
+				//var_export($addedRel);exit;
+				// check del relations
+				$deletedRel = array();
+				foreach ($imagesRelations as $rel) {
+					foreach ($mediaIds as $newRel) {
+						$newRelId = current(explode('@', $newRel));
+						if ($newRelId == $rel->mediaId) {
+							continue 2;
+							//$deletedRel[] = $rel->mediaId;
+							/*$mediaRelation = $mediaRelations->createEntity(array(
+								'media_id'          => $newRelId,
+								'relation_tbl_name' => 'contents',
+								'relation_tbl_id'   => $entity->getId(),
+								'relation_type'     => $group->alias
+							));
+							$mediaRelations->deleteEntity($rel);*/														
+						}
+					}
+					
+					//$deletedRel[] = $rel->mediaId;
+					$mediaRelations->deleteEntity($rel);
+				}
 				
 				$this->_helper->flashMessenger->addMessage('<div class="notification-done">Saved success</div>');
 				
@@ -197,6 +249,21 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 				$media = $mediaMapper->findEntity($entity->getMediaId());
 				if($media) {
 					$form->getElement("media_id")->setAttrib('media-type', $media->getType());
+				}
+				
+				$imagesRelations = $mediaRelations->fetchAll(array('relation_tbl_id = ?' => $entity->getId()));
+				$ids = array();
+				foreach ($imagesRelations as $rel) {
+					$ids[] = $rel->mediaId;
+				}
+				
+				$images = $mediaMapper->findCollection($ids);
+				if (count($images)) {
+					$value = array();
+					foreach ($images as $img) {
+						$value[] = $img->getId() . '@' . $img->getType();
+					}
+					$form->getElement('media_ids')->setValue(implode('|', $value));
 				}
 			}
 			$this->view->catId = $thumbnailsRootId;

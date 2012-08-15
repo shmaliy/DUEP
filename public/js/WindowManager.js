@@ -68,6 +68,8 @@ function uiDialogShow(title, content)
 			if (wCount == 0) {
 				$('#ui-dialog-collection-overlay').remove();
 			}
+			
+			wrapper.remove();
 		}
 	});
 	

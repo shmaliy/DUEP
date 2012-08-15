@@ -13,15 +13,32 @@ $adminTableNavOptions = array(
 );
 
 ?>
+<?php
+if ($this->selectMany) {
+	$this->filter->addElement('button', 'select_items', array(
+		'ignore'  => true,
+		'label'   => '',
+		'value'   => 'Выбрать',
+		'onClick' => "select_images();"
+	));
+}
+?>
 <?php echo $this->partial('admin-table-filter.php3', 'default', array('filter' => $this->filter)); ?>
 <?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
 <?php if (count($this->rowset) > 0): ?>
 	<div class="selectImage_images_contanier">
 	<?php foreach ($this->rowset as $row): ?>
 		<div class="selectImage_images_contanier_element">
+			<?php if (!$this->selectMany): ?>
 			<a media-type="<?php echo $row->getType();?>" media-id="<?php echo $row->getId(); ?>" onclick="$.fn.cmsManager('mainImageFormSelector', $(this), 'media_id', $(this).parents('.ui-dialog-content-wrapper'));">
 				<img src="/uploads/<?php echo $row->getId(); ?>.<?php echo $row->getType(); ?>" width="130" height="130">
 			</a>
+			<?php else: ?>
+			<a onclick="return false;">
+				<img src="/uploads/<?php echo $row->getId(); ?>.<?php echo $row->getType(); ?>" width="130" height="130">
+			</a>
+			<input media-type="<?php echo $row->getType();?>" media-id="<?php echo $row->getId(); ?>" class="selected_items" type="checkbox" />
+			<?php endif; ?>
 		</div>
 	<?php endforeach; ?>
 	<div class="clr"></div>
@@ -30,4 +47,12 @@ $adminTableNavOptions = array(
 
 <?php endif; ?>
 <?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
-
+<script>
+function select_images()
+{
+	//alert($('.selectImage_images_contanier .selected_items:checked').length);
+	var items = $('.selectImage_images_contanier .selected_items:checked');
+	
+	$.fn.cmsManager('imagesFormSelector', items, 'media_ids', $('.selectImage_images_contanier').parents('.ui-dialog-content-wrapper'));
+}
+</script>
