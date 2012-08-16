@@ -53,7 +53,6 @@
 						<ul>
 							<li><img src="/theme/img/front/uk.jpg" class="lan"/><a class="lang" ele = "uk">Українська</a></li>
 							<li><img src="/theme/img/front/en.jpg" class="lan"/><a class="lang" ele = "en">English</a></li>
-							<li><img src="/theme/img/front/us.jpg" class="lan"/><a class="lang" ele = "us">US English</a></li>
 							<li><img src="/theme/img/front/ru.jpg" class="lan"/><a class="lang" ele = "ru">Русский</a></li>
 						</ul>
 					<div class="pop_up_left_bottom"></div>
