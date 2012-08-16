@@ -90,33 +90,8 @@
               </div>
               <div style="clear:both;"></div>
           </div>
-          <div class="comments">
-              <h3><?php echo Zend_Registry::get('trasvistit')->_("COMMENT");?> <span>(3)</span></h3>
-              <ul>
-                  <li class="comments_top">
-                      <span class="comments_photo"><img alt="" src="/theme/img/front/commentators_photos/1.jpg" /></span>
-                      <p>
-                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
-                          <span>Собрание сегодня состоится?</span>
-                      </p>
-                  </li>
-                  <li class="comments_bottom">
-                      <span class="comments_photo"><img alt="" src="/theme/img/front/commentators_photos/2.jpg" /></span>
-                      <p>
-                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
-                          <span>Собрание сегодня состоится?</span>
-                      </p>
-                  </li>
-                  <li class="comments_top">
-                      <span class="comments_photo"><img alt="" src="/theme/img/front/commentators_photos/1.jpg" /></span>
-                      <p>
-                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
-                          <span>Собрание сегодня состоится?</span>
-                      </p>
-                  </li>
-              </ul>
-          </div>
-<?php echo $this->Comments(); ?>
+
+<?php echo $this->Comments($this->alias); ?>
       </div>
         <div class="sideRight">
             <div class="add_file">

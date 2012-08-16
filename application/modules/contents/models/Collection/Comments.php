@@ -1,6 +1,6 @@
 <?php
 
-class Comments_Model_Collection_Contents extends Sunny_DataMapper_CollectionAbstract
+class Contents_Model_Collection_Comments extends Sunny_DataMapper_CollectionAbstract
 {
 	
 }

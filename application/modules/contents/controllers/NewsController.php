@@ -139,8 +139,9 @@ class Contents_NewsController extends Zend_Controller_Action
     {
 
        
-    	 
-    	$alias =  $this->getRequest()->getParam('alias');
+        $cat =  $this->getRequest()->getParam('cat');
+        $alias =  $this->getRequest()->getParam('alias');
+    	$this->view->alias =  $this->getRequest()->getParam('alias');
     	
     	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
     	$this->view->agroup = $groupsMapper->getFrontGroupByAlias ("announcements");
