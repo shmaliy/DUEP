@@ -34,7 +34,7 @@
 	<div class="header">
 		<div class="headerResize">
 			<a href="/" class="logo">
-				<img src="/theme/img/front/logo.png"/>
+				<img src="/theme/img/front/<?php echo Zend_Registry::get('trasvistit')->_("LOGO");?>"/>
 			</a>
 			
 			<div class="language">
