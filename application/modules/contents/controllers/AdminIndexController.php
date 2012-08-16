@@ -71,14 +71,14 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 			array('contents_groups_id = ?' => $group->id),
 			array('id', 'title', 'contents_categories_id')
 		);
-		if (count($collection) == 0) {
-			$this->_makeResponderStructure('index', 'admin-categories', null, array('group' => $group->alias));
-			$this->_gotoUrl('index', 'admin-categories', $this->_m, array('group' => $group->alias));
-		}
 		$options = $form->collectionToMultiOptions($collection, array());	
 		foreach ($options as $key=>$value) {
 			unset($options[$key]);
 			break;
+		}
+		if (count($options) == 0) {
+			$this->_makeResponderStructure('index', 'admin-categories', null, array('group' => $group->alias));
+			$this->_gotoUrl('index', 'admin-categories', $this->_m, array('group' => $group->alias));
 		}
 		$form->getElement('contents_categories_id')->setMultiOptions($options);
 		
@@ -151,10 +151,10 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 			array('contents_groups_id = ?' => $photoGalleryGroup->id),
 			array('id', 'title')
 		);
-		
 		$gallerysList = $form->collectionToMultiOptions($gallerys, array(), array('Нет'));
-		$form->getElement('contents_photogallery_id')->setMultiOptions($gallerysList);
-		
+		if ($form->getElement('contents_photogallery_id')) {
+			$form->getElement('contents_photogallery_id')->setMultiOptions($gallerysList);
+		}
 		
 		// VideoGallery
 		$videoGalleryGroup = $groupsMapper->getFrontGroupByAlias('gallery_of_videos');
@@ -162,11 +162,11 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		$video = $contentsMapper->fetchAll(
 			array('contents_groups_id = ?' => $videoGalleryGroup->id),
 			array('id', 'title')
-		);
-		
+		);		
 		$videoList = $form->collectionToMultiOptions($video, array(), array('Нет'));
-		$form->getElement('contents_videogallery_id')->setMultiOptions($videoList);
-		
+		if ($form->getElement('contents_videogallery_id')) {
+			$form->getElement('contents_videogallery_id')->setMultiOptions($videoList);
+		}
 		
 		// MultiGallery
 		$multiGalleryGroup = $groupsMapper->getFrontGroupByAlias('multi_gallerys');
@@ -174,26 +174,28 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		$multi = $contentsMapper->fetchAll(
 			array('contents_groups_id = ?' => $multiGalleryGroup->id),
 			array('id', 'title')
-		);
-		
+		);		
 		$multiList = $form->collectionToMultiOptions($multi, array(), array('Нет'));
-		$form->getElement('contents_multigallery_id')->setMultiOptions($multiList);
+		if ($form->getElement('contents_multigallery_id')) {
+			$form->getElement('contents_multigallery_id')->setMultiOptions($multiList);
+		}		
 		
-		
-		
-		if($group->alias == 'events') {
+		if ($group->alias == 'events') {
 			$annoucement = $groupsMapper->getFrontGroupByAlias('announcements');
 			$childAnnouncements = $contentsMapper->getContentsFromGroup($annoucement->id, array($request->getParam('id', 0)));
 			$childAnnouncements = $form->collectionToMultiOptions($childAnnouncements, array(), array('Нет'));
-			$form->getElement('contents_events_announcement_id')->setMultiOptions($childAnnouncements);
+			if ($form->getElement('contents_events_announcement_id')) {
+				$form->getElement('contents_events_announcement_id')->setMultiOptions($childAnnouncements);
+			}
 		}
 		
 		$parentContents = $contentsMapper->getContentsFromGroup($group->id, array($request->getParam('id', 0)));
 		if(count($parentContents) > 0) {
 			$parentContents = $form->collectionToMultiOptions($parentContents, array(), array('Нет'));
-			$form->getElement('contents_id')->setMultiOptions($parentContents);
+			if ($form->getElement('contents_id')) {
+				$form->getElement('contents_id')->setMultiOptions($parentContents);
+			}
 		}
-		
 		
 		$languages = $languagesMapper->fetchAll(
 			array('published = 1'),

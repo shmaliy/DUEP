@@ -93,7 +93,7 @@ class Contents_AdminCategoriesController extends Sunny_Controller_AdminAction
 			array('contents_groups_id = ?' => $group->id),
 			array('id', 'title', 'contents_categories_id')
 		);
-		$options = $form->collectionToMultiOptions($collection, array($id));		
+		$options = $form->collectionToMultiOptions($collection, array($id), array('Нет'));		
 		$form->getElement('contents_categories_id')->setMultiOptions($options);		
 		$form->getElement('contents_groups_id')->setValue($group->id);
 		$form->setAction($this->view->simpleUrl('edit', $this->_c, $this->_m, array('group' => $group->alias)));

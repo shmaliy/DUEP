@@ -84,6 +84,13 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 				
 				$this->_helper->flashMessenger->addMessage('<div class="notification-done">Saved success</div>');
 				$this->_gotoUrl('index', $this->_c, $this->_m);
+				$this->_makeResponderStructure(
+    				'index', 
+    				null, 
+    				null, 
+    				array(), 
+    				'redirect'
+    			);
 			} else {
     			$this->view->formErrors        = $form->getErrors();
     			$this->view->formErrorMessages = $form->getErrorMessages();
@@ -132,7 +139,14 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 	    	{
 	    		$this->view->success = true;
 	    		$this->view->fileInfo = $fileInfo;
-	    		$this->view->redirectTo = $this->_helper->url->simple('edit', $this->_c, $this->_m, array('id' => $id));
+	    		//$this->view->redirectTo = $this->_helper->url->simple('edit', $this->_c, $this->_m, array('id' => $id));
+	    		$this->_makeResponderStructure(
+    				'edit', 
+    				'admin-index', 
+    				'media', 
+    				array('id' => $id), 
+    				'redirect'
+    			);
 	    	} else {
 	    		$this->_getMapper()->deleteEntity($this->_getMapper()->findEntity($id));
 	    	}
