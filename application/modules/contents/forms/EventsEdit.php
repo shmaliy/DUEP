@@ -81,6 +81,17 @@ protected $_contentsGroupsId;
 					'buttonLabel' => 'Выбрать',
 					'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
 		));
+		
+		$media[] = 'contents_photogallery_id';
+		$this->addElement('select', 'contents_photogallery_id', array(
+							'label' => 'Добавить фотогалерею'
+		));
+		
+		$media[] = 'contents_videogallery_id';
+		$this->addElement('select', 'contents_videogallery_id', array(
+									'label' => 'Добавить видеогалерею'
+		));
+		
 		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
 				
 		/*  SEO  */
@@ -120,6 +131,11 @@ protected $_contentsGroupsId;
 		$system[] = 'publicate_on_index';
 		$this->addElement('checkbox', 'publicate_on_index', array(
 			'label' => 'Размещать на главной'
+		));
+		
+		$system[] = 'in_presentation';
+		$this->addElement('checkbox', 'in_presentation', array(
+							'label' => 'Поместить в презентационный блок'
 		));
 		
 		$system[] = 'enable_comments';
