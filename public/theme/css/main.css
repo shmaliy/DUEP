@@ -2319,9 +2319,11 @@ ul.submenu li:hover ul.podmenu{
 	margin-left: 50px;
 	display: block;
 }
-.foto_slide{
+.foto_slide, video{
 	position: absolute;
 	white-space: nowrap;
 	width: 100000px;
-	
+}
+.carousel_video {
+	height: 130px;
 }
