@@ -59,6 +59,26 @@ class Contents_Form_PublicationsArchiveEdit extends Sunny__Form
 		
 		$this->addDisplayGroup($main, 'main');
 		
+		/*  Media  */
+		$media = array('media_id');
+		$this->addElement('button', 'media_id', array(
+					'label' => 'Главное изображение',
+					'buttonLabel' => 'Выбрать',
+					'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
+		));
+		
+		$media[] = 'contents_photogallery_id';
+		$this->addElement('select', 'contents_photogallery_id', array(
+									'label' => 'Добавить фотогалерею'
+		));
+		
+		$media[] = 'contents_videogallery_id';
+		$this->addElement('select', 'contents_videogallery_id', array(
+											'label' => 'Добавить видеогалерею'
+		));
+		
+		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
+		
 				
 		/*  SEO  */
 		$seo = array('seo');

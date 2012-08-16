@@ -106,6 +106,12 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		$contentsMapper = new Contents_Model_Mapper_Contents();
 		$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
 		
+
+		
+		
+		
+		
+		
 		
 		
 		// Alias of default language
@@ -133,6 +139,31 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		}
 		
 		$form = new $formClassName();
+		
+		// PhotoGallery
+		$photoGalleryGroup = $groupsMapper->getFrontGroupByAlias('gallery_of_images');
+		
+		$gallerys = $contentsMapper->fetchAll(
+			array('contents_groups_id = ?' => $photoGalleryGroup->id),
+			array('id', 'title')
+		);
+		
+		$gallerysList = $form->collectionToMultiOptions($gallerys, array(), array('Нет'));
+		$form->getElement('contents_photogallery_id')->setMultiOptions($gallerysList);
+		
+		
+		// VideoGallery
+		$videoGalleryGroup = $groupsMapper->getFrontGroupByAlias('gallery_of_videos');
+		
+		$video = $contentsMapper->fetchAll(
+			array('contents_groups_id = ?' => $videoGalleryGroup->id),
+			array('id', 'title')
+		);
+		
+		$videoList = $form->collectionToMultiOptions($video, array(), array('Нет'));
+		$form->getElement('contents_videogallery_id')->setMultiOptions($videoList);
+		
+		
 		
 		if($group->alias == 'events') {
 			$annoucement = $groupsMapper->getFrontGroupByAlias('announcements');

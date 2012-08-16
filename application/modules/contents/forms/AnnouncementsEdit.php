@@ -131,6 +131,11 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 			'label' => 'Размещать на главной'
 		));
 		
+		$system[] = 'in_presentation';
+		$this->addElement('checkbox', 'in_presentation', array(
+					'label' => 'Поместить в презентационный блок'
+		));
+		
 		$system[] = 'enable_comments';
 		$this->addElement('checkbox', 'enable_comments', array(
 			'label' => 'Разрешить комментарии'
