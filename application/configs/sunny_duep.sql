@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 16, 2012 at 12:46 PM
+-- Generation Time: Aug 16, 2012 at 01:13 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -553,6 +553,35 @@ CREATE TABLE IF NOT EXISTS `staff_references` (
 
 --
 -- Dumping data for table `staff_references`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `structure`
+--
+
+DROP TABLE IF EXISTS `structure`;
+CREATE TABLE IF NOT EXISTS `structure` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `structure_id` int(11) NOT NULL,
+  `title` text NOT NULL,
+  `url` text NOT NULL,
+  `route_name` text NOT NULL,
+  `params` text NOT NULL,
+  `date_created` int(11) NOT NULL,
+  `user_created` int(11) NOT NULL,
+  `date_modified` int(11) NOT NULL,
+  `user_modified` int(11) NOT NULL,
+  `admin_comment` text NOT NULL,
+  `published` int(11) NOT NULL,
+  `ordering` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `structure`
 --
 
 
