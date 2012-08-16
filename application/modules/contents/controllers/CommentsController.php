@@ -1,6 +1,6 @@
 <?php
 
-class Contents_ContactsController extends Zend_Controller_Action
+class Contents_CommentsController extends Zend_Controller_Action
 {	
 	/**
 	 * Prepare controller for work with ajax based requests
@@ -22,6 +22,7 @@ class Contents_ContactsController extends Zend_Controller_Action
 		$context = $this->_helper->AjaxContext();
 		$context->addActionContext('index', 'json');
 		$context->addActionContext('config', 'json');
+		$context->addActionContext('add-comments', 'json');
 
 		
 		$context->initContext('json');
@@ -33,32 +34,31 @@ class Contents_ContactsController extends Zend_Controller_Action
 	 */
 	public function indexAction()
     {
+             
+    }
+    public function addCommentsAction()
+    {
         
-        $cat =  $this->getRequest()->getParam('cat');
-        $alias =  $this->getRequest()->getParam('alias');
-
-        $commentsMapper = new Comments_Model_Mapper_Contents();
-        $this->view->comments = $contentsMapper->getFrontCoomentsByAlias($alias);
-       
+        $request = $this->getRequest();
         
-        $translatedMonths = array(
-        1 => 'Январь',
-        2 => 'Февраль',
-        3 => 'Март',
-        4 => 'Апрель',
-        5 => 'Май',
-        6 => 'Июнь',
-        7 => 'Июль',
-        8 => 'Август',
-        9 => 'Сентябрь',
-        10 => 'Октябрь',
-        11 => 'Ноябрь',
-        12 => 'Декабрь'
-        );
-
-        $this->view->comments->formatDate('date_created', $translatedMonths, 'г.');
-
+        $id_user = $request->getParam('id_user');
+        $text = $request->getParam('text');
+        $date = $request->getParam('created');
+        $alias = $request->getParam('alias');
+        
+        $commentsMapper = new Contents_Model_Mapper_Comments();
        
+
+        
+        if ($request->isXmlHttpRequest() || $request->isPost()) {
+            
+            
+                $entity = $commentsMapper->createEntity(array('users_id'=>$id_user, 'text'=>$text, 'created'=>$date, 'contents_alias'=>$alias, 'published'=>1, 'checked'=>0));
+                $commentsMapper->saveEntity($entity);
+                $this->view->comment = $this->view->Comments($alias);
+
+            
+        }            
     }
     
     

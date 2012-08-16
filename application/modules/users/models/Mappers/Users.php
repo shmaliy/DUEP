@@ -24,4 +24,10 @@ class Users_Model_Mapper_Users extends Sunny_DataMapper_MapperAbstract
 		// get groups
 		// store result
 	}
+	public function getAllUser ()
+	{
+	    return $this->fetchAll(array(
+	    $this->quoteIdentifier("published") . " = ?" => '1',
+	    ));
+	}
 }

@@ -17,6 +17,10 @@ class Contents_View_Helper_Comments extends Zend_View_Helper_Abstract
         $commentsMapper = new Contents_Model_Mapper_Comments();
         $this->view->comment = $commentsMapper->getFrontCommentsByAlias($alias);
        
+
+        
+        $usersMapper = new Staff_Model_Mapper_Staff();
+        $this->view->users = $usersMapper->getAllUser($alias);
         
         $translatedMonths = array(
         1 => 'Январь',
@@ -34,7 +38,7 @@ class Contents_View_Helper_Comments extends Zend_View_Helper_Abstract
         );
 
         $this->view->comment->formatDate('created', $translatedMonths, 'г.');
-      
+        $this->view->alias=$alias;
 
         return $this->view->render('helpers/comments.php3');
 

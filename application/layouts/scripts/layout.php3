@@ -12,11 +12,13 @@
 	echo $this->headLink(); 
 ?>
 <?php
+		$this->headScript()->appendFile('/js/jquery/jquery.js');
 		$this->headScript()->appendFile('/js/jquery/jquery-1.7.2.min.js');
 		$this->headScript()->appendFile('/js/jquery/jquery-ui-1.8.20.custom/jquery-ui-1.8.20.custom.min.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.jqGrid-4.3.3/i18n/grid.locale-ru.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload/swfupload.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload.js');
+		$this->headScript()->appendFile('/js/jquery/jquery.synctranslit.js');
 		$this->headScript()->appendFile('/js/script.js');
 		$this->headScript()->appendFile('/js/index.js');
 		$this->headScript()->appendFile('/js/content.js');
