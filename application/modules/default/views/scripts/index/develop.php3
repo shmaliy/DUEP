@@ -1,4 +1,3 @@
-
 <!--?php echo __FILE__; ?-->
 <html>
   <body>
@@ -8,94 +7,77 @@
       <div class="tape_path">
           <a class="emblem_way" href=""></a>&rarr;
           <a href="">Университет</a>&rarr;
-          <a href="">Структура университета</a>&rarr;
-          <a href="">Кафедра</a>&rarr;
-          <a href="">Кафедра английской филологии и перевода</a>&rarr;
-          <a href="">Сравнительная лексикология английского и украинского языков</a>
+          <a href="">Видеогалерея</a>&rarr;
+          <a href="">Информационный тур университетами Польши</a>
       </div>
     <div class="content">
-        <h1 class="developments">Сравнительная лексикология английского и украинского языков</h1>
-      <div class="adt">
-        <p class="info_text">Курс «Сравнительной лексикологии английского и украинского языка» является теоретическим курсом, который помогает формировать специалистов в области филологии. Эта дисциплина освещает основные вопросы проблемного характера, возникающие в теории языка на современном этапе развития языкознания, в частности компаративистики. В центре внимания системный характер лексических явлений, их тесная связь и взаимообусловленность с грамматическим строем языка; семантика лексики и семантика грамматики, теория оппозиций в изучении лексики, использование дистрибутивного и трансформационного анализа.</p>
-        <p class="info_text">Главная цель дисциплины заключается в формировании у студентов целостного представления о лексикологию, на материале и с помощью английского и украинского языков представить основные категории лексикологии, ее развитие и становление, современный этап; высветить специфические свойства лексической системы английского языка в сравнении с лексическими системами родного и родственных языков.</p>
-        <p class="info_text">Основной задачей курса является повышение уровня подготовки студентов по теории языка, что должно способствовать научному пониманию о лексико-семантическую систему английского языка в сравнении с украинскими, специфические особенности, структурную организацию этой системы в английском и украинском языках.</p>
-          <h3>Другие дисциплины Кафедры английской филологии и перевода</h3>
-            <div class="subjects_list">
-                <a href="">Вступление в переводоведения</a>
-                <a href="">Деловой иностранный язык (английский)</a>
-                <a href="">История зарубежной литературы</a>
-                <a href="">Методика преподавания перевода</a>
-                <a href="">Новейшая мировая культура и литература</a>
-                <a href="">Основы теории языковой коммуникации</a>
-                <a href="">Перевод деловых переговоров и конференций</a>
-                <a href="">Перевод деловой речи</a>
-                <a href="">Перевод научно-технической литературы</a>
-                <a href="">Перевод рекламного текста и банковской документации</a>
-                <a href="">Перевод и редактирование коммерческих документов</a>
-                <a href="">Сравнительная грамматика иностранного и украинского языков</a>
-                <a href="">Сравнительная лексикология английского и украинского языков</a>
-                <a href="">Сравнительная стилистика английского и украинского языков</a>
-                <a href="">Сравнительная стилистика иностранного и украинского языков</a>
-                <a href="">Практика письменного перевода (основной иностранный язык)</a>
-                <a href="">Практика устного перевода (основной иностранный язык)</a>
+        <h1 class="developments">Информационный тур университетами Польши</h1>
+      <div class="area">
+        <p class="info_text">С 21 по 28 апреля 2012 Международным отделом Днепропетровского Университета имени Альфреда Нобеля был организован второй информационный тур университетами Польши.</p>
+          <a class="arrow_left" href=""></a>
+          <div class="horizontal_carousel b_carousel carousel_video">
+          		<ul class="video">
+                    <li><span><a href="">1. Лестница и народ</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/1.jpg" /></a></li>
+                    <li class="active_v"><span><a href="">2. Обнимашки возле...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/2.jpg" /></a></li>
+                    <li><span><a href="">3. Я памятник себе</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/3.jpg" /></a></li>
+                    <li><span><a href="">4. Внезапно украли зе...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/4.jpg" /></a></li>
+                    <li><span><a href="">5. Как Украина, только...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/5.jpg" /></a></li> 
+                </ul>
             </div>
+            <a class="arrow_right" href=""></a>
+          <img class="b_photo" alt="" src="../theme/img/front/video_preview/video_player.jpg" />
+          <h2>3/5. Обнимашки возле флага</h2>
+        <p class="info_text">Сегодня Днепропетровский университет имени Альфреда Нобеля - единственное заведение в регионе, который проводит подготовку специалистов по данному направлению. К преподаванию на программе кроме преподавательского состава университета, были приглашены ведущие специалисты Главного управления юстиции, суда, Пенсионного фонда и других.</p>
+          <div class="adt">
+            <div class="social-services">
+              <ul>
+                  <li>
+                      <img alt="" src="../theme/img/front/social_v.jpg" />
+                  </li>
+                  <li>
+                      <img alt="" src="../theme/img/front/social_f.jpg" />
+                  </li>
+                  <li>
+                      <img alt="" src="../theme/img/front/social_t.jpg" />
+                  </li>
+                  <li>
+                      <img alt="" src="../theme/img/front/social_g.jpg" />
+                  </li>
+              </ul>
+            </div>
+          <div class="comments">
+              <h3>Комментарии <span>(3)</span></h3>
+              <ul>
+                  <li class="comments_top">
+                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/1.jpg" /></span>
+                      <p>
+                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
+                          <span>Собрание сегодня состоится?</span>
+                      </p>
+                  </li>
+                  <li class="comments_bottom">
+                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/2.jpg" /></span>
+                      <p>
+                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
+                          <span>Собрание сегодня состоится?</span>
+                      </p>
+                  </li>
+                  <li class="comments_top">
+                      <span class="comments_photo"><img alt="" src="../theme/img/front/commentators_photos/1.jpg" /></span>
+                      <p>
+                          <span class="name">Анатолий Александрович Задоя<span class="data">1 мая 2012 14:42</span></span>
+                          <span>Собрание сегодня состоится?</span>
+                      </p>
+                  </li>
+              </ul>
+          </div>
+          <h4>Ваш комментарий</h4>
+          <form class="comments">
+              <textarea name="" cols="" rows=""></textarea>
+              <input type="submit" value="Отправить">
+          </form>
+              </div>
       </div>
-        <div class="sideRight">
-            <div class="calendar info_public">
-                <div class="book_block info_publication">
-                <span class="menu_add_file">Преподаватели</span>
-                  <div class="terminal_block">
-                      <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/5.jpg" />
-                          <a class="manager_name" href="">Дяченко Ольга Петрівна</a>
-                          <p>
-                              менеджер з адміністративної діял-ті депертаменту освіти
-                          </p>
-                      </div>
-                      <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/6.jpg" />
-                          <a class="manager_name" href="">Єштокіна Юлія Валеріївна</a>
-                          <p>
-                              менеджер з адмін-ної діял-ті  сектору
-                          </p>
-                      </div>
-                      <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/7.jpg" />
-                          <a class="manager_name" href="">Красовська Олена Юріївна</a>
-                          <p><a href="">Кандидат економічних наук</a>
-                              завідувач магістерських програм
-                          </p>
-                      </div>
-                      <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/8.jpg" />
-                          <a class="manager_name" href="">Ткаченко Жанетта Юріївна</a>
-                          <p>
-                              завідувач сектору післядипломної освіти
-                          </p>
-                      </div>
-                      <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/5.jpg" />
-                          <a class="manager_name" href="">Дяченко Ольга Петрівна</a>
-                          <p>
-                              менеджер з адміністративної діял-ті депертаменту освіти
-                          </p>
-                      </div>
-                      <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/4.jpg" />
-                          <a class="manager_name" href="">Дубинский Сергей Владимирович</a>
-                          <p><a href="">Старший преподаватель</a></p>
-                      </div>
-                      <div class="manager">
-                          <img alt="" src="../theme/img/front/commentators_photos/9.jpg" />
-                          <a class="manager_name" href="">Зинукова Наталья Викторовна</a>
-                          <p><a href="">Кандидат педагогичныз наук</a>
-                              Руководитель
-                          </p>
-                      </div>
-                  </div>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- #content-->
 
@@ -108,37 +90,18 @@
         <li><a href="">Руководство</a></li>
         <li><a href="">Награды</a></li>
         <li><a href="">Про нас пишут</a></li>
+        <li><a href="">Структура Университета</a></li>
+        <li><a href="">Гости Университета</a></li>
         <li><div class="note">
-        <a href="">Структура Университета</a>
+        <a href="">Фотогалерея</a>
         </div>
             <ul class="submenu">
-                <li><a href="">Направление</a></li>
-                <li><div class="note"><a href="">Кафедра</a></div>
-                    <ul class="podmenu">
-                        <li><a href="">Кафедра английской филологии и перевода</a></li>
-                        <li><a href="">Кафедра политологии, социологии и гуманитарных наук</a></li>
-                        <li><a href="">Кафедра экономики предприятия</a></li>
-                        <li><a href="">Кафедра экономической кибернетики и математических методов в экономике</a></li>
-                        <li><a href="">Кафедра иностранных языков</a></li>
-                        <li><a href="">Кафедра маркетинга</a></li>
-                        <li><a href="">Кафедра менеджмента</a></li>
-                        <li><a href="">Кафедра общей и социальной педагогики</a></li>
-                        <li><a href="">Кафедра международной экономики и экономической теории</a></li>
-                        <li><a href="">Кафедра учета и аудита</a></li>
-                        <li><a href="">Кафедра права</a></li>
-                        <li><a href="">Кафедра практической психологии</a></li>
-                        <li><a href="">Кафедра прикладной лингвистики и методики обучения иностранным языкам</a></li>
-                        <li><a href="">Кафедра романо-германских языков</a></li>
-                        <li><a href="">Кафедра товароведения и торгового предпринимательства</a></li>
-                        <li><a href="">Кафедра физического воспитания</a></li>
-                        <li><a href="">Кафедра финансов и банковского дела</a></li>
-                    </ul>
-                </li>
-                <li><a href="">Подразделения</a></li>
+                <li><a href="">Жизнь Университета</a></li>
+                <li><a href="">Нобелевские премии</a></li>
+                <li><a href="">Веселые конкурсы</a></li>
             </ul>
         </li>
-        <li><a href="">Гости Университета</a></li>
-        <li><a href="">Фотогалерея</a></li>
+        <li><a href="">Видеогалерея</a></li>
         <li><a href="">Контактные данные</a></li>
     </ul>
     <div class="side_true">

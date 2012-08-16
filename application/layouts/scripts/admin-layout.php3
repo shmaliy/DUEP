@@ -19,6 +19,7 @@
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload/swfupload.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload.js');
 		$this->headScript()->appendFile('/js/jquery/jquery-wm/jquery-wm.js');
+		$this->headScript()->appendFile('/js/jquery/jquery.synctranslit.js');
 		$this->headScript()->appendFile('/js/tiny_mce/tiny_mce.js');
 		$this->headScript()->appendFile('/js/WindowManager.js');
 		$this->headScript()->appendFile('/js/script.js');

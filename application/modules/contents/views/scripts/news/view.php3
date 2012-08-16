@@ -116,11 +116,7 @@
                   </li>
               </ul>
           </div>
-          <h4><?php echo Zend_Registry::get('trasvistit')->_("Y_COMMENT");?></h4>
-          <form class="comments">
-              <textarea name="" cols="" rows=""></textarea>
-              <input type="submit" value="<?php echo Zend_Registry::get('trasvistit')->_("SEND");?>">
-          </form>
+<?php echo $this->Comments(); ?>
       </div>
         <div class="sideRight">
             <div class="add_file">
