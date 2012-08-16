@@ -90,8 +90,34 @@ class Structure_AdminIndexController extends Sunny_Controller_AdminAction
     {
 		//Getting request
     	$request = $this->getRequest();
+    	
+    	$form = new Structure_Form_StructureElementEdit();
+    	    	
+    	$structureMapper = new Structure_Model_Mapper_Structure();
 		
-		// Version 14.07.2012
+    	if ($request->isXmlHttpRequest() || $request->isPost()) {
+    		if ($form->isValid($request->getParams())) {
+    			
+    		} else {
+    			$this->view->formErrors        = $form->getErrors();
+    			$this->view->formErrorMessages = $form->getErrorMessages();
+			}
+		} else {
+			$this->view->form = $form;
+		} 
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	return;
+    	
+    	// Version 14.07.2012
 		if (false === ($group = $this->_checkGroup())) {
 			return;
 		}
