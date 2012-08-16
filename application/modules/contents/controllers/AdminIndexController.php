@@ -168,6 +168,18 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		$form->getElement('contents_videogallery_id')->setMultiOptions($videoList);
 		
 		
+		// MultiGallery
+		$multiGalleryGroup = $groupsMapper->getFrontGroupByAlias('multi_gallerys');
+		
+		$multi = $contentsMapper->fetchAll(
+			array('contents_groups_id = ?' => $multiGalleryGroup->id),
+			array('id', 'title')
+		);
+		
+		$multiList = $form->collectionToMultiOptions($multi, array(), array('Нет'));
+		$form->getElement('contents_multigallery_id')->setMultiOptions($multiList);
+		
+		
 		
 		if($group->alias == 'events') {
 			$annoucement = $groupsMapper->getFrontGroupByAlias('announcements');

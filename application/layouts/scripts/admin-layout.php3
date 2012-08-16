@@ -88,6 +88,12 @@ tinyMCE.execCommand("mceAddControl", true, "description");
 										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'gallery_of_videos')); ?>">Галереи</a></li>
 									</ul>
 								</li>
+								<li><span class="group">Мультигалереи</span>
+									<ul>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'contents', array('group' => 'multi_gallerys')); ?>">Категории</a></li>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'multi_gallerys')); ?>">Мультигалереи</a></li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 						<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'staff'); ?>" class="group">Структура университета</a>
