@@ -111,12 +111,6 @@ class Structure_AdminIndexController extends Sunny_Controller_AdminAction
     	
     	
     	
-    	
-    	
-    	
-    	
-    	return;
-    	
     	// Version 14.07.2012
 		if (false === ($group = $this->_checkGroup())) {
 			return;
@@ -133,11 +127,6 @@ class Structure_AdminIndexController extends Sunny_Controller_AdminAction
 		$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
 		
 
-		
-		
-		
-		
-		
 		
 		
 		// Alias of default language

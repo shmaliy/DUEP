@@ -114,7 +114,16 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		
 		
 		
+		$id = $request->getParam('id');
+		$formClassName = 'Contents_Form_'
+		               . ucfirst(Zend_Filter::filterStatic($group->alias, 'Word_UnderscoreToCamelCase'))
+		               . 'Edit';
+		if (!@class_exists($formClassName)) {
+			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Editor not found</div>');
+			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
+		}
 		
+		$form = new $formClassName();
 		
 		
 		
@@ -133,16 +142,7 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		$thumbnailsRootId = $category->getId();
 		
 				
-		$id = $request->getParam('id');
-		$formClassName = 'Contents_Form_'
-		               . ucfirst(Zend_Filter::filterStatic($group->alias, 'Word_UnderscoreToCamelCase'))
-		               . 'Edit';
-		if (!@class_exists($formClassName)) {
-			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Editor not found</div>');
-			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
-		}
 		
-		$form = new $formClassName();
 		
 		// PhotoGallery
 		$photoGalleryGroup = $groupsMapper->getFrontGroupByAlias('gallery_of_images');

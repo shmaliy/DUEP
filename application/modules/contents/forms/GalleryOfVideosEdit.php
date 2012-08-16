@@ -51,6 +51,11 @@ class Contents_Form_GalleryOfVideosEdit extends Sunny_Form
 			'label' => 'Псевдоним (ЧПУ)'
 		));
 		
+		$main[] = 'languages_alias';
+		$this->addElement('select', 'languages_alias', array(
+					'label' => 'Язык'
+		));
+		
 		$main[] = 'tizer';
 		$this->addElement('textarea', 'tizer', array(
 			'label' => 'Текст тизера'
@@ -62,6 +67,32 @@ class Contents_Form_GalleryOfVideosEdit extends Sunny_Form
 		));
 		
 		$this->addDisplayGroup($main, 'main');
+		
+		/*  Media  */
+		$media = array('media_id');
+		$this->addElement('button', 'media_id', array(
+			'label' => 'Главное изображение',
+			'buttonLabel' => 'Выбрать',
+			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
+		));
+		
+		$media[] = 'contents_photogallery_id';
+		$this->addElement('select', 'contents_photogallery_id', array(
+			'label' => 'Добавить фотогалерею'
+		));
+		
+		$media[] = 'contents_videogallery_id';
+		$this->addElement('select', 'contents_videogallery_id', array(
+			'label' => 'Добавить видеогалерею'
+		));
+		
+		$media[] = 'contents_multigallery_id';
+		$this->addElement('select', 'contents_multigallery_id', array(
+			'label' => 'Добавить мультигалерею'
+		));
+		
+		
+		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
 		
 				
 		/*  SEO  */
