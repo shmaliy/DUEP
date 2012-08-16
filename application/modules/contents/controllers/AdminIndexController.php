@@ -71,6 +71,10 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 			array('contents_groups_id = ?' => $group->id),
 			array('id', 'title', 'contents_categories_id')
 		);
+		if (count($collection) == 0) {
+			$this->_makeResponderStructure('index', 'admin-categories', null, array('group' => $group->alias));
+			$this->_gotoUrl('index', 'admin-categories', $this->_m, array('group' => $group->alias));
+		}
 		$options = $form->collectionToMultiOptions($collection, array());	
 		foreach ($options as $key=>$value) {
 			unset($options[$key]);
