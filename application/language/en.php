@@ -14,6 +14,7 @@
         'INFO' => 'Base Info',
         'FOTO_AL' => 'Foto',
         'VIDEO_AL' => 'Video',
+    	"LOGO"=>"duep-logo-en.png",
         /*
          * Contents
          */

@@ -1,6 +1,4 @@
-<!--?php echo __FILE__; ?-->
-<html>
-  <body>
+
 <div class="middle">
 
   <div class="container">
@@ -90,8 +88,10 @@
               </div>
               <div style="clear:both;"></div>
           </div>
-
+<span id = "comments_add">
 <?php echo $this->Comments($this->alias); ?>
+
+</span>
       </div>
         <div class="sideRight">
             <div class="add_file">
@@ -167,5 +167,3 @@
           
 </div>
 <!-- #middle-->
-  </body>
-</html>

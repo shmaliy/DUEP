@@ -1,4 +1,6 @@
-$(document).ready(function () { 
+$(document).ready(function () {
+	//alert($('pop_up').children().length);
+	//if (){$('.right pl_all_box').hide();};
 	var url = document.location.href;
     
    	var url_lang = url.split("/");

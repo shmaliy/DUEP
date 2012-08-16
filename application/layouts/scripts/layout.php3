@@ -12,11 +12,13 @@
 	echo $this->headLink(); 
 ?>
 <?php
+		$this->headScript()->appendFile('/js/jquery/jquery.js');
 		$this->headScript()->appendFile('/js/jquery/jquery-1.7.2.min.js');
 		$this->headScript()->appendFile('/js/jquery/jquery-ui-1.8.20.custom/jquery-ui-1.8.20.custom.min.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.jqGrid-4.3.3/i18n/grid.locale-ru.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload/swfupload.js');
 		$this->headScript()->appendFile('/js/jquery/jquery.swfupload.js');
+		$this->headScript()->appendFile('/js/jquery/jquery.synctranslit.js');
 		$this->headScript()->appendFile('/js/script.js');
 		$this->headScript()->appendFile('/js/index.js');
 		$this->headScript()->appendFile('/js/content.js');
@@ -32,7 +34,7 @@
 	<div class="header">
 		<div class="headerResize">
 			<a href="/" class="logo">
-				<img src="/theme/img/front/logo.png"/>
+				<img src="/theme/img/front/<?php echo Zend_Registry::get('trasvistit')->_("LOGO");?>"/>
 			</a>
 			
 			<div class="language">
@@ -51,7 +53,6 @@
 						<ul>
 							<li><img src="/theme/img/front/uk.jpg" class="lan"/><a class="lang" ele = "uk">Українська</a></li>
 							<li><img src="/theme/img/front/en.jpg" class="lan"/><a class="lang" ele = "en">English</a></li>
-							<li><img src="/theme/img/front/us.jpg" class="lan"/><a class="lang" ele = "us">US English</a></li>
 							<li><img src="/theme/img/front/ru.jpg" class="lan"/><a class="lang" ele = "ru">Русский</a></li>
 						</ul>
 					<div class="pop_up_left_bottom"></div>

@@ -23,4 +23,10 @@ class Staff_Model_Mapper_Staff extends Sunny_DataMapper_MapperAbstract
 	{
 		return $this->getDbTable()->adminGetStaffTotal(1);
 	}
+	public function getAllUser ()
+	{
+	    return $this->fetchAll(array(
+	    $this->quoteIdentifier("published") . " = ?" => '1',
+	    ));
+	}
 }

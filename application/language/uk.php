@@ -14,6 +14,10 @@
         "INFO" => "Основна інформація",
         "FOTO_AL" => "Фотоальбом",
         "VIDEO_AL" => "Відеозаписи",
+    	"TEXT_COMMENTS" => "Текст коментарія",
+    	"VALID_COMMENTS" => "Заполните поле",
+    	"THENKS" => "Дякую за комментарій",
+    	"LOGO"=>"duep-logo-uk.png",
         /*
          * Contents
          */

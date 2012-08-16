@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 16, 2012 at 01:13 PM
+-- Generation Time: Aug 16, 2012 at 06:38 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -37,14 +37,15 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `published` int(11) NOT NULL,
   `checked` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `comments`
 --
 
 INSERT INTO `comments` (`id`, `tbl_name`, `tbl_id`, `contents_alias`, `users_id`, `text`, `created`, `published`, `checked`) VALUES
-(1, 'contemnts', 0, 'business-administration', 1, 'Hello', 1341395430, 1, 0);
+(1, 'contemnts', 0, 'business-administration', 1, 'Hello', 1341395430, 1, 0),
+(2, '', 0, 'vidbuvsja-drugij-vipusk-magistriv-za-programoju-«biznes-administruvannja»', 12, 'туманов дибил (он сам сказал)', 1345119496, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -147,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `contents_categories` (
   `enable_comments` int(11) DEFAULT NULL,
   `enable_rss` int(11) DEFAULT NULL,
   `enable_email` int(11) DEFAULT NULL,
-  `language` int(11) DEFAULT NULL,
+  `language` varchar(11) DEFAULT NULL,
   `ordering` int(11) DEFAULT NULL,
   `published` int(11) DEFAULT NULL,
   `admin_comment` text,
@@ -160,9 +161,9 @@ CREATE TABLE IF NOT EXISTS `contents_categories` (
   `user_created` int(11) DEFAULT NULL,
   `date_modified` int(11) DEFAULT NULL,
   `user_modified` int(11) DEFAULT NULL,
-  `system` tinyint(1) NOT NULL,
+  `system` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `contents_categories`
@@ -188,7 +189,9 @@ INSERT INTO `contents_categories` (`id`, `contents_groups_id`, `contents_categor
 (25, 3, 21, 'Університет', 'univercity', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343903854, NULL, 1343903854, NULL, 0),
 (29, 5, 11, 'Анонсы', 'announces_gallery', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343944876, NULL, 1343944876, NULL, 0),
 (30, 5, 11, 'Події', 'events_gallerys', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1344840020, NULL, 1344840020, NULL, 0),
-(31, 7, 0, 'Мультигалереи', 'multi_gallerys', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', NULL, NULL, NULL, NULL, 0);
+(31, 7, 0, 'Мультигалереи', 'multi_gallerys', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', NULL, NULL, NULL, NULL, 0),
+(33, 6, 0, 'Відео галереї', 'video-galereji', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', NULL, NULL, NULL, NULL, 0),
+(34, 6, 33, 'Анонси', 'anonsi', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', NULL, NULL, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -205,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `contents_groups` (
   `ordering` int(11) DEFAULT NULL,
   `published` int(11) DEFAULT NULL,
   `admin_comment` text,
-  `system` int(11) DEFAULT NULL,
+  `system` int(11) NOT NULL DEFAULT '0',
   `date_created` int(11) DEFAULT NULL,
   `date_modified` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -296,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `media` (
   `user_modified` int(11) DEFAULT NULL,
   `published` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=125 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=126 ;
 
 --
 -- Dumping data for table `media`
@@ -421,7 +424,8 @@ INSERT INTO `media` (`id`, `media_categories_id`, `name`, `server_path`, `public
 (121, 5, 'Lake-Images-11.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'Lake-Images-11.jpg', NULL, 'jpg', NULL, NULL, NULL, 1344501581, NULL, 1344501581, NULL, NULL),
 (122, 5, 'GettyImages_144127204_0.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'GettyImages_144127204_0.jpg', NULL, 'jpg', NULL, NULL, NULL, 1344502792, NULL, 1344502792, NULL, NULL),
 (123, 5, 'myspace-sunset-images-dam7-0002.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'myspace-sunset-images-dam7-0002.jpg', NULL, 'jpg', NULL, NULL, NULL, 1344502805, NULL, 1344502805, NULL, NULL),
-(124, 5, 'images-Autumn1600x1200.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'images-Autumn1600x1200.jpg', NULL, 'jpg', NULL, NULL, NULL, 1344504058, NULL, 1344504058, NULL, NULL);
+(124, 5, 'images-Autumn1600x1200.jpg', 'W:\\home\\duep\\public\\uploads', NULL, 'images-Autumn1600x1200.jpg', NULL, 'jpg', NULL, NULL, NULL, 1344504058, NULL, 1344504058, NULL, NULL),
+(125, 0, 'GettyImages_144127204_0.jpg', 'W:\\home\\duep\\public\\uploads', '', 'GettyImages_144127204_0.jpg', '', 'jpg', '', '', '', 1345117454, NULL, 1345117454, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -536,7 +540,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
 
 INSERT INTO `staff` (`id`, `last_name`, `first_name`, `middle_name`, `private_phone`, `interoffice_phone`, `file_id`, `description`, `published`, `mode`, `users_id`, `date_created`, `date_modified`) VALUES
 (1, 'Павленко2', 'Евгений', 'Витальевич', '066', '', NULL, '', 0, 0, NULL, NULL, NULL),
-(2, 'Шмалий', 'Максим', 'Владимирович', NULL, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL);
+(2, 'Шмалий', 'Максим', 'Владимирович', NULL, NULL, NULL, NULL, 1, 1, 12, NULL, NULL);
 
 -- --------------------------------------------------------
 

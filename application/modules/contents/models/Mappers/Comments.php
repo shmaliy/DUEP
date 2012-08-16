@@ -10,4 +10,5 @@ class Contents_Model_Mapper_Comments extends Sunny_DataMapper_MapperAbstract
 		$this->quoteIdentifier("published") . " = ?" => '1',
 		));
 	}
+
 }
