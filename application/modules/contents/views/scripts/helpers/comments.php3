@@ -32,9 +32,8 @@ $(function() {
 		var alias = "<?php echo $this->alias; ?>";	
 		var dates  = new Date();
 		
-		var date_time = dates.getTime();
-		var data = date_time.toString();
-		var date = data.substring(10, -4)
+		var date = dates.getTime()/1000;
+
 		
 
 

@@ -7,28 +7,31 @@
       <div class="tape_path">
           <a class="emblem_way" href=""></a>&rarr;
           <a href="">Университет</a>&rarr;
-          <a href="">Видеогалерея</a>&rarr;
-          <a href="">Информационный тур университетами Польши</a>
+          <a href="">Новости</a>&rarr;
+          <a href="">Новости подробнее</a>
       </div>
     <div class="content">
-        <h1 class="developments">Информационный тур университетами Польши</h1>
-      <div class="area">
-        <p class="info_text">С 21 по 28 апреля 2012 Международным отделом Днепропетровского Университета имени Альфреда Нобеля был организован второй информационный тур университетами Польши.</p>
-          <a class="arrow_left" href=""></a>
-          <div class="horizontal_carousel b_carousel carousel_video">
-          		<ul class="video">
-                    <li><span><a href="">1. Лестница и народ</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/1.jpg" /></a></li>
-                    <li class="active_v"><span><a href="">2. Обнимашки возле...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/2.jpg" /></a></li>
-                    <li><span><a href="">3. Я памятник себе</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/3.jpg" /></a></li>
-                    <li><span><a href="">4. Внезапно украли зе...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/4.jpg" /></a></li>
-                    <li><span><a href="">5. Как Украина, только...</a></span><a href=""><img alt="" src="../theme/img/front/video_preview/5.jpg" /></a></li> 
-                </ul>
-            </div>
-            <a class="arrow_right" href=""></a>
-          <img class="b_photo" alt="" src="../theme/img/front/video_preview/video_player.jpg" />
-          <h2>3/5. Обнимашки возле флага</h2>
-        <p class="info_text">Сегодня Днепропетровский университет имени Альфреда Нобеля - единственное заведение в регионе, который проводит подготовку специалистов по данному направлению. К преподаванию на программе кроме преподавательского состава университета, были приглашены ведущие специалисты Главного управления юстиции, суда, Пенсионного фонда и других.</p>
-          <div class="adt">
+      <div>
+        <h1 class="developments">Поздравляем победителей IV регионального Студенческого Фестивал</h1>
+        <h2 class="developments">20.12.2012</h2>
+        <ul class="lineTabs">
+          <li>
+            <a class="active" href=""><span>Основная информация</span></a>
+          </li>
+          <li>
+            <a href=""><span><span class="label_camera"><span>Фотоальбом </span><sup>3</sup></span></span></a>
+          </li>
+          <li>
+            <a href=""><span><span class="label_video"><span>Видеозаписи </span><sup>1</sup></span></span></a>
+          </li>
+        </ul>
+        <hr />
+      </div>
+      <div class="adt">
+        <p class="info_text">В каждое мгновение жизни что-то начинается заново. В своем самом автобиографичном романе Пауло Коэльо рассказывает о необычном путешествии. Из-за духовного кризиса в поисках обновления и роста он решает путешествовать, экспериментировать, знакомиться с новыми людьми и местами. Путешествие начинается в Африке, а затем проходит через Европу и Азию по российской Транссибирской магистрали. В Москве он встречает Хиляль, молодую талантливую скрипачку. Вместе с ней он и отправится в путешествие, следуя путем любви, прощения и отваги, которая столь необходима для того, чтобы принимать неизбежные вызовы жизни.</p>
+        <img class="photo_author" alt="" src="../theme/img/front/article/2.jpg" />
+        <strong class="author">Пауло Коэльо</strong>
+        <p class="info_text">Бразильский писатель и поэт Пауло Коэльо родился в Рио-де-Жанейро. С семи лет посещал иезуитскую школу Святого Игнатия Лойолы, где у него впервые появилось желание писать книги, однако страсть к писательству не была одобрена  его родителями, так, под давлением семьи, будущий всемирно известный писатель поступает на юридический факультет университета Рио-де-Жанейро, но вскоре оставляет учебу и занимается журналистикой...</p>
             <div class="social-services">
               <ul>
                   <li>
@@ -45,6 +48,49 @@
                   </li>
               </ul>
             </div>
+          <div class="linked_materials side_true">
+              <span class="menu_add_file">Связанные материалы</span>
+              <div class="group_materials">
+                  <strong class="">Новости</strong>
+                  <ul class="sked">
+                      <li>
+                          <p>20.12.2012<span>8:18</span></p>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                      <li>
+                          <p>20.12.2012<span>8:18</span></p>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="group_materials">
+                  <strong>Анонсы и события</strong>
+                  <ul class="sked">
+                      <li>
+                          <p>20.12.2012<span>8:18</span></p>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                      <li>
+                          <p>20.12.2012<span>8:18</span></p>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="group_materials">
+                  <strong class="">Прочее</strong>
+                  <ul class="sked">
+                      <li>
+                          <a class="name_news" href="">Название новости</a>
+                          <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                      </li>
+                  </ul>
+              </div>
+              <div style="clear:both;"></div>
+          </div>
           <div class="comments">
               <h3>Комментарии <span>(3)</span></h3>
               <ul>
@@ -76,8 +122,48 @@
               <textarea name="" cols="" rows=""></textarea>
               <input type="submit" value="Отправить">
           </form>
-              </div>
       </div>
+        <div class="sideRight">
+            <div class="add_file">
+                <ul>
+                    <li>
+                        <span class="menu_add_file">Прикрепленные файлы</span>
+                    </li>
+                    <li>
+                        <img alt="" src="../theme/img/front/add_file/doc.png" />
+                        <p>
+                            <a class="name_news" href="">Лицензування та акредитация</a>
+                            <span>DOC (12Мб)</span>
+                            <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                        </p>
+                    </li>
+                    <li>
+                        <img alt="" src="../theme/img/front/add_file/pdf.png" />
+                        <p>
+                            <a class="name_news" href="">Ласкаво просимо</a>
+                            <span>PDF (12Мб)</span>
+                            <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                        </p>
+                    </li>
+                    <li>
+                        <img alt="" src="../theme/img/front/add_file/xls.png" />
+                        <p>
+                            <a class="name_news" href="">Лицензування та акредитация</a>
+                            <span>XLS (12Мб)</span>
+                            <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                        </p>
+                    </li>
+                    <li>
+                        <img alt="" src="../theme/img/front/add_file/xls.png" />
+                        <p>
+                            <a class="name_news" href="">Лицензування та акредитация</a>
+                            <span>XLS (12Мб)</span>
+                            <a href="">Лента</a>&rarr;<a href="">Категория</a>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
     <!-- #content-->
 
@@ -86,23 +172,21 @@
 
   <div class="sideLeft">
     <ul class="menu_sideLeft">
-        <li><a href="">Университет</a></li>
-        <li><a href="">Руководство</a></li>
-        <li><a href="">Награды</a></li>
-        <li><a href="">Про нас пишут</a></li>
-        <li><a href="">Структура Университета</a></li>
-        <li><a href="">Гости Университета</a></li>
+        <li><a href="">10 причин, чтобы выбрать ДУЭП Именно наш университет</a></li>
+        <li><a href="">История</a></li>
+        <li><a href="">Структура университета</a></li>
         <li><div class="note">
-        <a href="">Фотогалерея</a>
+        <a href="">Архив публикаций</a>
         </div>
             <ul class="submenu">
-                <li><a href="">Жизнь Университета</a></li>
-                <li><a href="">Нобелевские премии</a></li>
-                <li><a href="">Веселые конкурсы</a></li>
+                <li><a href="">Учебники</a></li>
+                <li><a href="">Художественная литература</a></li>
+                <li><a href="">Научная литература</a></li>
+                <li><a href="">Периодические издания</a></li>
+                <li><a href="">Другое</a></li>
             </ul>
         </li>
-        <li><a href="">Видеогалерея</a></li>
-        <li><a href="">Контактные данные</a></li>
+        <li><a href="">Болонский процесс</a></li>
     </ul>
     <div class="side_true">
         <h2>Актуально</h2>
