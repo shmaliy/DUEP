@@ -79,12 +79,17 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		
 		$media[] = 'contents_photogallery_id';
 		$this->addElement('select', 'contents_photogallery_id', array(
-					'label' => 'Добавить фотогалерею'
+			'label' => 'Добавить фотогалерею'
 		));
 		
 		$media[] = 'contents_videogallery_id';
 		$this->addElement('select', 'contents_videogallery_id', array(
-							'label' => 'Добавить видеогалерею'
+			'label' => 'Добавить видеогалерею'
+		));
+		
+		$media[] = 'contents_multigallery_id';
+		$this->addElement('select', 'contents_multigallery_id', array(
+			'label' => 'Добавить мультигалерею'
 		));
 		
 		
