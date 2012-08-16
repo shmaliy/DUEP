@@ -637,5 +637,15 @@ function rightFormSelectorManipulator(id)
 }
 
 
+$(document).ready(function(){
+    $('#title').syncTranslit({
+         destination: 'alias',
+         type: 'url',
+         caseStyle: 'lower',
+         urlSeparator: '-'
+    });
+});
+
+
 
 
