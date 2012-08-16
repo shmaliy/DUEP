@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 16, 2012 at 12:13 PM
+-- Generation Time: Aug 16, 2012 at 12:19 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -37,12 +37,14 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `published` int(11) NOT NULL,
   `checked` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `comments`
 --
 
+INSERT INTO `comments` (`id`, `tbl_name`, `tbl_id`, `contents_alias`, `users_id`, `text`, `created`, `published`, `checked`) VALUES
+(1, 'contemnts', 0, 'business-administration', 1, 'Hello', 1341395430, 1, 0);
 
 -- --------------------------------------------------------
 
