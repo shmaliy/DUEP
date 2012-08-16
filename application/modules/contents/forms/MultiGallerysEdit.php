@@ -1,19 +1,12 @@
 <?php
 
-class Contents_Form_GalleryOfVideosEdit extends Sunny_Form
+class Contents_Form_MultiGallerysEdit extends Sunny_Form
 {
-
-	protected $_contentsCategoriesMultiOptions = array();
+	protected $_contentsGroupsId;
 	
-	public function setContentsCategoriesMultiOptions($options, $exclude = array())
+	public function setContentsGroupsId($id)
 	{
-		$this->_contentsCategoriesMultiOptions = array(0 => 'Нет');
-		
-		if ($options instanceof Sunny_DataMapper_CollectionAbstract) {
-			$this->_contentsCategoriesMultiOptions = $this->collectionToMultiOptions($options, $exclude, $this->_contentsCategoriesMultiOptions);
-		} else if (is_array($options)) {
-			$this->_contentsCategoriesMultiOptions = $options;
-		}
+		$this->_contentsGroupsId = $id;
 	}
 	
 	public function init()
@@ -23,12 +16,12 @@ class Contents_Form_GalleryOfVideosEdit extends Sunny_Form
 		$this->setAttrib('onsubmit', 'return false;'); // Force send only with ajax
 		$this->setAttrib('class', 'via_ajax');         // Force send only with ajax
 		
-		/*  Externals  */		
+		/*  Externals  */
+		
 		$this->addElement('hidden', 'id');
 		$this->addElement('hidden', 'contents_groups_id', array('value' => $this->_contentsGroupsId));
-		$this->addElement('hidden', 'image');
 		$this->addElement('hidden', 'event');
-		$this->addElement('hidden', 'sheduled', array('value' => 0)); // В данной версии надо не забывать про необходимые значения
+		$this->addElement('hidden', 'sheduled');
 		$this->addElement('hidden', 'pages');
 		$this->addElement('hidden', 'files');
 		$this->addElement('hidden', 'photoalbums');
@@ -37,24 +30,26 @@ class Contents_Form_GalleryOfVideosEdit extends Sunny_Form
 		
 		/*  Main  */
 		$main = array('contents_categories_id');
+		
+		$main[] = 'contents_categories_id';
 		$this->addElement('select', 'contents_categories_id', array(
-			'label' => 'Родитель',
-			'multiOptions' => $this->_contentsCategoriesMultiOptions
+			'label' => 'Родитель'
 		));
 		
 		$main[] = 'languages_alias';
 		$this->addElement('select', 'languages_alias', array(
-					'label' => 'Язык'
+			'label' => 'Язык'
 		));
 		
 		$main[] = 'contents_id';
 		$this->addElement('select', 'contents_id', array(
-					'label' => 'Галерея-оригинал'
+			'label' => 'Галерея-оригинал'
 		));
 		
 		$main[] = 'title';
 		$this->addElement('text', 'title', array(
-			'label' => 'Заголовок'
+			'label' => 'Заголовок',
+			'required' => true
 		));
 		
 		$main[] = 'alias';
@@ -82,15 +77,19 @@ class Contents_Form_GalleryOfVideosEdit extends Sunny_Form
 			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
 		));
 		
-		$media[] = 'media_ids';
-		$this->addElement('button', 'media_ids', array(
-			'label' => 'Другие изображения',
-			'buttonLabel' => 'Выбрать',
-			'selectMultiple' => true,
-			'onClick' => "uiDialogOpen('Выбор изображений', {action:'select-image', controller:'admin-index', module:'media', format:'html', selectmany:true});"
+		$media[] = 'contents_photogallery_id';
+		$this->addElement('select', 'contents_photogallery_id', array(
+					'label' => 'Добавить фотогалерею'
 		));
 		
+		$media[] = 'contents_videogallery_id';
+		$this->addElement('select', 'contents_videogallery_id', array(
+							'label' => 'Добавить видеогалерею'
+		));
+		
+		
 		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
+		
 		
 				
 		/*  SEO  */
@@ -131,12 +130,7 @@ class Contents_Form_GalleryOfVideosEdit extends Sunny_Form
 		$this->addElement('checkbox', 'publicate_on_index', array(
 			'label' => 'Размещать на главной'
 		));
-		
-		$system[] = 'enable_comments';
-		$this->addElement('checkbox', 'enable_comments', array(
-			'label' => 'Разрешить комментарии'
-		));
-		
+				
 		$system[] = 'admin_comment';
 		$this->addElement('textarea', 'admin_comment', array(
 			'label' => 'Комментарий администратора'
@@ -165,7 +159,6 @@ class Contents_Form_GalleryOfVideosEdit extends Sunny_Form
 		
 		$this->addDisplayGroup($feeds, 'feeds', array('legend' => 'Рассылки'));
 		
-		
 		// Submit
 		$this->addElement('submit', 'submit', array(
 			'ignore' => true,
@@ -184,6 +177,5 @@ class Contents_Form_GalleryOfVideosEdit extends Sunny_Form
 		$this->setDecorators(array('CompositeFormDiv'));
 		
 		$this->getElement('media_id')->setDecorators(array('FileSelectorDiv'));
-		$this->getElement('media_ids')->setDecorators(array('FileSelectorDiv'));
 	}
 }

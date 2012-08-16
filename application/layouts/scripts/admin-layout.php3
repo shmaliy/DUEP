@@ -39,10 +39,9 @@ tinyMCE.execCommand("mceAddControl", true, "description");
 	<div class="header">
 		<div class="header-resize">
 			<ul class="generic-menu">
-				<li><a onclick="uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});" class="modalOpen">Open modal</a></li>	
 				<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'default'); ?>">Центр</a></li>				
 				<li><a href="<?php echo $this->simpleUrl('config', 'admin-index', 'default'); ?>">Настройки</a></li>				
-				<li><a>Структура</a></li>				
+				<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'structure'); ?>">Структура</a></li>				
 				<li><span>Модули</span>
 					<ul>
 						<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'media'); ?>" class="group">Файловый архив</a>
@@ -86,6 +85,12 @@ tinyMCE.execCommand("mceAddControl", true, "description");
 									<ul>
 										<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'contents', array('group' => 'gallery_of_videos')); ?>">Категории</a></li>
 										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'gallery_of_videos')); ?>">Галереи</a></li>
+									</ul>
+								</li>
+								<li><span class="group">Мультигалереи</span>
+									<ul>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'contents', array('group' => 'multi_gallerys')); ?>">Категории</a></li>
+										<li><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'contents', array('group' => 'multi_gallerys')); ?>">Мультигалереи</a></li>
 									</ul>
 								</li>
 							</ul>

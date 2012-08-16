@@ -77,6 +77,11 @@ class Contents_Form_PublicationsArchiveEdit extends Sunny__Form
 											'label' => 'Добавить видеогалерею'
 		));
 		
+		$media[] = 'contents_multigallery_id';
+		$this->addElement('select', 'contents_multigallery_id', array(
+					'label' => 'Добавить мультигалерею'
+		));
+		
 		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
 		
 				
