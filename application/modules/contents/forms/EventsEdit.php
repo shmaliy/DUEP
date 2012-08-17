@@ -62,6 +62,11 @@ protected $_contentsGroupsId;
 			'label' => 'Псевдоним (ЧПУ)'
 		));
 		
+		$main[] = 'frontend_date';
+		$this->addElement('text', 'frontend_date', array(
+			'label' => 'Дата для отображения'
+		));
+		
 		$main[] = 'tizer';
 		$this->addElement('textarea', 'tizer', array(
 			'label' => 'Текст тизера'
