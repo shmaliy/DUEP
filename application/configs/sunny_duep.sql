@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 17, 2012 at 12:05 PM
+-- Generation Time: Aug 17, 2012 at 12:22 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -173,15 +173,15 @@ INSERT INTO `contents_categories` (`id`, `contents_groups_id`, `contents_categor
 (1, 1, 0, 'Анонси', 'announcements', '', 0, 0, 0, 'uk', 1, 1, 'Создано в phpMyAdmin', 'Анонсы', '', '', 'Анонсы', 'анонсы', 1341330239, NULL, 1341330239, NULL, 1),
 (18, 1, 1, 'Абітурієнту', 'for_entrant', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343903544, NULL, 1343903544, NULL, 0),
 (19, 1, 1, 'Навчання і наука', 'education_and_science', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343903548, NULL, 1343903548, NULL, 0),
-(7, 2, 16, 'Студенту', 'for_students', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343044884, NULL, 1343044884, NULL, 0),
-(17, 1, 1, 'Студенту', 'for_students', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343903553, NULL, 1343903553, NULL, 0),
+(7, 2, 16, 'Студенту', 'for_students', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343044884, NULL, 1343044884, NULL, 0),
+(17, 1, 1, 'Студенту', 'for_students', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343903553, NULL, 1343903553, NULL, 0),
 (21, 3, 0, 'Події', 'events', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343903746, NULL, 1343903746, NULL, 1),
-(10, 4, 0, 'Методички', 'metodical', '', 0, 0, 0, NULL, NULL, 0, NULL, '', '', '', NULL, '', 1341395336, NULL, 1341395336, NULL, 0),
-(11, 5, 0, 'Галерея изображений', 'gallery', '123', 0, 0, 0, NULL, NULL, 0, NULL, '', '', '', NULL, '', 1342426383, NULL, 1342426383, NULL, 0),
-(13, 2, 16, 'Абурієнту', 'for_abiturients', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343044865, NULL, 1343044865, NULL, 0),
-(14, 2, 16, 'Навчання і наука', 'education_and_science', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343044872, NULL, 1343044872, NULL, 0),
-(15, 2, 16, 'Університет', 'univercity', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343044878, NULL, 1343044878, NULL, 0),
-(16, 2, 0, 'Новини', 'news', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343044859, NULL, 1343044859, NULL, 1),
+(10, 4, 0, 'Методички', 'metodical', '', 0, 0, 0, 'uk', NULL, 0, NULL, '', '', '', NULL, '', 1341395336, NULL, 1341395336, NULL, 0),
+(11, 5, 0, 'Галерея изображений', 'gallery', '123', 0, 0, 0, 'uk', NULL, 0, NULL, '', '', '', NULL, '', 1342426383, NULL, 1342426383, NULL, 0),
+(13, 2, 16, 'Абурієнту', 'for_abiturients', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343044865, NULL, 1343044865, NULL, 0),
+(14, 2, 16, 'Навчання і наука', 'education_and_science', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343044872, NULL, 1343044872, NULL, 0),
+(15, 2, 16, 'Університет', 'univercity', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343044878, NULL, 1343044878, NULL, 0),
+(16, 2, 0, 'Новини', 'news', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343044859, NULL, 1343044859, NULL, 1),
 (20, 1, 1, 'Університет', 'univercity', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343903556, NULL, 1343903556, NULL, 0),
 (22, 3, 21, 'Студенту', 'for_students', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343903797, NULL, 1343903797, NULL, 0),
 (23, 3, 21, 'Абітурієнту', 'for_entrant', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343903818, NULL, 1343903818, NULL, 0),
