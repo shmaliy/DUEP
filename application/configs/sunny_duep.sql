@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 17, 2012 at 12:22 PM
+-- Generation Time: Aug 17, 2012 at 02:57 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -570,6 +570,7 @@ DROP TABLE IF EXISTS `structure`;
 CREATE TABLE IF NOT EXISTS `structure` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `structure_id` int(11) NOT NULL,
+  `languages_alias` varchar(50) NOT NULL,
   `title` text NOT NULL,
   `url` text NOT NULL,
   `route_name` text NOT NULL,
