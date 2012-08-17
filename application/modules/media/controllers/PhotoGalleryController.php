@@ -171,7 +171,7 @@ class Media_PhotoGalleryController extends Zend_Controller_Action
     	     endforeach;
     	 endforeach;
     	 $this->view->resizer = $resizer;
-    	;
+    	
     }
     
     /**

@@ -18,19 +18,36 @@ body{
 }
 
 </style>
+            
 				<div class="promo relative">
-					<img src="/theme/img/front/promo.jpg"/>
+				<span class = "baner_big">
+				 <?php $i = 0; $kol = 0;  foreach ($this->resizer as $items): $kol = $kol + 1; if($i == 0): $i = 1;?> 
+				 <span id_baner_big = "<?php echo $kol; ?>">
+					<img src="<?php echo $items['big']; ?>"/>
 					<div class="promo_text">
-						<div class="MyriadProCondBold fs20 color_ffc400">СТУДЕНТЫ, НЕ СДАВШИЕ ЯЗЫКИ</div>
-						<div class="MyriadProCondRegular fs38">ПОВЕШЕНЫ НА ТРЕТЬЕМ ЭТАЖЕ </div>
-						<div class="MyriadProCondRegular fs28">В НАЗИДАНИЕ МЛАДШИМ КУРСАМ</div>
+						<div class="MyriadProCondBold fs28 color_ffc400" style = "max-width: 800px;"><?php echo $items['title']; ?></div>
+						
+						<div class="MyriadProCondRegular fs20" style = "max-width: 500px;"><?php echo $items['tizer']; ?></div>
 					</div>
+					</span>
+
+				<?php else: ?>
+								 <span style = "display:none;">
+					<img src="<?php echo $items['big']; ?>"/>
+					<div class="promo_text">
+						<div class="MyriadProCondBold fs38 color_ffc400"><?php echo $items['title']; ?></div>
+						
+						<div class="MyriadProCondRegular fs14"><?php echo $items['tizer']; ?></div>
+					</div>
+					</span>
+						<?php endif; endforeach;?>
+						</span>
 					<div class="promo_img">
-						<a href=""><img src="/theme/img/front/promo_small.jpg"/></a>
-						<a href=""><img src="/theme/img/front/promo_small1.jpg"/></a>
-						<a href="" class="active"><img src="/theme/img/front/promo_small.jpg"/></a>
-						<a href=""><img src="/theme/img/front/promo_small1.jpg"/></a>
-						<a href=""><img src="/theme/img/front/promo_small.jpg"/></a>
+					 <?php $i = 0; $kol = 0;  foreach ($this->resizer as $items): $kol = $kol + 1; if($i == 0): $i = 1;?> 
+						<a style = "cursor: pointer" class="active" id_baner_min = "<?php echo $kol; ?>"><img src="<?php echo $items['small']; ?>"/></a>
+						 <?php else: ?>
+						<a style = "cursor: pointer" id_baner_min = "<?php echo $kol; ?>"><img src="<?php echo $items['small']; ?>"/></a>
+						<?php endif; endforeach;?>
 					</div>
 					<div class="promo_left_bottom"></div>
 					<div class="promo_right_bottom"></div>
