@@ -85,9 +85,23 @@ class Contents_AdminCategoriesController extends Sunny_Controller_AdminAction
 			return;
 		}
 		
+		$languagesMapper = new Contents_Model_Mapper_Languages();
+		
+		// Alias of default language
+		$defaultLanguage = $languagesMapper->getDefaultLanguage();
+		
+		
+		
 		$request = $this->getRequest();
 		$id   = $request->getParam('id');
 		$form = new Contents_Form_CategoryEdit();
+		
+		$languages = $languagesMapper->fetchAll(
+			array('published = 1'),
+			array('ordering')
+		);
+		$languages = $form->createAssocMultioptions($languages, array());
+		$form->getElement('language')->setMultiOptions($languages);
 		
 		$collection = $this->_getMapper()->fetchTree(
 			array('contents_groups_id = ?' => $group->id),
