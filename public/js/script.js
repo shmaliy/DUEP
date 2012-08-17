@@ -596,7 +596,7 @@
 		
 		clearImageMany: function (id, hidden_id)
 		{
-			console.log('imagesClearer');
+			console.log('clearImageMany');
 			
 			values = $('#' + hidden_id).attr('value').split('|');
 			newValues = [];
@@ -613,10 +613,59 @@
 			$.fn.cmsManager('renderImageMany', null, hidden_id);
 		},
 
-		clearVideoSingle: function (id, hidden_id){},
-		clearVideoMany: function (id, hidden_id){},
-		clearFileSingle: function (id, hidden_id){},
-		clearFileMany: function (id, hidden_id){}
+		clearVideoSingle: function (id, hidden_id)
+		{
+			console.log('clearVideoSingle');
+			
+			$('#' + hidden_id).attr('value', '');
+			$.fn.cmsManager('renderVideoSingle', null, hidden_id);			
+		},
+		
+		clearVideoMany: function (id, hidden_id)
+		{
+			console.log('clearVideoMany');
+			
+			values = $('#' + hidden_id).attr('value').split('|');
+			newValues = [];
+			
+			for (var i = 0; i < values.length; i++) {
+				var media = values[i].split('@');
+				
+				if (media[0] != id) {
+					newValues.push(values[i]);
+				}				
+			}
+			
+			$('#' + hidden_id).attr('value', newValues.join('|'));
+			$.fn.cmsManager('renderVideoMany', null, hidden_id);			
+		},
+		
+		clearFileSingle: function (id, hidden_id)
+		{
+			console.log('clearFileSingle');
+			
+			$('#' + hidden_id).attr('value', '');
+			$.fn.cmsManager('renderFileSingle', null, hidden_id);			
+		},
+		
+		clearFileMany: function (id, hidden_id)
+		{
+			console.log('clearFileMany');
+			
+			values = $('#' + hidden_id).attr('value').split('|');
+			newValues = [];
+			
+			for (var i = 0; i < values.length; i++) {
+				var media = values[i].split('@');
+				
+				if (media[0] != id) {
+					newValues.push(values[i]);
+				}				
+			}
+			
+			$('#' + hidden_id).attr('value', newValues.join('|'));
+			$.fn.cmsManager('renderFileMany', null, hidden_id);			
+		}
 	};
 	
 	$.fn.cmsManager = function( method ) {
