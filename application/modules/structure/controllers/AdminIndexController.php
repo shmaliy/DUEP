@@ -2,27 +2,9 @@
 
 class Structure_AdminIndexController extends Sunny_Controller_AdminAction
 {	
-	protected $_mapperName = 'Contents_Model_Mapper_Contents';
+	protected $_mapperName = 'Structure_Model_Mapper_Structure';
 	
-	protected $_filters = array('contents_categories_id' => 0);
-	
-	protected function _checkGroup()
-	{
-		$groupAlias = $this->getRequest()->getParam('group');
-    	if (null === $groupAlias) {
-			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Group not passed</div>');
-			return false;
-    	}
-    	
-    	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
-    	$group = $groupsMapper->fetchRow(array('alias = ?' => $groupAlias));
-    	if (!$group) {
-			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Group not found</div>');
-			return false;
-		}
-		
-		return $group;
-	}
+	protected $_filters = array('structure_id' => 0);
 	
 	public function init()
 	{
@@ -43,18 +25,17 @@ class Structure_AdminIndexController extends Sunny_Controller_AdminAction
 	public function indexAction()
     {
     	// VERSION 14.07.2012
-		if (false === ($group = $this->_checkGroup())) {
+		/*if (false === ($group = $this->_checkGroup())) {
 			return;
-		}
+		}*/
 		
-		$filter            = $this->_getSessionFilter(null, $group->alias);
+		//$filter            = $this->_getSessionFilter(null, $group->alias);
     	$this->view->page  = $this->_getSessionPage($group->alias);
     	$this->view->rows  = $this->_getSessionRows($group->alias);
 		$this->view->group = $group;
 		
 		$where = array(
-			'contents_groups_id = ?'     => $group->id,
-			'contents_categories_id = ?' => $filter['contents_categories_id']
+			'structure_id = ?'     => '0'
 		);
 		
     	$this->view->rowset = $this->_getMapper()->fetchPage(
@@ -66,7 +47,7 @@ class Structure_AdminIndexController extends Sunny_Controller_AdminAction
 		$this->view->total  = $this->_getMapper()->fetchCount($where);
 		
 		$form = new Contents_Form_AdminIndexFilter();		
-		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
+		/*$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
 		$collection = $categoriesMapper->fetchTree(
 			array('contents_groups_id = ?' => $group->id),
 			array('id', 'title', 'contents_categories_id')
@@ -80,7 +61,7 @@ class Structure_AdminIndexController extends Sunny_Controller_AdminAction
 		
 		$form->setDefaults($filter);
 		$form->setAction($this->view->simpleUrl('set-filter', $this->_c, $this->_m, array('group' => $group->alias)));
-		$this->view->filter = $form;
+		$this->view->filter = $form;*/
     }
     
 	/**
@@ -92,12 +73,44 @@ class Structure_AdminIndexController extends Sunny_Controller_AdminAction
     	$request = $this->getRequest();
     	
     	$form = new Structure_Form_StructureElementEdit();
-    	    	
+    	
     	$structureMapper = new Structure_Model_Mapper_Structure();
+		$languagesMapper = new Contents_Model_Mapper_Languages();
+		
+		// Alias of default language
+    	$defaultLanguage = $languagesMapper->getDefaultLanguage();
+    	$languages = $languagesMapper->fetchAll(
+    		array('published = 1'),
+    		array('ordering')
+    	);
+    	$languages = $form->createAssocMultioptions($languages, array());
+    	$form->getElement('languages_alias')->setMultiOptions($languages);
+    	
+    	
+    	// MultiGallery
+    	$parentMenuItem = $structureMapper->fetchAll(
+    		array('published = 1'),
+    		array('id', 'title')
+    	);
+    	
+    	$parentMenuItemList = $form->collectionToMultiOptions($parentMenuItem, array(), array('Нет'));
+    	$form->getElement('structure_id')->setMultiOptions($parentMenuItemList);
+    	
+    	$form->setAction($this->view->simpleUrl('edit', $this->_c, $this->_m));
+    	
 		
     	if ($request->isXmlHttpRequest() || $request->isPost()) {
     		if ($form->isValid($request->getParams())) {
+    			$values = $form->getValues();
+    			$params = $request->getParams();
     			
+    			$entity = $this->_getMapper()->createEntity($values);
+    			$id = $this->_getMapper()->saveEntity($entity);
+    			$entity->setId($id);
+    			
+    			$this->_makeResponderStructure('index', null, null, array());
+    			
+    			//$this->_gotoUrl('index', $this->_c, $this->_m);
     		} else {
     			$this->view->formErrors        = $form->getErrors();
     			$this->view->formErrorMessages = $form->getErrorMessages();
@@ -106,42 +119,15 @@ class Structure_AdminIndexController extends Sunny_Controller_AdminAction
 			$this->view->form = $form;
 		} 
     	
+    	return;
     	
     	
     	
     	
-    	
-    	// Version 14.07.2012
-		if (false === ($group = $this->_checkGroup())) {
-			return;
-		}
-		
-		
-		// Mappers section
-		$mediaMapper = new Media_Model_Mapper_Media();
-		$mediaCategoriesMapper = new Media_Model_Mapper_MediaCategories();
-		$mediaRelations = new Media_Model_Mapper_MediaRelations();
-		$languagesMapper = new Contents_Model_Mapper_Languages();
-		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
-		$contentsMapper = new Contents_Model_Mapper_Contents();
-		$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
-		
-
-		
-		
-		// Alias of default language
-		$defaultLanguage = $languagesMapper->getDefaultLanguage();
 		
 		
 		//Auto set filter thumbnails
-		$thumbnailsRootAlias = 'content_thumbnails';
-		$category = $mediaCategoriesMapper->fetchRow(
-			array(
-				'alias = ?' => $thumbnailsRootAlias,
-				'media_categories_id = 0' 
-			)
-		);
-		$thumbnailsRootId = $category->getId();
+		
 		
 				
 		$id = $request->getParam('id');
