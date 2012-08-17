@@ -50,6 +50,7 @@ class Contents_AnnouncementsController extends Zend_Controller_Action
     	$contentsMapper = new Contents_Model_Mapper_Contents();
     	$this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
     	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
+    	$this->view->announcementsCount = $contentsMapper->getFrontContentsCountByGroupId($this->view->agroup->id, $this->_lang);
     	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $this->_lang,'date_created desc');
     	$this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->ngroup->id, $this->view->egroup->id), $this->_lang,'date_created desc',5);
     	
@@ -75,6 +76,9 @@ class Contents_AnnouncementsController extends Zend_Controller_Action
     	$this->view->events->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->news->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->actual->formatDate('date_created', $translatedMonths, 'г.');
+    	
+    	$this->view->announcementsPage = $this->getRequest()->getParam('page', 1);
+    	$this->view->announcementsRows = 1;
     }
     /**
     * Обработчик страницы "Категории новостей"

@@ -39,6 +39,14 @@
             <p class="adt_description"><?php echo $item->tizer;?></p>
           </li>
           <?php endif; endforeach;?>
+            <?php
+            	echo $this->partial('pagination.php3', 'default', array(
+            		'rows'    => $this->announcementsRows,
+            		'total'   => $this->announcementsCount,
+            		'current' => $this->announcementsPage,
+            		'link'    => $this->simpleUrl('index', 'announcements', 'contents', array(), 'contents/announcements/index')
+				));
+			?>
         </ul>
       </div>
         <div class="calendar"></div>
