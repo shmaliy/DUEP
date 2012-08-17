@@ -33,6 +33,11 @@ class Contents_Form_CategoryEdit extends Sunny_Form
 			'multiOptions' => $this->_contentsCategoriesMultiOptions
 		));		
 		
+		$main[] = 'language';
+		$this->addElement('select', 'language', array(
+					'label' => 'Язык'
+		));
+		
 		$main[] = 'title';
 		$this->addElement('text', 'title', array(
 			'label' => 'Заголовок'

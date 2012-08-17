@@ -10,7 +10,7 @@
 		'group' => $this->group->alias
 	);
 ?>
-<h1><?php echo $this->group->title; ?></h1>
+<h1>Структура сайта</h1>
 <?php echo $this->partial('admin-table-nav.php3', 'default', $adminTableNavOptions); ?>
 <?php echo $this->partial('admin-table-filter.php3', 'default', array('filter' => $this->filter)); ?>
 <div class="admin-table">

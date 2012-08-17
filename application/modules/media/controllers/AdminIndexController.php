@@ -141,11 +141,11 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 	    		$this->view->fileInfo = $fileInfo;
 	    		//$this->view->redirectTo = $this->_helper->url->simple('edit', $this->_c, $this->_m, array('id' => $id));
 	    		$this->_makeResponderStructure(
-    				'edit', 
+    				$request->getParam('backto', 'edit'), 
     				'admin-index', 
     				'media', 
     				array('id' => $id), 
-    				'redirect'
+    				$request->getParam('method', 'redirect')
     			);
 	    	} else {
 	    		$this->_getMapper()->deleteEntity($this->_getMapper()->findEntity($id));
@@ -217,7 +217,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     		$this->view->form = new Media_Form_MediaCreate(array('uploadUrl' => $this->_helper->url->simple($this->_a, $this->_c, $this->_m, 
     			array(
     				//TODO Must get this value from DB by default category alias!!!!!
-    				"mediaCategoriesId" => 5		
+    				"mediaCategoriesId" => 5
     			) 
     		)));
     	
@@ -279,6 +279,58 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	//$this->render('index');
     }
     
+    public function selectVideoAction()
+    {
+    	$filter            = $this->_getSessionFilter();
+    	$this->view->page  = $this->_getSessionPage();
+    	$this->view->rows  = $this->_getSessionRows();
+    	
+    	
+    	if (empty($filter['media_categories_id']) || !isset($filter['media_categories_id'])) {
+    		$filter['media_categories_id'] = 0;
+    	}
+    	
+    	$where = array(
+    		'media_categories_id = ?' => $filter['media_categories_id'],
+    		"type = 'flv' OR type = 'mp4'"
+    	);
+    	
+    	$this->view->rowset = $this->_getMapper()->fetchPage(
+    		$where,
+    		null,
+    		$this->view->rows,
+    		$this->view->page
+    	);
+    	$this->view->total  = $this->_getMapper()->fetchCount($where);
+    	$this->view->update_container = ".ui-dialog-content-wrapper";
+    	$this->view->selectMany = (bool) $this->getRequest()->getParam('selectmany');
+    	
+    	// ADDED TODO: create dynamic selection
+    	$this->getRequest()->getParam('selector-mode');
+    	$this->getRequest()->getParam('select-multiple');
+    	$this->getRequest()->getParam('id');
+    	
+    	$form = new Media_Form_AdminIndexFilter();
+    	$categoriesMapper = new Media_Model_Mapper_MediaCategories();
+    	$collection = $categoriesMapper->fetchTree(null, array('id', 'title', 'media_categories_id'));
+    	$options = $form->collectionToMultiOptions($collection, array(), array('Нет'));
+    	$form->getElement('media_categories_id')->setMultiOptions($options);
+    	
+    	$form->setDefaults($filter);
+    	$form->setAction($this->view->simpleUrl(
+    		'set-filter', 
+    		$this->_c, 
+    		$this->_m,
+    		array(
+    			'update_container' => ".ui-dialog-content-wrapper",
+    			'backAction' => $this->_a,
+    			'selectmany' => $this->getRequest()->getParam('selectmany')
+    			)
+    	));
+    	$this->view->filter = $form;
+    	//$this->render('index');
+    }
+        
     public function renderFormMainImageAction()
     {
     	$this->_helper->viewRenderer->setNoRender();

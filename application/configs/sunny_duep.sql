@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 16, 2012 at 06:08 PM
+-- Generation Time: Aug 17, 2012 at 11:48 AM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -170,8 +170,8 @@ CREATE TABLE IF NOT EXISTS `contents_categories` (
 --
 
 INSERT INTO `contents_categories` (`id`, `contents_groups_id`, `contents_categories_id`, `title`, `alias`, `description`, `enable_comments`, `enable_rss`, `enable_email`, `language`, `ordering`, `published`, `admin_comment`, `seo_title`, `seo_description`, `seo_keywords`, `name_main`, `name_bc`, `date_created`, `user_created`, `date_modified`, `user_modified`, `system`) VALUES
-(1, 1, 0, 'Анонси', 'announcements', '', 0, 0, 0, NULL, 1, 1, 'Создано в phpMyAdmin', 'Анонсы', '', '', 'Анонсы', 'анонсы', 1341330239, NULL, 1341330239, NULL, 1),
-(18, 1, 1, 'Абітурієнту', 'for_entrant', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343903544, NULL, 1343903544, NULL, 0),
+(1, 1, 0, 'Анонси', 'announcements', '', 0, 0, 0, 'uk', 1, 1, 'Создано в phpMyAdmin', 'Анонсы', '', '', 'Анонсы', 'анонсы', 1341330239, NULL, 1341330239, NULL, 1),
+(18, 1, 1, 'Абітурієнту', 'for_entrant', '', 0, 0, 0, 'uk', NULL, 1, NULL, '', '', '', NULL, '', 1343903544, NULL, 1343903544, NULL, 0),
 (19, 1, 1, 'Навчання і наука', 'education_and_science', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343903548, NULL, 1343903548, NULL, 0),
 (7, 2, 16, 'Студенту', 'for_students', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343044884, NULL, 1343044884, NULL, 0),
 (17, 1, 1, 'Студенту', 'for_students', '', 0, 0, 0, NULL, NULL, 1, NULL, '', '', '', NULL, '', 1343903553, NULL, 1343903553, NULL, 0),

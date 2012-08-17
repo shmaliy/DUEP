@@ -307,7 +307,7 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 				}
 				
 				$images = $mediaMapper->findCollection($ids);
-				if (count($images)) {
+				if (count($images) > 0) {
 					$value = array();
 					foreach ($images as $img) {
 						$value[] = $img->getId() . '@' . $img->getType();

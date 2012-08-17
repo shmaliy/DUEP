@@ -312,7 +312,7 @@
 			
 			var html = '<li class="result-list-item-' + id + '">';
 			    html += '<img src="/uploads/' + id + '.' + type + '" width="150" height="150">';
-			    html += '<a onclick="$.fn.cmsManager(\'mainImageClearer\', ' + id + ', \'' + hidden_id + '\');">удалить</a>';
+			    html += '<a onclick="$.fn.cmsManager(\'mainImageClearer\', \'' + id + '\', \'' + hidden_id + '\');">удалить</a>';
 			    html += '</li>';
 			$('.' + hidden_id + '-list').html(html);
 		},
@@ -326,7 +326,12 @@
 			}
 			
 			items = [];
-			values = $('#' + hidden_id).attr('value').split('|');
+			var value = $('#' + hidden_id).attr('value');
+			var values = [];
+			if (value) {
+				values = value.split('|');
+			}
+			
 			for (var i = 0; i < values.length; i++) {
 				var media = values[i].split('@');
 				items.push({'id': media[0], 'type': media[1]});
@@ -357,7 +362,7 @@
 				
 				html  = '<li class="result-list-item-' + items[i].id + '">';
 				html += '<img src="/uploads/' + items[i].id + '.' + items[i].type + '" width="70" height="70">';
-				html += '<a onclick="$.fn.cmsManager(\'imagesClearer\', ' + items[i].id + ', \'' + hidden_id + '\');">удалить</a>';
+				html += '<a onclick="$.fn.cmsManager(\'imagesClearer\', \'' + items[i].id + '\', \'' + hidden_id + '\');">удалить</a>';
 				html += '</li>';
 				$('.' + hidden_id + '-list').append(html);
 			}
