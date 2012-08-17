@@ -201,6 +201,10 @@
 		{
 			console.log('observe');
 			uploader();
+			tooggleActions();
+			hoverMaker();
+			
+			
 			return this.each(function(){
 				var action = null;
 				var attr   = null;
@@ -234,6 +238,10 @@
 					return false;
 				});
 			});
+			
+			
+			
+			
 		},
 		
 		request: function (url, data, _htmlCallback)
@@ -692,17 +700,23 @@ $(document).ready(function(){
 });
 
 // Observe generic menu class toggle
-$(document).ready(function(){
+function hoverMaker()
+{
 	$('ul.generic-menu li, tr').each(function(){
 		$(this).hover(
 			function(){ $(this).addClass("hover"); },
 			function(){ $(this).removeClass("hover"); }
 		);
 	});
-});
+}
+
+
+
+
 
 // Observe table checkbox
-$(document).ready(function(){
+function tooggleActions()
+{
 	function toggleActions()
 	{
 		var cbChecked = $('.admin-table table tr input[type=checkbox]:checked');
@@ -718,7 +732,8 @@ $(document).ready(function(){
 	
 	var cbAll = $('.admin-table table th input[type=checkbox]');
 	var cbRow = $('.admin-table table tr input[type=checkbox]');
-	
+	cbRow.unbind();
+	cbAll.unbind();
 	cbAll.change(function(){
 		var checked = cbAll.attr('checked');
 		if (checked) {
@@ -731,7 +746,7 @@ $(document).ready(function(){
 	});
 	
 	cbRow.change(function(){ toggleActions(); });
-});
+}
 
 // Flash messenger
 $(document).ready(function(){
