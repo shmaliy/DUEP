@@ -65,7 +65,7 @@
 			<div class="user_block">
 				<div><a href=""><?php echo Zend_Registry::get('trasvistit')->_("INPUT");?></a> / <a href=""><?php echo Zend_Registry::get('trasvistit')->_("REGISTRATION");?></a></div>
 				<div><a href=""><?php echo Zend_Registry::get('trasvistit')->_("REMEMBER_PASS");?></a></div>
-				<div><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'default'); ?>"><?php echo Zend_Registry::get('trasvistit')->_("ADMIN");?></a></div>
+				<div><a href="<?php echo $this->simpleUrl('index', 'admin-index', 'default', array(), 'default' ); ?>"><?php echo Zend_Registry::get('trasvistit')->_("ADMIN");?></a></div>
 			</div>
 			
 			<div class="clear"></div>

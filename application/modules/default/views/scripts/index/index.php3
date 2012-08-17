@@ -1,3 +1,23 @@
+<style>
+
+.header {
+	position: absolute;
+	z-index: 1000;
+	width: 100%;
+	height: 298px;
+	left: 0;
+	background: url('/theme/img/front/header.jpg') no-repeat center top;
+	
+}
+body{
+	background: url('/theme/img/front/header_bg.png') repeat-x 0px 0px;
+	color: #737373;
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+</style>
 				<div class="promo relative">
 					<img src="/theme/img/front/promo.jpg"/>
 					<div class="promo_text">

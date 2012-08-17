@@ -12,7 +12,7 @@ class Contents_Model_Mapper_ContentsCategories extends Sunny_DataMapper_MapperAb
 
 		));
 	}
-	public function getFrontCats ($lang = '')
+	public function getFrontCats ($lang = 'uk')
 	{
 	    return $this->fetchAll(array(
 	    $this->quoteIdentifier("published") . " = ?" => '1',
