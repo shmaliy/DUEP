@@ -44,7 +44,7 @@
 						<td class="checkbox"><div><input type="checkbox" /></div></td>
 						<td><div><a href="<?php
 							echo $this->simpleUrl('edit', $this->c, $this->m, array('id' => $row->getId(), 'group' => $this->group->alias));
-						?>"><?php echo $row->getTitle();?></a> (<?php echo $row->getAlias(); ?>)</div></td>
+						?>"><?php echo $row->getTitle();?></a> (<?php echo $row->getUrl(); ?>)</div></td>
 						<td class="datetime"><div><?php echo date('m.d.Y', $row->getDateCreated()); ?></div></td>
 						<td class="datetime"><div><?php echo date('m.d.Y', $row->getDateModified()); ?></div></td>
 					</tr>

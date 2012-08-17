@@ -32,6 +32,30 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 		$this->quoteIdentifier("languages_alias") . " = ?" => $lang,
 		),$order,$lim);
 	}
+	
+	public function getFrontContentsCountByGroupId($id, $lang = 'uk')
+	{
+	    if (is_numeric($id)) {
+	    	$id = array($id);
+		}
+		
+		if (count($id) == 0) {
+			return 0;
+		}
+		
+	    $where = array();
+	    foreach ($id as $el) {
+	    	$where[] = $this->quoteInto($this->quoteIdentifier("contents_groups_id") . " = ?" , $el);
+	    }
+	    
+		return $this->fetchCount(array(
+			"(".implode(' OR ', $where).")",
+			$this->quoteIdentifier("published") . " = ?"       => '1',
+			$this->quoteIdentifier("sheduled") . " = ?"        => '0',
+			$this->quoteIdentifier("languages_alias") . " = ?" => $lang,
+		));
+	}
+	
 	public function getFrontContentsByCatId ($id, $lang = 'uk', $order = null, $lim = null)
 	{
 		return $this->fetchAll(array(
