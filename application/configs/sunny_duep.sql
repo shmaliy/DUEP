@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 17, 2012 at 02:57 PM
+-- Generation Time: Aug 17, 2012 at 06:22 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -583,12 +583,17 @@ CREATE TABLE IF NOT EXISTS `structure` (
   `published` int(11) NOT NULL,
   `ordering` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=25 ;
 
 --
 -- Dumping data for table `structure`
 --
 
+INSERT INTO `structure` (`id`, `structure_id`, `languages_alias`, `title`, `url`, `route_name`, `params`, `date_created`, `user_created`, `date_modified`, `user_modified`, `admin_comment`, `published`, `ordering`) VALUES
+(6, 5, 'uk', 'Університет', '/uk/university', '', '', 0, 0, 0, 0, '', 1, 0),
+(5, 0, 'uk', 'Головна', '/uk', '', '', 0, 0, 0, 0, '', 1, 0),
+(7, 0, 'ru', 'Главная', '/ru', '', '', 1345211011, 0, 0, 0, '', 1, 0),
+(8, 0, 'en', 'Main page', '/en', '', '', 1345211041, 0, 0, 0, '', 0, 0);
 
 -- --------------------------------------------------------
 
