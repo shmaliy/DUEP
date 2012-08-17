@@ -78,15 +78,18 @@ class Contents_Form_GalleryOfImagesEdit extends Sunny_Form
 		$this->addElement('button', 'media_id', array(
 			'label' => 'Главное изображение',
 			'buttonLabel' => 'Выбрать',
-			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
+			'selectorMode'  => 'image',
+			'selectMultiple' => false,
+			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html', 'field':'media_id', 'selector-mode': 'image', 'select-multiple':false});"
 		));
 		
 		$media[] = 'media_ids';
 		$this->addElement('button', 'media_ids', array(
 			'label' => 'Другие изображения',
 			'buttonLabel' => 'Выбрать',
+			'selectorMode'  => 'image',
 			'selectMultiple' => true,
-			'onClick' => "uiDialogOpen('Выбор изображений', {action:'select-image', controller:'admin-index', module:'media', format:'html', selectmany:true});"
+			'onClick' => "uiDialogOpen('Выбор изображений', {action:'select-image', controller:'admin-index', module:'media', format:'html', 'field':'media_ids', 'selector-mode': 'image', 'select-multiple':true});"
 		));
 		
 		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));

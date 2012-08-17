@@ -126,9 +126,7 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 	    	$entity->setServerPath(realpath(PUBLIC_PATH . '/uploads'));
 	    	$entity->setType(strtolower(end(explode('.', $_FILES[$postName]['name']))));
 	    	
-	    	if (!is_null($this->_categoryId)) {
-	    		$entity->setMediaCategoriesId($this->_categoryId);
-	    	}
+	    	$entity->setMediaCategoriesId((int) $this->_categoryId);
 	    	
 	    	$id = $this->_getMapper()->saveEntity($entity);
 	    	
@@ -144,8 +142,13 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     				$request->getParam('backto', 'edit'), 
     				'admin-index', 
     				'media', 
-    				array('id' => $id), 
-    				$request->getParam('method', 'redirect')
+    				array(
+    					'id' => $id,
+		    			'selector-mode'    => $this->getRequest()->getParam('selector-mode'),
+				    	'select-multiple'  => $this->getRequest()->getParam('select-multiple')
+					), 
+    				$request->getParam('method', 'redirect'),
+    				$request->getParam('container')
     			);
 	    	} else {
 	    		$this->_getMapper()->deleteEntity($this->_getMapper()->findEntity($id));
@@ -256,6 +259,16 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	$this->view->total  = $this->_getMapper()->fetchCount($where);
     	$this->view->update_container = ".ui-dialog-content-wrapper";
     	$this->view->selectMany = (bool) $this->getRequest()->getParam('selectmany');
+		$this->view->selectorMode    = $this->getRequest()->getParam('selector-mode', 'video');
+		$this->view->selectMultiple  = $this->getRequest()->getParam('select-multiple');
+		if (!$this->view->selectMultiple || $this->view->selectMultiple == 'false') {
+			$this->view->selectMultiple = false;
+		} else {
+			$this->view->selectMultiple = true;
+		}
+		$this->view->id              = $this->getRequest()->getParam('id');
+    	
+    	$this->view->field = $this->getRequest()->getParam('field');
     	
     	
     	$form = new Media_Form_AdminIndexFilter();
@@ -271,9 +284,11 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     		$this->_m,
     		array(
     			'update_container' => ".ui-dialog-content-wrapper",
-    			'backAction' => $this->_a,
-    			'selectmany' => $this->getRequest()->getParam('selectmany')
-    			)
+    			'backAction'       => $this->_a,
+    			'selector-mode'    => $this->getRequest()->getParam('selector-mode'),
+		    	'select-multiple'  => $this->getRequest()->getParam('select-multiple'),
+		    	'field'            => $this->getRequest()->getParam('field')
+   			)
     	));
     	$this->view->filter = $form;
     	//$this->render('index');
@@ -303,12 +318,18 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     	);
     	$this->view->total  = $this->_getMapper()->fetchCount($where);
     	$this->view->update_container = ".ui-dialog-content-wrapper";
-    	$this->view->selectMany = (bool) $this->getRequest()->getParam('selectmany');
     	
-    	// ADDED TODO: create dynamic selection
-    	$this->getRequest()->getParam('selector-mode');
-    	$this->getRequest()->getParam('select-multiple');
-    	$this->getRequest()->getParam('id');
+    	$this->view->selectMany = (bool) $this->getRequest()->getParam('selectmany');
+		$this->view->selectorMode    = $this->getRequest()->getParam('selector-mode', 'video');
+		$this->view->selectMultiple  = $this->getRequest()->getParam('select-multiple');
+		if (!$this->view->selectMultiple || $this->view->selectMultiple == 'false') {
+			$this->view->selectMultiple = false;
+		} else {
+			$this->view->selectMultiple = true;
+		}
+		$this->view->id              = $this->getRequest()->getParam('id');
+    	
+    	$this->view->field = $this->getRequest()->getParam('field');
     	
     	$form = new Media_Form_AdminIndexFilter();
     	$categoriesMapper = new Media_Model_Mapper_MediaCategories();
@@ -323,9 +344,11 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
     		$this->_m,
     		array(
     			'update_container' => ".ui-dialog-content-wrapper",
-    			'backAction' => $this->_a,
-    			'selectmany' => $this->getRequest()->getParam('selectmany')
-    			)
+    			'backAction'       => $this->_a,
+    			'selector-mode'    => $this->getRequest()->getParam('selector-mode'),
+		    	'select-multiple'  => $this->getRequest()->getParam('select-multiple'),
+		    	'field'            => $this->getRequest()->getParam('field')
+    		)
     	));
     	$this->view->filter = $form;
     	//$this->render('index');
@@ -415,12 +438,24 @@ class Media_AdminIndexController extends Sunny_Controller_AdminAction
 		
     	if (!$form->isValid($this->getRequest()->getParams())) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set filter</div>');
-			$this->_makeResponderStructure($backAction, null, null, array('selectmany' => $this->getRequest()->getParam('selectmany')), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
+			$this->_makeResponderStructure($backAction, null, null, array(
+				//'selectmany' => $this->getRequest()->getParam('selectmany')
+	    		'selector-mode'    => $this->getRequest()->getParam('selector-mode'),
+			    'select-multiple'  => $this->getRequest()->getParam('select-multiple'),
+			    'id'               => $this->getRequest()->getParam('id'),
+			    'field'            => $this->getRequest()->getParam('field')
+			), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
 			return;
 		}
 		
     	$this->_setSessionPage(1);
     	$this->_setSessionFilter($form->getValues());	
-    	$this->_makeResponderStructure($backAction, null, null, array('selectmany' => $this->getRequest()->getParam('selectmany')), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
+    	$this->_makeResponderStructure($backAction, null, null, array(
+    		//'selectmany' => $this->getRequest()->getParam('selectmany'),
+    		'selector-mode'    => $this->getRequest()->getParam('selector-mode'),
+		    'select-multiple'  => $this->getRequest()->getParam('select-multiple'),
+		    'id'               => $this->getRequest()->getParam('id'),
+			'field'            => $this->getRequest()->getParam('field')
+		), 'update', $this->getRequest()->getParam('update_container', '.body-container'));
     }
 }

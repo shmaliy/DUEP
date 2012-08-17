@@ -81,7 +81,7 @@ class Contents_Form_GalleryOfVideosEdit extends Sunny_Form
 			'buttonLabel'    => 'Выбрать',
 			'selectorMode'  => 'image',
 			'selectMultiple' => false,
-			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
+			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html', 'field':'media_id', 'selector-mode': 'image', 'select-multiple':false});"
 		));
 		
 		$media[] = 'media_ids';
@@ -90,7 +90,7 @@ class Contents_Form_GalleryOfVideosEdit extends Sunny_Form
 			'buttonLabel' => 'Выбрать',
 			'selectorMode'  => 'video',
 			'selectMultiple' => true,
-			'onClick' => "uiDialogOpen('Выбор видеофайлов', {action:'select-video', controller:'admin-index', module:'media', format:'html', selectmany:true});"
+			'onClick' => "uiDialogOpen('Выбор видеофайлов', {action:'select-video', controller:'admin-index', module:'media', format:'html', 'field':'media_ids', 'selector-mode': 'image', 'select-multiple':true});"
 		));
 		
 		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
