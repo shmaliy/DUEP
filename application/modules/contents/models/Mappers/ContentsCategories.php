@@ -4,6 +4,7 @@ class Contents_Model_Mapper_ContentsCategories extends Sunny_DataMapper_MapperAb
 {
 	public function getFrontCatsByGroupId ($id, $lang= 'uk')
 	{
+	   
 		return $this->fetchAll(array(
 			$this->quoteIdentifier("contents_groups_id") . " = ?"       => $id,
 			$this->quoteIdentifier("contents_categories_id") . " != ?" => '0',
@@ -14,6 +15,7 @@ class Contents_Model_Mapper_ContentsCategories extends Sunny_DataMapper_MapperAb
 	}
 	public function getFrontCats ($lang = 'uk')
 	{
+	    
 	    return $this->fetchAll(array(
 	    $this->quoteIdentifier("published") . " = ?" => '1',
 	    $this->quoteIdentifier("language") . " = ?" => $lang,
