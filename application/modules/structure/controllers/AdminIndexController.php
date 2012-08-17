@@ -28,8 +28,12 @@ class Structure_AdminIndexController extends Sunny_Controller_AdminAction
 		/*if (false === ($group = $this->_checkGroup())) {
 			return;
 		}*/
-		
-		//$filter            = $this->_getSessionFilter(null, $group->alias);
+    	
+    	$structureMapper = new Structure_Model_Mapper_Structure();
+    	$form = new Structure_Form_AdminIndexFilter();	
+    	
+    	
+		$filter            = $this->_getSessionFilter(null);
     	$this->view->page  = $this->_getSessionPage($group->alias);
     	$this->view->rows  = $this->_getSessionRows($group->alias);
 		$this->view->group = $group;
@@ -46,7 +50,13 @@ class Structure_AdminIndexController extends Sunny_Controller_AdminAction
 		);
 		$this->view->total  = $this->_getMapper()->fetchCount($where);
 		
-		$form = new Contents_Form_AdminIndexFilter();		
+		$collection = $structureMapper->fetchTree(
+			array(),
+			array('id', 'title')
+		);
+		$options = $form->collectionToMultiOptions($collection, array(), array('Нет'));
+		$form->getElement('structure_id')->setMultiOptions($options);
+		
 		/*$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
 		$collection = $categoriesMapper->fetchTree(
 			array('contents_groups_id = ?' => $group->id),
@@ -58,10 +68,10 @@ class Structure_AdminIndexController extends Sunny_Controller_AdminAction
 			break;
 		}
 		$form->getElement('contents_categories_id')->setMultiOptions($options);
-		
+		*/
 		$form->setDefaults($filter);
 		$form->setAction($this->view->simpleUrl('set-filter', $this->_c, $this->_m, array('group' => $group->alias)));
-		$this->view->filter = $form;*/
+		$this->view->filter = $form;
     }
     
 	/**
@@ -387,28 +397,24 @@ class Structure_AdminIndexController extends Sunny_Controller_AdminAction
     public function setFilterAction()
     {
     	// Version 14.07.2012
-		if (false === ($group = $this->_checkGroup())) {
-			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
-			return;
-		}
-		
-		$form = new Contents_Form_AdminIndexFilter();
-		$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
-		$collection = $categoriesMapper->fetchTree(
-			array('contents_groups_id = ?' => $group->id),
-			array('id', 'title', 'contents_categories_id')
+		$form = new Structure_Form_AdminIndexFilter();
+		$structureMapper = new Structure_Model_Mapper_Structure();
+				
+		$collection = $structureMapper->fetchTree(
+			array(),
+			array('id', 'title')
 		);
 		$options = $form->collectionToMultiOptions($collection, array(), array('Нет'));		
-		$form->getElement('contents_categories_id')->setMultiOptions($options);
+		$form->getElement('structure_id')->setMultiOptions($options);
 				
     	if (!$form->isValid($this->getRequest()->getParams())) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Error set filter</div>');
-			$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
+			$this->_makeResponderStructure('index', null, null, array(), 'update');
 			return;
 		}
 		
     	$this->_setSessionPage(1, $group->alias);
     	$this->_setSessionFilter($form->getValues(), null, $group->alias);		
-		$this->_makeResponderStructure('index', null, null, array('group' => $group->alias), 'update');
+		$this->_makeResponderStructure('index', null, null, array(), 'update');
 	}
 }
