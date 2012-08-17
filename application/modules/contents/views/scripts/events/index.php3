@@ -32,7 +32,10 @@
                <?php endif; endforeach; endif; ?>
              </span>
             <p><?php echo $item->date_created;?></p>
-            <a href="<?php echo $this->simpleUrl('view', 'events', 'contents', array('alias'=>$item->alias), 'contents/events/view'); ?>"><?php echo $item->title;?></a>
+            <?php foreach ($this->cats as $itemc):
+            if ($itemc->id == $item->contents_categories_id):?>
+            <a href="<?php echo $this->simpleUrl('view', 'events', 'contents', array('alias'=>$item->alias, 'cat'=>$itemc->alias), 'contents/events/view'); ?>"><?php echo $item->title;?></a>
+             <?php endif; endforeach;?>
             <p class="adt_description"><?php echo $item->tizer;?></p>
           </li>
           <?php endif; endforeach;?>
