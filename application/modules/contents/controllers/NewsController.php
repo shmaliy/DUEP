@@ -53,6 +53,7 @@ class Contents_NewsController extends Zend_Controller_Action
     	$this->view->events = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
     	$this->view->announcements = $contentsMapper->getFrontContentsByGroupId($this->view->agroup->id, $this->_lang,'date_created desc');
     	$this->view->news = $contentsMapper->getFrontContentsByGroupId($this->view->ngroup->id, $this->_lang, 'date_created desc');
+    	$this->view->newsCount = $contentsMapper->getFrontContentsCountByGroupId($this->view->ngroup->id, $this->_lang);
     	$this->view->actual = $contentsMapper->getFrontContentsByGroupId(array ($this->view->egroup->id, $this->view->agroup->id), $this->_lang,'date_created desc',5);
     	
     	$imgMapper = new Media_Model_Mapper_Media();
@@ -77,6 +78,9 @@ class Contents_NewsController extends Zend_Controller_Action
     	$this->view->events->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->news->formatDate('date_created', $translatedMonths, 'г.');
     	$this->view->actual->formatDate('date_created', $translatedMonths, 'г.');
+    	
+    	$this->view->newsPage = $this->getRequest()->getParam('page', 1);
+    	$this->view->newsRows = 10;
     }
     /**
     * Обработчик страницы "Категории новостей"

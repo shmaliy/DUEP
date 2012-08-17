@@ -38,10 +38,10 @@
             <?php endif; endforeach;?>
             <?php
             	echo $this->partial('pagination.php3', 'default', array(
-            		'rows' => 10,
-            		'total' => 2545,
-            		'current' => $_GET['page'],
-            		'link' => $this->simpleUrl('index', 'news', 'contents', array(), 'contents/news/index')
+            		'rows'    => $this->newsRows,
+            		'total'   => $this->newsCount,
+            		'current' => $this->newsPage,
+            		'link'    => $this->simpleUrl('index', 'news', 'contents', array(), 'contents/news/index')
 				));
 			?>
         </ul>
