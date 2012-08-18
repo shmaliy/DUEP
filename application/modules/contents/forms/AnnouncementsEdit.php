@@ -57,6 +57,11 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 			'label' => 'Псевдоним (ЧПУ)'
 		));
 		
+		$main[] = 'frontend_date';
+		$this->addElement('text', 'frontend_date', array(
+			'label' => 'Дата для отображения'
+		));
+		
 		$main[] = 'tizer';
 		$this->addElement('textarea', 'tizer', array(
 			'label' => 'Текст тизера'
@@ -74,7 +79,9 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		$this->addElement('button', 'media_id', array(
 			'label' => 'Главное изображение',
 			'buttonLabel' => 'Выбрать',
-			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
+			'selectorMode'  => 'image',
+			'selectMultiple' => false,
+			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html', 'field':'media_id', 'selector-mode': 'image', 'select-multiple':false});"
 		));
 		
 		$media[] = 'contents_photogallery_id';
@@ -192,5 +199,6 @@ class Contents_Form_AnnouncementsEdit extends Sunny_Form
 		$this->setDecorators(array('CompositeFormDiv'));
 		
 		$this->getElement('media_id')->setDecorators(array('FileSelectorDiv'));
+		//$this->getElement('frontend_date')->setDecorators(array('CalendarText'));
 	}
 }
