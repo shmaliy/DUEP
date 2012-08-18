@@ -20,9 +20,9 @@ body{
 </style>
             
 				<div class="promo relative">
-				<span class = "baner_big">
+				<span class = "baner_bigs">
 				 <?php $i = 0; $kol = 0;  foreach ($this->resizer as $items): $kol = $kol + 1; if($i == 0): $i = 1;?> 
-				 <span id_baner_big = "<?php echo $kol; ?>">
+				 <span class = "baner_big" id_baner_big = "<?php echo $kol; ?>">
 					<img src="<?php echo $items['big']; ?>"/>
 					<div class="promo_text">
 						<div class="MyriadProCondBold fs28 color_ffc400" style = "max-width: 800px;"><?php echo $items['title']; ?></div>
@@ -32,7 +32,7 @@ body{
 					</span>
 
 				<?php else: ?>
-								 <span style = "display:none;">
+								 <span class = "baner_big" style = "display:none;" id_baner_big = "<?php echo $kol; ?>">
 					<img src="<?php echo $items['big']; ?>"/>
 					<div class="promo_text">
 						<div class="MyriadProCondBold fs38 color_ffc400"><?php echo $items['title']; ?></div>
@@ -44,9 +44,9 @@ body{
 						</span>
 					<div class="promo_img">
 					 <?php $i = 0; $kol = 0;  foreach ($this->resizer as $items): $kol = $kol + 1; if($i == 0): $i = 1;?> 
-						<a style = "cursor: pointer" class="active" id_baner_min = "<?php echo $kol; ?>"><img src="<?php echo $items['small']; ?>"/></a>
+						<a style = "cursor: pointer" class="active baner_min" id_baner_min = "<?php echo $kol; ?>"><img src="<?php echo $items['small']; ?>"/></a>
 						 <?php else: ?>
-						<a style = "cursor: pointer" id_baner_min = "<?php echo $kol; ?>"><img src="<?php echo $items['small']; ?>"/></a>
+						<a style = "cursor: pointer" class="baner_min" id_baner_min = "<?php echo $kol; ?>"><img src="<?php echo $items['small']; ?>"/></a>
 						<?php endif; endforeach;?>
 					</div>
 					<div class="promo_left_bottom"></div>
