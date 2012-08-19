@@ -32,7 +32,9 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		// Add actions wich can work with ajax
 		$context = $this->_helper->AjaxContext();
 		$context->addActionContext('index', 'json');		
-		$context->addActionContext('edit', 'json');		
+		$context->addActionContext('edit', 'json');	
+		$context->addActionContext('static-index', 'json');
+		$context->addActionContext('static-edit', 'json');
 		$context->addActionContext('delete', 'json');		
 		$context->addActionContext('set-limit', 'json');		
 		$context->addActionContext('set-page', 'json');		
@@ -87,6 +89,92 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		$this->view->filter = $form;
     }
     
+    public function staticIndexAction()
+    {
+    	if (false === ($group = $this->_checkGroup())) {
+    		return;
+    	}
+    	
+    	$contentsMapper = new Contents_Model_Mapper_Contents();
+    	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+    	
+    	$filter            = $this->_getSessionFilter(null, $group->alias);
+    	$this->view->page  = $this->_getSessionPage($group->alias);
+    	$this->view->rows  = $this->_getSessionRows($group->alias);
+    	$this->view->group = $group;
+    	
+    	$where = array(
+    		'contents_groups_id = ?'     => $group->id,
+    		'contents_categories_id = ?' => 0
+    	);
+    	
+    	$this->view->rowset = $this->_getMapper()->fetchPage(
+    		$where,
+    		null,
+    		$this->view->rows,
+    		$this->view->page
+    	);
+    	$this->view->total  = $this->_getMapper()->fetchCount($where);
+    	
+    	
+    }
+    
+    public function staticEditAction()
+    {
+    	$request = $this->getRequest();
+    	
+    	// Version 14.07.2012
+    	if (false === ($group = $this->_checkGroup())) return; 
+    	
+    	// Mappers
+    	$mediaMapper = new Media_Model_Mapper_Media();
+    	$mediaCategoriesMapper = new Media_Model_Mapper_MediaCategories();
+    	$mediaRelations = new Media_Model_Mapper_MediaRelations();
+    	$languagesMapper = new Contents_Model_Mapper_Languages();
+    	$categoriesMapper = new Contents_Model_Mapper_ContentsCategories();
+    	$contentsMapper = new Contents_Model_Mapper_Contents();
+    	$groupsMapper = new Contents_Model_Mapper_ContentsGroups();
+    	
+    	// Getting form
+    	$form = new Contents_Form_StaticContentsEdit();
+    	$form->setAction($this->view->simpleUrl('static-edit', $this->_c, $this->_m, array('group' => $group->alias)));
+    	
+    	// Getting content ID
+    	$id = $request->getParam('id');
+    	
+    	// Getting default language & making languages list
+    	$defaultLanguage = $languagesMapper->getDefaultLanguage();
+    	$languages = $languagesMapper->fetchAll(
+    		array('published = 1'),
+    		array('ordering')
+    	);
+    	$languages = $form->createAssocMultioptions($languages, array());
+    	$form->getElement('languages_alias')->setMultiOptions($languages);
+    	
+    	
+    	// Parsing request
+    	if ($request->isXmlHttpRequest() || $request->isPost()) {
+    		if ($form->isValid($request->getParams())) {
+    			$entity = $this->_getMapper()->createEntity($values);
+    			$id = $this->_getMapper()->saveEntity($entity);
+    			$entity->setId($id);
+    			
+    			$this->_makeResponderStructure('static-index', null, null, array('group' => $group->alias));
+    		} else {
+    			$this->view->formErrors        = $form->getErrors();
+    			$this->view->formErrorMessages = $form->getErrorMessages();
+    		}
+    	} else {
+    		$entity = $this->_getMapper()->findEntity($id);
+    		if ($id && $entity) {
+    			$form->setDefaults($entity->toArray());
+    		}
+    		
+    		$this->view->form = $form;
+    	}
+    	
+    }
+    
 	/**
 	 * Генерирует форму по признаку $params["group"] и сохраняет в базе
 	 */
@@ -116,8 +204,8 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		
 		$id = $request->getParam('id');
 		$formClassName = 'Contents_Form_'
-		               . ucfirst(Zend_Filter::filterStatic($group->alias, 'Word_UnderscoreToCamelCase'))
-		               . 'Edit';
+			. ucfirst(Zend_Filter::filterStatic($group->alias, 'Word_UnderscoreToCamelCase'))
+		    . 'Edit';
 		if (!@class_exists($formClassName)) {
 			$this->_helper->flashMessenger->addMessage('<div class="notification-error">Editor not found</div>');
 			$this->_gotoUrl('index', $this->_c, $this->_m, array('group' => $group->alias));
@@ -170,15 +258,17 @@ class Contents_AdminIndexController extends Sunny_Controller_AdminAction
 		
 		// MultiGallery
 		$multiGalleryGroup = $groupsMapper->getFrontGroupByAlias('multi_gallerys');
-		
+
 		$multi = $contentsMapper->fetchAll(
 			array('contents_groups_id = ?' => $multiGalleryGroup->id),
 			array('id', 'title')
-		);		
+		);
+		if(count($multi) > 0) {	
 		$multiList = $form->collectionToMultiOptions($multi, array(), array('Нет'));
-		if ($form->getElement('contents_multigallery_id')) {
-			$form->getElement('contents_multigallery_id')->setMultiOptions($multiList);
-		}		
+			if ($form->getElement('contents_multigallery_id')) {
+				$form->getElement('contents_multigallery_id')->setMultiOptions($multiList);
+			}	
+		}	
 		
 		if ($group->alias == 'events') {
 			$annoucement = $groupsMapper->getFrontGroupByAlias('announcements');
