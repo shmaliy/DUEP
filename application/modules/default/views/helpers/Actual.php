@@ -2,7 +2,7 @@
 
  
 
-class Default_View_Helper_Actual extends Zend_View_Helper_Abstract
+class Zend_View_Helper_Actual extends Zend_View_Helper_Abstract
 
 {
     protected $_lang;

@@ -38,31 +38,8 @@
 				<img src="/theme/img/front/<?php echo Zend_Registry::get('trasvistit')->_("LOGO");?>"/>
 			</a>
 			
-			<div class="language">
-				<div class="language_active relative">
-					<div class="language_active_left lang"></div>
-					<img src="/theme/img/front/uk.jpg" class="lan lang_img"/><a style = "cursor: pointer;" class="dashed dashed_lang">Українська</a> &#8595;
-					<div class="language_active_right"></div>
-				</div>
-				<div class="pop_up lang_dop">
-					<div class="pop_up_left_top"></div>
-					<div class="pop_up_right_top"></div>
-					<div class="pop_up_top_l"></div>
-					<div class="pop_up_top_r"></div>
-					<div class="pop_up_left"></div>
-					<div class="pop_corner"></div>
-						<ul>
-							<li><img src="/theme/img/front/uk.jpg" class="lan"/><a class="lang" ele = "uk">Українська</a></li>
-							<li><img src="/theme/img/front/en.jpg" class="lan"/><a class="lang" ele = "en">English</a></li>
-							<li><img src="/theme/img/front/ru.jpg" class="lan"/><a class="lang" ele = "ru">Русский</a></li>
-						</ul>
-					<div class="pop_up_left_bottom"></div>
-					<div class="pop_up_right_bottom"></div>
-					<div class="pop_up_right"></div>
-					<div class="pop_up_bottom"></div>
-				</div>
-			</div>
-				
+			<?php echo $this->Lang(); ?>
+
 			<div class="user_block">
 				<div><a href=""><?php echo Zend_Registry::get('trasvistit')->_("INPUT");?></a> / <a href=""><?php echo Zend_Registry::get('trasvistit')->_("REGISTRATION");?></a></div>
 				<div><a href=""><?php echo Zend_Registry::get('trasvistit')->_("REMEMBER_PASS");?></a></div>

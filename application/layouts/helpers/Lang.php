@@ -2,11 +2,11 @@
 
  
 
-class Zend_View_Helper_Path extends Zend_View_Helper_Abstract
+class Zend_View_Helper_Lang extends Zend_View_Helper_Abstract
 
 {
 
-    public function Path()
+    public function Lang()
 
     {
 
