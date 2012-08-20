@@ -18,19 +18,19 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 		);
 	}
 	
-	public function getFrontContentsByGroupId ($id, $lang = 'uk', $order = null, $lim = null)
+	public function getFrontContentsByGroupId ($id, $lang = 'uk', $order = null, $lim = null, $page = null)
 	{
 	    if (is_numeric($id)){$id=array($id);};
 	    $where = array();
 	    foreach ($id as $el):
 	    $where[] = $this->quoteInto($this->quoteIdentifier("contents_groups_id") . " = ?" , $el);
 	    endforeach;
-		return $this->fetchAll(array(
+		return $this->fetchPage(array(
 			"(".implode(' or ', $where).")",
 			$this->quoteIdentifier("published") . " = ?" => '1',
 			$this->quoteIdentifier("sheduled") . " = ?" => '0',
 		$this->quoteIdentifier("languages_alias") . " = ?" => $lang,
-		),$order,$lim);
+		), $order, $lim, $page);
 	}
 	
 	public function getFrontContentsCountByGroupId($id, $lang = 'uk')
