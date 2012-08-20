@@ -9,6 +9,18 @@ class Contents_Model_Mapper_Languages extends Sunny_DataMapper_MapperAbstract
 		));
 		return $item->alias;
 	}
+		public function getAllLang()
+	{
+
+
+		return $this->fetchAll(array(
+			
+			$this->quoteIdentifier("published") . " = ?" => '1',
+
+		));
+		
+		
+	}
 	
 	
 	/*public function getFrontContentsByGroupId ($id, $lang = 'ru', $order = null, $lim = null)

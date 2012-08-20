@@ -11,7 +11,7 @@
           <h1 class="developments"><?php echo Zend_Registry::get('trasvistit')->_("EVENTS");?></h1>
         <ul class="lineTabs">
           <li>
-            <a href=""><span><?php echo Zend_Registry::get('trasvistit')->_("ANNOUNCEMENTS");?></span></a>
+            <a href="<?php echo $this->simpleUrl('view', 'announcements', 'contents', array(), 'contents/announcements/index' ); ?>"><span><?php echo Zend_Registry::get('trasvistit')->_("ANNOUNCEMENTS");?></span></a>
           </li>
           <li>
             <a class="active" href=""><span><?php echo Zend_Registry::get('trasvistit')->_("LAST_EVENTS");?></span></a>

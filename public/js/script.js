@@ -247,6 +247,7 @@
 		request: function (url, data, _htmlCallback)
 		{
 			console.log('request');
+			console.log(url);
 			if (!data) {
 				data = '';
 			}

@@ -75,4 +75,14 @@ class Contents_Model_Mapper_Contents extends Sunny_DataMapper_MapperAbstract
 		$this->quoteIdentifier("languages_alias") . " = ?" => $lang,
 		));
 	}
+	public function getFrontContentsByIndex ($lang = 'uk', $order = null)
+	{
+	    return $this->fetchAll(array(
+	    $this->quoteIdentifier("in_presentation") . " = ?" => '1',
+	    $this->quoteIdentifier("published") . " = ?" => '1',
+	    $this->quoteIdentifier("sheduled") . " = ?" => '0',
+	    $this->quoteIdentifier("languages_alias") . " = ?" => $lang,
+	    ),$order);
+	}
+	
 }

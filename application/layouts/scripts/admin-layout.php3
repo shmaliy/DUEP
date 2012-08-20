@@ -51,6 +51,7 @@ tinyMCE.execCommand("mceAddControl", true, "description");
 						</li>
 						<li><span class="group">Контент</span>
 							<ul>
+								<li><a href="<?php echo $this->simpleUrl('static-index', 'admin-index', 'contents', array('group' => 'actual_info')); ?>">Актуальное</a></li>
 								<li><span class="group">Анонсы</span>
 									<ul>
 										<li><a href="<?php echo $this->simpleUrl('index', 'admin-categories', 'contents', array('group' => 'announcements')); ?>">Категории</a></li>

@@ -1,8 +1,8 @@
 <?php
 
-class Contents_Form_EventsEdit extends Sunny_Form
+class Contents_Form_StaticContentsEdit extends Sunny_Form
 {
-protected $_contentsGroupsId;
+	protected $_contentsGroupsId;
 	
 	public function setContentsGroupsId($id)
 	{
@@ -20,7 +20,6 @@ protected $_contentsGroupsId;
 		
 		$this->addElement('hidden', 'id');
 		$this->addElement('hidden', 'contents_groups_id', array('value' => $this->_contentsGroupsId));
-		//$this->addElement('hidden', 'image');
 		$this->addElement('hidden', 'event');
 		$this->addElement('hidden', 'sheduled');
 		$this->addElement('hidden', 'pages');
@@ -30,31 +29,22 @@ protected $_contentsGroupsId;
 		$this->addElement('hidden', 'videos'); // в данной версии пока не реализовано хранилище
 		
 		/*  Main  */
-		$main = array('main');
-		
-		$main[] = 'contents_categories_id';
-		$this->addElement('select', 'contents_categories_id', array(
-			'label' => 'Родитель'
-		));
+		$main = array('contents_categories_id');
 		
 		$main[] = 'languages_alias';
 		$this->addElement('select', 'languages_alias', array(
-					'label' => 'Язык'
+			'label' => 'Язык'
 		));
 		
 		$main[] = 'contents_id';
 		$this->addElement('select', 'contents_id', array(
-					'label' => 'Статья-оригинал'
+			'label' => 'Статья-оригинал'
 		));
 		
 		$main[] = 'title';
 		$this->addElement('text', 'title', array(
-			'label' => 'Заголовок'
-		));
-		
-		$main[] = 'contents_events_announcement_id';
-		$this->addElement('select', 'contents_events_announcement_id', array(
-			'label' => 'Анонс-предшественник'
+			'label' => 'Заголовок',
+			'required' => true
 		));
 		
 		$main[] = 'alias';
@@ -82,27 +72,32 @@ protected $_contentsGroupsId;
 		/*  Media  */
 		$media = array('media_id');
 		$this->addElement('button', 'media_id', array(
-					'label' => 'Главное изображение',
-					'buttonLabel' => 'Выбрать',
-					'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html'});"
+			'label' => 'Главное изображение',
+			'buttonLabel' => 'Выбрать',
+			'selectorMode'  => 'image',
+			'selectMultiple' => false,
+			'onClick' => "uiDialogOpen('Выбор главного изображения', {action:'select-image', controller:'admin-index', module:'media', format:'html', 'field':'media_id', 'selector-mode': 'image', 'select-multiple':false});"
 		));
 		
 		$media[] = 'contents_photogallery_id';
 		$this->addElement('select', 'contents_photogallery_id', array(
-							'label' => 'Добавить фотогалерею'
+			'label' => 'Добавить фотогалерею'
 		));
 		
 		$media[] = 'contents_videogallery_id';
 		$this->addElement('select', 'contents_videogallery_id', array(
-									'label' => 'Добавить видеогалерею'
+			'label' => 'Добавить видеогалерею'
 		));
 		
 		$media[] = 'contents_multigallery_id';
 		$this->addElement('select', 'contents_multigallery_id', array(
-					'label' => 'Добавить мультигалерею'
+			'label' => 'Добавить мультигалерею'
 		));
 		
+		
 		$this->addDisplayGroup($media, 'media', array('legend' => 'Медиа'));
+		
+		
 				
 		/*  SEO  */
 		$seo = array('seo');
@@ -145,7 +140,7 @@ protected $_contentsGroupsId;
 		
 		$system[] = 'in_presentation';
 		$this->addElement('checkbox', 'in_presentation', array(
-							'label' => 'Поместить в презентационный блок'
+					'label' => 'Поместить в презентационный блок'
 		));
 		
 		$system[] = 'enable_comments';
@@ -181,7 +176,6 @@ protected $_contentsGroupsId;
 		
 		$this->addDisplayGroup($feeds, 'feeds', array('legend' => 'Рассылки'));
 		
-		
 		// Submit
 		$this->addElement('submit', 'submit', array(
 			'ignore' => true,
@@ -200,10 +194,6 @@ protected $_contentsGroupsId;
 		$this->setDecorators(array('CompositeFormDiv'));
 		
 		$this->getElement('media_id')->setDecorators(array('FileSelectorDiv'));
-		
-		// http://www.public.duep/en/contents/admin-index/edit/id/25/group/events
-		//http://www.public.duep/en/contents/admin-index/edit/id/29/group/news
-		
-		
+		//$this->getElement('frontend_date')->setDecorators(array('CalendarText'));
 	}
 }
